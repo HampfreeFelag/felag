@@ -28,12 +28,12 @@ $$%K = \frac{C - L_{n}}{H_{n} - L_{n}} \times 100$$
 
 ### Рекомендуемые настройки
 
-Для большинства стратегий, включая [спотовую стратегию ELDER 2.0](https://marketlab-academy.org/ru/library/spot-strategy-elder-20/), используются следующие параметры:
+Для большинства стратегий, включая [спотовую стратегию ELDER 2.0](https://Felag-academy.org/ru/library/spot-strategy-elder-20/), используются следующие параметры:
 - **Период %K:** 14
 - **Замедление (Slowing):** 3
 - **Период %D:** 3
 
-Стохастик хорошо работает в связке с другими индикаторами и подходит для торговли на биржах вроде [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=stochastic-oscillator) или [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=stochastic-oscillator).
+Стохастик хорошо работает в связке с другими индикаторами и подходит для торговли на биржах вроде [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=stochastic-oscillator) или [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=stochastic-oscillator).
 
 ## Зоны перекупленности и перепроданности
 
@@ -57,7 +57,7 @@ $$%K = \frac{C - L_{n}}{H_{n} - L_{n}} \times 100$$
 
 ## Использование в стратегии ELDER 2.0
 
-В стратегии [ELDER 2.0](https://marketlab-academy.org/ru/library/spot-strategy-elder-20/) Стохастик работает в связке с [Полосами Боллинджера](https://marketlab-academy.org/ru/library/bollinger-bands/) и [Chande Momentum Oscillator (CMO)](https://marketlab-academy.org/ru/library/chande-momentum-oscillator/).
+В стратегии [ELDER 2.0](https://Felag-academy.org/ru/library/spot-strategy-elder-20/) Стохастик работает в связке с [Полосами Боллинджера](https://Felag-academy.org/ru/library/bollinger-bands/) и [Chande Momentum Oscillator (CMO)](https://Felag-academy.org/ru/library/chande-momentum-oscillator/).
 
 В этой системе Стохастик выступает «триггером»: сигнал к поиску точки входа возникает, когда он опускается ниже 20, — в зоне глубокой перепроданности.
 
@@ -84,15 +84,15 @@ $$%K = \frac{C - L_{n}}{H_{n} - L_{n}} \times 100$$
 
 **Можно ли использовать Стохастик в тренде?**
 
-Осциллятор склонён давать ложные сигналы в сильном тренде. Рекомендуется комбинировать с трендовыми фильтрами — например, [Полосами Боллинджера](https://marketlab-academy.org/ru/library/bollinger-bands/).
+Осциллятор склонён давать ложные сигналы в сильном тренде. Рекомендуется комбинировать с трендовыми фильтрами — например, [Полосами Боллинджера](https://Felag-academy.org/ru/library/bollinger-bands/).
 
 **Чем Stochastic отличается от CMO?**
 
-[CMO](https://marketlab-academy.org/ru/library/chande-momentum-oscillator/) измеряет чистый импульс напрямую без двойного сглаживания, тогда как Стохастик сравнивает цену закрытия с диапазоном High-Low.
+[CMO](https://Felag-academy.org/ru/library/chande-momentum-oscillator/) измеряет чистый импульс напрямую без двойного сглаживания, тогда как Стохастик сравнивает цену закрытия с диапазоном High-Low.
 
 ## Итог
 
-Такие ключевые индикаторы, как [Индекс денежного потока (MFI)](https://marketlab-academy.org/ru/library/money-flow-index/) и [Полосы Боллинджера](https://marketlab-academy.org/ru/library/bollinger-bands/), дополняют анализ, обеспечивая более полную картину рынка.
+Такие ключевые индикаторы, как [Индекс денежного потока (MFI)](https://Felag-academy.org/ru/library/money-flow-index/) и [Полосы Боллинджера](https://Felag-academy.org/ru/library/bollinger-bands/), дополняют анализ, обеспечивая более полную картину рынка.
 
 Стохастический осциллятор — эффективный инструмент для поиска точек входа на волатильном крипторынке. Как и любой осциллятор, он может давать ложные сигналы в сильных трендах, поэтому используется с фильтрами тренда или волатильности.
 

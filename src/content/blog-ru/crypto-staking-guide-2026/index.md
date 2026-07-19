@@ -11,9 +11,9 @@ draft: false
 **Стейкинг** — это способ пассивного заработка на криптовалютах с алгоритмом консенсуса Proof-of-Stake (PoS). Вы блокируете свои монеты в сети для поддержки работы блокчейна и получаете за это вознаграждение.
 
 **Связанные статьи:**
-- [Что такое стейкинг](https://marketlab-academy.org/ru/library/what-is-staking/) — базовое определение
-- [DCA-стратегия](https://marketlab-academy.org/ru/library/dca-strategy-crypto/) — как покупать криптовалюту частями
-- [Bybit: торговые боты](https://marketlab-academy.org/ru/library/bybit-trading-bot-setup/) — автоматизация торговли
+- [Что такое стейкинг](https://Felag-academy.org/ru/library/what-is-staking/) — базовое определение
+- [DCA-стратегия](https://Felag-academy.org/ru/library/dca-strategy-crypto/) — как покупать криптовалюту частями
+- [Bybit: торговые боты](https://Felag-academy.org/ru/library/bybit-trading-bot-setup/) — автоматизация торговли
 
 В 2026 году стейкинг остаётся одним из самых популярных способов заработка в крипте. В этом руководстве — всё, что нужно знать новичку: от выбора монет до расчёта доходности и оценки рисков.
 
@@ -189,7 +189,7 @@ draft: false
 
 ### Шаг 2: Выбор способа
 
-**Для новичков:** Биржа ([Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026), [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026), [BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026))
+**Для новичков:** Биржа ([Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026), [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026), [BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026))
 
 **Почему:**
 - Простота (2 клика)
@@ -215,9 +215,9 @@ draft: false
 **Готово!** Вознаграждение начнёт начисляться через 1-3 дня.
 
 **Реферальные ссылки:**
-- [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — снижение комиссий
-- [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — бонусы для новичков
-- [BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — социальный трейдинг
+- [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — снижение комиссий
+- [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — бонусы для новичков
+- [BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — социальный трейдинг
 
 ---
 
@@ -395,7 +395,7 @@ draft: false
 
 **Полезные материалы:**
 
-Перед началом стейкинга рекомендуем изучить [основы токеномики](https://marketlab-academy.org/ru/library/what-is-tokenomics/) для оценки рисков проекта, [риск-менеджмент](https://marketlab-academy.org/ru/library/risk-management-crypto-trading-bots/) для управления капиталом и [DCA стратегию](https://marketlab-academy.org/ru/library/dca-strategy-crypto/) для постепенной покупки монет.
+Перед началом стейкинга рекомендуем изучить [основы токеномики](https://Felag-academy.org/ru/library/what-is-tokenomics/) для оценки рисков проекта, [риск-менеджмент](https://Felag-academy.org/ru/library/risk-management-crypto-trading-bots/) для управления капиталом и [DCA стратегию](https://Felag-academy.org/ru/library/dca-strategy-crypto/) для постепенной покупки монет.
 
 ---
 

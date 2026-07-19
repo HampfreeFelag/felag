@@ -181,7 +181,7 @@ A blockchain is a chain of blocks, each containing transaction information. Bloc
 
 **How is Bitcoin different from regular money?**
 
-Bitcoin is decentralized (no single governing body), has limited supply (maximum 21 million coins), and operates on blockchain technology. Learn more about the differences in the article on [digital currencies](https://marketlab-academy.org/en/library/what-is-digital-currency-in-simple-terms/).
+Bitcoin is decentralized (no single governing body), has limited supply (maximum 21 million coins), and operates on blockchain technology. Learn more about the differences in the article on [digital currencies](https://Felag-academy.org/en/library/what-is-digital-currency-in-simple-terms/).
 
 **What is mining?**
 
@@ -193,10 +193,10 @@ Bitcoin uses cryptography to protect transactions, making it secure. However, se
 
 **Where can I buy Bitcoin?**
 
-Bitcoin can be purchased through cryptocurrency exchanges, online exchangers, or payment systems. For more details, see [Bitcoin Basics](https://marketlab-academy.org/en/library/bitcoin-basics/).
+Bitcoin can be purchased through cryptocurrency exchanges, online exchangers, or payment systems. For more details, see [Bitcoin Basics](https://Felag-academy.org/en/library/bitcoin-basics/).
 
 ## Summary
 
 Bitcoin is the first decentralized cryptocurrency with a capped supply. It serves as digital gold and a hedge against inflation. Learn the basics before investing.
 
-For buying Bitcoin with low fees, register on **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=bitcoin-basics)**.
+For buying Bitcoin with low fees, register on **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bitcoin-basics)**.

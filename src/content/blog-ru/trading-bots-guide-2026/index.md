@@ -401,7 +401,7 @@ category: 'algo-trading'
 4. Ставьте **стоп-лосс** (макс. убыток 5–10%)
 5. **Диверсифицируйте** (3–5 ботов на разных парах)
 
-**Следующий шаг:** [DCA-стратегия: подробный гайд](https://marketlab-academy.org/ru/library/dca-strategy-crypto/) — как работает усреднение.
+**Следующий шаг:** [DCA-стратегия: подробный гайд](https://Felag-academy.org/ru/library/dca-strategy-crypto/) — как работает усреднение.
 
 ## FAQ
 

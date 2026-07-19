@@ -434,7 +434,7 @@ Valor = 100/1.15 + 100/1.15² + ... + 100/1.15⁵ = $335M
 - DeFi: P/S + TVL + ingresos
 - Memecoins: solo capitalización y volumen (lo demás no funciona)
 
-**Siguiente paso:** [Checklist de Análisis Fundamental](https://marketlab-academy.org/es/library/fundamental-analysis-checklist/) — verificación rápida de token en 15 minutos.
+**Siguiente paso:** [Checklist de Análisis Fundamental](https://Felag-academy.org/es/library/fundamental-analysis-checklist/) — verificación rápida de token en 15 minutos.
 
 ---
 

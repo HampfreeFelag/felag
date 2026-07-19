@@ -10,14 +10,14 @@ draft: false
 
 ## Спотовая торговля (Spot)
 
-Это самый простой и безопасный вид торговли. Происходит покупка реального актива (например, BTC или ETH), который переходит в собственность покупателя. Подробнее об этом — в [гайде по спотовой торговле](https://marketlab-academy.org/ru/library/what-is-spot-trading/).
+Это самый простой и безопасный вид торговли. Происходит покупка реального актива (например, BTC или ETH), который переходит в собственность покупателя. Подробнее об этом — в [гайде по спотовой торговле](https://Felag-academy.org/ru/library/what-is-spot-trading/).
 
 - **Владение:** Купленную криптовалюту можно вывести на свой холодный кошелёк.
 - **Риск ликвидации:** Отсутствует. Даже если цена упадёт на 90%, останется то же количество монет.
 - **Плечо:** Нет. Торговля ведётся только на собственные средства.
 - **Цель:** Долгосрочное инвестирование и безопасное накопление.
 
-Для автоматизации спотовой торговли идеально подходит [стратегия ELDER 2.0](https://marketlab-academy.org/ru/library/spot-strategy-elder-20/). Начать торговлю можно на надёжных биржах, например [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=spot-trading-vs-futures-margin) или [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=spot-trading-vs-futures-margin).
+Для автоматизации спотовой торговли идеально подходит [стратегия ELDER 2.0](https://Felag-academy.org/ru/library/spot-strategy-elder-20/). Начать торговлю можно на надёжных биржах, например [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=spot-trading-vs-futures-margin) или [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=spot-trading-vs-futures-margin).
 
 ## Маржинальная торговля (Margin)
 

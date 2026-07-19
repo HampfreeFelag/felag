@@ -9,7 +9,7 @@ Bitcoin es la primera criptomoneda, basada en blockchain. La idea central es la 
 
 ## Qué es Bitcoin
 
-**Bitcoin (BTC)** es una [moneda digital](https://marketlab-academy.org/es/library/what-is-digital-currency-in-simple-terms/) que existe solo en formato digital. Se creó como alternativa al dinero tradicional para transacciones seguras, rápidas y descentralizadas. Su rasgo clave es el blockchain: un registro de transacciones protegido por criptografía.
+**Bitcoin (BTC)** es una [moneda digital](https://Felag-academy.org/es/library/what-is-digital-currency-in-simple-terms/) que existe solo en formato digital. Se creó como alternativa al dinero tradicional para transacciones seguras, rápidas y descentralizadas. Su rasgo clave es el blockchain: un registro de transacciones protegido por criptografía.
 
 ## Historia
 
@@ -47,7 +47,7 @@ Proceso de confirmar transacciones y crear nuevos bloques. Los mineros resuelven
 
 ### 4. Límite de emisión
 El total está limitado a **21 millones** de monedas.
-- **Halving:** Cada 210.000 bloques (~4 años) la recompensa de minería se reduce a la mitad. Así se limita la inflación. Ver [Qué es el halving de Bitcoin](https://marketlab-academy.org/es/library/what-is-bitcoin-halving/).
+- **Halving:** Cada 210.000 bloques (~4 años) la recompensa de minería se reduce a la mitad. Así se limita la inflación. Ver [Qué es el halving de Bitcoin](https://Felag-academy.org/es/library/what-is-bitcoin-halving/).
 
 ## Para qué sirve Bitcoin
 
@@ -61,7 +61,7 @@ El total está limitado a **21 millones** de monedas.
 ### 1. Conseguir un monedero
 - **Hardware (Ledger, Trezor):** Máxima seguridad (claves fuera de línea).
 - **Móvil (p. ej. Trust Wallet):** Cómodo para el día a día.
-- **Monederos de exchange:** Fondos en plataformas de trading (Bybit, [Bitget](https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=what-bitcoin-everything-you-need-know)).
+- **Monederos de exchange:** Fondos en plataformas de trading (Bybit, [Bitget](https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=what-bitcoin-everything-you-need-know)).
 
 ![Comparación de monederos hardware, móvil y de exchange para Bitcoin](../bitcoin-basics/assets/wallet-types-comparison.png)
 
@@ -96,7 +96,7 @@ Puedes obtener BTC mediante:
 
 Bitcoin es una tecnología que cambió la forma de entender el dinero. Pese a la volatilidad, sigue siendo un activo central para muchos inversores gracias a su diseño y oferta limitada.
 
-Para más bases, consulta [Fundamentos de Bitcoin](https://marketlab-academy.org/es/library/bitcoin-basics/) y [Qué es la moneda digital](https://marketlab-academy.org/es/library/what-is-digital-currency-in-simple-terms/).
+Para más bases, consulta [Fundamentos de Bitcoin](https://Felag-academy.org/es/library/bitcoin-basics/) y [Qué es la moneda digital](https://Felag-academy.org/es/library/what-is-digital-currency-in-simple-terms/).
 
 ## FAQ
 

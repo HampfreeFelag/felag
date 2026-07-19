@@ -34,7 +34,7 @@ find src/content/blog-es -name 'index.md' -exec grep -l 'Ã' {} \;
 
 ```bash
 # Файл на GitHub должен быть корректным
-curl -s https://raw.githubusercontent.com/Hampfree-hub/marketlab-academy/main/src/content/blog-es/surviving-drawdown-diary/index.md | head -20
+curl -s https://raw.githubusercontent.com/Hampfree-hub/Felag-academy/main/src/content/blog-es/surviving-drawdown-diary/index.md | head -20
 ```
 
 ### 3. Исправление кодировки

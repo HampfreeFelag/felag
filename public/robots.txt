@@ -10,4 +10,4 @@ Disallow: /*?page=
 # Запретить индексацию временных и служебных страниц
 Disallow: /maintenance/
 
-Sitemap: https://marketlab-academy.org/sitemap-index.xml
+Sitemap: https://Felag-academy.org/sitemap-index.xml

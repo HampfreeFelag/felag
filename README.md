@@ -1,11 +1,11 @@
-# 🕹️ MarketLab Academy
+# 🕹️ Felag Academy
 
 **Образовательный блог о трейдинге в ретро-стиле 8-bit NES**
 
 **Последнее обновление:** 24 марта 2026 г.
 **Статус:** ✅ Production-ready
 
-**Сайт:** [marketlab-academy.org](https://marketlab-academy.org)
+**Сайт:** [Felag-academy.org](https://Felag-academy.org)
 **Приватный репо:** [hampfreeblog-private](https://github.com/Hampfree-hub/hampfreeblog-private)
 
 **Лицензия:** [CC BY-NC-SA 4.0](LICENSE) — некоммерческое использование с указанием авторства
@@ -190,7 +190,7 @@ category: 'crypto'  # Одна из 4 категорий
 OG изображения автоматически генерируются при сборке и деплоятся вместе с сайтом:
 - **Генерация:** `scripts/generate-og-images.mjs` (запускается после `npm run build`)
 - **Хранение:** `dist/og/` (не коммитится, генерируется при сборке)
-- **Доступ:** `https://hampfree-hub.github.io/marketlab-academy/og/{lang}-{slug}.png`
+- **Доступ:** `https://hampfree-hub.github.io/Felag-academy/og/{lang}-{slug}.png`
 - **Использование:** Автоматически подтягиваются в Telegram/соцсетях через meta tags
 
 Подробнее: `docs/OG_IMAGES_MECHANICS.md` и `docs/OG_IMAGES_TELEGRAM.md`
@@ -217,7 +217,7 @@ OG изображения автоматически генерируются п
 
 ## 📜 Лицензия и авторские права
 
-**Copyright (c) 2024-2026 MarketLab Academy**
+**Copyright (c) 2024-2026 Felag Academy**
 
 **Лицензия:** [CC BY-NC-SA 4.0](LICENSE)
 
@@ -232,7 +232,7 @@ OG изображения автоматически генерируются п
 
 ### Исключения:
 - ❌ **Реферальные ссылки:** Использование только с письменного согласия
-- ❌ **Торговые марки:** Логотипы MarketLab Academy защищены авторским правом
+- ❌ **Торговые марки:** Логотипы Felag Academy защищены авторским правом
 
 **Полный текст:** https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 
@@ -262,4 +262,5 @@ OG изображения автоматически генерируются п
 
 ---
 
-**🎮 MarketLab Academy — Образовательный блог о трейдинге! 🚀**
+**🎮 Felag Academy — Образовательный блог о трейдинге! 🚀**
+

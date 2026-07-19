@@ -6,7 +6,7 @@ category: 'fundamental-analysis'
 draft: false
 ---
 
-**Importante:** Este checklist es un filtro "basura/no basura", no una recomendación de compra. Para análisis profundo, ver [Análisis Fundamental: Checklist de 15 Minutos](https://marketlab-academy.org/es/library/fundamental-analysis-checklist/).
+**Importante:** Este checklist es un filtro "basura/no basura", no una recomendación de compra. Para análisis profundo, ver [Análisis Fundamental: Checklist de 15 Minutos](https://Felag-academy.org/es/library/fundamental-analysis-checklist/).
 
 **Por qué importa:**
 
@@ -490,7 +490,7 @@ Verificando nuevo proyecto L2:
 
 **Análisis profundo:**
 
-Para una verificación más detallada, usa [checklist extendido de 15 minutos](https://marketlab-academy.org/es/library/fundamental-analysis-checklist/), que incluye verificación de tokenomics y métricas on-chain. También recomendamos estudiar [conceptos básicos de tokenomics](https://marketlab-academy.org/es/library/what-is-tokenomics/) y [gestión de riesgos](https://marketlab-academy.org/es/library/risk-management-crypto-trading-bots/) para evaluación de riesgos.
+Para una verificación más detallada, usa [checklist extendido de 15 minutos](https://Felag-academy.org/es/library/fundamental-analysis-checklist/), que incluye verificación de tokenomics y métricas on-chain. También recomendamos estudiar [conceptos básicos de tokenomics](https://Felag-academy.org/es/library/what-is-tokenomics/) y [gestión de riesgos](https://Felag-academy.org/es/library/risk-management-crypto-trading-bots/) para evaluación de riesgos.
 
 ---
 

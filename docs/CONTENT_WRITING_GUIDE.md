@@ -1,4 +1,4 @@
-# 📝 Руководство по написанию статей для MarketLab Academy
+# 📝 Руководство по написанию статей для Felag Academy
 
 **Дата создания:** 20 января 2026  
 **Статус:** Актуально  
@@ -398,12 +398,12 @@ category: 'technical-analysis'  # Одна из 4 категорий
 ### URL структура:
 
 ```
-marketlab-academy.org/[lang]/library/[slug]
+Felag-academy.org/[lang]/library/[slug]
 ```
 
 **Пример:**
 ```
-marketlab-academy.org/ru/library/money-flow-index
+Felag-academy.org/ru/library/money-flow-index
 ```
 
 **Правила slug:**
@@ -668,7 +668,7 @@ marketlab-academy.org/ru/library/money-flow-index
 7. FAQ (300-400 слов, 5-7 вопросов)
 ```
 
-**Итого: Золотая формула MarketLab Academy**
+**Итого: Золотая формула Felag Academy**
 
 Статья на 2000 слов =
 - 5-8 H2 заголовков

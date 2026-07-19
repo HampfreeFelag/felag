@@ -187,5 +187,5 @@ No, a diferencia de margen y futuros, en spot no hay funding fees.
 
 Más seguro que derivados, pero hay riesgo de exchange (hackeo, bancarrota). Cantidades grandes — cold wallet.
 
-**Relacionados:** [Señales de trading](https://marketlab-academy.org/es/library/what-are-trading-signals/), [Configuración bot Bybit](https://marketlab-academy.org/es/library/bybit-trading-bot-setup/), [Gestión del riesgo](https://marketlab-academy.org/es/library/risk-management-crypto-trading-bots/).
+**Relacionados:** [Señales de trading](https://Felag-academy.org/es/library/what-are-trading-signals/), [Configuración bot Bybit](https://Felag-academy.org/es/library/bybit-trading-bot-setup/), [Gestión del riesgo](https://Felag-academy.org/es/library/risk-management-crypto-trading-bots/).
 

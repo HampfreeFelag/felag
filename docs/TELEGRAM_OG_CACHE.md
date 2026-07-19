@@ -13,7 +13,7 @@
 1. Открой [@WebpageBot](https://t.me/WebpageBot) в Telegram
 2. Отправь команду `/new` или просто ссылку на статью:
    ```
-   https://marketlab-academy.org/ru/library/bitcoin-etf-2026-guide/
+   https://Felag-academy.org/ru/library/bitcoin-etf-2026-guide/
    ```
 3. Бот ответит: "Preview updated" — кэш обновлён!
 
@@ -26,9 +26,9 @@
 
 Отправь боту список ссылок (каждую с новой строки):
 ```
-https://marketlab-academy.org/ru/library/bitcoin-etf-2026-guide/
-https://marketlab-academy.org/ru/library/ethereum-basics-2026/
-https://marketlab-academy.org/en/library/solana-overview-2026/
+https://Felag-academy.org/ru/library/bitcoin-etf-2026-guide/
+https://Felag-academy.org/ru/library/ethereum-basics-2026/
+https://Felag-academy.org/en/library/solana-overview-2026/
 ```
 
 ---
@@ -69,7 +69,7 @@ open dist/og/ru-bitcoin-etf-2026-guide.png
 ### 3. Проверить HTML метатеги
 Открой `dist/ru/library/bitcoin-etf-2026-guide/index.html` и найди:
 ```html
-<meta property="og:image" content="https://marketlab-academy.org/og/ru-bitcoin-etf-2026-guide.png">
+<meta property="og:image" content="https://Felag-academy.org/og/ru-bitcoin-etf-2026-guide.png">
 ```
 
 ---
@@ -101,7 +101,7 @@ npm run generate-og
 → Отправь ссылку в @WebpageBot
 
 **Причина 3:** Неправильный URL в meta tag
-→ Проверь `astro.config.mjs`, что `site: 'https://marketlab-academy.org'`
+→ Проверь `astro.config.mjs`, что `site: 'https://Felag-academy.org'`
 
 ### Проблема: Долгая генерация OG изображений
 
@@ -116,7 +116,7 @@ npm run generate-og
 1. Подожди 1-2 минуты после деплоя (сайт должен быть доступен)
 2. Проверь, что OG изображение доступно по прямому URL:
    ```
-   https://marketlab-academy.org/og/ru-bitcoin-etf-2026-guide.png
+   https://Felag-academy.org/og/ru-bitcoin-etf-2026-guide.png
    ```
 3. Попробуй команду `/clear` в @WebpageBot, затем отправь ссылку снова
 

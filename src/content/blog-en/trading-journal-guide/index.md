@@ -34,7 +34,7 @@ Trade tracking has existed as long as trading itself.
 - **Tradervue** — social platform for sharing trades
 - **Google Sheets / Excel** — custom solutions
 
-At Market Lab, we use [TMM](https://tradermake.money/trader/Marketlab?page=1#OXMme8) — you can track detailed public statistics of our test setups on one of our subaccounts.
+At Market Lab, we use [TMM](https://tradermake.money/trader/Felag?page=1#OXMme8) — you can track detailed public statistics of our test setups on one of our subaccounts.
 
 ![TraderMake.Money interface — main page with overall statistics](./assets/tmm-main-dashboard.png)
 *Fig. 1. TMM main page: overall statistics, deposit chart, metrics*
@@ -213,7 +213,7 @@ A trading journal is an integral part of the risk management system:
 - **Stop-loss discipline** — recording all losses, no "heroism"
 - **Risk/reward analysis** — statistics for optimization
 
-More on capital protection in the article on [risk management in crypto trading](https://marketlab-academy.org/en/library/risk-management-crypto-trading-bots/).
+More on capital protection in the article on [risk management in crypto trading](https://Felag-academy.org/en/library/risk-management-crypto-trading-bots/).
 
 ## Common Mistakes When Keeping a Journal
 

@@ -181,7 +181,7 @@ category: 'crypto'
 
 **Чем Биткоин отличается от обычных денег?**
 
-Биткоин децентрализован (нет единого управляющего органа), имеет ограниченную эмиссию (максимум 21 миллион монет) и работает на основе технологии блокчейн. Подробнее о различиях можно узнать в статье о [цифровых валютах](https://marketlab-academy.org/ru/library/what-is-digital-currency-in-simple-terms/).
+Биткоин децентрализован (нет единого управляющего органа), имеет ограниченную эмиссию (максимум 21 миллион монет) и работает на основе технологии блокчейн. Подробнее о различиях можно узнать в статье о [цифровых валютах](https://Felag-academy.org/ru/library/what-is-digital-currency-in-simple-terms/).
 
 **Что такое майнинг?**
 
@@ -193,7 +193,7 @@ category: 'crypto'
 
 **Где можно купить Биткоин?**
 
-Биткоин можно приобрести через криптовалютные биржи, онлайн-обменники или платёжные системы. Подробнее — в статье [Основы Биткоина](https://marketlab-academy.org/ru/library/bitcoin-basics/) и [Что такое цифровая валюта](https://marketlab-academy.org/ru/library/what-is-digital-currency-in-simple-terms/).
+Биткоин можно приобрести через криптовалютные биржи, онлайн-обменники или платёжные системы. Подробнее — в статье [Основы Биткоина](https://Felag-academy.org/ru/library/bitcoin-basics/) и [Что такое цифровая валюта](https://Felag-academy.org/ru/library/what-is-digital-currency-in-simple-terms/).
 
 
 ## Итог
@@ -201,9 +201,9 @@ category: 'crypto'
 Биткоин возник как революционная идея децентрализованных финансов без посредников. Понимание его основ — первый шаг в мир криптовалютной торговли.
 
 Начать торговлю можно на проверенных биржах:
-- **[Bybit](https://www.bybit.com/ru-RU/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=bitcoin-basics)** — отличный выбор для работы с торговыми ботами
-- **[Bitget](https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=bitcoin-basics)** — удобный интерфейс и бонусы
-- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=bitcoin-basics)** — социальный трейдинг и копитрейдинг
+- **[Bybit](https://www.bybit.com/ru-RU/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bitcoin-basics)** — отличный выбор для работы с торговыми ботами
+- **[Bitget](https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bitcoin-basics)** — удобный интерфейс и бонусы
+- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bitcoin-basics)** — социальный трейдинг и копитрейдинг
 
 ---
 

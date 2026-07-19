@@ -449,7 +449,7 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 4. Set **stop-loss** (max loss 5–10%)
 5. **Diversify** (3–5 bots on different pairs)
 
-**Next step:** [DCA Strategy: Detailed Guide](https://marketlab-academy.org/en/library/dca-strategy-crypto/) — how averaging works.
+**Next step:** [DCA Strategy: Detailed Guide](https://Felag-academy.org/en/library/dca-strategy-crypto/) — how averaging works.
 
 ---
 

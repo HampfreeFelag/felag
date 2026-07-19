@@ -51,13 +51,13 @@ With futures or leverage, the rising wedge becomes even more important. It can b
 
 In volatile crypto markets, bots are increasingly used. Many can detect chart patterns, including the rising wedge, and place trades automatically.
 
-Understanding and using the rising wedge correctly can improve trading results. It can be combined with other tools, such as the [RSI](https://marketlab-academy.org/en/library/technical-analysis-rsi/) or [doji candles](https://marketlab-academy.org/en/library/what-are-doji-candles/), for better timing. For volume and momentum analysis, the [Money Flow Index (MFI)](https://marketlab-academy.org/en/library/money-flow-index/) is useful, and for identifying overbought zones, the [Williams %R oscillator](https://marketlab-academy.org/en/library/williams-percent-range-r/) can help.
+Understanding and using the rising wedge correctly can improve trading results. It can be combined with other tools, such as the [RSI](https://Felag-academy.org/en/library/technical-analysis-rsi/) or [doji candles](https://Felag-academy.org/en/library/what-are-doji-candles/), for better timing. For volume and momentum analysis, the [Money Flow Index (MFI)](https://Felag-academy.org/en/library/money-flow-index/) is useful, and for identifying overbought zones, the [Williams %R oscillator](https://Felag-academy.org/en/library/williams-percent-range-r/) can help.
 
 ## Summary
 
 The rising wedge is a bearish reversal pattern that forms after an uptrend. It shows weakening momentum and often precedes a breakdown. Confirm with volume and combine with other indicators.
 
-For automated pattern trading, register on **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=what-is-rising-wedge)**.
+For automated pattern trading, register on **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=what-is-rising-wedge)**.
 
 ## FAQ
 

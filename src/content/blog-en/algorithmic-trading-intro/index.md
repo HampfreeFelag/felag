@@ -359,7 +359,7 @@ IF loss > 5% в†’ STOP-LOSS
 - **Cons:** Need coding, setup
 
 **Ready Platforms:**
-- **Veles:** Crypto algo trading, backtests, cloud bots вЂ” [try Veles](https://veles.finance/invite/washmallay?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(affiliate link)*
+- **Veles:** Crypto algo trading, backtests, cloud bots вЂ” [try Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(affiliate link)*
 - **Gainium:** Grid, DCA, market making (free up to 2 bots)
 - **3Commas:** DCA, Grid, Trailing
 - **Antbot:** Copy trading, signals
@@ -394,7 +394,7 @@ IF loss > 5% в†’ STOP-LOSS
 
 **Keeping a journal:**
 
-Alongside the algorithm, it's recommended to keep a [trading journal](https://marketlab-academy.org/en/library/trading-journal-guide/) вЂ” record why you entered a trade, why you exited, what emotions you felt. This helps identify behavioral patterns and improve discipline.
+Alongside the algorithm, it's recommended to keep a [trading journal](https://Felag-academy.org/en/library/trading-journal-guide/) вЂ” record why you entered a trade, why you exited, what emotions you felt. This helps identify behavioral patterns and improve discipline.
 
 ---
 
@@ -460,7 +460,7 @@ Alongside the algorithm, it's recommended to keep a [trading journal](https://ma
 
 ### For Beginners (No Code)
 
-- **Veles:** Cloud bots, backtests, simple interface — [try Veles](https://veles.finance/invite/washmallay?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(affiliate link)*
+- **Veles:** Cloud bots, backtests, simple interface — [try Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(affiliate link)*
 - **Gainium:** Grid, DCA, market making (free up to 2 bots)
 - **3Commas:** DCA, Grid, Trailing
 - **Cryptohopper:** Ready strategies, marketplace

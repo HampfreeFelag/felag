@@ -27,7 +27,7 @@
 
 ## 5. После пуша
 
-- [ ] **Actions:** В [GitHub Actions](https://github.com/Hampfree-hub/marketlab-academy/actions) workflow «Deploy to GitHub Pages» завершился успешно.
+- [ ] **Actions:** В [GitHub Actions](https://github.com/Hampfree-hub/Felag-academy/actions) workflow «Deploy to GitHub Pages» завершился успешно.
 - [ ] **Прод:** Открыть главную, библиотеку и 2–3 статьи (RU/EN/ES), проверить отображение и ссылки.
 
 ---

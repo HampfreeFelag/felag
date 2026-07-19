@@ -182,7 +182,7 @@ En 2026, el staking sigue siendo una de las formas más populares de ganar en cr
 
 ### Paso 2: Elegir Método
 
-**Para principiantes:** Exchange ([Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026), [Bitget](https://www.bitget.com/referral/register?clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026), [BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026))
+**Para principiantes:** Exchange ([Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026), [Bitget](https://www.bitget.com/referral/register?clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026), [BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026))
 
 **Por qué:**
 - Simplicidad (2 clics)
@@ -208,9 +208,9 @@ En 2026, el staking sigue siendo una de las formas más populares de ganar en cr
 **¡Listo!** Las recompensas comenzarán a acumularse en 1-3 días.
 
 **Enlaces de referido:**
-- [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — comisiones reducidas
-- [Bitget](https://www.bitget.com/referral/register?clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — bonos para principiantes
-- [BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — trading social
+- [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — comisiones reducidas
+- [Bitget](https://www.bitget.com/referral/register?clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — bonos para principiantes
+- [BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — trading social
 
 ---
 
@@ -346,7 +346,7 @@ Usa calculadoras en línea:
 
 **Recursos útiles:**
 
-Antes de comenzar el staking, recomendamos estudiar [conceptos básicos de tokenomics](https://marketlab-academy.org/es/library/what-is-tokenomics/) para evaluación de riesgos del proyecto, [gestión de riesgos](https://marketlab-academy.org/es/library/risk-management-crypto-trading-bots/) para gestión de capital, y [estrategia DCA](https://marketlab-academy.org/es/library/dca-strategy-crypto/) para compras graduales de monedas.
+Antes de comenzar el staking, recomendamos estudiar [conceptos básicos de tokenomics](https://Felag-academy.org/es/library/what-is-tokenomics/) para evaluación de riesgos del proyecto, [gestión de riesgos](https://Felag-academy.org/es/library/risk-management-crypto-trading-bots/) para gestión de capital, y [estrategia DCA](https://Felag-academy.org/es/library/dca-strategy-crypto/) para compras graduales de monedas.
 
 ---
 

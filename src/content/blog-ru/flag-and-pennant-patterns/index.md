@@ -89,9 +89,9 @@ category: 'technical-analysis'
 
 Паттерны флаг и вымпел работают лучше в комбинации с другими инструментами технического анализа:
 
-- **[RSI](https://marketlab-academy.org/ru/library/technical-analysis-rsi)** — для подтверждения зон перекупленности/перепроданности
-- **[MFI](https://marketlab-academy.org/ru/library/money-flow-index)** — для анализа объемов и подтверждения пробоя
-- **[Свечные паттерны](https://marketlab-academy.org/ru/library/what-are-doji-candles)** — для дополнительного подтверждения сигнала
+- **[RSI](https://Felag-academy.org/ru/library/technical-analysis-rsi)** — для подтверждения зон перекупленности/перепроданности
+- **[MFI](https://Felag-academy.org/ru/library/money-flow-index)** — для анализа объемов и подтверждения пробоя
+- **[Свечные паттерны](https://Felag-academy.org/ru/library/what-are-doji-candles)** — для дополнительного подтверждения сигнала
 
 ## Типичные ошибки
 
@@ -119,7 +119,7 @@ category: 'technical-analysis'
 - Открывать позицию при подтверждении объемом
 - Устанавливать стоп-лосс и тейк-профит
 
-Перед использованием в реальной торговле рекомендуется протестировать стратегию на исторических данных через [бэктестинг](https://marketlab-academy.org/ru/library/what-are-backtests).
+Перед использованием в реальной торговле рекомендуется протестировать стратегию на исторических данных через [бэктестинг](https://Felag-academy.org/ru/library/what-are-backtests).
 
 ## FAQ
 
@@ -148,9 +148,9 @@ category: 'technical-analysis'
 Паттерны флаг и вымпел — надёжные сигналы продолжения тренда. В сочетании с индикаторами и анализом объёмов они дают высокую точность.
 
 Начать торговлю можно на проверенных биржах:
-- **[Bybit](https://www.bybit.com/ru-RU/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=flag-and-pennant-patterns)** — отличный выбор для работы с торговыми ботами
-- **[Bitget](https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=flag-and-pennant-patterns)** — удобный интерфейс и бонусы
-- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=flag-and-pennant-patterns)** — социальный трейдинг и копитрейдинг
+- **[Bybit](https://www.bybit.com/ru-RU/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=flag-and-pennant-patterns)** — отличный выбор для работы с торговыми ботами
+- **[Bitget](https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=flag-and-pennant-patterns)** — удобный интерфейс и бонусы
+- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=flag-and-pennant-patterns)** — социальный трейдинг и копитрейдинг
 
 ---
 

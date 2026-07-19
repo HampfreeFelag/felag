@@ -65,7 +65,7 @@ category: 'algo-trading'
 
 ![Публичная статистика бота With_God dynamic ETH на платформе Ginarea](./assets/with-god-dynamic-eth.png)
 
-Одна из конфигураций, которая работает в данный момент на одном из аккаунтов (статистика есть в [нашем открытом дневнике](https://tradermake.money/ru/trader/Marketlab)):
+Одна из конфигураций, которая работает в данный момент на одном из аккаунтов (статистика есть в [нашем открытом дневнике](https://tradermake.money/ru/trader/Felag)):
 
 - [With_God dynamic ADA](https://ginarea.org/bots/6330385602?tab=share) *(ред. от 17.04)*
 

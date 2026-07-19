@@ -23,7 +23,7 @@
 
 ### Элементы:
 
-1. **Заголовок:** "MARKETLAB ACADEMY" (зелёный, 8-bit шрифт Press Start 2P)
+1. **Заголовок:** "Felag ACADEMY" (зелёный, 8-bit шрифт Press Start 2P)
 2. **Описание:** "Блог о трейдинге, криптовалюте и автоматизации торговли" (серый, JetBrains Mono)
 3. **Три фичи:** 
    - 🟢 Трейдинг
@@ -82,9 +82,9 @@ OG изображения генерируются для 3 языков:
 
 | Язык | Файл | Заголовок | Описание |
 |------|------|-----------|----------|
-| **RU** | `ru-homepage.png` | MarketLab Academy | Блог о трейдинге, криптовалюте и автоматизации торговли |
-| **EN** | `en-homepage.png` | MarketLab Academy | Blog about trading, cryptocurrency and trading automation |
-| **ES** | `es-homepage.png` | MarketLab Academy | Blog sobre trading, criptomonedas y automatización de trading |
+| **RU** | `ru-homepage.png` | Felag Academy | Блог о трейдинге, криптовалюте и автоматизации торговли |
+| **EN** | `en-homepage.png` | Felag Academy | Blog about trading, cryptocurrency and trading automation |
+| **ES** | `es-homepage.png` | Felag Academy | Blog sobre trading, criptomonedas y automatización de trading |
 
 ---
 
@@ -119,7 +119,7 @@ git push origin main  # GitHub Actions сделает всё сам
 start dist/og/ru-homepage.png
 
 # Проверить на сайте
-curl -sI https://marketlab-academy.org/og/ru-homepage.png
+curl -sI https://Felag-academy.org/og/ru-homepage.png
 ```
 
 ---
@@ -140,7 +140,7 @@ curl -sI https://marketlab-academy.org/og/ru-homepage.png
 После деплоя обновить кэш в [@WebpageBot](https://t.me/WebpageBot):
 
 ```
-/send https://marketlab-academy.org/ru/
+/send https://Felag-academy.org/ru/
 ```
 
 ---
@@ -149,7 +149,7 @@ curl -sI https://marketlab-academy.org/og/ru-homepage.png
 
 1. **About страница:** Такой же шаблон для `about.png`
 2. **Анимация:** Добавить glitch эффект (если Telegram поддержит)
-3. **Персонажи:** Добавить MarketLab characters (Emily, Kai, Leon, Vera)
+3. **Персонажи:** Добавить Felag characters (Emily, Kai, Leon, Vera)
 
 ---
 

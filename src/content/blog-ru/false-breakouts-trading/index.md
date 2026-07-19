@@ -82,8 +82,8 @@ category: 'technical-analysis'
 
 Для фильтрации ложных пробоев можно использовать индикаторы:
 
-- **[RSI](https://marketlab-academy.org/ru/library/technical-analysis-rsi)** — если RSI в зоне перекупленности/перепроданности, пробой может быть ложным
-- **[MFI](https://marketlab-academy.org/ru/library/money-flow-index)** — если MFI не подтверждает пробой объемом, вероятен ложный сигнал
+- **[RSI](https://Felag-academy.org/ru/library/technical-analysis-rsi)** — если RSI в зоне перекупленности/перепроданности, пробой может быть ложным
+- **[MFI](https://Felag-academy.org/ru/library/money-flow-index)** — если MFI не подтверждает пробой объемом, вероятен ложный сигнал
 - **Полосы Боллинджера** — если цена выходит за границы полос, но быстро возвращается, это ложный пробой
 
 ### Стратегия 3: Торговля в боковике
@@ -135,7 +135,7 @@ category: 'technical-analysis'
 3. Фильтровать ложные пробои по объемам и закрытию свечей
 4. Открывать позиции против ложных пробоев
 
-Перед использованием в реальной торговле рекомендуется протестировать стратегию через [бэктестинг](https://marketlab-academy.org/ru/library/what-are-backtests).
+Перед использованием в реальной торговле рекомендуется протестировать стратегию через [бэктестинг](https://Felag-academy.org/ru/library/what-are-backtests).
 
 ## FAQ
 
@@ -157,11 +157,11 @@ category: 'technical-analysis'
 
 **Как использовать индикаторы для фильтрации ложных пробоев?**
 
-[RSI](https://marketlab-academy.org/ru/library/technical-analysis-rsi) и [MFI](https://marketlab-academy.org/ru/library/money-flow-index) помогают определить, есть ли реальный интерес участников к пробою. Если индикаторы не подтверждают пробой, он может быть ложным.
+[RSI](https://Felag-academy.org/ru/library/technical-analysis-rsi) и [MFI](https://Felag-academy.org/ru/library/money-flow-index) помогают определить, есть ли реальный интерес участников к пробою. Если индикаторы не подтверждают пробой, он может быть ложным.
 
 ## Итог
 
-Ложные пробои — распространенное явление на рынке, которое можно использовать для торговли. Важно правильно их идентифицировать, использовать фильтры (объемы, индикаторы) и всегда применять стоп-лоссы. Для повышения надежности рекомендуется тестировать стратегии через [бэктестинг](https://marketlab-academy.org/ru/library/what-are-backtests) и комбинировать с другими методами технического анализа.
+Ложные пробои — распространенное явление на рынке, которое можно использовать для торговли. Важно правильно их идентифицировать, использовать фильтры (объемы, индикаторы) и всегда применять стоп-лоссы. Для повышения надежности рекомендуется тестировать стратегии через [бэктестинг](https://Felag-academy.org/ru/library/what-are-backtests) и комбинировать с другими методами технического анализа.
 
 
 ## Итог
@@ -169,9 +169,9 @@ category: 'technical-analysis'
 Ложные пробои — мощный инструмент в теханализе. Научитесь распознавать их, сочетайте с другими индикаторами и всегда используйте стоп-лоссы.
 
 Начать торговлю можно на проверенных биржах:
-- **[Bybit](https://www.bybit.com/ru-RU/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=false-breakouts-trading)** — отличный выбор для работы с торговыми ботами
-- **[Bitget](https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=false-breakouts-trading)** — удобный интерфейс и бонусы
-- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=false-breakouts-trading)** — социальный трейдинг и копитрейдинг
+- **[Bybit](https://www.bybit.com/ru-RU/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=false-breakouts-trading)** — отличный выбор для работы с торговыми ботами
+- **[Bitget](https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=false-breakouts-trading)** — удобный интерфейс и бонусы
+- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=false-breakouts-trading)** — социальный трейдинг и копитрейдинг
 
 ---
 

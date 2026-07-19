@@ -35,7 +35,7 @@ Durante downtime, trader no puede gestionar posiciones completamente: cerrar ope
 
 - **Incapacidad de cerrar posición** — precio puede moverse contra posición abierta mientras exchange no disponible.
 - **Deslizamiento y ejecución a peor precio** — después de restauración, órdenes pueden ejecutarse con retraso y a precio desfavorable.
-- **Fallos de API** — bots de trading y scripts dejan de recibir datos y enviar órdenes; estrategias automatizadas (incluyendo [DCA](https://marketlab-academy.org/es/library/dca-strategy-crypto/) o [grid](https://marketlab-academy.org/es/library/grid-trading-crypto/)) no se ejecutan según plan.
+- **Fallos de API** — bots de trading y scripts dejan de recibir datos y enviar órdenes; estrategias automatizadas (incluyendo [DCA](https://Felag-academy.org/es/library/dca-strategy-crypto/) o [grid](https://Felag-academy.org/es/library/grid-trading-crypto/)) no se ejecutan según plan.
 - **Pérdida de acceso a fondos** — durante interrupción, retiros y a veces transferencias entre cuentas no disponibles.
 
 Mayor share de trading a través de exchange y más críticas las posiciones — más importante elegir plataformas con alto historial de uptime y comunicación adecuada durante incidentes.
@@ -67,7 +67,7 @@ Servicios independientes consultan periódicamente sitios web y APIs de exchange
 - DownDetector — quejas de usuarios en tiempo real
 - CryptoStatus — monitoreo de exchanges y carteras crypto
 
-Al elegir exchange, razonable combinar: mirar estado oficial, monitoreo externo y reseñas de usuarios sobre incidentes recientes. Para trading automatizado, importante elegir plataformas con 99.5%+ de uptime — tales disponibles en lista de exchanges soportados en [Veles](https://veles.finance/invite/washmallay?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=exchange-uptime-downtime).
+Al elegir exchange, razonable combinar: mirar estado oficial, monitoreo externo y reseñas de usuarios sobre incidentes recientes. Para trading automatizado, importante elegir plataformas con 99.5%+ de uptime — tales disponibles en lista de exchanges soportados en [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=exchange-uptime-downtime).
 
 ## Causas Típicas de Downtime
 
@@ -269,7 +269,7 @@ Atentamente,
 - [ ] Límites de tasa adecuados (1000+ solicitudes/minuto)
 - [ ] Soporte WebSocket
 - [ ] Testnet disponible
-- [ ] Soporte en lista de [Veles](https://veles.finance/invite/washmallay?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=exchange-uptime-downtime)
+- [ ] Soporte en lista de [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=exchange-uptime-downtime)
 
 **Requisitos mínimos:**
 - Uptime: 99.5%+
@@ -293,7 +293,7 @@ Uptime y downtime de exchange son métricas clave de confiabilidad. Elija plataf
 - Para trading automatizado, elija plataformas con 99.5%+ de uptime
 - Conozca políticas de compensación de sus exchanges
 
-Más sobre trading automatizado: [Estrategia DCA](https://marketlab-academy.org/es/library/dca-strategy-crypto/), [Trading Grid](https://marketlab-academy.org/es/library/grid-trading-crypto/).
+Más sobre trading automatizado: [Estrategia DCA](https://Felag-academy.org/es/library/dca-strategy-crypto/), [Trading Grid](https://Felag-academy.org/es/library/grid-trading-crypto/).
 
 ## FAQ
 

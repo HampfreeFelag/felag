@@ -220,7 +220,7 @@ category: 'algo-trading'
 | `bybit-general` | Bybit: Торгуй крипто | Все | RU/EN/ES | 5 |
 | `finbazar-fundamental` | FinBazar: Ончейн | fundamental-analysis | RU | 8 |
 | `bingx-copy` | BingX: Копируй сделки | algo-trading, technical-analysis | RU/EN/ES | 7 |
-| `default-academy` | MarketLab Academy | Все | RU/EN/ES | 0 |
+| `default-academy` | Felag Academy | Все | RU/EN/ES | 0 |
 
 ---
 
@@ -249,7 +249,7 @@ http://localhost:4321/ru/library/dca-strategy-crypto/
 
 ```bash
 # После пуша
-https://marketlab-academy.org/ru/library/dca-strategy-crypto/
+https://Felag-academy.org/ru/library/dca-strategy-crypto/
 ```
 
 ---

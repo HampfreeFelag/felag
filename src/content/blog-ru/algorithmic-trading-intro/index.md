@@ -351,7 +351,7 @@ category: 'algo-trading'
 - **Минусы:** Нужен код, настройка
 
 **Готовые платформы:**
-- **Veles:** Алготрейдинг для крипты, бэктесты, облачные боты — [попробовать Veles](https://veles.finance/invite/washmallay?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(партнёрская ссылка)*
+- **Veles:** Алготрейдинг для крипты, бэктесты, облачные боты — [попробовать Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(партнёрская ссылка)*
 - **Gainium:** Grid, DCA, маркет-мейкинг (бесплатно до 2 ботов)
 - **3Commas:** DCA, Grid, Trailing
 - **Antbot:** Копитрейдинг, сигналы
@@ -386,7 +386,7 @@ category: 'algo-trading'
 
 **Ведение журнала:**
 
-Параллельно с алгоритмом рекомендуется вести [дневник трейдера](https://marketlab-academy.org/ru/library/trading-journal-guide/) — записывать, почему вошёл в сделку, почему вышел, какие эмоции испытывал. Это помогает выявить паттерны в поведении и улучшить дисциплину.
+Параллельно с алгоритмом рекомендуется вести [дневник трейдера](https://Felag-academy.org/ru/library/trading-journal-guide/) — записывать, почему вошёл в сделку, почему вышел, какие эмоции испытывал. Это помогает выявить паттерны в поведении и улучшить дисциплину.
 
 ## Риски алгоритмического трейдинга
 
@@ -448,7 +448,7 @@ category: 'algo-trading'
 
 ### Для новичков (без кода)
 
-- **Veles:** Облачные боты, бэктесты, простой интерфейс — [попробовать Veles](https://veles.finance/invite/washmallay?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(партнёрская ссылка)*
+- **Veles:** Облачные боты, бэктесты, простой интерфейс — [попробовать Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(партнёрская ссылка)*
 - **Gainium:** Grid, DCA, маркет-мейкинг (бесплатно до 2 ботов)
 - **3Commas:** DCA, Grid, Trailing
 - **Cryptohopper:** Готовые стратегии, маркетплейс

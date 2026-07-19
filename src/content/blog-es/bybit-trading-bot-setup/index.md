@@ -7,7 +7,7 @@ category: 'algo-trading'
 
 Automatizar en Bybit permite operar 24/7 sin monitorear el mercado todo el tiempo. Regístrate en Bybit (enlace de referido) si aún no tienes cuenta.
 
-Esta guía es para conectar **plataformas o servicios externos** de bots a Bybit vía API; las herramientas integradas de Bybit en la web no requieren API keys. Puedes usar los bots integrados de Bybit o conectar bots de otras plataformas de automatización — por ejemplo [Veles](https://veles.finance/invite/washmallay?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=bybit-trading-bot-setup) (enlace de referido: registrarte por él beneficia a ambos). Si conectas una plataforma externa y necesitas ayuda, escríbenos; contactos en la página [Sobre el proyecto](/es/about/).
+Esta guía es para conectar **plataformas o servicios externos** de bots a Bybit vía API; las herramientas integradas de Bybit en la web no requieren API keys. Puedes usar los bots integrados de Bybit o conectar bots de otras plataformas de automatización — por ejemplo [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bybit-trading-bot-setup) (enlace de referido: registrarte por él beneficia a ambos). Si conectas una plataforma externa y necesitas ayuda, escríbenos; contactos en la página [Sobre el proyecto](/es/about/).
 
 Qué necesitas, cómo crear API keys, conectarlas a tu plataforma y qué errores evitar.
 
@@ -104,7 +104,7 @@ Un bot de trading de Bybit es un programa automatizado que opera en el exchange 
 Sí, es seguro, siempre que tomes las precauciones de seguridad adecuadas, como establecer restricciones de IP para las claves API y otorgar solo los permisos necesarios (sin permisos de retirada).
 
 **3. ¿Qué estrategias se pueden implementar?**
-Los bots pueden implementar una amplia gama de estrategias, desde simples promedios de costes (DCA) y trading de cuadrícula hasta algoritmos más complejos basados en análisis técnico. Un ejemplo es la [Estrategia Prisma 5.5](https://marketlab-academy.org/es/library/prisma-5-5-strategy-settings/).
+Los bots pueden implementar una amplia gama de estrategias, desde simples promedios de costes (DCA) y trading de cuadrícula hasta algoritmos más complejos basados en análisis técnico. Un ejemplo es la [Estrategia Prisma 5.5](https://Felag-academy.org/es/library/prisma-5-5-strategy-settings/).
 
 **4. ¿Puedo usar un bot sin conocimientos de programación?**
 Sí. Plataformas como Veles ofrecen interfaces intuitivas donde puedes configurar bots sin necesidad de codificación. Solo necesitas entender la lógica de trading.
@@ -114,9 +114,9 @@ Primero, revisa tus ajustes y las claves API. Desactiva el bot y examina los reg
 
 ## Materiales relacionados
 
-*   [Cómo funciona el análisis técnico](https://marketlab-academy.org/es/library/what-is-technical-analysis/)
-*   [Qué es el bot DCA](https://marketlab-academy.org/es/library/dca-strategy-crypto/)
-*   [Gestión de riesgos](https://marketlab-academy.org/es/library/risk-management-crypto-trading-bots/)
+*   [Cómo funciona el análisis técnico](https://Felag-academy.org/es/library/what-is-technical-analysis/)
+*   [Qué es el bot DCA](https://Felag-academy.org/es/library/dca-strategy-crypto/)
+*   [Gestión de riesgos](https://Felag-academy.org/es/library/risk-management-crypto-trading-bots/)
 
 ## Resumen
 
@@ -145,6 +145,6 @@ Sí, el bot debe estar en línea 24/7. Usar VPS (servidor virtual) o hosting en 
 Sí, pero hay que vigilar el riesgo total. No invertir todo el dinero en una estrategia. Diversificar entre bots y pares.
 
 Puedes empezar a operar en exchanges probados:
-- **[Bybit](https://www.bybit.com/es/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=bybit-trading-bot-setup)** — excelente para bots de trading
-- **[Bitget](https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=bybit-trading-bot-setup)** — interfaz fácil y bonos
-- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=bybit-trading-bot-setup)** — trading social y copy trading
+- **[Bybit](https://www.bybit.com/es/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bybit-trading-bot-setup)** — excelente para bots de trading
+- **[Bitget](https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bybit-trading-bot-setup)** — interfaz fácil y bonos
+- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bybit-trading-bot-setup)** — trading social y copy trading

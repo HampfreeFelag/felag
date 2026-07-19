@@ -62,10 +62,10 @@ A discrepancy between the direction of price movement and the indicator often pr
 
 ## Use in ELDER 2.0 Strategy
 
-In the [spot strategy ELDER 2.0](https://marketlab-academy.org/en/library/spot-strategy-elder-20/), the CMO indicator is used as one of the three main filters:
+In the [spot strategy ELDER 2.0](https://Felag-academy.org/en/library/spot-strategy-elder-20/), the CMO indicator is used as one of the three main filters:
 
 - **Timeframe:** depending on bot settings (M15 / H1 / H4).
-- **Entry condition:** CMO must be below **−50** (deep oversold zone) in combination with signals from [Bollinger Bands](https://marketlab-academy.org/en/library/bollinger-bands/) and [Stochastic](https://marketlab-academy.org/en/library/stochastic-oscillator/).
+- **Entry condition:** CMO must be below **−50** (deep oversold zone) in combination with signals from [Bollinger Bands](https://Felag-academy.org/en/library/bollinger-bands/) and [Stochastic](https://Felag-academy.org/en/library/stochastic-oscillator/).
 - **Exit condition:** CMO above **+50** (overbought zone) in combination with confirmation from other indicators.
 
 | Indicator | Role in ELDER 2.0 |
@@ -92,7 +92,7 @@ CMO does not use double smoothing, so it reacts faster to momentum changes. This
 
 **Can CMO be used for futures?**
 
-Yes, CMO works on any markets. However, the ELDER 2.0 strategy is optimized specifically for [spot trading](https://marketlab-academy.org/en/library/what-is-spot-trading/) without leverage.
+Yes, CMO works on any markets. However, the ELDER 2.0 strategy is optimized specifically for [spot trading](https://Felag-academy.org/en/library/what-is-spot-trading/) without leverage.
 
 ## Summary
 
@@ -100,8 +100,8 @@ CMO is a powerful tool for determining trend strength and points of exhaustion. 
 
 Start trading on proven exchanges:
 
-- **Bybit** — an excellent choice for working with [trading bots](https://marketlab-academy.org/en/library/bybit-trading-bot-setup/)
-- **[Bitget](https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=chande-momentum-oscillator)** — user-friendly interface and bonuses
+- **Bybit** — an excellent choice for working with [trading bots](https://Felag-academy.org/en/library/bybit-trading-bot-setup/)
+- **[Bitget](https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=chande-momentum-oscillator)** — user-friendly interface and bonuses
 - **BingX** — social trading and copy trading
 
 ---
@@ -112,6 +112,6 @@ Chande Momentum Oscillator (CMO) is a versatile oscillator that provides traders
 
 By using CMO in conjunction with other technical analysis tools, such as moving averages or Bollinger Bands, traders can significantly improve their trading decisions and enhance adaptability to changing market conditions. As with any indicator, practice and understanding its limitations are key to success.
 
-For automated trading, register on **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=chande-momentum-oscillator)**.
+For automated trading, register on **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=chande-momentum-oscillator)**.
 
 

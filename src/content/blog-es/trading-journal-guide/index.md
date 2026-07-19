@@ -34,7 +34,7 @@ El registro de operaciones existe desde que existe el trading mismo.
 - **Tradervue** — plataforma social para compartir operaciones
 - **Google Sheets / Excel** — soluciones personalizadas
 
-En Market Lab usamos [TMM](https://tradermake.money/es/trader/Marketlab?page=1#OXMme8) — puedes ver estadísticas públicas detalladas de nuestros setups de prueba en una de nuestras subcuentas.
+En Market Lab usamos [TMM](https://tradermake.money/es/trader/Felag?page=1#OXMme8) — puedes ver estadísticas públicas detalladas de nuestros setups de prueba en una de nuestras subcuentas.
 
 ![Interfaz de TraderMake.Money — página principal con estadísticas generales](./assets/tmm-main-dashboard.png)
 *Fig. 1. Página principal de TMM: estadísticas generales, gráfico de depósito, métricas*
@@ -213,7 +213,7 @@ Un diario de trading es parte integral del sistema de gestión de riesgo:
 - **Disciplina de stop-loss** — registrar todas las pérdidas, sin "heroísmo"
 - **Análisis riesgo/beneficio** — estadísticas para optimización
 
-Más sobre protección de capital en el artículo sobre [gestión de riesgo en trading cripto](https://marketlab-academy.org/es/library/risk-management-crypto-trading-bots/).
+Más sobre protección de capital en el artículo sobre [gestión de riesgo en trading cripto](https://Felag-academy.org/es/library/risk-management-crypto-trading-bots/).
 
 ## Errores Comunes al Llevar un Diario
 

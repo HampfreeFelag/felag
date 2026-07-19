@@ -5,9 +5,9 @@ pubDate: '2026-02-28'
 category: 'algo-trading'
 ---
 
-**Prisma 5.5** is a proprietary strategy from the [Veles](https://veles.finance/invite/washmallay?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings) platform for automated trading. This article provides a full breakdown of the settings: which indicators are used for entry, how to set up the order grid, and which pairs to launch on.
+**Prisma 5.5** is a proprietary strategy from the [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings) platform for automated trading. This article provides a full breakdown of the settings: which indicators are used for entry, how to set up the order grid, and which pairs to launch on.
 
-**Important:** Before using any strategy, familiarize yourself with [risk management](https://marketlab-academy.org/en/library/risk-management-crypto-trading-bots/) and the series [Diversification and Trading System Setup](https://marketlab-academy.org/en/library/diversification-trading-system-part-1/).
+**Important:** Before using any strategy, familiarize yourself with [risk management](https://Felag-academy.org/en/library/risk-management-crypto-trading-bots/) and the series [Diversification and Trading System Setup](https://Felag-academy.org/en/library/diversification-trading-system-part-1/).
 
 ## What is Prisma 5.5?
 
@@ -15,22 +15,22 @@ Prisma 5.5 is a high-frequency trading strategy designed for the volatile crypto
 
 ## Strategy Settings
 
-It should be noted that the parameters, like the settings of other Marketlab strategies, are quite flexible and can be adjusted to suit your risk management.
+It should be noted that the parameters, like the settings of other Felag strategies, are quite flexible and can be adjusted to suit your risk management.
 
 ### Entry Indicators (Filters)
 
 To open a position in Prisma 5.5, the following indicators are used:
 
-1. **[CMO (Chande Momentum Oscillator)](https://marketlab-academy.org/en/library/chande-momentum-oscillator/)**
+1. **[CMO (Chande Momentum Oscillator)](https://Felag-academy.org/en/library/chande-momentum-oscillator/)**
    • Period: 14
    • Levels: ±50
    • Condition: CMO below −50 (oversold zone) before Long entry, above +50 — upward momentum (oversold zone)
 
-2. **[Bollinger Bands](https://marketlab-academy.org/en/library/bollinger-bands/)**
+2. **[Bollinger Bands](https://Felag-academy.org/en/library/bollinger-bands/)**
    - Period: 20, Deviation: 2
    - Condition: Price below the lower band
 
-3. **[RSI (Relative Strength Index)](https://marketlab-academy.org/en/library/technical-analysis-rsi/)**
+3. **[RSI (Relative Strength Index)](https://Felag-academy.org/en/library/technical-analysis-rsi/)**
    - Period: 14
    - Level: 30
    - Condition: RSI less than 30
@@ -60,9 +60,9 @@ It is recommended to use liquid pairs with high trading volume:
 Prisma 5.5 is a balanced strategy for automating spot and futures trading with a moderate level of risk. It is essential to monitor margin levels and adhere to diversification rules to ensure the stability of the trading system.
 
 Proven platforms are available to start trading:
-- **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings)** — a leading exchange for working with trading bots.
-- **[Bitget](https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings)** — a platform with a user-friendly interface and bonuses for new users.
-- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings)** — a popular choice for social trading and copy trading.
+- **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings)** — a leading exchange for working with trading bots.
+- **[Bitget](https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings)** — a platform with a user-friendly interface and bonuses for new users.
+- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings)** — a popular choice for social trading and copy trading.
 
 ---
 

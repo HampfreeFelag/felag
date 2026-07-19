@@ -449,7 +449,7 @@ Esta guía cubre todo lo que un principiante necesita: desde elegir un bot hasta
 4. Configura **stop-loss** (pérdida máx. 5–10%)
 5. **Diversifica** (3–5 bots en diferentes pares)
 
-**Siguiente paso:** [Estrategia DCA: Guía Detallada](https://marketlab-academy.org/es/library/dca-strategy-crypto/) — cómo funciona el promediado.
+**Siguiente paso:** [Estrategia DCA: Guía Detallada](https://Felag-academy.org/es/library/dca-strategy-crypto/) — cómo funciona el promediado.
 
 ---
 

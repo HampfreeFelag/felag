@@ -19,7 +19,7 @@ Muchos activos digitales actuales se basan en blockchain: un registro distribuid
 
 El dinero digital se puede agrupar en tres categorías:
 
-1. **Criptomonedas descentralizadas:** Gestionadas por la comunidad y algoritmos (p. ej. [Bitcoin](https://marketlab-academy.org/es/library/bitcoin-basics/)).
+1. **Criptomonedas descentralizadas:** Gestionadas por la comunidad y algoritmos (p. ej. [Bitcoin](https://Felag-academy.org/es/library/bitcoin-basics/)).
 2. **Monedas digitales de banco central (CBDC):** Emitidas por bancos centrales y de curso legal.
 3. **Dinero electrónico corporativo:** Monedas internas de plataformas o sistemas de pago.
 
@@ -47,7 +47,7 @@ Ya en marcha:
 - **Rublo digital:** Rusia está probando una plataforma para pagos minoristas y mayoristas.
 - **Euro digital:** La UE prepara su lanzamiento en los próximos años.
 
-Para trading de criptomonedas con bajas comisiones, regístrate en **[Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=marketlab-blog&utm_medium=article-link&utm_campaign=what-is-digital-currency-in-simple-terms)**.
+Para trading de criptomonedas con bajas comisiones, regístrate en **[Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=what-is-digital-currency-in-simple-terms)**.
 
 ## Resumen
 
