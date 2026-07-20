@@ -94,10 +94,10 @@ if (imageProp) {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<!-- Google Fonts: Press Start 2P (pixel headings) + JetBrains Mono (body) -->
+<!-- Google Fonts: Inter (modern sans-serif) + JetBrains Mono (code) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
 <!-- Favicon: правильный порядок для максимальной совместимости -->
 <link rel="icon" type="image/x-icon" href={new URL("/favicon.ico", Astro.site).href} />
@@ -150,11 +150,11 @@ if (imageProp) {
 	const orgSchema = {
 		"@context": "https://schema.org",
 		"@type": "Organization",
-		"name": "MarketLab Academy",
-		"url": Astro.site?.href || "https://marketlab-academy.org",
+		"name": "FÉLAG Academy",
+		"url": Astro.site?.href || "https://felag.online",
 		"logo": {
 			"@type": "ImageObject",
-			"url": new URL("/favicon-96x96.png", Astro.site || "https://marketlab-academy.org").href
+			"url": new URL("/favicon-96x96.png", Astro.site || "https://felag.online").href
 		},
 		"description": SITE_DESCRIPTION,
 		"sameAs": [

@@ -6,17 +6,17 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://marketlab-academy.org',
+	site: 'https://felag.online',
 	base: '/',
 	integrations: [mdx(), sitemap()],
 	image: {
-		// Отключаем оптимизацию изображений — сохраняем оригинальный формат (PNG)
+		// Используем встроенные сервисы изображений для PNG
 		service: {
 			entrypoint: 'astro/assets/services/noop',
 		},
 	},
 	vite: {
-		// Кэш вне node_modules — меньше конфликтов с IDE/антивирусом на Windows
+		// Для Windows - кэш node_modules в отдельной директории
 		cacheDir: '.vite',
 	},
 });
