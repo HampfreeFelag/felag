@@ -184,22 +184,22 @@ export const AD_BANNERS: AdBanner[] = [
     },
   },
 
-  // Default — MarketLab Academy (fallback)
+  // Default — FÉLAG (fallback)
   {
-    id: 'default-academy',
-    title: 'MarketLab Academy',
-    subtitle: 'Automation, signals, analytics',
-    cta: 'Library →',
+    id: 'default-felag',
+    title: 'FÉLAG',
+    subtitle: 'Трейдинг, крипта, автоматизация',
+    cta: 'Библиотека →',
     link: '/{lang}/library/',
     priority: 0,
     languages: ['ru', 'en', 'es'],
     colors: {
-      bgStart: '#2D3748',    // Тёмный серо-синий
-      bgEnd: '#1A202C',      // Тёмный серый
+      bgStart: '#1B3A5F',    // Deep Blue брендовый
+      bgEnd: '#142A42',      // Тёмно-синий
       text: '#E5E5E5',       // Светло-серый
-      ctaBg: '#00D800',      // NES зелёный
-      ctaText: '#1A202C',
-      border: '#3CBCFC',     // NES синий
+      ctaBg: '#D49B3B',      // Amber брендовый
+      ctaText: '#1B3A5F',
+      border: '#254D7A',     // Light Blue
     },
   },
 ];
@@ -292,12 +292,12 @@ export const BANNER_TRANSLATIONS: Record<string, {
     }
   },
 
-  'default-academy': {
-    title: { ru: 'MarketLab Academy', en: 'MarketLab Academy', es: 'MarketLab Academy' },
-    subtitle: { ru: 'Автоматизация, сигналы, аналитика', en: 'Automation, signals, analytics', es: 'Automatización, señales, analítica' },
+  'default-felag': {
+    title: { ru: 'FÉLAG', en: 'FÉLAG', es: 'FÉLAG' },
+    subtitle: { ru: 'Трейдинг, крипта, автоматизация', en: 'Trading, crypto, automation', es: 'Trading, cripto, automatización' },
     cta: { ru: 'Библиотека', en: 'Library', es: 'Biblioteca' },
     link: '/{lang}/library/',
-    colors: { bgStart: '#2D3748', bgEnd: '#1A202C', text: '#E5E5E5', ctaBg: '#00D800', ctaText: '#1A202C', border: '#3CBCFC' }
+    colors: { bgStart: '#1B3A5F', bgEnd: '#142A42', text: '#E5E5E5', ctaBg: '#D49B3B', ctaText: '#1B3A5F', border: '#254D7A' }
   }
 };
 
