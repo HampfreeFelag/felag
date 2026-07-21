@@ -1,11 +1,11 @@
-# 🕹️ Felag Academy
+# 🎨 FÉLAG
 
-**Образовательный блог о трейдинге в ретро-стиле 8-bit NES**
+**Образовательный блог о трейдинге в стиле Nordic Layered Vector**
 
 **Последнее обновление:** 24 марта 2026 г.
 **Статус:** ✅ Production-ready
 
-**Сайт:** [Felag-academy.org](https://Felag-academy.org)
+**Сайт:** [Felag.online](https://Felag.online)
 **Приватный репо:** [hampfreeblog-private](https://github.com/Hampfree-hub/hampfreeblog-private)
 
 **Лицензия:** [CC BY-NC-SA 4.0](LICENSE) — некоммерческое использование с указанием авторства
@@ -51,8 +51,8 @@ npm run preview
 │   ├── content/         # Контент блога (Markdown)
 │   ├── layouts/         # Layout компоненты
 │   ├── pages/           # Страницы сайта
-│   ├── styles/          # CSS стили
-│   └── i18n/            # Интернационализация (RU, EN, ES)
+│   ├── styles/          # SCSS стили (Nordic tokens)
+│   └── i18n/            # Интернационализация (RU)
 ├── astro.config.mjs     # Конфигурация Astro
 └── package.json         # Зависимости
 ```
@@ -61,42 +61,52 @@ npm run preview
 
 ## 🎨 Дизайн-система
 
-### 8-bit NES Theme
+### Nordic Layered Vector Theme
 
-- **Философия:** 70% серьёзное / 30% забавное
-- **Шрифты:** Press Start 2P (заголовки), JetBrains Mono (текст)
-- **Цвета:** Классическая NES палитра + NES-подобные оттенки для категорий
-- **Стили:** `src/styles/nes8bit.css`, `src/styles/tokens.css`
+- **Философия:** Минимализм, слоистая глубина, векторная четкость
+- **Шрифты:** Inter (заголовки), Inter (текст)
+- **Цвета:** Deep Blue #1B3A5F + Amber #D49B3B
+- **Стили:** `src/styles/nordic-tokens.scss`, `src/styles/nordic-base.scss`
 
-### 🎭 Цвета категорий (Market Lab Characters)
+**Палитра:**
+- **Deep Blue (#1B3A5F)** — основной цвет бренда
+- **Amber (#D49B3B)** — акцентный цвет
+- **Deep Blue Light (#254D7A)** — светлый вариант основного
+- **Amber Dark (#B8862B)** — темный вариант акцента
+- **Neutral Grays** — минималистичная основа для фонов и текста
 
-Каждая категория закреплена за персонажем Market Lab:
+**Концепция:** Скандинавский дизайн в сочетании с современной веб-инженерией. Минимализм с глубиной слоев, ясность векторных форм, функциональность превыше формальностей.
+
+### 🎭 Цвета категорий (Market Lab Characters - Nordic Palette)
+
+Каждая категория закреплена за персонажем Market Lab в Nordic palette:
 
 | Персонаж | Категория | Цвет | HEX | Класс |
 |----------|-----------|------|-----|-------|
-| **Emily** 🟢 | `crypto` | Зелёный | `#00A800` | `.cat-crypto` |
-| **Kai** 🔵 | `technical-analysis` | Синий | `#0078B4` | `.cat-technical-analysis` |
-| **Leon** 🟡 | `algo-trading` | Жёлтый | `#D4B800` | `.cat-algo-trading` |
-| **Vera** 🟠 | `fundamental-analysis` | Оранжевый | `#D45800` | `.cat-fundamental-analysis` |
-| **Alex** 🟣 | `regulation` | Фиолетовый | `#7038C0` | `.cat-regulation` |
+| **Emily** 🔵 | `crypto` | Deep Blue | `#1B3A5F` | `.cat-crypto` |
+| **Kai** 🔵 | `technical-analysis` | Darker Blue | `#142A42` | `.cat-technical-analysis` |
+| **Leon** 🟡 | `algo-trading` | Amber | `#D49B3B` | `.cat-algo-trading` |
+| **Vera** 🟠 | `fundamental-analysis` | Darker Amber | `#B8862B` | `.cat-fundamental-analysis` |
+| **Alex** 🔵 | `regulation` | Info Blue | `#2196F3` | `.cat-regulation` |
 
-**Почему NES-подобная палитра:**
-- ✅ Аутентично 8-bit NES стилю
-- ✅ Белый текст читается на всех фонах
-- ✅ Более тёмные оттенки для контраста
-- ✅ Соответствует ретро эстетике Market Lab
+**Почему Nordic palette:**
+- ✅ Минималистичность и чистота
+- ✅ Высокий контраст для читаемости
+- ✅ Логичная иерархия цветов
+- ✅ Соответствует современным трендам
+- ✅ Поддержка light/dark тем
 
 **Использование:**
 ```css
 .category-badge {
   background-color: var(--cat-crypto); /* Или другая категория */
-  color: white; /* Белый текст читается на всех цветах */
+  color: var(--nordic-text-primary); /* Темный текст на светлых фонах */
 }
 ```
 
 ### Компоненты
 
-- **Banner** — 8-bit баннеры для статей
+- **Banner** — современные баннеры для статей
 - **BannerCard** — реферальные баннеры (Veles, Bybit, BingX, Bitget, FinBazar, Default)
 - **FAQ** — автоматическая стилизация FAQ секций
 - **RelatedPosts** — связанные посты
@@ -106,10 +116,8 @@ npm run preview
 
 ## 🌍 Интернационализация
 
-Блог поддерживает 3 языка:
+Блог поддерживает 1 язык:
 - 🇷🇺 Русский (RU)
-- 🇬🇧 English (EN)
-- 🇪🇸 Español (ES)
 
 Контент хранится в `src/content/blog-[lang]/`
 
@@ -131,7 +139,7 @@ npm run preview
 title: "Заголовок"  # До 100 символов, H1
 description: "Описание (150-160 символов для SEO)"
 pubDate: '2026-01-15'  # Формат: YYYY-MM-DD
-category: 'crypto'  # Одна из 4 категорий
+category: 'crypto'  # Одна из 5 категорий
 ---
 
 # Заголовок статьи
@@ -153,9 +161,10 @@ category: 'crypto'  # Одна из 4 категорий
 - **Astro** — статический генератор сайтов
 - **TypeScript** — типизация
 - **Markdown** — контент блога
-- **CSS** — 8-bit стили
+- **SCSS** — Nordic design tokens (переменные в :root)
 - **GA4** — Google Analytics 4 (отслеживание кликов, UTM-метки)
 - **GitHub Actions** — автоматический деплой на GitHub Pages
+- **MD5 hashing** — умная инвалидация OG изображений
 
 ---
 
@@ -217,7 +226,7 @@ OG изображения автоматически генерируются п
 
 ## 📜 Лицензия и авторские права
 
-**Copyright (c) 2024-2026 Felag Academy**
+**Copyright (c) 2024-2026 FÉLAG**
 
 **Лицензия:** [CC BY-NC-SA 4.0](LICENSE)
 
@@ -250,17 +259,17 @@ OG изображения автоматически генерируются п
 **Текущая версия:** Production-ready
 
 **Что готово:**
-- ✅ 8-bit дизайн-система
-- ✅ Интернационализация (RU, EN, ES)
+- ✅ Nordic Layered Vector дизайн-система
+- ✅ Интернационализация (RU)
 - ✅ Компоненты (Banner, BannerCard, FAQ, RelatedPosts, SubscribeForm)
 - ✅ Поиск и фильтрация статей
 - ✅ Адаптивный дизайн
 - ✅ Реферальные баннеры с UTM-метками
 - ✅ GA4 отслеживание кликов
 - ✅ Автоматический деплой на GitHub Pages
-- ✅ OG изображения для соцсетей
+- ✅ Умные OG изображения с MD5-хешированием
 
 ---
 
-**🎮 Felag Academy — Образовательный блог о трейдинге! 🚀**
+**FÉLAG — Образовательный блог о трейдинге! 🚀**
 
