@@ -19,24 +19,31 @@
 
 :root {
   /* Deep Blue - основной цвет (FÉLAG brand) */
-  --nordic-deep-blue: #1B3A5F;       /* Deep Blue */
-  --nordic-deep-blue-light: #254D7A; /* Lighter variant */
-  --nordic-deep-blue-dark: #142A42;  /* Darker variant */
+  --nordic-deep-blue: #2A4A6F;       /* Deep Blue - Secondary Blue из лора (больше воздуха) */
+  --nordic-deep-blue-light: #385C8A; /* Lighter variant */
+  --nordic-deep-blue-dark: #1B3A5F;  /* Darker variant (was primary) */
   
   /* Amber - акцентный цвет */
-  --nordic-amber: #D49B3B;           /* Amber */
+  --nordic-amber: #D49B3B;           /* Amber - руна Феху, CTA */
   --nordic-amber-light: #E5AF56;     /* Lighter variant */
   --nordic-amber-dark: #B8862B;      /* Darker variant */
   
-  /* Neutral - минималистичная основа */
-  --nordic-bg-primary: #0F1115;      /* Very dark gray */
-  --nordic-bg-secondary: #1A1D23;    /* Dark gray */
-  --nordic-bg-tertiary: #2A2E35;     /* Medium gray */
+  /* Nordic warmth (новые цвета из лора) */
+  --nordic-cream: #F5F0EB;           /* Cream - снег, чистота, текст */
+  --nordic-warm-beige: #D4C4B7;      /* Warm Beige - дерево, бумага, рамки */
+  --nordic-muted-red: #B85450;       /* Muted Red - руны-разделители, ошибки */
+  --nordic-moss-green: #6B7B5E;      /* Moss Green - прибыль, успех, природа */
+  --nordic-blue-secondary: #2A4A6F;  /* Blue Secondary - слои, карточки */
   
-  /* Text */
-  --nordic-text-primary: #E8ECF1;    /* Off-white */
-  --nordic-text-secondary: #AAB3C0;  /* Light gray */
-  --nordic-text-tertiary: #7C8695;   /* Muted gray */
+  /* Neutral - минималистичная основа (Скандинавские сумерки) */
+  --nordic-bg-primary: #1E2530;      /* Скандинавская тьма (не черная дыра) */
+  --nordic-bg-secondary: #252D3A;    /* Карточки, слоистость */
+  --nordic-bg-tertiary: #2F3847;     /* Элементы, глубина */
+  
+  /* Text (для скандинавского тепла) */
+  --nordic-text-primary: #F5F0EB;    /* Cream - тепло, читаемость */
+  --nordic-text-secondary: #B0B8C3;  /* Light gray */
+  --nordic-text-tertiary: #8A93A1;   /* Muted gray */
   
   /* Semantic */
   --nordic-success: #4CAF50;         /* Green */
@@ -45,8 +52,8 @@
   --nordic-info: #2196F3;            /* Blue */
   
   /* Borders */
-  --nordic-border: rgba(232, 236, 241, 0.15);
-  --nordic-border-light: rgba(232, 236, 241, 0.08);
+  --nordic-border: rgba(245, 240, 235, 0.12);
+  --nordic-border-light: rgba(245, 240, 235, 0.06);
   
   /* Fibonacci Font Sizes */
   --fs-xs: 12px;
@@ -94,11 +101,11 @@
   --z-overlay: 2000;
   
   /* Category colors (FÉLAG characters - Nordic palette) */
-  --cat-crypto: var(--nordic-deep-blue);           /* Deep Blue */
-  --cat-technical-analysis: var(--nordic-deep-blue-dark);  /* Darker Blue */
-  --cat-algo-trading: var(--nordic-amber);         /* Amber */
+  --cat-crypto: var(--nordic-deep-blue);              /* Deep Blue - Secondary Blue */
+  --cat-technical-analysis: var(--nordic-deep-blue-dark);  /* Darker Blue - #1B3A5F */
+  --cat-algo-trading: var(--nordic-amber);            /* Amber - руна Феху */
   --cat-fundamental-analysis: var(--nordic-amber-dark);  /* Darker Amber */
-  --cat-regulation: var(--nordic-info);            /* Blue */
+  --cat-regulation: var(--nordic-moss-green);         /* Moss Green - прибыль */
 }
 
 /* ═══════════════════════════════════════════════════════════════
