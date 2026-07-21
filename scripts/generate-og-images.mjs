@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises';
-import { existsSync, statSync } from 'fs';
+import { existsSync, statSync, unlinkSync, readdirSync } from 'fs';
+import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import puppeteer from 'puppeteer';
@@ -52,17 +53,28 @@ const rubricColors = {
 	'general': '#00D800'
 };
 
+// Generate content hash (MD5)
+function getContentHash(content) {
+	return createHash('md5').update(content).digest('hex');
+}
+
 // Generate OG image for blog posts
-async function generateOGImage(data, browser, outputPath, contentPath) {
+async function generateOGImage(data, browser, outputPath, contentPath, imageMetaPath) {
 	try {
 		// Check if image exists and content hasn't changed
 		if (existsSync(outputPath) && existsSync(contentPath)) {
-			const imageStats = statSync(outputPath);
-			const contentStats = statSync(contentPath);
+			const content = await readFile(contentPath, 'utf-8');
+			const contentHash = getContentHash(content);
 			
-			if (imageStats.mtime >= contentStats.mtime) {
-				console.log(`[OG Images] Skipping ${data.slug} - image is up to date`);
-				return true;
+			// Try to read existing hash from metadata file
+			if (existsSync(imageMetaPath)) {
+				const metaContent = await readFile(imageMetaPath, 'utf-8');
+				const existingHash = metaContent.trim();
+				
+				if (existingHash === contentHash) {
+					console.log(`[OG Images] Skipping ${data.slug} - content unchanged`);
+					return true;
+				}
 			}
 		}
 		
@@ -107,6 +119,12 @@ async function generateOGImage(data, browser, outputPath, contentPath) {
 		const dir = path.dirname(outputPath);
 		if (!existsSync(dir)) { await mkdir(dir, { recursive: true }); }
 		await writeFile(outputPath, screenshot);
+		
+		// Save content hash for future comparison
+		const content = await readFile(contentPath, 'utf-8');
+		const contentHash = getContentHash(content);
+		await writeFile(imageMetaPath, contentHash);
+		
 		return true;
 	} catch (error) {
 		console.error(`[OG Images] Error generating image for ${data.slug}:`, error);
@@ -197,6 +215,44 @@ async function getBlogPosts() {
 	return posts;
 }
 
+// Clean up orphaned images
+function cleanOrphanedImages(posts, ogDir) {
+	try {
+		if (!existsSync(ogDir)) {
+			console.log('[OG Images] OG directory not found, skipping cleanup');
+			return;
+		}
+
+		const existingImages = readdirSync(ogDir, { withFileTypes: false });
+		const validSlugs = new Set(posts.map(p => `${p.lang}-${p.slug}`));
+		
+		for (const img of existingImages) {
+			// Skip meta files and non-png files
+			if (img.endsWith('.meta') || !img.endsWith('.png')) continue;
+			
+			const slug = img.replace('.png', '');
+			if (!validSlugs.has(slug)) {
+				const imgPath = path.join(ogDir, img);
+				const metaPath = `${imgPath}.meta`;
+				
+				try {
+					unlinkSync(imgPath);
+					console.log(`[OG Images] Removed orphaned image: ${slug}`);
+					
+					// Also remove meta file if exists
+					if (existsSync(metaPath)) {
+						unlinkSync(metaPath);
+					}
+				} catch (err) {
+					console.warn(`[OG Images] Error removing ${img}:`, err);
+				}
+			}
+		}
+	} catch (error) {
+		console.error('[OG Images] Error during cleanup:', error);
+	}
+}
+
 async function main() {
 	console.log('[OG Images] Starting OG image generation...');
 	if (!existsSync(distDir)) {
@@ -204,20 +260,29 @@ async function main() {
 		process.exit(1);
 	}
 
+	// Ensure OG directory exists
+	if (!existsSync(ogDir)) {
+		await mkdir(ogDir, { recursive: true });
+	}
+
 	const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
 
 	try {
 		const posts = await getBlogPosts();
+		console.log(`[OG Images] Found ${posts.length} blog posts to process`);
+		
 		for (const post of posts) {
 			const contentPath = path.join(rootDir, 'src', 'content', `blog-${post.lang}`, post.slug, 'index.md');
 			const outputPath = path.join(ogDir, `${post.lang}-${post.slug}.png`);
+			const imageMetaPath = `${outputPath}.meta`;
+			
 			await generateOGImage({
 				title: post.title,
 				subtitle: post.description,
 				category: post.category,
 				lang: post.lang,
 				slug: post.slug,
-			}, browser, outputPath, contentPath);
+			}, browser, outputPath, contentPath, imageMetaPath);
 		}
 
 		// Homepage Images (Multilingual) - using special template
@@ -246,6 +311,9 @@ async function main() {
 		for (const config of aboutConfigs) {
 			await generateHomepageOGImage(config, browser, path.join(ogDir, `${config.lang}-about.png`));
 		}
+
+		// Clean up orphaned images
+		cleanOrphanedImages(posts, ogDir);
 
 	} finally {
 		await browser.close();
