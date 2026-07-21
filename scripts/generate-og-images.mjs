@@ -1,5 +1,5 @@
-import { readFile, writeFile, mkdir, readdir, statSync } from 'fs/promises';
-import { existsSync } from 'fs';
+import { readFile, writeFile, mkdir, readdir } from 'fs/promises';
+import { existsSync, statSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import puppeteer from 'puppeteer';
