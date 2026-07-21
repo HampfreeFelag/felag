@@ -92,6 +92,13 @@
   /* Z-index */
   --z-header: 1000;
   --z-overlay: 2000;
+  
+  /* Category colors (FÉLAG characters - Nordic palette) */
+  --cat-crypto: var(--nordic-deep-blue);           /* Deep Blue */
+  --cat-technical-analysis: var(--nordic-deep-blue-dark);  /* Darker Blue */
+  --cat-algo-trading: var(--nordic-amber);         /* Amber */
+  --cat-fundamental-analysis: var(--nordic-amber-dark);  /* Darker Amber */
+  --cat-regulation: var(--nordic-info);            /* Blue */
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -113,10 +120,3 @@
   --nordic-border: rgba(26, 28, 33, 0.1);
   --nordic-border-light: rgba(26, 28, 33, 0.05);
 }
-
-/* Category colors (FÉLAG characters - Nordic palette) */
---cat-crypto: var(--nordic-deep-blue);           /* Deep Blue */
---cat-technical-analysis: var(--nordic-deep-blue-dark);  /* Darker Blue */
---cat-algo-trading: var(--nordic-amber);         /* Amber */
---cat-fundamental-analysis: var(--nordic-amber-dark);  /* Darker Amber */
---cat-regulation: var(--nordic-info);            /* Blue */
