@@ -9,6 +9,7 @@ import ScrollTop from '../../components/ScrollTop.astro';
 import Banner from '../../components/Banner.astro';
 import PixelIcon from '../../components/ui/PixelIcon.astro';
 import SubscribeForm from '../../components/SubscribeForm.astro';
+import NordicScene from '../../components/NordicScene.astro';
 import '../../styles/components/home-index.scss';
 import { ui } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
@@ -89,13 +90,16 @@ const categories = [
 	<body>
 		<Header />
 		<main class="container">
-			<section class="hero" aria-labelledby="hero-title">
-				<h1 id="hero-title" class="brutal">{t('home.hero_title')}</h1>
-				<p>{t('home.hero_description')}</p>
-				<div class="hero-actions">
-					<a href={translatePath('library')} class="btn">{t('home.hero_cta')}</a>
+			<!-- Nordic Scene with parallax effect -->
+			<NordicScene>
+				<div class="hero-content">
+					<h1 id="hero-title" class="brutal">{t('home.hero_title')}</h1>
+					<p>{t('home.hero_description')}</p>
+					<div class="hero-actions">
+						<a href={translatePath('library')} class="btn">{t('home.hero_cta')}</a>
+					</div>
 				</div>
-			</section>
+			</NordicScene>
 
 			<section aria-labelledby="cat-label">
 				<div id="cat-label" class="section-label">{t('home.categories_label')}</div>

@@ -1,0 +1,59 @@
+---
+// Rune Icon Component — FÉLAG runes in SVG
+// Uses Noto Sans Runic font for authentic runic shapes
+
+import type { ComponentProps } from 'astro/types';
+
+interface Props extends ComponentProps<'svg'> {
+  name: 'fehu' | 'odal' | 'bjarkan' | 'thurs' | 'wunjo' | 'hagalaz';
+  size?: number;
+  color?: string;
+}
+
+const runes: Record<string, string> = {
+  fehu: 'ᚠ',    // Fehu - wealth, cattle, movement
+  odal: 'ᛟ',    // Odal - inheritance, capital, heritage
+  bjarkan: 'ᛒ', // Bjarkan - growth, birch, progress
+  thurs: 'ᚦ',   // Thurs - protection, risk, defense
+  wunjo: 'ᚹ',   // Wunjo - joy, success, harmony
+  hagalaz: 'ᚼ', // Hagalaz - change, disruption, weather
+};
+
+const { name, size = 32, color = 'currentColor' }: Props = Astro.props;
+
+const runeChar = runes[name] || ' runes not found ';
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  class="rune-icon"
+>
+  {/* Rune character */}
+  <text
+    x="50%"
+    y="50%"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    font-family="'Noto Sans Runic', 'JetBrains Mono', monospace"
+    font-size={size * 0.85}
+    fill={color}
+    style="font-weight: 700;"
+  >
+    {runeChar}
+  </text>
+  
+  {/* Optional: subtle shadow for depth */}
+  <circle
+    cx="50%"
+    cy="50%"
+    r={size * 0.45}
+    stroke={color}
+    stroke-opacity="0.1"
+    stroke-width="1"
+    fill="none"
+  />
+</svg>

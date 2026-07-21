@@ -1,0 +1,87 @@
+---
+// ParallaxController.astro — adds parallax effect to scenes
+// Uses mouse movement to shift background layers
+
+import { onMount } from 'astro:scripts';
+import 'lil-gui';
+
+const { enabled = true }: { enabled?: boolean } = Astro.props;
+---
+
+<script is:global>
+  // Parallax effect for Nordic Scene
+  function setupParallax() {
+    if (!enabled) return;
+    
+    const scenes = document.querySelectorAll('.scene[data-parallax="true"]');
+    
+    if (scenes.length === 0) return;
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      
+      mouseX = (0.5 - x) * 20; // Max 20px shift
+      mouseY = (0.5 - y) * 20;
+    });
+    
+    // Update layers on requestAnimationFrame for smooth performance
+    function update() {
+      scenes.forEach((scene) => {
+        const layers = scene.querySelectorAll('.layer');
+        
+        layers.forEach((layer, index) => {
+          // Different speeds for different layers
+          const speed = (index + 1) * 2;
+          const x = mouseX * speed;
+          const y = mouseY * speed;
+          
+          layer.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      });
+      
+      requestAnimationFrame(update);
+    }
+    
+    update();
+  }
+  
+  onMount(() => {
+    setupParallax();
+  });
+</script>
+
+<!-- Parallax container wrapper -->
+<div class="parallax-wrapper">
+  <slot />
+</div>
+
+<style>
+  .parallax-wrapper {
+    position: relative;
+  }
+  
+  .parallax-wrapper .scene {
+    position: relative;
+  }
+  
+  .parallax-wrapper .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.1s linear;
+    will-change: transform;
+  }
+  
+  /* Smooth parallax with reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .parallax-wrapper .layer {
+      transition: none;
+    }
+  }
+</style>

@@ -37,6 +37,7 @@
   --color-bg: var(--nordic-bg-primary);
   --color-bg-secondary: var(--nordic-bg-secondary);
   --color-bg-tertiary: var(--nordic-bg-tertiary);
+  --color-card-bg: var(--nordic-bg-secondary);
   
   /* Text */
   --color-text-primary: var(--nordic-text-primary);
@@ -46,6 +47,8 @@
   /* Borders */
   --color-border: var(--nordic-border);
   --color-border-light: var(--nordic-border-light);
+  --border-structural: 1px solid var(--nordic-border);
+  --border-decorative: 1px solid var(--nordic-border);
   
   /* Status colors */
   --color-success: var(--nordic-success);
