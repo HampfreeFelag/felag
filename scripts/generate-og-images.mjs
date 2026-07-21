@@ -287,9 +287,9 @@ async function main() {
 
 		// Homepage Images (Multilingual) - using special template
 		const homeConfigs = [
-			{ lang: 'ru', title: 'MarketLab Academy', subtitle: 'Блог о трейдинге, криптовалюте и автоматизации торговли' },
-			{ lang: 'en', title: 'MarketLab Academy', subtitle: 'Blog about trading, cryptocurrency and trading automation' },
-			{ lang: 'es', title: 'MarketLab Academy', subtitle: 'Blog sobre trading, criptomonedas y automatización de trading' }
+			{ lang: 'ru', title: 'FÉLAG', subtitle: 'Блог о трейдинге, криптовалюте и ремесле' },
+			{ lang: 'en', title: 'FÉLAG', subtitle: 'Blog about trading, cryptocurrency and craftsmanship' },
+			{ lang: 'es', title: 'FÉLAG', subtitle: 'Blog sobre trading, criptomonedas y artesanía' }
 		];
 
 		for (const config of homeConfigs) {
@@ -303,9 +303,9 @@ async function main() {
 
 		// About Page Images (Multilingual) - using special template
 		const aboutConfigs = [
-			{ lang: 'ru', title: 'О проекте', subtitle: 'MarketLab Academy — блог о трейдинге, где главное — люди и их опыт.' },
-			{ lang: 'en', title: 'About Project', subtitle: 'MarketLab Academy — a trading blog where people and their experience come first.' },
-			{ lang: 'es', title: 'Sobre el proyecto', subtitle: 'MarketLab Academy — un blog de trading donde las personas y su experiencia son lo primero.' }
+			{ lang: 'ru', title: 'О проекте', subtitle: 'FÉLAG — блог о трейдинге, где главное — люди и их опыт.' },
+			{ lang: 'en', title: 'About Project', subtitle: 'FÉLAG — a trading blog where people and their experience come first.' },
+			{ lang: 'es', title: 'Sobre el proyecto', subtitle: 'FÉLAG — un blog de trading donde las personas y su experiencia son lo primero.' }
 		];
 
 		for (const config of aboutConfigs) {
