@@ -28,6 +28,14 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
+      - name: Cache OG Images
+        uses: actions/cache@v4
+        with:
+          path: dist/og
+          key: ${{ runner.os }}-og-images-${{ hashFiles('src/content/**/*.md') }}
+          restore-keys: |
+            ${{ runner.os }}-og-images-
+
       - name: Install dependencies
         run: npm ci
 

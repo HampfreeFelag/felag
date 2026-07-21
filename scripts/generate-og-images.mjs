@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir, readdir } from 'fs/promises';
+import { readFile, writeFile, mkdir, readdir, statSync } from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -53,8 +53,19 @@ const rubricColors = {
 };
 
 // Generate OG image for blog posts
-async function generateOGImage(data, browser, outputPath) {
+async function generateOGImage(data, browser, outputPath, contentPath) {
 	try {
+		// Check if image exists and content hasn't changed
+		if (existsSync(outputPath) && existsSync(contentPath)) {
+			const imageStats = statSync(outputPath);
+			const contentStats = statSync(contentPath);
+			
+			if (imageStats.mtime >= contentStats.mtime) {
+				console.log(`[OG Images] Skipping ${data.slug} - image is up to date`);
+				return true;
+			}
+		}
+		
 		const rubric = data.rubric || (() => {
 			const catKey = (data.category || 'general').toLowerCase().trim();
 			const translations = categoryTranslations[data.lang];
@@ -83,9 +94,7 @@ async function generateOGImage(data, browser, outputPath) {
 			.replace(/\{\{RUBRIC\}\}/g, rubric)
 			.replace(/\{\{PATTERN\}\}/g, pattern);
 
-		html = html.replace('<style>', `<style>
-		:root { --rubric-color: ${rubricColor}; }
-	`);
+		html = html.replace('<style>', `<style>\n\t:root { --rubric-color: ${rubricColor}; }\n`);
 
 		const page = await browser.newPage();
 		await page.setViewport({ width: 1200, height: 630 });
@@ -164,17 +173,17 @@ async function getBlogPosts() {
 				if (existsSync(indexPath)) {
 					try {
 						const content = await readFile(indexPath, 'utf-8');
-                    const frontmatter = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+						const frontmatter = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
 						if (frontmatter) {
 							const yaml = frontmatter[1];
-                        const titleMatch = yaml.match(/^title:\s*['"]?(.*?)['"]?\s*$/m);
-                        const descMatch  = yaml.match(/^description:\s*['"]?(.*?)['"]?\s*$/m);
-                        const catMatch   = yaml.match(/^category:\s*['"]?([\w-]+)['"]?/m);
+							const titleMatch = yaml.match(/^title:\s*['"]?(.*?)['"]?\s*$/m);
+							const descMatch  = yaml.match(/^description:\s*['"]?(.*?)['"]?\s*$/m);
+							const catMatch   = yaml.match(/^category:\s*['"]?([\w-]+)['"]?/m);
 							posts.push({
 								lang,
 								slug: entry.name,
-								                        title: titleMatch ? titleMatch[1].trim() : entry.name,
-								                        description: descMatch  ? descMatch[1].trim()  : '',
+								title: titleMatch ? titleMatch[1].trim() : entry.name,
+								description: descMatch  ? descMatch[1].trim()  : '',
 								category: catMatch ? catMatch[1] : 'general',
 							});
 						}
@@ -200,6 +209,7 @@ async function main() {
 	try {
 		const posts = await getBlogPosts();
 		for (const post of posts) {
+			const contentPath = path.join(rootDir, 'src', 'content', `blog-${post.lang}`, post.slug, 'index.md');
 			const outputPath = path.join(ogDir, `${post.lang}-${post.slug}.png`);
 			await generateOGImage({
 				title: post.title,
@@ -207,7 +217,7 @@ async function main() {
 				category: post.category,
 				lang: post.lang,
 				slug: post.slug,
-			}, browser, outputPath);
+			}, browser, outputPath, contentPath);
 		}
 
 		// Homepage Images (Multilingual) - using special template
