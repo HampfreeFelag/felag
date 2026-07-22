@@ -1,9 +1,12 @@
 /*
   ═══════════════════════════════════════════════════════════════
-  BLOG POST LAYOUT STYLES
+  BLOG POST LAYOUT STYLES (NORDIC THEME)
   ═══════════════════════════════════════════════════════════════
   
   All blog post layout styles in one place.
+  Design: Nordic minimalism, clean typography, layered depth
+  
+  Created: 2026-01-21
   ═══════════════════════════════════════════════════════════════
 */
 
@@ -62,7 +65,7 @@
 .toc-item {
 	padding: var(--space-1) 0; /* 8px сверху и снизу — строго кратно 8 */
 	padding-left: 0; /* Сбрасываем padding-left — он задаётся через inline style */
-	border-bottom: 1px dashed var(--nes-bg-secondary);
+	border-bottom: 1px dashed var(--nordic-border-light);
 	text-align: left; /* Выравниваем текст влево */
 	/* Минимальная высота, но может расширяться для длинных текстов */
 	min-height: 1.8em;
@@ -76,9 +79,9 @@
 }
 
 .toc-item a {
-	color: var(--color-text-secondary);
+	color: var(--nordic-text-secondary);
 	text-decoration: none;
-	transition: color 0.1s steps(3);
+	transition: color var(--transition-normal);
 	display: block;
 	width: 100%;
 	/* Разрешаем перенос текста - НЕ обрезаем! */
@@ -91,13 +94,13 @@
 }
 
 .toc-item a:hover {
-	color: var(--nes-accent-green);
+	color: var(--nordic-deep-blue);
 	text-decoration: none;
 }
 
 .toc-item a.active {
-	color: var(--nes-accent-green);
-	font-weight: bold;
+	color: var(--nordic-deep-blue);
+	font-weight: 600;
 	/* Та же высота и line-height - не будет дёргания */
 	line-height: 1.6;
 }
@@ -139,11 +142,11 @@ article {
 .prose h2 {
 	margin-top: var(--space-6); /* Уменьшено до 48px для более компактного вида */
 	margin-bottom: var(--space-3); /* Уменьшено до 24px */
-	color: var(--nes-accent-green);
-	font-family: 'Press Start 2P', monospace;
+	color: var(--nordic-deep-blue);
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 	/* Responsive: avoid layout breaks on mobile/zoom */
 	font-size: clamp(18px, 4vw, 24px);
-	border-bottom: 4px solid var(--nes-bg-secondary);
+	border-bottom: 1px solid var(--nordic-border-light);
 	padding-bottom: 0.5rem;
 	position: relative;
 	text-transform: none; /* Reduce caps for better readability */
@@ -158,8 +161,8 @@ article {
 .prose h6 {
 	margin-top: var(--space-4); /* 32px */
 	margin-bottom: var(--space-2); /* 16px */
-	color: var(--nes-text-primary);
-	font-family: 'JetBrains Mono', monospace;
+	color: var(--nordic-deep-blue-dark);
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 	font-weight: 700;
 	letter-spacing: 0;
 	text-transform: none;
@@ -212,7 +215,7 @@ article {
 }
 
 .prose img {
-	border: 4px solid var(--color-border);
+	border: 1px solid var(--nordic-border);
 	margin: var(--space-2) 0; /* 16px сверху и снизу */
 	max-width: 100% !important;
 	width: auto !important;
@@ -257,16 +260,15 @@ article {
 	margin-top: var(--space-2) !important; /* 16px вместо стандартных 32px */
 }
 
-/* Уменьшаем отступ для параграфов после изображений */
 .prose img + p {
 	margin-top: var(--space-2) !important; /* 16px */
 }
 
 .prose blockquote {
-	border-left: 8px solid var(--nes-accent-blue);
+	border-left: 4px solid var(--nordic-deep-blue);
 	padding: 1rem 2rem;
 	margin: 2rem 0;
-	background: var(--nes-bg-secondary);
+	background: var(--nordic-bg-secondary);
 	font-style: italic;
 }
 
@@ -283,26 +285,27 @@ article {
 	/* Плавный скролл */
 	scroll-behavior: smooth;
 	/* Скруглённые углы для контейнера */
-	border-radius: 4px;
+	border-radius: var(--radius-md);
 }
 
 .prose th, .prose td {
 	padding: 0.75rem 1rem;
-	border: 2px solid var(--nes-border-primary);
+	border: 1px solid var(--nordic-border);
 	text-align: left;
 	white-space: nowrap; /* Не переносить текст в ячейках */
 }
 
 .prose th {
-	background-color: var(--nes-bg-secondary);
-	color: var(--nes-accent-green);
-	font-family: 'Press Start 2P', monospace;
-	font-size: 0.6rem;
+	background-color: var(--nordic-bg-secondary);
+	color: var(--nordic-deep-blue);
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+	font-weight: 600;
+	font-size: var(--fs-xs);
 	text-transform: uppercase;
 }
 
 .prose tbody tr:hover {
-	background-color: rgba(0, 216, 0, 0.05);
+	background-color: rgba(58, 95, 127, 0.05);
 }
 
 /* На десктопе таблицы не скроллятся — помещаются */
@@ -315,7 +318,7 @@ article {
 	}
 
 	.prose th, .prose td {
-		border: 2px solid var(--nes-border-primary);
+		border: 1px solid var(--nordic-border);
 		white-space: normal; /* Перенос текста на десктопе */
 	}
 }
@@ -342,25 +345,25 @@ article {
 }
 
 .prose table::-webkit-scrollbar-track {
-	background: var(--nes-bg-secondary);
-	border-radius: 4px;
+	background: var(--nordic-bg-secondary);
+	border-radius: var(--radius-sm);
 }
 
 .prose table::-webkit-scrollbar-thumb {
-	background: var(--nes-border-primary);
-	border-radius: 4px;
-	transition: background 0.2s;
+	background: var(--nordic-border);
+	border-radius: var(--radius-sm);
+	transition: background var(--transition-normal);
 }
 
 .prose table::-webkit-scrollbar-thumb:hover {
-	background: var(--nes-accent-green);
+	background: var(--nordic-deep-blue);
 }
 
 /* Firefox скроллбар */
 @-moz-document url-prefix() {
 	.prose table {
 		scrollbar-width: thin;
-		scrollbar-color: var(--nes-border-primary) var(--nes-bg-secondary);
+		scrollbar-color: var(--nordic-border) var(--nordic-bg-secondary);
 	}
 }
 
@@ -370,12 +373,12 @@ article {
 }
 
 .prose .table-wrapper::-webkit-scrollbar-track {
-	background: var(--nes-bg-secondary);
+	background: var(--nordic-bg-secondary);
 }
 
 .prose .table-wrapper::-webkit-scrollbar-thumb {
-	background: var(--nes-border-primary);
-	border-radius: 3px;
+	background: var(--nordic-border);
+	border-radius: var(--radius-sm);
 }
 
 .prose > * {
@@ -407,15 +410,15 @@ article {
 }
 
 .meta {
-	font-family: 'JetBrains Mono', monospace;
-	font-size: 0.75rem;
-	color: var(--color-text-secondary);
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+	font-size: 0.875rem;
+	color: var(--nordic-text-secondary);
 	margin-bottom: 0.5rem;
 }
 
 h1 {
-	font-family: 'Press Start 2P', monospace;
-	font-size: 32px; /* --fs-xl from guidelines */
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+	font-size: 2rem; /* --fs-2xl from guidelines */
 	line-height: 1.2;
 	margin-bottom: var(--space-8);
 	text-transform: uppercase;
@@ -423,7 +426,7 @@ h1 {
 
 .hero-img {
 	width: 100%;
-	border: 4px solid var(--color-border);
+	border: 1px solid var(--nordic-border);
 	margin-top: var(--space-4); /* 32px — отступ сверху от мета-информации */
 	margin-bottom: var(--space-6); /* Уменьшено с --space-10 (80px) до 48px для более компактного вида */
 	display: block;

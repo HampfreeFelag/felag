@@ -1,5 +1,5 @@
 ---
-import '../styles/components/footer.scss';
+// Footer — minimal, clean
 import ConsentBanner from './ConsentBanner.astro';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
@@ -7,11 +7,9 @@ const today = new Date();
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
-// Bitget Copy Trading: RU — с /ru/ и futures-order; EN/ES — без /ru/
 const bitgetCopyUrl = lang === 'ru'
 	? 'https://www.bitget.com/ru/copy-trading/trader/bdb24c7186bb3856a397/futures-order?clacCode=&shareType=2'
 	: 'https://www.bitget.com/copy-trading/trader/bdb24c7186bb3856a397/futures-order?clacCode=&shareType=2';
-// Реферальные: Bitget — для RU нужен /ru/referral/register и from=referral; Bybit — локаль в пути
 const bitgetReferralUrl = lang === 'ru'
 	? 'https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD'
 	: 'https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD';
@@ -23,52 +21,13 @@ const bybitInviteUrl = lang === 'ru'
 ---
 
 <footer class="main-footer">
-	<div class="footer-container">
-		<div class="footer-grid">
-			<!-- Колонка 1 -->
-			<div class="footer-column">
-				<h3>{t('footer.content')}</h3>
-				<div class="footer-links">
-					{lang === 'ru' ? (
-						<>
-							<a href="https://coinmarketcap.com/community/ru/profile/Hampfree/" target="_blank" rel="noopener noreferrer">> CoinMarketCap</a>
-							<a href="https://t.me/hampfree_market_lab" target="_blank" rel="noopener noreferrer">> Telegram</a>
-							<a href="https://dzen.ru/hampfree_algo_trading" target="_blank" rel="noopener noreferrer">> Dzen</a>
-						</>
-					) : (
-						<>
-							<a href="https://coinmarketcap.com/community/profile/Hampfree/?type=Posts" target="_blank" rel="noopener noreferrer">> CoinMarketCap</a>
-							<a href="https://paragraph.com/@hampfree" target="_blank" rel="noopener noreferrer">> Paragraph</a>
-							<a href="https://t.me/hampfree_market_lab_global" target="_blank" rel="noopener noreferrer">> Telegram</a>
-						</>
-					)}
-				</div>
-			</div>
-
-			<!-- Колонка 2 -->
-			<div class="footer-column">
-				<h3>{t('footer.referrals')}</h3>
-				<div class="footer-links">
-					<a href={bitgetReferralUrl} target="_blank" rel="noopener noreferrer">> Bitget</a>
-					<a href={bybitInviteUrl} target="_blank" rel="noopener noreferrer">> Bybit</a>
-					<a href="https://bingxdao.com/invite/CUBDBG/" target="_blank" rel="noopener noreferrer">> BingX</a>
-					<a href="https://veles.finance/invite/washmallay" target="_blank" rel="noopener noreferrer">> Veles</a>
-				</div>
-			</div>
-
-			<!-- Колонка 3 -->
-			<div class="footer-column">
-				<h3>{t('footer.copytrading')}</h3>
-				<div class="footer-links">
-					<a href={bitgetCopyUrl} target="_blank" rel="noopener noreferrer">> Bitget (Copy)</a>
-					<a href="https://bybit.onelink.me/EhY6/1ll6qnvc" target="_blank" rel="noopener noreferrer">> Bybit (Copy)</a>
-					<a href="https://bingx.com/int/1tjKO4" target="_blank" rel="noopener noreferrer">> BingX (Copy)</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="footer-bottom">
-			<p>&copy; {today.getFullYear()} MARKETLAB ACADEMY. SYSTEM_STABLE. {t('footer.rights')} · <a href={translatePath('privacy')}>{t('nav.privacy')}</a></p>
+	<div class="container">
+		<div class="footer-container">
+			<p class="footer-copy">&copy; {today.getFullYear()} FÉLAG. SYSTEM_STABLE. {t('footer.rights')} · <a href={translatePath('privacy')}>{t('nav.privacy')}</a></p>
+			<ul class="footer-links">
+				<li><a href={translatePath('library')}>{t('nav.library')}</a></li>
+				<li><a href={translatePath('about')}>{t('nav.about')}</a></li>
+			</ul>
 		</div>
 	</div>
 </footer>

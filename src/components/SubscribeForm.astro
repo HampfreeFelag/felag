@@ -14,197 +14,68 @@ const t = useTranslations(lang);
 const formTitle = title || t('home.newsletter_title');
 ---
 
-<div class={`newsletter-wrapper ${withContainer ? 'nes-container with-title' : ''}`}>
-	{withContainer && <p class="title">{formTitle}</p>}
-	{!withContainer && <p class="newsletter-simple-title">{formTitle}</p>}
-	
+<div class={`subscribe-section ${withContainer ? 'subscribe-with-container' : ''}`}>
+	{withContainer && <h2>{formTitle}</h2>}
 	<p class="newsletter-desc">{t('home.newsletter_desc')}</p>
 	
-	<form id="newsletter-form-component" class="subscribe-form-component">
-		<div class="form-row">
-			<input 
-				type="email" 
-				placeholder={t('home.newsletter_placeholder')} 
-				required 
-				name="email"
-				class="newsletter-input"
-			/>
-			<button type="submit" class="btn-submit">
-				{t('home.newsletter_button')}
-			</button>
-		</div>
-		<p id="form-error-comp" class="error-text" style="display: none; color: var(--nes-accent-red); margin-top: var(--space-2);">
+	<form id="newsletter-form-component" class="subscribe-form">
+		<input 
+			type="email" 
+			placeholder={t('home.newsletter_placeholder')} 
+			required 
+			name="email"
+		/>
+		<button type="submit" class="btn-submit">
+			{t('home.newsletter_button')}
+		</button>
+		<p id="form-error-comp" class="error-text" style="display: none; color: var(--color-error) !important; margin-top: var(--space-sm);">
 			{t('home.newsletter_error')}
 		</p>
-		<p id="form-success-comp" class="success-text" style="display: none; color: var(--nes-accent-green); margin-top: var(--space-2);">
+		<p id="form-success-comp" class="success-text" style="display: none; color: var(--color-success) !important; margin-top: var(--space-sm);">
 			{t('home.newsletter_success')}
 		</p>
 	</form>
 </div>
 
-<script is:inline define:vars={{ sendingMsg: t('home.newsletter_sending'), buttonMsg: t('home.newsletter_button') }}>
-	function initForm() {
-		const form = document.getElementById('newsletter-form-component');
-		if (!form) return;
+	<script is:inline define:vars={{ sendingMsg: t('home.newsletter_sending'), buttonMsg: t('home.newsletter_button') }}>
+		function initForm() {
+			const form = document.getElementById('newsletter-form-component');
+			if (!form) return;
 
-		const errorMsg = document.getElementById('form-error-comp');
-		const successMsg = document.getElementById('form-success-comp');
-		const submitBtn = form.querySelector('.btn-submit');
+			const errorMsg = document.getElementById('form-error-comp');
+			const successMsg = document.getElementById('form-success-comp');
+			const submitBtn = form.querySelector('.btn-submit');
 
-		form.addEventListener('submit', async (e) => {
-			e.preventDefault();
-			if (errorMsg) errorMsg.style.display = 'none';
-			if (successMsg) successMsg.style.display = 'none';
-			
-			const email = form.email.value;
-			const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			form.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				if (errorMsg) errorMsg.style.display = 'none';
+				if (successMsg) successMsg.style.display = 'none';
+				
+				const email = form.email.value;
+				const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-			if (!emailPattern.test(email)) {
-				if (errorMsg) errorMsg.style.display = 'block';
-				return;
-			}
-
-			if (submitBtn) {
-				submitBtn.disabled = true;
-				submitBtn.dataset.originalText = submitBtn.innerText;
-				submitBtn.innerText = sendingMsg;
-			}
-
-			setTimeout(() => {
-				if (successMsg) successMsg.style.display = 'block';
-				form.reset();
-				if (submitBtn) {
-					submitBtn.disabled = false;
-					submitBtn.innerText = buttonMsg;
+				if (!emailPattern.test(email)) {
+					if (errorMsg) errorMsg.style.display = 'block';
+					return;
 				}
-			}, 1000);
-		});
-	}
 
-	initForm();
-	document.addEventListener('astro:page-load', initForm);
-</script>
+				if (submitBtn) {
+					submitBtn.disabled = true;
+					submitBtn.dataset.originalText = submitBtn.innerText;
+					submitBtn.innerText = sendingMsg;
+				}
 
-<style>
-	.newsletter-wrapper {
-		margin: var(--space-4) 0;
-		text-align: center;
-	}
-
-	.newsletter-simple-title {
-		font-family: 'Press Start 2P', monospace;
-		font-size: 1rem;
-		margin-bottom: var(--space-2);
-		color: var(--nes-accent-green);
-		text-transform: uppercase;
-		text-align: center;
-	}
-
-	.newsletter-desc {
-		color: var(--color-text-secondary);
-		margin-bottom: var(--space-4);
-		margin-top: var(--space-4);
-		font-size: 0.9rem;
-		text-align: center;
-	}
-
-	.newsletter-wrapper.nes-container.with-title > .newsletter-desc {
-		margin-top: var(--space-4);
-	}
-
-	.subscribe-form-component {
-		max-width: 600px;
-		margin: 0 auto var(--space-4) auto;
-		width: 100%;
-		box-sizing: border-box;
-	}
-
-	.form-row {
-		display: flex;
-		height: 56px;
-		gap: 0;
-		align-items: stretch;
-		width: 100%;
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
-
-	.newsletter-input {
-		flex: 1 1 0;
-		min-width: 0;
-		height: 56px;
-		border: 4px solid var(--nes-border-primary);
-		background-color: var(--nes-bg-secondary);
-		padding: var(--space-1) var(--space-2);
-		margin: 0;
-		font-family: 'JetBrains Mono', monospace;
-		font-size: 0.9rem;
-		color: var(--color-text-primary);
-		box-sizing: border-box;
-		line-height: 1.6;
-		outline: none;
-	}
-
-	.newsletter-input::placeholder {
-		color: var(--color-text-secondary);
-		opacity: 0.7;
-	}
-
-	.newsletter-input:focus {
-		border-color: var(--nes-accent-green);
-		outline: none;
-	}
-
-	.btn-submit {
-		flex: 0 0 auto;
-		height: 56px;
-		min-height: 56px;
-		max-height: 56px;
-		padding: 0 var(--space-4);
-		margin: 0;
-		background-color: var(--nes-accent-green);
-		color: var(--nes-bg-primary);
-		border: 4px solid var(--nes-border-primary);
-		border-left: none;
-		font-family: 'Press Start 2P', monospace;
-		font-size: 0.7rem;
-		text-transform: uppercase;
-		cursor: pointer;
-		box-sizing: border-box;
-		white-space: nowrap;
-		transition: background-color 0.1s steps(3);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		line-height: 1;
-	}
-
-	.btn-submit:hover:not(:disabled) {
-		background-color: var(--nes-accent-green-dark);
-		color: #ffffff;
-	}
-
-	.btn-submit:disabled {
-		opacity: 0.7;
-		cursor: not-allowed;
-	}
-
-	@media (max-width: 600px) {
-		.form-row {
-			flex-direction: column;
-			height: auto;
-			gap: var(--space-2);
+				setTimeout(() => {
+					if (successMsg) successMsg.style.display = 'block';
+					form.reset();
+					if (submitBtn) {
+						submitBtn.disabled = false;
+						submitBtn.innerText = buttonMsg;
+					}
+				}, 1000);
+			});
 		}
-		.newsletter-input {
-			width: 100%;
-			height: 56px;
-			border-left: 4px solid var(--nes-border-primary);
-		}
-		.btn-submit {
-			width: 100%;
-			height: 56px;
-			border-left: 4px solid var(--nes-border-primary);
-		}
-	}
-</style>
+
+		initForm();
+		document.addEventListener('astro:page-load', initForm);
+	</script>

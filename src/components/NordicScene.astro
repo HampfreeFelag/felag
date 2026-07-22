@@ -1,229 +1,56 @@
 ---
-// Nordic Scene Component — layered landscape with runes
-// Creates depth through multiple SVG layers
-
-import Banner from '../Banner.astro';
-import RuneIcon from './icons/RuneIcon.astro';
-
-const { title, subtitle, category }: { title?: string; subtitle?: string; category?: string } = Astro.props;
-
-// Runes for decorative elements
-const DECO_RUNES = [
-  { name: 'fehu', x: 10, y: 20, scale: 0.6 },
-  { name: 'bjarkan', x: 30, y: 35, scale: 0.7 },
-  { name: 'odal', x: 70, y: 15, scale: 0.5 },
-  { name: 'thurs', x: 85, y: 50, scale: 0.8 },
-  { name: 'wunjo', x: 50, y: 65, scale: 0.6 },
-];
+// NordicScene.astro — фоновый слой скандинавского ландшафта
+// Располагается строго позади контента (z-index: 1)
+// Пропускает клики сквозь себя (pointer-events: none)
 ---
-
-<!-- Scene container -->
-<div class="scene">
-  
-  {/* Layer 1: Background - distant mountains/fjords */}
-  <svg class="layer layer-background" viewBox="0 0 800 400" preserveAspectRatio="none">
-    {/* Sky gradient */}
-    <defs>
-      <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#E8E0D5" />
-        <stop offset="50%" stop-color="#D4C4B7" />
-        <stop offset="100%" stop-color="#B8A897" />
-      </linearGradient>
-      
-      <linearGradient id="mountain-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#C4B4A7" />
-        <stop offset="100%" stop-color="#A89887" />
-      </linearGradient>
-      
-      <filter id="mountain-shadow">
-        <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="rgba(0,0,0,0.1)" />
-      </filter>
-    </defs>
-    
-    {/* Sky */}
-    <rect width="800" height="400" fill="url(#sky-gradient)" />
-    
-    {/* Distant mountains (simple jagged silhouette) */}
-    <path
-      d="M0,320 L80,280 L160,300 L240,250 L320,290 L400,240 L480,270 L560,230 L640,260 L720,220 L800,250 L800,400 L0,400 Z"
-      fill="url(#mountain-gradient)"
-      filter="url(#mountain-shadow)"
-    />
-    
-    {/* Another mountain range (further back) */}
-    <path
-      d="M0,340 L100,310 L200,330 L300,290 L400,320 L500,280 L600,310 L700,270 L800,300 L800,400 L0,400 Z"
-      fill="#B8A897"
-      opacity="0.7"
-    />
-    
-    {/* Fjord/water line */}
-    <path
-      d="M0,360 Q200,350 400,360 T800,360 L800,400 L0,400 Z"
-      fill="#A89887"
-      opacity="0.3"
-    />
-  </svg>
-  
-  {/* Layer 2: Midground - trees/runes */}
-  <svg class="layer layer-midground" viewBox="0 0 800 400" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="tree-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#6B7B5E" />
-        <stop offset="100%" stop-color="#5A6B4D" />
-      </linearGradient>
-    </defs>
-    
-    {/* Decorative runes scattered in midground */}
-    {DECO_RUNES.map((rune, i) => (
-      <g 
-        class="deco-rune" 
-        style={{
-          transform: `translate(${rune.x}%, ${rune.y}%) scale(${rune.scale})`,
-          transition: 'transform 0.3s ease',
-        }}
-      >
-        <RuneIcon name={rune.name as any} size={64} color="#D49B3B" />
-      </g>
-    ))}
-    
-    {/* Silhouette trees */}
-    <g fill="url(#tree-gradient)" opacity="0.8">
-      <path d="M100,340 L120,280 L140,340 Z" />
-      <path d="M600,350 L620,290 L640,350 Z" />
-      <path d="M700,345 L720,285 L740,345 Z" />
-    </g>
-  </svg>
-  
-  {/* Layer 3: Foreground - content container */}
-  <div class="layer layer-foreground">
-    <article class="scene-content">
-      {title && <h1 class="scene-title">{title}</h1>}
-      {subtitle && <p class="scene-subtitle">{subtitle}</p>}
-      {category && (
-        <div class="scene-category">
-          <RuneIcon name="fehu" size={24} color="#D49B3B" />
-          <span>{category}</span>
-        </div>
-      )}
-      
-      <slot />
-    </article>
+<div class="nordic-scene-wrapper">
+  <!-- Фоновый SVG с горами/туманом -->
+  <div class="nordic-scene" aria-hidden="true">
+    <svg class="nordic-bg-svg" viewBox="0 0 1920 600" preserveAspectRatio="xMidYMid slice">
+      <path d="M0,600 L400,300 L800,600 Z" fill="var(--nordic-deep-blue-light)" opacity="0.15" />
+      <path d="M600,600 L1000,200 L1400,600 Z" fill="var(--nordic-deep-blue)" opacity="0.1" />
+      <path d="M1200,600 L1600,350 L1920,600 Z" fill="var(--nordic-amber)" opacity="0.05" />
+    </svg>
   </div>
-  
+  <!-- Контент поверх фона -->
+  <div class="nordic-content">
+    <slot />
+  </div>
 </div>
 
 <style>
-  .scene {
+  .nordic-scene-wrapper {
     position: relative;
     width: 100%;
+    min-height: 400px;
     overflow: hidden;
-    padding: 4rem 0;
   }
-  
-  /* Layers */
-  .layer {
+
+  .nordic-scene {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    z-index: 1; /* Строго позади контента */
+    pointer-events: none; /* Пропускает клики сквозь себя */
+    overflow: hidden;
   }
-  
-  .layer-background {
-    z-index: 1;
+
+  .nordic-bg-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
-  
-  .layer-midground {
-    z-index: 2;
-  }
-  
-  .layer-foreground {
-    z-index: 3;
+
+  .nordic-content {
+    position: relative;
+    z-index: 2; /* Поверх фона */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
-  }
-  
-  /* Decorative runes hover effect */
-  .deco-rune:hover {
-    transform: scale(1.2) !important;
-    filter: drop-shadow(0 4px 8px rgba(212, 155, 59, 0.3));
-  }
-  
-  /* Content container - paper cut effect */
-  .scene-content {
-    background: #F5F0EB;
-    border-radius: 16px;
-    padding: 3rem;
-    max-width: 800px;
-    text-align: center;
-    box-shadow: 
-      0 2px 4px rgba(0,0,0,0.08),
-      0 8px 16px rgba(0,0,0,0.05),
-      0 16px 32px rgba(0,0,0,0.03);
-    transition: transform 0.3s ease;
-  }
-  
-  .scene-content:hover {
-    transform: translateY(-4px);
-    box-shadow: 
-      0 4px 8px rgba(0,0,0,0.1),
-      0 12px 24px rgba(0,0,0,0.08),
-      0 24px 48px rgba(0,0,0,0.05);
-  }
-  
-  .scene-title {
-    font-size: 2.5rem;
-    color: #2C3E4A;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-  
-  .scene-subtitle {
-    font-size: 1.1rem;
-    color: #5A6B7C;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-  }
-  
-  .scene-category {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: #E8E0D5;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    color: #2C3E4A;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  /* Parallax container for JS */
-  .scene[data-parallax="true"] {
-    perspective: 1000px;
-  }
-  
-  .layer-background[data-parallax="true"] {
-    transform: translateZ(-200px);
-  }
-  
-  .layer-midground[data-parallax="true"] {
-    transform: translateZ(-100px);
-  }
-  
-  @media (max-width: 768px) {
-    .scene-title { font-size: 1.75rem; }
-    .scene-subtitle { font-size: 1rem; }
-    .scene-content { padding: 2rem 1.5rem; }
-    
-    .layer-foreground {
-      padding: 1rem;
-      flex-direction: column;
-    }
+    min-height: 400px;
+    padding: 4rem 2rem;
   }
 </style>

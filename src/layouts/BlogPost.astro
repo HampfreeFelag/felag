@@ -12,6 +12,9 @@ import FAQ from '../components/FAQ.astro';
 import Disclaimer from '../components/Disclaimer.astro';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
+// Single global CSS entry
+import '../styles/global.css';
+
 interface Props {
 	title: string;
 	description: string;

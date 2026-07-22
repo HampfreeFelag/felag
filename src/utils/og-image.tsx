@@ -1,32 +1,53 @@
 import React from 'react';
 
-// NES 8-bit color palette (matching Banner.astro styles)
+// Nordic color palette (matching Nordic tokens)
 const COLORS = {
-	bgPrimary: '#050608',
-	bgSecondary: '#0F1012',
-	accentGreen: '#00D800',
-	accentBlue: '#3CBCFC',
-	accentYellow: '#F8E800',
-	textPrimary: '#E5E5E5',
-	textSecondary: '#B0B0B0',
-	textTertiary: '#808080',
+	// Background (Scandinavian paper-like warmth)
+	bgPrimary: '#F5F0EB',      // Light warm beige
+	bgSecondary: '#E8E0D5',    // Lighter beige
+	bgTertiary: '#D4C4B7',     // Muted beige
+	
+	// Nordic Blue
+	deepBlue: '#3A5F7F',       // Deep Blue
+	deepBlueLight: '#4A7BA7',  // Lighter variant
+	deepBlueDark: '#2C3E4A',   // Darker variant
+	
+	// Amber
+	amber: '#D49B3B',          // Amber - CTA
+	amberLight: '#E5AF56',     // Lighter variant
+	amberDark: '#B8862B',      // Darker variant
+	
+	// Moss Green
+	mossGreen: '#6B7B5E',      // Moss Green
+	
+	// Text (for light theme)
+	textPrimary: '#2C3E4A',    // Dark gray-blue
+	textSecondary: '#5A6B7C',  // Muted gray-blue
+	textTertiary: '#7A8B9C',   // Light gray
+	
+	// Semantic
+	success: '#4CAF50',        // Green
+	error: '#F44336',          // Red
+	warning: '#FF9800',        // Orange
+	info: '#2196F3',           // Blue
 };
 
 // Category background patterns (simplified for Satori)
 const CATEGORY_COLORS: Record<string, string> = {
-	'crypto': '#3CBCFC', // Blue
-	'technical-analysis': '#00D800', // Green
-	'algo-trading': '#00D800', // Green
-	'fundamental-analysis': '#F8E800', // Yellow
-	'general': '#00D800', // Green (default)
+	'crypto': COLORS.deepBlue,
+	'technical-analysis': COLORS.deepBlueDark,
+	'algo-trading': COLORS.amber,
+	'fundamental-analysis': COLORS.amberDark,
+	'regulation': COLORS.mossGreen,
+	'general': COLORS.deepBlue, // Default
 };
 
 // Background patterns (simplified gradients for Satori)
 const getBackgroundPattern = (category: string = 'general'): string => {
 	const patterns: Record<string, string> = {
-		'crypto': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(60, 188, 252, 0.1) 50%, ${COLORS.bgPrimary} 100%)`,
+		'crypto': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(58, 95, 127, 0.05) 50%, ${COLORS.bgPrimary} 100%)`,
 		'technical-analysis': `${COLORS.bgPrimary}`, // Solid with grid effect (simplified)
-		'algo-trading': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(0, 216, 0, 0.1) 50%, ${COLORS.bgPrimary} 100%)`,
+		'algo-trading': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(212, 155, 59, 0.05) 50%, ${COLORS.bgPrimary} 100%)`,
 		'fundamental-analysis': `${COLORS.bgPrimary}`,
 		'general': `${COLORS.bgPrimary}`,
 	};
@@ -59,7 +80,7 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 				overflow: 'hidden',
 			}}
 		>
-			{/* Scanline overlay effect */}
+			{/* Scanline overlay effect - subtle Nordic style */}
 			<div
 				style={{
 					position: 'absolute',
@@ -69,8 +90,8 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 					height: '100%',
 					background: `repeating-linear-gradient(
 						0deg,
-						rgba(0, 0, 0, 0.05),
-						rgba(0, 0, 0, 0.05) 1px,
+						rgba(0, 0, 0, 0.03),
+						rgba(0, 0, 0, 0.03) 1px,
 						transparent 1px,
 						transparent 4px
 					)`,
@@ -92,15 +113,15 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 							0deg,
 							transparent,
 							transparent 15px,
-							rgba(0, 216, 0, 0.02) 15px,
-							rgba(0, 216, 0, 0.02) 16px
+							${COLORS.textTertiary}20 15px,
+							${COLORS.textTertiary}20 16px
 						),
 						repeating-linear-gradient(
 							90deg,
 							transparent,
 							transparent 15px,
-							rgba(0, 216, 0, 0.02) 15px,
-							rgba(0, 216, 0, 0.02) 16px
+							${COLORS.textTertiary}20 15px,
+							${COLORS.textTertiary}20 16px
 						)`,
 						pointerEvents: 'none',
 						zIndex: 1,
@@ -122,12 +143,12 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 				<h1
 					style={{
 						fontSize: '72px',
-						fontWeight: 'bold',
-						color: COLORS.accentGreen,
+						fontWeight: '700',
+						color: COLORS.deepBlueDark,
 						margin: '0 0 20px 0',
 						lineHeight: 1.4,
 						textTransform: 'uppercase',
-						fontFamily: 'Press Start 2P',
+						fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
 					}}
 				>
 					{title}
@@ -138,12 +159,12 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 					<p
 						style={{
 							fontSize: '32px',
-							fontWeight: 'bold',
-							color: COLORS.accentBlue,
+							fontWeight: '500',
+							color: COLORS.textSecondary,
 							margin: '0',
 							opacity: 0.9,
-							lineHeight: 1.5,
-							fontFamily: 'JetBrains Mono',
+							lineHeight: 1.6,
+							fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
 							maxWidth: '900px',
 						}}
 					>
@@ -160,7 +181,7 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 					alignItems: 'flex-start',
 					marginTop: '40px',
 					paddingTop: '30px',
-					borderTop: '2px solid rgba(255, 255, 255, 0.05)',
+					borderTop: `1px solid ${COLORS.textTertiary}30`,
 					zIndex: 2,
 				}}
 			>
@@ -168,14 +189,15 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 				<span
 					style={{
 						fontSize: '24px',
-						fontWeight: 'bold',
+						fontWeight: '600',
 						padding: '12px 24px',
-						backgroundColor: categoryColor,
-						color: COLORS.bgPrimary,
-						border: `2px solid ${COLORS.bgPrimary}`,
-						boxShadow: '4px 4px 0 rgba(0, 0, 0, 0.3)',
+						backgroundColor: COLORS.bgSecondary,
+						color: COLORS.deepBlue,
+						border: `1px solid ${COLORS.textTertiary}30`,
+						borderRadius: '8px',
 						textTransform: 'uppercase',
-						fontFamily: 'Press Start 2P',
+						letterSpacing: '0.05em',
+						fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
 						whiteSpace: 'nowrap',
 					}}
 				>
@@ -187,13 +209,13 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 					style={{
 						fontSize: '20px',
 						color: COLORS.textTertiary,
-						opacity: 0.9,
-						fontFamily: 'JetBrains Mono',
-						fontWeight: 600,
+						opacity: 0.8,
+						fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+						fontWeight: 500,
 						whiteSpace: 'nowrap',
 					}}
 				>
-					MARKETLAB ACADEMY
+					FÉLAG
 				</span>
 			</div>
 		</div>

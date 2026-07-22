@@ -7,13 +7,14 @@ import { SITE_TITLE } from '../../consts';
 import FormattedDate from '../../components/FormattedDate.astro';
 import ScrollTop from '../../components/ScrollTop.astro';
 import Banner from '../../components/Banner.astro';
-import PixelIcon from '../../components/ui/PixelIcon.astro';
 import SubscribeForm from '../../components/SubscribeForm.astro';
-import NordicScene from '../../components/NordicScene.astro';
-import '../../styles/components/home-index.scss';
+import NovelScene from '../../components/NovelScene.astro';
 import { ui } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
 import { isTempArticle } from '../../utils/blog';
+
+// Import global CSS — single entry point for all styles
+import '../../styles/global.css';
 
 export async function getStaticPaths() {
   return [
@@ -34,12 +35,11 @@ const posts = await getCollection(collectionName).catch((err) => {
 	return [];
 });
 
-// 🔒 ДЕДУПЛИКАЦИЯ: нормализуем post.id и убираем дубликаты (как в library/index.astro)
+// 🔒 ДЕДУПЛИКАЦИЯ: нормализуем post.id и убираем дубликаты
 const normalizePostId = (id: string) => id.replace(/\/index$/, '').replace(/\/+$/, '');
 const seenIds = new Set<string>();
 const seenTitleCategory = new Set<string>();
 const uniquePosts = posts.filter(post => {
-	// Исключаем временные article-* и draft статьи
 	if (isTempArticle(post.id)) return false;
 	if (post.data.draft) return false;
 	
@@ -51,12 +51,12 @@ const uniquePosts = posts.filter(post => {
 	}
 	
 	seenIds.add(normalizedId);
-	seenTitleCategory.add(titleCategoryKey);
+	seenTitleCategory.has(titleCategoryKey);
 	Object.assign(post, { id: normalizedId });
 	return true;
 });
 
-// ПОСЛЕДНИЕ_СТАТЬИ: pinned первыми, затем по pubDate (новые первые), при равенстве — по id
+// ПОСЛЕДНИЕ_СТАТЬИ: pinned первыми, затем по pubDate
 const sortedPosts = uniquePosts.sort((a, b) => {
 	if (a.data.pinned && !b.data.pinned) return -1;
 	if (!a.data.pinned && b.data.pinned) return 1;
@@ -65,11 +65,6 @@ const sortedPosts = uniquePosts.sort((a, b) => {
 	return (a.id ?? '').localeCompare(b.id ?? '');
 });
 const featuredPosts = sortedPosts.slice(0, 4);
-
-// Debug: Log posts count
-if (import.meta.env.DEV) {
-	console.log(`[${lang}] Loaded ${posts.length} posts, showing ${featuredPosts.length} featured`);
-}
 
 const categories = [
 	{ id: 'technical-analysis', label: t('cat.technical-analysis'), full: t('cat.technical-analysis.full') },
@@ -90,33 +85,35 @@ const categories = [
 	<body>
 		<Header />
 		<main class="container">
-			<!-- Nordic Scene with parallax effect -->
-			<NordicScene>
+			<!-- Hero section with background vector -->
+			<section class="hero">
+				<NovelScene />
 				<div class="hero-content">
-					<h1 id="hero-title" class="brutal">{t('home.hero_title')}</h1>
+					<h1>{t('home.hero_title')}</h1>
 					<p>{t('home.hero_description')}</p>
 					<div class="hero-actions">
 						<a href={translatePath('library')} class="btn">{t('home.hero_cta')}</a>
 					</div>
 				</div>
-			</NordicScene>
+			</section>
 
+			<!-- Categories -->
 			<section aria-labelledby="cat-label">
 				<div id="cat-label" class="section-label">{t('home.categories_label')}</div>
 				<div class="categories-container" role="group" aria-label={t('library.filter')}>
 					{categories.map(cat => (
 						<a 
 							href={`${translatePath('library')}?cat=${cat.id}`}
-							class="tag-btn tag-btn-with-icon" 
+							class="tag-btn" 
 							title={cat.full}
 						>
-							<PixelIcon icon={cat.id === 'technical-analysis' ? 'analysis' : cat.id === 'crypto' ? 'crypto' : cat.id === 'algo-trading' ? 'algo' : 'fundamental'} size={12} color="currentColor" />
-							[{cat.label}]
+							{cat.label}
 						</a>
 					))}
 				</div>
 			</section>
 
+			<!-- Latest posts -->
 			<section aria-labelledby="latest-label">
 				<div id="latest-label" class="section-label">{t('home.latest_label')}</div>
 				{featuredPosts.length > 0 ? (
@@ -139,13 +136,17 @@ const categories = [
 						))}
 					</div>
 				) : (
-					<div class="no-posts" style="padding: var(--space-6); text-align: center; color: var(--color-text-secondary);">
-						<p>Статьи не найдены. Проверьте консоль браузера для диагностики.</p>
+					<div style="padding: var(--space-6); text-align: center; color: var(--color-text-secondary);">
+						<p>Статьи не найдены.</p>
 					</div>
 				)}
 			</section>
 
-			<SubscribeForm withContainer={true} />
+			<!-- Subscribe -->
+			<section class="subscribe-section">
+				<SubscribeForm withContainer={true} />
+			</section>
+
 			<ScrollTop />
 		</main>
 		<Footer />

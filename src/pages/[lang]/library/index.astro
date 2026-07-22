@@ -8,8 +8,8 @@ import { SITE_TITLE } from '../../../consts';
 import FormattedDate from '../../../components/FormattedDate.astro';
 import ScrollTop from '../../../components/ScrollTop.astro';
 import Banner from '../../../components/Banner.astro';
-import PixelIcon from '../../../components/ui/PixelIcon.astro';
-import '../../../styles/components/blog-index.scss';
+import SubscribeForm from '../../../components/SubscribeForm.astro';
+import '../../../styles/global.css';
 import { ui } from '../../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../../i18n/utils';
 import { isTempArticle } from '../../../utils/blog';
@@ -118,14 +118,13 @@ const breadcrumbItems = [
 						<div class="categories-container categories-container-with-margin" role="group">
 							{categories.map(cat => (
 								<button 
-									class="tag-btn tag-btn-with-icon" 
+									class="tag-btn" 
 									data-cat={cat.id} 
 									aria-pressed="false"
 									title={cat.full}
 									type="button"
 								>
-									<PixelIcon icon={cat.id === 'technical-analysis' ? 'analysis' : cat.id === 'crypto' ? 'crypto' : cat.id === 'algo-trading' ? 'algo' : 'fundamental'} size={12} color="currentColor" />
-									[{cat.label}]
+									{cat.label}
 								</button>
 							))}
 						</div>
