@@ -6,6 +6,6 @@ const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<a href={translatePath('')} class="logo" aria-label={`${SITE_TITLE} - Home`}>
-	<span class="prompt" aria-hidden="true">></span> {SITE_TITLE}
+<a href={translatePath('')} class="logo-link" aria-label={`${SITE_TITLE} - Home`}>
+	{SITE_TITLE}
 </a>

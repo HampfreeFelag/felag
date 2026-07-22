@@ -13,9 +13,6 @@ import { ui } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
 import { isTempArticle } from '../../utils/blog';
 
-// Import global CSS — single entry point for all styles
-import '../../styles/global.css';
-
 export async function getStaticPaths() {
   return [
     { params: { lang: 'ru' } },
@@ -92,24 +89,8 @@ const categories = [
 					<h1>{t('home.hero_title')}</h1>
 					<p>{t('home.hero_description')}</p>
 					<div class="hero-actions">
-						<a href={translatePath('library')} class="btn">{t('home.hero_cta')}</a>
+						<a href={translatePath('library')} class="btn"><span>{t('home.hero_cta')}</span></a>
 					</div>
-				</div>
-			</section>
-
-			<!-- Categories -->
-			<section aria-labelledby="cat-label">
-				<div id="cat-label" class="section-label">{t('home.categories_label')}</div>
-				<div class="categories-container" role="group" aria-label={t('library.filter')}>
-					{categories.map(cat => (
-						<a 
-							href={`${translatePath('library')}?cat=${cat.id}`}
-							class="tag-btn" 
-							title={cat.full}
-						>
-							{cat.label}
-						</a>
-					))}
 				</div>
 			</section>
 
@@ -131,7 +112,7 @@ const categories = [
 										<span><FormattedDate date={post.data.pubDate} /></span>
 									</div>
 								</div>
-								<div class="read-more-link" aria-hidden="true">> {t('library.read_more')}</div>
+								<div class="read-more-link" aria-hidden="true">{t('library.read_more')}</div>
 							</a>
 						))}
 					</div>
@@ -142,9 +123,12 @@ const categories = [
 				)}
 			</section>
 
-			<!-- Subscribe -->
+			<!-- Subscribe — coming soon -->
 			<section class="subscribe-section">
-				<SubscribeForm withContainer={true} />
+				<div class="subscribe-with-container">
+					<h2>{t('subscribe.coming_soon')}</h2>
+					<p class="newsletter-desc">{t('subscribe.coming_soon_desc')}</p>
+				</div>
 			</section>
 
 			<ScrollTop />

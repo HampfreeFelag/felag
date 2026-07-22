@@ -3,7 +3,6 @@
 import Logo from './header/Logo.astro';
 import Navigation from './header/Navigation.astro';
 import LanguageSwitcher from './header/LanguageSwitcher.astro';
-import ThemeToggle from './header/ThemeToggle.astro';
 import MobileMenu from './header/MobileMenu.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
@@ -19,10 +18,9 @@ const t = useTranslations(lang);
 			<Navigation />
 		</div>
 
-		<!-- RIGHT: Utilities (Languages + Theme) -->
+		<!-- RIGHT: Utilities (Languages only) -->
 		<div class="header-right">
 			<LanguageSwitcher />
-			<ThemeToggle />
 		</div>
 
 		<!-- MOBILE: Hamburger -->

@@ -6,8 +6,6 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SITE_TITLE } from '../../consts';
 import { ui } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
-import '../../styles/components/blog-index.scss';
-import '../../styles/components/blog-post.scss';
 
 export async function getStaticPaths() {
   return [
@@ -101,10 +99,10 @@ const c = content[lang as keyof typeof content] || content.en;
 		<Footer />
 		<style>
 			.responsive-title { font-size: clamp(1.5rem, 5vw, 2.5rem); word-break: break-word; line-height: 1.2; }
-			.privacy-content { color: var(--color-text-primary); }
-			.privacy-content h2 { color: var(--nes-accent-green); font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; }
-			.privacy-contact-link { color: var(--nes-accent-green); text-decoration: underline; }
-			.privacy-contact-link:hover { color: var(--nes-accent-green-dark); }
+			.privacy-content { color: var(--color-text); }
+			.privacy-content h2 { color: var(--color-accent); font-size: 1.4rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+			.privacy-contact-link { color: var(--color-accent); text-decoration: underline; }
+			.privacy-contact-link:hover { color: var(--color-accent-hover); }
 		</style>
 	</body>
 </html>
