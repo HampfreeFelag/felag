@@ -22,7 +22,7 @@ const BASE_URL = import.meta.env.BASE_URL?.endsWith('/')
 	<!-- No meta refresh - Astro doesn't support dynamic values in meta content -->
 	<script is:inline>
 		(() => {
-			const supported = ['ru', 'en', 'es'];
+			const supported = ['ru', 'en'];
 
 			const safeGetStoredLang = () => {
 				try {
@@ -51,7 +51,6 @@ const BASE_URL = import.meta.env.BASE_URL?.endsWith('/')
 					const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 					if (tz.includes('Moscow') || tz.includes('Europe') || tz.includes('Kirov')) return 'ru';
 					if (tz.includes('America') || tz.includes('US') || tz.includes('Canada')) return 'en';
-					if (tz.includes('Madrid') || tz.includes('Barcelona') || tz.includes('America/Mexico') || tz.includes('America/Argentina')) return 'es';
 				} catch {
 					return null;
 				}
@@ -80,7 +79,6 @@ const BASE_URL = import.meta.env.BASE_URL?.endsWith('/')
 			<ul style="list-style: none; padding: 0;">
 				<li><a href="/ru/">Русский</a></li>
 				<li><a href="/en/">English</a></li>
-				<li><a href="/es/">Español</a></li>
 			</ul>
 		</div>
 	</noscript>

@@ -15,7 +15,7 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const SUPPORTED_LANGS = ['ru', 'en', 'es'] as const;
+const SUPPORTED_LANGS = ['ru', 'en'] as const;
 
 // --- hreflang alternates (static hosting SEO hygiene) ---
 const pathname = canonicalURL.pathname;
@@ -76,7 +76,7 @@ if (imageProp) {
 		} else {
 			ogImageUrl = new URL(FallbackImage.src, Astro.site);
 		}
-	} else if (pathname === '/' || pathname === '/ru/' || pathname === '/en/' || pathname === '/es/') {
+	} else if (pathname === '/' || pathname === '/ru/' || pathname === '/en/') {
 		// Главная страница (мультиязычная)
 		ogImageUrl = new URL(`/og/${langPrefix}-homepage.png`, Astro.site);
 	} else if (pathname.includes('/about/')) {
@@ -138,7 +138,7 @@ if (imageProp) {
 <script is:inline>
 	try {
 		const l = document.documentElement.lang;
-		if (l && ['ru', 'en', 'es'].includes(l)) {
+		if (l && ['ru', 'en'].includes(l)) {
 			localStorage.setItem('ml_lang', l);
 		}
 	} catch {}

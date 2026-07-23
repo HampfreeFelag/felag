@@ -18,8 +18,8 @@ export const TEMP_ARTICLE_SLUG = /^article-\d+$/;
 export const isTempArticle = (id: string) => TEMP_ARTICLE_SLUG.test(id);
 
 // Helper: получить коллекцию по языку
-function getCollectionByLang(lang: 'ru' | 'en' | 'es'): 'blog-ru' | 'blog-en' | 'blog-es' {
-	return `blog-${lang}` as 'blog-ru' | 'blog-en' | 'blog-es';
+function getCollectionByLang(lang: 'ru' | 'en'): 'blog-ru' | 'blog-en' {
+	return `blog-${lang}` as 'blog-ru' | 'blog-en';
 }
 
 /**
@@ -27,12 +27,11 @@ function getCollectionByLang(lang: 'ru' | 'en' | 'es'): 'blog-ru' | 'blog-en' | 
  * Сортирует по дате (новые сначала)
  * Исключает draft статьи и временные article-*
  */
-export async function getPosts(): Promise<CollectionEntry<'blog-ru' | 'blog-en' | 'blog-es'>[]> {
+export async function getPosts(): Promise<CollectionEntry<'blog-ru' | 'blog-en'>[]> {
 	const ruPosts = await getCollection('blog-ru');
 	const enPosts = await getCollection('blog-en');
-	const esPosts = await getCollection('blog-es');
 	
-	const allPosts = [...ruPosts, ...enPosts, ...esPosts].filter(
+	const allPosts = [...ruPosts, ...enPosts].filter(
 		post => !isTempArticle(post.id) && !post.data.draft
 	);
 	
@@ -43,7 +42,7 @@ export async function getPosts(): Promise<CollectionEntry<'blog-ru' | 'blog-en' 
  * Получить отранжированные посты для главной страницы
  * Сначала идут pinned: true, затем остальные по дате
  */
-export async function getRankedPosts(): Promise<CollectionEntry<'blog-ru' | 'blog-en' | 'blog-es'>[]> {
+export async function getRankedPosts(): Promise<CollectionEntry<'blog-ru' | 'blog-en'>[]> {
 	const posts = await getPosts();
 	
 	return posts.sort((a, b) => {
@@ -60,7 +59,7 @@ export async function getRankedPosts(): Promise<CollectionEntry<'blog-ru' | 'blo
  * Получить посты по категории
  * @param category - Категория поста
  */
-export async function getPostsByCategory(category: string): Promise<CollectionEntry<'blog-ru' | 'blog-en' | 'blog-es'>[]> {
+export async function getPostsByCategory(category: string): Promise<CollectionEntry<'blog-ru' | 'blog-en'>[]> {
 	const posts = await getPosts();
 	return posts.filter(post => post.data.category === category);
 }
@@ -92,7 +91,7 @@ export function estimateReadTime(content: string, wordsPerMinute: number = 200):
  * Получить последние N постов
  * @param limit - Количество постов (по умолчанию 5)
  */
-export async function getLatestPosts(limit: number = 5): Promise<CollectionEntry<'blog-ru' | 'blog-en' | 'blog-es'>[]> {
+export async function getLatestPosts(limit: number = 5): Promise<CollectionEntry<'blog-ru' | 'blog-en'>[]> {
 	const posts = await getPosts();
 	return posts.slice(0, limit);
 }
@@ -109,10 +108,10 @@ export async function getRelatedPosts(
 	currentPostId: string,
 	category?: string,
 	limit: number = 3,
-	lang?: 'ru' | 'en' | 'es'
-): Promise<CollectionEntry<'blog-ru' | 'blog-en' | 'blog-es'>[]> {
+	lang?: 'ru' | 'en'
+): Promise<CollectionEntry<'blog-ru' | 'blog-en'>[]> {
 	// Получаем посты только для текущего языка
-	const collectionName = lang ? `blog-${lang}` as 'blog-ru' | 'blog-en' | 'blog-es' : null;
+	const collectionName = lang ? `blog-${lang}` as 'blog-ru' | 'blog-en' : null;
 	if (!collectionName) {
 		console.warn('getRelatedPosts: lang not provided, returning empty array');
 		return [];

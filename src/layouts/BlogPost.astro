@@ -49,8 +49,7 @@ const headingClass = titleWords <= 5 ? 'brutal' : 'long';
 // Содержание на разных языках
 const tocTitle = {
 	ru: 'Содержание',
-	en: 'Table of Contents',
-	es: 'Tabla de Contenidos'
+	en: 'Table of Contents'
 }[lang] || 'Содержание';
 
 const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrumbs || (() => {
@@ -483,7 +482,7 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 						bannerId = isGinarea ? 'bitmex-algo' : 'veles-algo';
 					} else if (category === 'fundamental-analysis' && lang === 'ru') {
 						bannerId = 'finbazar-fundamental'; // Только для RU!
-					} else if (category === 'fundamental-analysis' && (lang === 'en' || lang === 'es')) {
+					} else if (category === 'fundamental-analysis' && lang === 'en') {
 						bannerId = 'bybit-general'; // EN/ES → Bybit
 					} else if (category === 'crypto') {
 						// Баланс: 50% Bybit, 50% Bitget

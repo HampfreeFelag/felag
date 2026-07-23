@@ -12,11 +12,11 @@ export async function getStaticPaths() {
 			.replace(/\.md$/, '')
 			.replace(/\/+$/, '');
 	}
-	const langs = ['ru', 'en', 'es'];
+	const langs = ['ru', 'en'];
 	const paths = [];
 
 	for (const lang of langs) {
-		const collectionName = `blog-${lang}` as 'blog-ru' | 'blog-en' | 'blog-es';
+		const collectionName = `blog-${lang}` as 'blog-ru' | 'blog-en';
 		const posts = await getCollection(collectionName).catch(() => []);
 		
 		for (const post of posts) {
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 	return paths;
 }
 
-type Props = CollectionEntry<'blog-ru' | 'blog-en' | 'blog-es'>;
+type Props = CollectionEntry<'blog-ru' | 'blog-en'>;
 
 const post = Astro.props;
 const { Content, headings } = await render(post);

@@ -13,7 +13,7 @@ export type SearchItem = {
     };
 };
 
-export function createSearchIndex(posts: CollectionEntry<'blog-ru' | 'blog-en' | 'blog-es'>[]) {
+export function createSearchIndex(posts: CollectionEntry<'blog-ru' | 'blog-en'>[]) {
     const options = {
         keys: [
             { name: 'data.title', weight: 0.5 },

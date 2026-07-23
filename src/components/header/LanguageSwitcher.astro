@@ -17,7 +17,7 @@ const getSwitchPath = (targetLang: string) => {
 	// index 0: "[lang]", index 1: "library" or "about", etc.
 	const langIndex = 0;
 	
-	if (pathParts.length > 0 && ['ru', 'en', 'es'].includes(pathParts[langIndex])) {
+	if (pathParts.length > 0 && ['ru', 'en'].includes(pathParts[langIndex])) {
 		pathParts[langIndex] = targetLang;
 		let newPath = '/' + pathParts.join('/');
 		if (!newPath.endsWith('/')) newPath += '/';

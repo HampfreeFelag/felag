@@ -20,8 +20,8 @@ export interface Props {
   image?: string;
   /** Категория статьи */
   category: string;
-  /** Язык статьи (ru/en/es) */
-  lang?: 'ru' | 'en' | 'es';
+  /** Язык статьи (ru/en) */
+  lang?: 'ru' | 'en';
 }
 
 const {
@@ -80,7 +80,7 @@ const articleSection = categoryMap[category] || category;
     "@id": "{canonicalURL.href}"
   },
   "articleSection": {articleSection},
-  "inLanguage": "{lang === 'ru' ? 'ru-RU' : lang === 'es' ? 'es-ES' : 'en-US'}",
+  "inLanguage": "{lang === 'ru' ? 'ru-RU' : 'en-US'}",
   "wordCount": {Astro.props.wordCount || 0}
 }
 </script>

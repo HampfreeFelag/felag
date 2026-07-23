@@ -125,7 +125,6 @@ function getBannerForCategory(category: string, lang: string) {
   const bybitLinks: Record<string, string> = {
     ru: 'https://www.bybit.com/ru-RU/invite?ref=PWMD24',
     en: 'https://www.bybit.com/en/invite?ref=PWMD24',
-    es: 'https://www.bybit.com/es/invite?ref=PWMD24',
   };
   
   return {

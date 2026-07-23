@@ -11,7 +11,6 @@ export async function getStaticPaths() {
   return [
     { params: { lang: 'ru' } },
     { params: { lang: 'en' } },
-    { params: { lang: 'es' } },
   ];
 }
 
@@ -115,7 +114,7 @@ const breadcrumbItems = [
 								Здесь нет учителей. Есть только те, кто идёт своим путём и готов делиться опытом.
 							</p>
 						</>
-					) : lang === 'en' ? (
+					) : (
 						<>
 							<p style="margin-bottom: 2rem; font-size: 1.1rem; margin-top: 0;">
 								<strong>MarketLab Academy</strong> — an educational laboratory about trading.
@@ -191,82 +190,6 @@ const breadcrumbItems = [
 								There are no teachers here. Only those who go their own way and are ready to share experience.
 							</p>
 						</>
-					) : (
-						<>
-							<p style="margin-bottom: 2rem; font-size: 1.1rem; margin-top: 0;">
-								<strong>MarketLab Academy</strong> — un laboratorio educativo sobre trading.
-							</p>
-							<p style="margin-bottom: 2rem; font-size: 1rem;">
-								No enseñamos "cómo se debe". Mostramos: cómo funcionan los mercados, cómo funcionan las estrategias, qué errores cometimos nosotros mismos.
-							</p>
-							<p style="margin-bottom: 3rem; font-size: 1rem;">
-								Aquí no hay gurús. Solo experiencia, datos y disposición a compartir.
-							</p>
-
-							<h2 id="history-es" style="margin-top: 3rem; margin-bottom: 1.5rem;">Nuestra Historia</h2>
-							<p style="margin-bottom: 1rem;">
-								MarketLab nació de una historia personal. Llegamos a las criptomonedas no por el hype, sino por la vida.
-							</p>
-							<p style="margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.95rem;">
-								Mercados tradicionales → Trauma → cripto → Veles → comunidad → MarketLab
-							</p>
-							<p style="margin-bottom: 1rem;">
-								Cada etapa es una lección. Cada lección es material para artículos.
-							</p>
-							<p style="margin-bottom: 2rem;">
-								No prometemos "100% al mes". Mostramos: cómo funciona la gestión de riesgos, por qué el 90% de los traders pierden depósitos, cómo construir un sistema en lugar de perseguir la suerte.
-							</p>
-
-							<h2 id="principles-es" style="margin-top: 3rem; margin-bottom: 1.5rem;">Nuestros Principios</h2>
-							<ul style="margin-bottom: 2.5rem; list-style-type: square; padding-left: 1.5rem;">
-								<li style="margin-bottom: 1rem;"><strong>Honestidad:</strong> hablamos de los fracasos tan abiertamente como de los éxitos.</li>
-								<li style="margin-bottom: 1rem;"><strong>Ayuda Mutua:</strong> si puedes — comparte, si no sabes — pregunta.</li>
-								<li style="margin-bottom: 1rem;"><strong>Conciencia:</strong> analizamos mecanismos, no damos soluciones preparadas.</li>
-								<li style="margin-bottom: 1rem;"><strong>Largo Plazo:</strong> construimos un sistema, no buscamos ganancias instantáneas.</li>
-							</ul>
-
-							<h2 id="testimonials-es" style="margin-top: 3rem; margin-bottom: 1.5rem;">Lo Que Dicen los Lectores</h2>
-							<blockquote style="margin-bottom: 1.5rem; border-left: 4px solid var(--color-accent); padding-left: 1rem; font-style: italic;">
-								"MarketLab no es una escuela, es un laboratorio. No enseñan, comparten experiencia."
-								<footer style="margin-top: 0.5rem; font-size: 0.9rem; font-style: normal;">— Alexey, trader desde 2020</footer>
-							</blockquote>
-							<blockquote style="margin-bottom: 1.5rem; border-left: 4px solid var(--color-accent); padding-left: 1rem; font-style: italic;">
-								"Por fin un blog donde no venden cursos, sino que realmente ayudan."
-								<footer style="margin-top: 0.5rem; font-size: 0.9rem; font-style: normal;">— María, empezó con depósito de $50</footer>
-							</blockquote>
-							<blockquote style="margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent); padding-left: 1rem; font-style: italic;">
-								"Los artículos de algo-trading me ahorraron meses de pruebas. Tomé estrategias listas y las adapté para mí."
-								<footer style="margin-top: 0.5rem; font-size: 0.9rem; font-style: normal;">— Dmitry, desarrollador</footer>
-							</blockquote>
-
-							<h2 id="contact-es" style="margin-top: 3rem; margin-bottom: 1.5rem;">Contacto</h2>
-							<p style="margin-bottom: 2rem;">
-								Asociaciones y propuestas: <a href="https://t.me/Hampfree" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); text-decoration: underline;">Hampfree</a> (Telegram)
-							</p>
-
-							<h2 id="support-es" style="margin-top: 3rem; margin-bottom: 1.5rem;">Apoyar el Proyecto</h2>
-							<p style="margin-bottom: 1rem;">
-								Hay dos formas de apoyar el proyecto:
-							</p>
-							<p style="margin-bottom: 1.5rem;">
-								<strong>1. Enlaces de referidos</strong> — en el pie de cada página del blog. Al registrarte por ellos: <strong>tú</strong> obtienes bonos en el exchange, <strong>nosotros</strong> una pequeña comisión (sin coste extra para ti). Win-win.
-							</p>
-							<p style="margin-bottom: 1rem;">
-								<strong>2. Criptomonedas (USDT, BTC, ETH):</strong>
-							</p>
-							<p style="margin-bottom: 0.5rem;">Dirección (cualquier red EVM):</p>
-							<button type="button" class="evm-address-copy" data-address="0x7428658Cf98E663080b70214bC41FB45Aa8C4405" title="Copiar dirección">0x7428658Cf98E663080b70214bC41FB45Aa8C4405</button>
-							<p style="margin-bottom: 1rem;">
-								Aceptamos: ETH, USDT, USDC y otros tokens en <strong>Ethereum, Polygon, Arbitrum, Optimism, BSC</strong>.
-							</p>
-							<p style="margin-bottom: 2rem; font-size: 0.95rem; color: var(--color-text-secondary);">
-								Los fondos van a pagar servidores, suscripciones y desarrollo del proyecto.
-							</p>
-
-							<p style="font-style: italic; border-left: 4px solid var(--color-accent); padding-left: 1rem; margin-top: 2rem;">
-								Aquí no hay maestros. Solo aquellos que siguen su propio camino y están listos para compartir su experiencia.
-							</p>
-						</>
 					)}
 				</section>
 			</article>
@@ -325,7 +248,7 @@ const breadcrumbItems = [
 				btn.addEventListener('click', async () => {
 					const address = btn.getAttribute('data-address') || btn.textContent?.trim() || '';
 					const lang = document.documentElement.getAttribute('lang') || 'en';
-					const copiedText = { ru: 'Скопировано!', en: 'Copied!', es: '¡Copiado!' }[lang] || 'Copied!';
+					const copiedText = { ru: 'Скопировано!', en: 'Copied!' }[lang] || 'Copied!';
 					try {
 						await navigator.clipboard.writeText(address);
 						btn.classList.add('copied');

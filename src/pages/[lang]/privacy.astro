@@ -11,7 +11,6 @@ export async function getStaticPaths() {
   return [
     { params: { lang: 'ru' } },
     { params: { lang: 'en' } },
-    { params: { lang: 'es' } },
   ];
 }
 
@@ -51,20 +50,6 @@ const content = {
     contactText: 'Privacy enquiries — Telegram: ',
     contactLink: 'https://t.me/Hampfree',
     contactLabel: '@Hampfree',
-  },
-  es: {
-    title: 'Política de privacidad',
-    intro: 'MarketLab Academy respeta tu privacidad. A continuación, qué recogemos, para qué y tus derechos.',
-    ga4Title: 'Google Analytics 4 y cookies',
-    ga4Body: 'Usamos Google Analytics 4 (GA4) para entender el tráfico y el comportamiento en el sitio. Los datos se anonimizan: no enviamos a GA email, teléfonos, logins ni otros datos personales. La anonimización de IP está activada. La retención de datos en GA4 es de 2 meses (configurable en GA4 Admin). Usamos cookies necesarias para la analítica. Puedes rechazarlas mediante el banner de consentimiento (“Rechazar”).',
-    dataTitle: 'Qué datos recogemos',
-    dataBody: 'Datos agregados sobre visitas a páginas, clics en enlaces, tiempo en el sitio y scroll. No enviamos datos de formularios (email, teléfono) a GA. Los parámetros UTM en enlaces se usan solo para analizar fuentes de tráfico, sin datos personales.',
-    rightsTitle: 'Tus derechos (RGPD)',
-    rightsBody: 'Tienes derecho de acceso, rectificación, supresión y limitación del tratamiento. Para dudas o reclamaciones, contacta con nosotros (p. ej. por Telegram) o con tu autoridad de protección de datos.',
-    contactTitle: 'Contacto',
-    contactBodyBefore: 'Consultas sobre privacidad: ',
-    contactLink: 'https://t.me/Hampfree',
-    contactLabel: 'Telegram @Hampfree',
   },
 };
 const c = content[lang as keyof typeof content] || content.en;

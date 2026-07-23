@@ -21,7 +21,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 // КРИТИЧНО: Передаём язык для фильтрации постов только текущего языка
-const langCode = lang as 'ru' | 'en' | 'es';
+const langCode = lang as 'ru' | 'en';
 const relatedPosts = await getRelatedPosts(currentPostId, category, limit, langCode);
 
 const baseUrl = import.meta.env.BASE_URL.endsWith('/') 
@@ -31,14 +31,12 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/')
 // Related header translations
 const relatedHeader = {
 	ru: '[ ПОХОЖИЕ МАТЕРИАЛЫ ]',
-	en: '[ RELATED MATERIALS ]',
-	es: '[ MATERIALES RELACIONADOS ]'
+	en: '[ RELATED MATERIALS ]'
 }[lang] || '[ RELATED_DATA ]';
 
 const readMoreText = {
 	ru: 'Читать полностью',
-	en: 'Read more',
-	es: 'Leer más'
+	en: 'Read more'
 }[lang] || 'Читать полностью';
 ---
 

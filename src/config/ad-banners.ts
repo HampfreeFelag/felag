@@ -9,7 +9,7 @@ export type AdBanner = {
   cta: string;
   link: string;
   categories?: string[];
-  languages?: ('ru' | 'en' | 'es')[];
+  languages?: ('ru' | 'en')[];
   priority?: number;
   colors: {
     bgStart: string;
@@ -26,12 +26,10 @@ export const REFERRAL_LINKS = {
   bybit: {
     ru: 'https://www.bybit.com/ru-RU/invite?ref=PWMD24',
     en: 'https://www.bybit.com/en/invite?ref=PWMD24',
-    es: 'https://www.bybit.com/es/invite?ref=PWMD24',
   },
   bitget: {
     ru: 'https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD',
     en: 'https://www.bitget.com/en/referral/register?from=referral&clacCode=23EHR2VD',
-    es: 'https://www.bitget.com/es/referral/register?from=referral&clacCode=23EHR2VD',
   },
   bingx: 'https://bingxdao.com/invite/CUBDBG/',
   veles: 'https://veles.finance/invite/washmallay',
@@ -55,7 +53,7 @@ export const AD_BANNERS: AdBanner[] = [
     cta: 'Try now →',
     link: getReferralLink('veles', 'ru'),
     categories: ['algo-trading'],
-    languages: ['ru', 'en', 'es'],
+    languages: ['ru', 'en'],
     priority: 10,
     colors: {
       bgStart: '#2D1B69',    // Глубокий фиолетовый
@@ -74,7 +72,7 @@ export const AD_BANNERS: AdBanner[] = [
     subtitle: 'Spot, futures, low fees',
     cta: 'Sign up →',
     link: getReferralLink('bybit', 'ru'),
-    languages: ['ru', 'en', 'es'],
+    languages: ['ru', 'en'],
     priority: 10,
     colors: {
       bgStart: '#1A1D26',    // Тёмный серо-чёрный
@@ -93,7 +91,7 @@ export const AD_BANNERS: AdBanner[] = [
     subtitle: 'Low fees, high liquidity',
     cta: 'Get started →',
     link: getReferralLink('bybit', 'ru'),
-    languages: ['ru', 'en', 'es'],
+    languages: ['ru', 'en'],
     priority: 8,
     colors: {
       bgStart: '#0D0E12',    // Почти чёрный
@@ -133,7 +131,7 @@ export const AD_BANNERS: AdBanner[] = [
     cta: 'Sign up →',
     link: getReferralLink('bybit', 'ru'),
     categories: ['crypto'],
-    languages: ['ru', 'en', 'es'],
+    languages: ['ru', 'en'],
     priority: 10,
     colors: {
       bgStart: '#1A1D26',    // Тёмный серо-чёрный
@@ -153,7 +151,7 @@ export const AD_BANNERS: AdBanner[] = [
     cta: 'Get started →',
     link: getReferralLink('bingx', 'ru'),
     categories: ['technical-analysis'],
-    languages: ['ru', 'en', 'es'],
+    languages: ['ru', 'en'],
     priority: 10,
     colors: {
       bgStart: '#0A0E27',    // Тёмно-синий
@@ -172,7 +170,7 @@ export const AD_BANNERS: AdBanner[] = [
     subtitle: 'Futures, spot, copy trading',
     cta: 'Sign up →',
     link: getReferralLink('bitget', 'ru'),
-    languages: ['ru', 'en', 'es'],
+    languages: ['ru', 'en'],
     priority: 5,
     colors: {
       bgStart: '#0B1E1A',    // Тёмный бирюзовый
@@ -192,7 +190,7 @@ export const AD_BANNERS: AdBanner[] = [
     cta: 'Библиотека →',
     link: '/{lang}/library/',
     priority: 0,
-    languages: ['ru', 'en', 'es'],
+    languages: ['ru', 'en'],
     colors: {
       bgStart: '#1B3A5F',    // Deep Blue брендовый
       bgEnd: '#142A42',      // Тёмно-синий
@@ -204,10 +202,10 @@ export const AD_BANNERS: AdBanner[] = [
   },
 ];
 
-export function findBestAdBanner(category: string, lang: string = 'ru'): AdBanner {
+export function findBestAdBanner(category: string, lang: 'ru' | 'en' = 'ru'): AdBanner {
   const langBanners = AD_BANNERS.filter(banner => {
     if (!banner.languages) return true;
-    return banner.languages.includes(lang as 'ru' | 'en' | 'es');
+    return banner.languages.includes(lang);
   });
 
   const categoryBanners = langBanners.filter(banner => {
@@ -234,53 +232,53 @@ export function getBannerLink(banner: AdBanner, lang: string = 'ru'): string {
 
 // Переводы для баннеров (используются в JavaScript для автовставки)
 export const BANNER_TRANSLATIONS: Record<string, {
-  title: { ru: string; en: string; es: string };
-  subtitle: { ru: string; en: string; es: string };
-  cta: { ru: string; en: string; es: string };
+  title: { ru: string; en: string };
+  subtitle: { ru: string; en: string };
+  cta: { ru: string; en: string };
   colors: AdBanner['colors'];
-  link?: string | { ru: string; en: string; es: string };
+  link?: string | { ru: string; en: string };
 }> = {
   'veles-algo': {
-    title: { ru: 'Veles: Торговые боты', en: 'Veles: Trading Bots', es: 'Veles: Bots de Trading' },
-    subtitle: { ru: 'Автоматизируй торговлю на криптобиржах', en: 'Automate trading on crypto exchanges', es: 'Automatiza el trading en criptobolsas' },
-    cta: { ru: 'Попробовать', en: 'Try now', es: 'Probar' },
+    title: { ru: 'Veles: Торговые боты', en: 'Veles: Trading Bots' },
+    subtitle: { ru: 'Автоматизируй торговлю на криптобиржах', en: 'Automate trading on crypto exchanges' },
+    cta: { ru: 'Попробовать', en: 'Try now' },
     link: 'https://veles.finance/invite/washmallay',
     colors: { bgStart: '#2D1B69', bgEnd: '#1A0F3D', text: '#E5E5E5', ctaBg: '#F97316', ctaText: '#FFFFFF', border: '#8B5CF6' }
   },
   'bybit-general': {
-    title: { ru: 'Bybit: Криптобиржа', en: 'Bybit: Crypto Exchange', es: 'Bybit: Exchange Crypto' },
-    subtitle: { ru: 'Спот, фьючерсы, низкие комиссии', en: 'Spot, futures, low fees', es: 'Spot, futuros, bajas comisiones' },
-    cta: { ru: 'Регистрация', en: 'Sign up', es: 'Registrarse' },
-    link: { ru: 'https://www.bybit.com/ru-RU/invite?ref=PWMD24', en: 'https://www.bybit.com/en/invite?ref=PWMD24', es: 'https://www.bybit.com/es/invite?ref=PWMD24' },
+    title: { ru: 'Bybit: Криптобиржа', en: 'Bybit: Crypto Exchange' },
+    subtitle: { ru: 'Спот, фьючерсы, низкие комиссии', en: 'Spot, futures, low fees' },
+    cta: { ru: 'Регистрация', en: 'Sign up' },
+    link: { ru: 'https://www.bybit.com/ru-RU/invite?ref=PWMD24', en: 'https://www.bybit.com/en/invite?ref=PWMD24' },
     colors: { bgStart: '#1A1D26', bgEnd: '#0D0E12', text: '#FFFFFF', ctaBg: '#F7A600', ctaText: '#000000', border: '#F7A600' }
   },
   'finbazar-fundamental': {
-    title: { ru: 'FinBazar: On-Chain', en: 'FinBazar: On-Chain', es: 'FinBazar: On-Chain' },
-    subtitle: { ru: 'Аналитика и сигналы для трейдеров', en: 'Analytics and signals for traders', es: 'Analítica y señales para traders' },
-    cta: { ru: 'Инструменты', en: 'Tools', es: 'Herramientas' },
+    title: { ru: 'FinBazar: On-Chain', en: 'FinBazar: On-Chain' },
+    subtitle: { ru: 'Аналитика и сигналы для трейдеров', en: 'Analytics and signals for traders' },
+    cta: { ru: 'Инструменты', en: 'Tools' },
     link: 'https://finbazar.ru/profile/Hampfree/?ref=9483974260',
     colors: { bgStart: '#064E3B', bgEnd: '#022C22', text: '#E5E5E5', ctaBg: '#10B981', ctaText: '#FFFFFF', border: '#34D399' }
   },
   'bingx-general': {
-    title: { ru: 'BingX: Криптобиржа', en: 'BingX: Crypto Exchange', es: 'BingX: Exchange Crypto' },
-    subtitle: { ru: 'Социальный трейдинг, низкие комиссии', en: 'Social trading, low fees', es: 'Trading social, bajas comisiones' },
-    cta: { ru: 'Начать', en: 'Get started', es: 'Comenzar' },
+    title: { ru: 'BingX: Криптобиржа', en: 'BingX: Crypto Exchange' },
+    subtitle: { ru: 'Социальный трейдинг, низкие комиссии', en: 'Social trading, low fees' },
+    cta: { ru: 'Начать', en: 'Get started' },
     link: 'https://bingxdao.com/invite/CUBDBG/',
     colors: { bgStart: '#0A0E27', bgEnd: '#1A237E', text: '#FFFFFF', ctaBg: '#00D4FF', ctaText: '#0A0E27', border: '#00B4D8' }
   },
   'bitget-general': {
-    title: { ru: 'Bitget: Криптобиржа', en: 'Bitget: Crypto Exchange', es: 'Bitget: Exchange Crypto' },
-    subtitle: { ru: 'Фьючерсы, спот, копи-трейдинг', en: 'Futures, spot, copy trading', es: 'Futuros, spot, copy trading' },
-    cta: { ru: 'Регистрация', en: 'Sign up', es: 'Registrarse' },
-    link: { ru: 'https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD', en: 'https://www.bitget.com/en/referral/register?from=referral&clacCode=23EHR2VD', es: 'https://www.bitget.com/es/referral/register?from=referral&clacCode=23EHR2VD' },
+    title: { ru: 'Bitget: Криптобиржа', en: 'Bitget: Crypto Exchange' },
+    subtitle: { ru: 'Фьючерсы, спот, копи-трейдинг', en: 'Futures, spot, copy trading' },
+    cta: { ru: 'Регистрация', en: 'Sign up' },
+    link: { ru: 'https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD', en: 'https://www.bitget.com/en/referral/register?from=referral&clacCode=23EHR2VD' },
     colors: { bgStart: '#0B1E1A', bgEnd: '#051410', text: '#FFFFFF', ctaBg: '#00C9A7', ctaText: '#000000', border: '#14D0BB' }
   },
 
   // BitMEX — для Ginarea-статей (фьючерсы, мультибиржа)
   'bitmex-algo': {
-    title: { ru: 'BitMEX: Криптобиржа', en: 'BitMEX: Crypto Exchange', es: 'BitMEX: Exchange Crypto' },
-    subtitle: { ru: 'Фьючерсы, низкие комиссии, высокая ликвидность', en: 'Futures, low fees, high liquidity', es: 'Futuros, bajas comisiones, alta liquidez' },
-    cta: { ru: 'Регистрация', en: 'Sign up', es: 'Registrarse' },
+    title: { ru: 'BitMEX: Криптобиржа', en: 'BitMEX: Crypto Exchange' },
+    subtitle: { ru: 'Фьючерсы, низкие комиссии, высокая ликвидность', en: 'Futures, low fees, high liquidity' },
+    cta: { ru: 'Регистрация', en: 'Sign up' },
     link: 'https://www.bitmex.com/app/register/LcYXS3',
     colors: {
       bgStart: '#1A0A0A',     // Тёмный с красным оттенком
@@ -293,9 +291,9 @@ export const BANNER_TRANSLATIONS: Record<string, {
   },
 
   'default-felag': {
-    title: { ru: 'FÉLAG', en: 'FÉLAG', es: 'FÉLAG' },
-    subtitle: { ru: 'Трейдинг, крипта, автоматизация', en: 'Trading, crypto, automation', es: 'Trading, cripto, automatización' },
-    cta: { ru: 'Библиотека', en: 'Library', es: 'Biblioteca' },
+    title: { ru: 'FÉLAG', en: 'FÉLAG' },
+    subtitle: { ru: 'Трейдинг, крипта, автоматизация', en: 'Trading, crypto, automation' },
+    cta: { ru: 'Библиотека', en: 'Library' },
     link: '/{lang}/library/',
     colors: { bgStart: '#1B3A5F', bgEnd: '#142A42', text: '#E5E5E5', ctaBg: '#D49B3B', ctaText: '#1B3A5F', border: '#254D7A' }
   }
@@ -341,14 +339,14 @@ export function getBannerForArticle(category: string, lang: string, slug: string
   const link = banner.link
     ? (typeof banner.link === 'string'
       ? banner.link
-      : (banner.link[lang as 'ru' | 'en' | 'es'] || banner.link.ru))
+      : (banner.link[lang as 'ru' | 'en'] || banner.link.ru))
     : '#';
 
   return {
     id: bannerId,
-    title: banner.title[lang as 'ru' | 'en' | 'es'] || banner.title.ru,
-    subtitle: banner.subtitle[lang as 'ru' | 'en' | 'es'] || banner.subtitle.ru,
-    cta: banner.cta[lang as 'ru' | 'en' | 'es'] || banner.cta.ru,
+    title: banner.title[lang as 'ru' | 'en'] || banner.title.ru,
+    subtitle: banner.subtitle[lang as 'ru' | 'en'] || banner.subtitle.ru,
+    cta: banner.cta[lang as 'ru' | 'en'] || banner.cta.ru,
     link: link,
     colors: banner.colors
   };
