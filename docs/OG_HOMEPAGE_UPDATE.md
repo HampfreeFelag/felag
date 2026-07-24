@@ -119,7 +119,7 @@ git push origin main  # GitHub Actions сделает всё сам
 start dist/og/ru-homepage.png
 
 # Проверить на сайте
-curl -sI https://Felag-academy.org/og/ru-homepage.png
+curl -sI https://felag.online/og/ru-homepage.png
 ```
 
 ---
@@ -140,7 +140,7 @@ curl -sI https://Felag-academy.org/og/ru-homepage.png
 После деплоя обновить кэш в [@WebpageBot](https://t.me/WebpageBot):
 
 ```
-/send https://Felag-academy.org/ru/
+/send https://felag.online/ru/
 ```
 
 ---

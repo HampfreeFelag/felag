@@ -1,6 +1,5 @@
 ---
 title: 'Ginarea: Crypto Trading Bot Builder for Algorithmic Trading'
-description: 'Ginarea — crypto trading bot builder. Visual strategy creation, 5 bot types, indicators. Free, OKX/Bybit/BitMEX. Full review.'
 pubDate: '2026-03-28'
 category: 'algo-trading'
 ---
@@ -20,7 +19,6 @@ category: 'algo-trading'
 1. **Visual builder** — bot setup via clear interface
 2. **Bot types** — Default, Auto Grid, Dynamic, Indicator Grid, DCA
 3. **Analytics** — trading statistics, results analysis
-4. **Multi-exchange** — OKX, Bybit, BitMEX, KuCoin
 5. **Auto Grid** — automatic grid adjustment on price movement
 6. **Free** — platform with free tier (affiliate program for development)
 
@@ -30,12 +28,10 @@ category: 'algo-trading'
 |----------|------|--------|
 | **OKX** | Crypto (spot + futures) | ✅ Full support |
 | **Bybit** | Crypto (spot + futures) | ✅ Full support |
-| **BitMEX** | Crypto (futures) | ✅ Full support |
 | **KuCoin** | Crypto (spot + futures) | ✅ Full support |
 
 ![Ginarea Dashboard](./assets/ginarea-dashboard.png)
 
-**Important:** Ginarea supports spot and futures on OKX, Bybit and KuCoin, plus futures on BitMEX. Unified trading account required (Bybit) or trading account (OKX/KuCoin).
 
 ### Minimum Requirements (Recommendations)
 
@@ -156,7 +152,6 @@ category: 'algo-trading'
 | **Visual builder** | Strategy creation without code, clear |
 | **Flexibility** | Can implement complex ideas (conditions, filters) |
 | **Analytics** | Trading statistics, results analysis |
-| **Multi-exchange** | OKX, Bybit, BitMEX in one platform |
 | **Community** | Strategy publishing, education |
 
 ### Cons

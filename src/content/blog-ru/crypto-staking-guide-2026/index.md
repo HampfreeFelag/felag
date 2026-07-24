@@ -11,9 +11,9 @@ draft: false
 **Стейкинг** — это способ пассивного заработка на криптовалютах с алгоритмом консенсуса Proof-of-Stake (PoS). Вы блокируете свои монеты в сети для поддержки работы блокчейна и получаете за это вознаграждение.
 
 **Связанные статьи:**
-- [Что такое стейкинг](https://Felag-academy.org/ru/library/what-is-staking/) — базовое определение
-- [DCA-стратегия](https://Felag-academy.org/ru/library/dca-strategy-crypto/) — как покупать криптовалюту частями
-- [Bybit: торговые боты](https://Felag-academy.org/ru/library/bybit-trading-bot-setup/) — автоматизация торговли
+- [Что такое стейкинг](https://felag.online/ru/library/what-is-staking/) — базовое определение
+- [DCA-стратегия](https://felag.online/ru/library/dca-strategy-crypto/) — как покупать криптовалюту частями
+- [Bybit: торговые боты](https://felag.online/ru/library/bybit-trading-bot-setup/) — автоматизация торговли
 
 В 2026 году стейкинг остаётся одним из самых популярных способов заработка в крипте. В этом руководстве — всё, что нужно знать новичку: от выбора монет до расчёта доходности и оценки рисков.
 
@@ -395,7 +395,7 @@ draft: false
 
 **Полезные материалы:**
 
-Перед началом стейкинга рекомендуем изучить [основы токеномики](https://Felag-academy.org/ru/library/what-is-tokenomics/) для оценки рисков проекта, [риск-менеджмент](https://Felag-academy.org/ru/library/risk-management-crypto-trading-bots/) для управления капиталом и [DCA стратегию](https://Felag-academy.org/ru/library/dca-strategy-crypto/) для постепенной покупки монет.
+Перед началом стейкинга рекомендуем изучить [основы токеномики](https://felag.online/ru/library/what-is-tokenomics/) для оценки рисков проекта, [риск-менеджмент](https://felag.online/ru/library/risk-management-crypto-trading-bots/) для управления капиталом и [DCA стратегию](https://felag.online/ru/library/dca-strategy-crypto/) для постепенной покупки монет.
 
 ---
 

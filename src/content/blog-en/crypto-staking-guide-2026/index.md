@@ -346,7 +346,7 @@ Use online calculators:
 
 **Useful resources:**
 
-Before starting staking, we recommend studying [tokenomics basics](https://Felag-academy.org/en/library/what-is-tokenomics/) for project risk assessment, [risk management](https://Felag-academy.org/en/library/risk-management-crypto-trading-bots/) for capital management, and [DCA strategy](https://Felag-academy.org/en/library/dca-strategy-crypto/) for gradual coin purchases.
+Before starting staking, we recommend studying [tokenomics basics](https://felag.online/en/library/what-is-tokenomics/) for project risk assessment, [risk management](https://felag.online/en/library/risk-management-crypto-trading-bots/) for capital management, and [DCA strategy](https://felag.online/en/library/dca-strategy-crypto/) for gradual coin purchases.
 
 ---
 

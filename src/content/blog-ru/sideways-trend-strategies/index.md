@@ -40,8 +40,8 @@ category: 'technical-analysis'
 
 ### Использование индикаторов
 
-- **[RSI](https://Felag-academy.org/ru/library/technical-analysis-rsi)** — в боковике RSI колеблется в среднем диапазоне (40-60)
-- **[MFI](https://Felag-academy.org/ru/library/money-flow-index)** — показывает отсутствие выраженного притока/оттока капитала
+- **[RSI](https://felag.online/ru/library/technical-analysis-rsi)** — в боковике RSI колеблется в среднем диапазоне (40-60)
+- **[MFI](https://felag.online/ru/library/money-flow-index)** — показывает отсутствие выраженного притока/оттока капитала
 - **Скользящие средние** — цена движется вокруг скользящих средних без четкого направления
 
 ![Осцилляторы в боковике: RSI/MFI помогают ловить перекупленность и перепроданность в диапазоне](./assets/oscillators-in-range.png)
@@ -104,7 +104,7 @@ category: 'technical-analysis'
 
 **Правила:**
 
-1. Использовать [RSI](https://Felag-academy.org/ru/library/technical-analysis-rsi) или [MFI](https://Felag-academy.org/ru/library/money-flow-index)
+1. Использовать [RSI](https://felag.online/ru/library/technical-analysis-rsi) или [MFI](https://felag.online/ru/library/money-flow-index)
 2. Покупать при RSI < 30 (перепроданность)
 3. Продавать при RSI > 70 (перекупленность)
 4. Стоп-лосс за границами диапазона
@@ -131,18 +131,18 @@ category: 'technical-analysis'
 3. Стоп-лосс за уровнем пробоя
 4. Тейк-профит на противоположной границе
 
-Подробнее о ложных пробоях читайте в статье про [ложные пробои в трейдинге](https://Felag-academy.org/ru/library/false-breakouts-trading).
+Подробнее о ложных пробоях читайте в статье про [ложные пробои в трейдинге](https://felag.online/ru/library/false-breakouts-trading).
 
 ## Риск-менеджмент в боковом тренде
 
 ### Правила управления рисками
 
 1. **Стоп-лосс** — рекомендуется устанавливать стоп-лосс за границами диапазона
-2. **Лимит риска на сделку** — задайте максимум потерь на одну сделку/идею и не превышайте его (часто рекомендуют 1–2% депозита; при диверсификации подход может отличаться — см. [риск-менеджмент](https://Felag-academy.org/ru/library/risk-management-crypto-trading-bots))
+2. **Лимит риска на сделку** — задайте максимум потерь на одну сделку/идею и не превышайте его (часто рекомендуют 1–2% депозита; при диверсификации подход может отличаться — см. [риск-менеджмент](https://felag.online/ru/library/risk-management-crypto-trading-bots))
 3. **Размер позиции** — важно учитывать ширину диапазона при расчёте размера позиции
-4. **Диверсификация** — лучше не концентрировать весь капитал в одном диапазоне. Как совместить диверсификацию по активам и стратегиям с настройкой торговой системы — в серии [Диверсификация и настройка торговой системы](https://Felag-academy.org/ru/library/diversification-trading-system-part-1/).
+4. **Диверсификация** — лучше не концентрировать весь капитал в одном диапазоне. Как совместить диверсификацию по активам и стратегиям с настройкой торговой системы — в серии [Диверсификация и настройка торговой системы](https://felag.online/ru/library/diversification-trading-system-part-1/).
 
-Подробнее о риск-менеджменте читайте в статье про [риск-менеджмент в криптотрейдинге с ботами](https://Felag-academy.org/ru/library/risk-management-crypto-trading-bots).
+Подробнее о риск-менеджменте читайте в статье про [риск-менеджмент в криптотрейдинге с ботами](https://felag.online/ru/library/risk-management-crypto-trading-bots).
 
 ## Когда боковой тренд заканчивается
 
@@ -186,7 +186,7 @@ category: 'technical-analysis'
 - **Range-боты** — торгуют от границ диапазона
 - **Осцилляторные стратегии** — используют RSI/MFI для сигналов
 
-Перед использованием в реальной торговле рекомендуется протестировать стратегию через [бэктестинг](https://Felag-academy.org/ru/library/what-are-backtests).
+Перед использованием в реальной торговле рекомендуется протестировать стратегию через [бэктестинг](https://felag.online/ru/library/what-are-backtests).
 
 ## FAQ
 
@@ -200,7 +200,7 @@ category: 'technical-analysis'
 
 **Какие индикаторы лучше работают в боковике?**
 
-Осцилляторы ([RSI](https://Felag-academy.org/ru/library/technical-analysis-rsi), [MFI](https://Felag-academy.org/ru/library/money-flow-index), [Williams %R](https://Felag-academy.org/ru/library/williams-percent-range-r)) работают лучше в боковике, чем трендовые индикаторы.
+Осцилляторы ([RSI](https://felag.online/ru/library/technical-analysis-rsi), [MFI](https://felag.online/ru/library/money-flow-index), [Williams %R](https://felag.online/ru/library/williams-percent-range-r)) работают лучше в боковике, чем трендовые индикаторы.
 
 **Что делать, если диапазон пробит?**
 
@@ -212,6 +212,6 @@ category: 'technical-analysis'
 
 ## Итог
 
-Боковой тренд — это нормальное состояние рынка, которое можно эффективно использовать для торговли. Важно правильно определять границы диапазона, использовать подходящие стратегии (range trading, grid-торговля) и всегда применять риск-менеджмент. Для повышения надежности рекомендуется тестировать стратегии через [бэктестинг](https://Felag-academy.org/ru/library/what-are-backtests) и комбинировать с индикаторами технического анализа.
+Боковой тренд — это нормальное состояние рынка, которое можно эффективно использовать для торговли. Важно правильно определять границы диапазона, использовать подходящие стратегии (range trading, grid-торговля) и всегда применять риск-менеджмент. Для повышения надежности рекомендуется тестировать стратегии через [бэктестинг](https://felag.online/ru/library/what-are-backtests) и комбинировать с индикаторами технического анализа.
 
 

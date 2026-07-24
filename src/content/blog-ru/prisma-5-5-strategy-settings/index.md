@@ -7,7 +7,7 @@ category: 'algo-trading'
 
 **Prisma 5.5** — авторская стратегия платформы [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings) для автоматической торговли. В этой статье — полный разбор настроек: какие индикаторы используются для входа, как выставить сетку ордеров и на каких парах запускать.
 
-**Важно:** перед использованием любой стратегии ознакомьтесь с [управлением рисками](https://Felag-academy.org/ru/library/risk-management-crypto-trading-bots/) и серией [Диверсификация и настройка торговой системы](https://Felag-academy.org/ru/library/diversification-trading-system-part-1/).
+**Важно:** перед использованием любой стратегии ознакомьтесь с [управлением рисками](https://felag.online/ru/library/risk-management-crypto-trading-bots/) и серией [Диверсификация и настройка торговой системы](https://felag.online/ru/library/diversification-trading-system-part-1/).
 
 ## Что такое Prisma 5.5
 Prisma 5.5 — это высокочастотная торговая стратегия, разработанная для работы на волатильном крипторынке. Она сочетает в себе фильтры тренда и осцилляторы для поиска оптимальных точек входа в Long позиции.
@@ -19,16 +19,16 @@ Prisma 5.5 — это высокочастотная торговая страт
 
 Для открытия позиции в Prisma 5.5 используются следующие индикаторы:
 
-1. **[CMO (Chande Momentum Oscillator)](https://Felag-academy.org/ru/library/chande-momentum-oscillator/)**  
+1. **[CMO (Chande Momentum Oscillator)](https://felag.online/ru/library/chande-momentum-oscillator/)**  
    • Период: 14  
    • Уровни: ±50  
    • Условие: CMO  ниже −50 (зона перепроданности) перед входом в Long, выше +50 — усиление импульса вверх.
 
-2. **[Bollinger Bands](https://Felag-academy.org/ru/library/bollinger-bands/)**   
+2. **[Bollinger Bands](https://felag.online/ru/library/bollinger-bands/)**   
    • Период: 20, Отклонение: 2  
    • Условие: Цена вблизи или ниже нижней полосы Боллинджера.
 
-3. **[RSI (Relative Strength Index)](https://Felag-academy.org/ru/library/technical-analysis-rsi/)**   
+3. **[RSI (Relative Strength Index)](https://felag.online/ru/library/technical-analysis-rsi/)**   
    • Период: 14  
    • Уровень: 30  
    • Условие: RSI ниже 30 — подтверждение перепроданности по импульсу.

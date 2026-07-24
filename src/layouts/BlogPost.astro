@@ -477,9 +477,9 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 					let bannerId = 'bybit-general'; // fallback
 
 					if (category === 'algo-trading') {
-						// Ginarea-статьи → BitMEX (упоминают BitMEX), Veles → Veles
+						// Ginarea-статьи → Bybit, Veles → Veles
 						const isGinarea = slug.includes('ginarea');
-						bannerId = isGinarea ? 'bitmex-algo' : 'veles-algo';
+						bannerId = isGinarea ? 'bybit-general' : 'veles-algo';
 					} else if (category === 'fundamental-analysis' && lang === 'ru') {
 						bannerId = 'finbazar-fundamental'; // Только для RU!
 					} else if (category === 'fundamental-analysis' && lang === 'en') {

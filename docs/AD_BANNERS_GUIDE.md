@@ -249,7 +249,7 @@ http://localhost:4321/ru/library/dca-strategy-crypto/
 
 ```bash
 # После пуша
-https://Felag-academy.org/ru/library/dca-strategy-crypto/
+https://felag.online/ru/library/dca-strategy-crypto/
 ```
 
 ---

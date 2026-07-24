@@ -7,7 +7,7 @@ category: 'algo-trading'
 
 **Prisma 5.5** is a proprietary strategy from the [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings) platform for automated trading. This article provides a full breakdown of the settings: which indicators are used for entry, how to set up the order grid, and which pairs to launch on.
 
-**Important:** Before using any strategy, familiarize yourself with [risk management](https://Felag-academy.org/en/library/risk-management-crypto-trading-bots/) and the series [Diversification and Trading System Setup](https://Felag-academy.org/en/library/diversification-trading-system-part-1/).
+**Important:** Before using any strategy, familiarize yourself with [risk management](https://felag.online/en/library/risk-management-crypto-trading-bots/) and the series [Diversification and Trading System Setup](https://felag.online/en/library/diversification-trading-system-part-1/).
 
 ## What is Prisma 5.5?
 
@@ -21,16 +21,16 @@ It should be noted that the parameters, like the settings of other Felag strateg
 
 To open a position in Prisma 5.5, the following indicators are used:
 
-1. **[CMO (Chande Momentum Oscillator)](https://Felag-academy.org/en/library/chande-momentum-oscillator/)**
+1. **[CMO (Chande Momentum Oscillator)](https://felag.online/en/library/chande-momentum-oscillator/)**
    • Period: 14
    • Levels: ±50
    • Condition: CMO below −50 (oversold zone) before Long entry, above +50 — upward momentum (oversold zone)
 
-2. **[Bollinger Bands](https://Felag-academy.org/en/library/bollinger-bands/)**
+2. **[Bollinger Bands](https://felag.online/en/library/bollinger-bands/)**
    - Period: 20, Deviation: 2
    - Condition: Price below the lower band
 
-3. **[RSI (Relative Strength Index)](https://Felag-academy.org/en/library/technical-analysis-rsi/)**
+3. **[RSI (Relative Strength Index)](https://felag.online/en/library/technical-analysis-rsi/)**
    - Period: 14
    - Level: 30
    - Condition: RSI less than 30

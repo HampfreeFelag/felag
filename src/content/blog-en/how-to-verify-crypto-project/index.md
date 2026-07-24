@@ -6,7 +6,7 @@ category: 'fundamental-analysis'
 draft: false
 ---
 
-**Important:** This checklist is a "junk/not junk" filter, not a buy recommendation. For deep analysis, see [Fundamental Analysis: 15-Minute Checklist](https://Felag-academy.org/en/library/fundamental-analysis-checklist/).
+**Important:** This checklist is a "junk/not junk" filter, not a buy recommendation. For deep analysis, see [Fundamental Analysis: 15-Minute Checklist](https://felag.online/en/library/fundamental-analysis-checklist/).
 
 **Why this matters:**
 
@@ -490,7 +490,7 @@ Checking new L2 project:
 
 **Deep analysis:**
 
-For more detailed check, use [extended 15-minute checklist](https://Felag-academy.org/en/library/fundamental-analysis-checklist/), which includes tokenomics and on-chain metrics check. Also recommend studying [tokenomics basics](https://Felag-academy.org/en/library/what-is-tokenomics/) and [risk management](https://Felag-academy.org/en/library/risk-management-crypto-trading-bots/) for risk assessment.
+For more detailed check, use [extended 15-minute checklist](https://felag.online/en/library/fundamental-analysis-checklist/), which includes tokenomics and on-chain metrics check. Also recommend studying [tokenomics basics](https://felag.online/en/library/what-is-tokenomics/) and [risk management](https://felag.online/en/library/risk-management-crypto-trading-bots/) for risk assessment.
 
 ---
 

@@ -89,9 +89,9 @@ category: 'technical-analysis'
 
 Паттерны флаг и вымпел работают лучше в комбинации с другими инструментами технического анализа:
 
-- **[RSI](https://Felag-academy.org/ru/library/technical-analysis-rsi)** — для подтверждения зон перекупленности/перепроданности
-- **[MFI](https://Felag-academy.org/ru/library/money-flow-index)** — для анализа объемов и подтверждения пробоя
-- **[Свечные паттерны](https://Felag-academy.org/ru/library/what-are-doji-candles)** — для дополнительного подтверждения сигнала
+- **[RSI](https://felag.online/ru/library/technical-analysis-rsi)** — для подтверждения зон перекупленности/перепроданности
+- **[MFI](https://felag.online/ru/library/money-flow-index)** — для анализа объемов и подтверждения пробоя
+- **[Свечные паттерны](https://felag.online/ru/library/what-are-doji-candles)** — для дополнительного подтверждения сигнала
 
 ## Типичные ошибки
 
@@ -119,7 +119,7 @@ category: 'technical-analysis'
 - Открывать позицию при подтверждении объемом
 - Устанавливать стоп-лосс и тейк-профит
 
-Перед использованием в реальной торговле рекомендуется протестировать стратегию на исторических данных через [бэктестинг](https://Felag-academy.org/ru/library/what-are-backtests).
+Перед использованием в реальной торговле рекомендуется протестировать стратегию на исторических данных через [бэктестинг](https://felag.online/ru/library/what-are-backtests).
 
 ## FAQ
 

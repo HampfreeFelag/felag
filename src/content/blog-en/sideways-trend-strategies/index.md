@@ -41,8 +41,8 @@ Ranges form when:
 
 ### Using indicators
 
-- **[RSI](https://Felag-academy.org/en/library/technical-analysis-rsi)** — in ranges RSI often oscillates around the mid-zone (roughly 40–60)
-- **[MFI](https://Felag-academy.org/en/library/money-flow-index)** — helps assess whether there is real inflow/outflow of capital
+- **[RSI](https://felag.online/en/library/technical-analysis-rsi)** — in ranges RSI often oscillates around the mid-zone (roughly 40–60)
+- **[MFI](https://felag.online/en/library/money-flow-index)** — helps assess whether there is real inflow/outflow of capital
 - **Moving averages** — price often “cuts through” MAs without trend-like separation
 
 ![Oscillators in a range: RSI/MFI help catch overbought/oversold swings](./assets/oscillators-in-range.png)
@@ -105,7 +105,7 @@ Range trading is simple: look for buys closer to support and sells closer to res
 
 **Rules:**
 
-1. use **[RSI](https://Felag-academy.org/en/library/technical-analysis-rsi)** or **[MFI](https://Felag-academy.org/en/library/money-flow-index)**
+1. use **[RSI](https://felag.online/en/library/technical-analysis-rsi)** or **[MFI](https://felag.online/en/library/money-flow-index)**
 
 2. buy when RSI < 30 (oversold) and price is near support
 3. sell when RSI > 70 (overbought) and price is near resistance
@@ -133,14 +133,14 @@ Range trading is simple: look for buys closer to support and sells closer to res
 3. stop beyond the fake-out extreme
 4. target the opposite range boundary
 
-Read more in **[False Breakouts in Trading](https://Felag-academy.org/en/library/false-breakouts-trading)**.
+Read more in **[False Breakouts in Trading](https://felag.online/en/library/false-breakouts-trading)**.
 
 ## Risk management in sideways markets
 
 ### Core rules
 
 1. **Stop-loss is mandatory** — always place stops beyond the range
-2. **Cap risk per trade** — set a max loss per idea and stick to it (many suggest 1–2% of account; with diversification the approach can differ — see [risk management](https://Felag-academy.org/en/library/risk-management-crypto-trading-bots))
+2. **Cap risk per trade** — set a max loss per idea and stick to it (many suggest 1–2% of account; with diversification the approach can differ — see [risk management](https://felag.online/en/library/risk-management-crypto-trading-bots))
 3. **Position sizing** — consider range width when sizing
 4. **Diversify** — don’t lock all capital into one range setup
 
@@ -190,7 +190,7 @@ Sideways markets are great for automation:
 - range bots
 - oscillator-based bots (RSI/MFI)
 
-Before going live, validate the approach with **[backtesting](https://Felag-academy.org/en/library/what-are-backtests)**.
+Before going live, validate the approach with **[backtesting](https://felag.online/en/library/what-are-backtests)**.
 
 ## FAQ
 
@@ -204,7 +204,7 @@ Usually not. Range-specific logic is more appropriate.
 
 **Which indicators work best in ranges?**
 
-Oscillators like **[RSI](https://Felag-academy.org/en/library/technical-analysis-rsi)**, **[MFI](https://Felag-academy.org/en/library/money-flow-index)**, and **[Williams %R](https://Felag-academy.org/en/library/williams-percent-range-r)** tend to be more helpful than trend indicators.
+Oscillators like **[RSI](https://felag.online/en/library/technical-analysis-rsi)**, **[MFI](https://felag.online/en/library/money-flow-index)**, and **[Williams %R](https://felag.online/en/library/williams-percent-range-r)** tend to be more helpful than trend indicators.
 
 **What if the range breaks?**
 
@@ -214,11 +214,11 @@ If the breakout is confirmed, close range positions and wait for a new trend str
 
 Yes — ranges are well-suited for bots (grid/range systems).
 
-**Bottom line:** Sideways markets are normal — and tradable — if you define boundaries well, choose the right strategy (range or grid), and manage risk. Always validate via **[backtesting](https://Felag-academy.org/en/library/what-are-backtests)**.
+**Bottom line:** Sideways markets are normal — and tradable — if you define boundaries well, choose the right strategy (range or grid), and manage risk. Always validate via **[backtesting](https://felag.online/en/library/what-are-backtests)**.
 
 ## Summary
 
-Sideways markets are a normal state of the market that can be effectively used for trading. It is important to correctly define the range boundaries, use appropriate strategies (range trading, grid trading), and always apply risk management. To increase reliability, it is recommended to test strategies through [backtesting](https://Felag-academy.org/en/library/what-are-backtests) and combine with technical analysis indicators.
+Sideways markets are a normal state of the market that can be effectively used for trading. It is important to correctly define the range boundaries, use appropriate strategies (range trading, grid trading), and always apply risk management. To increase reliability, it is recommended to test strategies through [backtesting](https://felag.online/en/library/what-are-backtests) and combine with technical analysis indicators.
 
 For automated grid and range trading, register on **Bybit**.
 

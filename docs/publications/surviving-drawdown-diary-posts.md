@@ -1,7 +1,7 @@
 # Посты: «Как мы переживаем просадку: дневник живого депозита»
 
 Статья в блоге: [surviving-drawdown-diary](/ru/library/surviving-drawdown-diary/)  
-Полный URL: https://Felag-academy.org/ru/library/surviving-drawdown-diary/
+Полный URL: https://felag.online/ru/library/surviving-drawdown-diary/
 
 **Референсы по площадкам:**
 - Telegram: https://t.me/hampfree_market_lab/24
@@ -17,7 +17,7 @@
 
 Биткоин снова качает, депозит откатился от пика — знакомо? Мы ведём живой дневник: что делаем в просадке, чего не делаем (например, не усредняемся без плана), как держим лимиты и диверсификацию. Не теория, а срез с реальных аккаунтов. Как пережить спад и не сломать систему — в статье.
 
-👉 https://Felag-academy.org/ru/library/surviving-drawdown-diary/
+👉 https://felag.online/ru/library/surviving-drawdown-diary/
 
 А вы как считаете?
 Размотает деп на Bybit — ⚡️
@@ -31,7 +31,7 @@
 
 Когда рынок падает и счёт в минусе от пика, главное — не менять правила на ходу. В новой статье: наш план выживания в просадке, почему мы не усредняем без чётких правил и как держать риск и диверсификацию. Живой аккаунт, реальная просадка, без «красивой истории» задним числом.
 
-Читать: https://Felag-academy.org/ru/library/surviving-drawdown-diary/
+Читать: https://felag.online/ru/library/surviving-drawdown-diary/
 
 А вы как считаете?
 Размотает деп на Bybit — ⚡️
@@ -45,7 +45,7 @@
 
 Просадка по депозиту — нормальная часть торговли. В статье разбираем, как мы её переживаем на живом счёте: что делаем, чего избегаем, как не вырубить всё сгоряча и не усредняться бесконтрольно. План выживания, лимиты, диверсификация и ссылки на риск-менеджмент и настройку системы.
 
-Статья: https://Felag-academy.org/ru/library/surviving-drawdown-diary/
+Статья: https://felag.online/ru/library/surviving-drawdown-diary/
 
 А вы как считаете?
 Размотает деп на Bybit — ⚡️
@@ -59,7 +59,7 @@
 
 Биткоин и альты падают — счёт уходит в минус от пика. Как пережить просадку и не сломать систему? В блоге — дневник живого депозита: что мы делаем в просадке, чего не делаем, как держим лимиты и диверсификацию. Без усреднения без плана и без паники-остановки.
 
-https://Felag-academy.org/ru/library/surviving-drawdown-diary/
+https://felag.online/ru/library/surviving-drawdown-diary/
 
 А вы как считаете?
 Размотает деп на Bybit — ⚡️

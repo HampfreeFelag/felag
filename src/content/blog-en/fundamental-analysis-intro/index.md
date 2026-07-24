@@ -11,7 +11,7 @@ Fundamental analysis helps understand whether an asset deserves attention and if
 
 Most traders start with candles, levels, and indicators. Fundamentals seem "long and complicated," so they're often postponed. Without them, the "enter or not" decision relies mainly on the chart: trend exists — enter, no trend — wait. But the same chart can be both the start of a strong move and a trap before a crash. Fundamental analysis doesn't give an exact entry point, but helps filter out junk and understand context: are we closer to overheating or to a zone where the asset historically bounced?
 
-It makes sense to use FA as a filter: first "is this asset worth looking at," then technical analysis for entry point. More on fitting the check into 15 minutes — in the [fundamental analysis checklist](https://Felag-academy.org/en/library/fundamental-analysis-checklist/).
+It makes sense to use FA as a filter: first "is this asset worth looking at," then technical analysis for entry point. More on fitting the check into 15 minutes — in the [fundamental analysis checklist](https://felag.online/en/library/fundamental-analysis-checklist/).
 
 **Why fundamentals matter:**
 - Junk filter: screens out weak projects before entry
@@ -44,7 +44,7 @@ In crypto there are no IFRS reports and no central bank. There's no single proje
 **What exists instead:**
 
 - **Network technology and architecture** — how the blockchain is structured, speed, fees, security.
-- **On-chain metrics** — data from the chain itself: MVRV, NVT, exchange reserves, coin movements. They show how participants behave "inside" the network. More details — in the [on-chain metrics article](https://Felag-academy.org/en/library/onchain-metrics-fundamental-analysis/).
+- **On-chain metrics** — data from the chain itself: MVRV, NVT, exchange reserves, coin movements. They show how participants behave "inside" the network. More details — in the [on-chain metrics article](https://felag.online/en/library/onchain-metrics-fundamental-analysis/).
 - **Tokenomics** — emission, supply cap, vesting, unlock schedules. Question: "Will a mass release of tokens crash the price?"
 - **Team, community, regulation** — who's behind the project, is there a live product and community, how is the regulatory landscape changing.
 
@@ -64,7 +64,7 @@ FA and TA solve different tasks. It makes sense to use them sequentially.
 
 **Technical analysis answers:** "Where exactly to enter and exit in the coming days or weeks?", "Which levels and indicators confirm the scenario?"
 
-Practical example: on-chain and tokenomics show the asset is not in an overheating zone and large wallets are accumulating. Then on the chart we look for long setups — levels, [indicators](https://Felag-academy.org/en/library/technical-analysis-rsi/), volume. Conversely: if FA indicates overheating or mass unlocks, it's wiser not to add to longs and look for points to take profit or short.
+Practical example: on-chain and tokenomics show the asset is not in an overheating zone and large wallets are accumulating. Then on the chart we look for long setups — levels, [indicators](https://felag.online/en/library/technical-analysis-rsi/), volume. Conversely: if FA indicates overheating or mass unlocks, it's wiser not to add to longs and look for points to take profit or short.
 
 **Decision matrix:**
 
@@ -151,7 +151,7 @@ Conclusion: Capitulation phase. 3 months later BTC grew from $15,500 to $30,000 
 
 ![3 Steps of Fundamental Analysis: Infographic](./assets/Infographics_fundamental_analysis.png)
 
-Detailed breakdown of on-chain metrics — in the [separate article](https://Felag-academy.org/en/library/onchain-metrics-fundamental-analysis/); quick token scan — in the [15-minute checklist](https://Felag-academy.org/en/library/fundamental-analysis-checklist/).
+Detailed breakdown of on-chain metrics — in the [separate article](https://felag.online/en/library/onchain-metrics-fundamental-analysis/); quick token scan — in the [15-minute checklist](https://felag.online/en/library/fundamental-analysis-checklist/).
 
 ## Historical Examples: When FA Saved from Losses
 
@@ -258,7 +258,7 @@ Fundamental analysis is an indispensable tool for asset selection and market con
 - Framework: macro → asset quality → on-chain context
 - Combine FA with TA and risk management
 
-More on tokenomics read in the [What is Tokenomics](https://Felag-academy.org/en/library/what-is-tokenomics/) article.
+More on tokenomics read in the [What is Tokenomics](https://felag.online/en/library/what-is-tokenomics/) article.
 
 ## FAQ
 

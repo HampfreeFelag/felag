@@ -13,7 +13,6 @@ category: 'algo-trading'
 
 We first encountered Ginarea a few years ago, but returned to it more seriously in 2026. The test deposit was modest — around **$300 on a Bybit sub-account** (after [a liquidation on one of the accounts](https://t.me/hampfree_market_lab_global/21)). Later, as we scaled up the direction, we added another ~$100.
 
-Testing on BitMEX ran on an even smaller deposit — **$50–60**.
 
 To refresh our skills and ease into trading on each exchange, we started with the minimum number of assets and the minimum order size. Only after calibrating the settings did we add new assets, closely monitoring the initial margin level.
 
@@ -33,8 +32,6 @@ This is not a general recommendation — just what we started with ourselves. Be
 | **UMA/USDT** | Least expected performance, went into drawdown — likely due to initial calibration. Chart evened out later |
 | **SOL/USDT** | Added as one of the last, when we [shared market updates](https://t.me/hampfree_market_lab_global/33) |
 
-### BitMEX
-
 | Asset | Notes |
 |-------|-------|
 | **ADA/USDT** | Calm asset, good for learning |
@@ -42,7 +39,6 @@ This is not a general recommendation — just what we started with ourselves. Be
 | **XRP/USDT** | Classic, predictable behavior |
 | **SOL/USDT** | Same as the Bybit account |
 | **LTC/USDT** | Interesting to study behavior specifically in 2026 |
-| **ETH/USDT** | Favorite of the BitMEX asset pool. Thanks to more stable and balanced [metrics](/en/library/fundamental-analysis-intro/), the profit chart is smoother — at the time of writing, the ETH configuration has already locked in decent profit over 5 times |
 
 Bot types, mechanics, and configuration details are thoroughly described in the [official Ginarea documentation](https://ginareas-organization.gitbook.io/ginarea.org/nastroiki-botov) — we recommend studying it before launching. Below is our experience and observations on Dynamic, which is currently running.
 

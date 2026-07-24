@@ -5,7 +5,7 @@ pubDate: '2025-06-03'
 category: 'algo-trading'
 ---
 
-Backtests are the foundation of any robust trading system. Without testing on historical data, it is impossible to objectively assess a strategy’s effectiveness before risking real capital. Professional traders and algorithmic systems rely on backtesting as a mandatory step in developing and optimizing strategies.
+Backtests are the foundation of any robust trading system. Without testing on historical data, it is impossible to objectively assess a strategyï¿½s effectiveness before risking real capital. Professional traders and algorithmic systems rely on backtesting as a mandatory step in developing and optimizing strategies.
 
 The article explains what backtesting is, how to do it correctly, which tools to use, and what pitfalls to avoid. It also covers why backtest results do not guarantee future profits yet remain essential for any serious trader.
 
@@ -17,24 +17,24 @@ Testing helps identify strengths and weaknesses and optimize parameters (e.g. st
 
 ### Main Goals of Backtesting
 
-1. **Evaluate strategy performance** — Did the strategy profit in the past? How stable was it?
-2. **Optimize parameters** — Find better settings for indicators, stops, and targets. For example, with the [RSI indicator](https://Felag-academy.org/en/library/technical-analysis-rsi) traders can test different periods and overbought/oversold levels.
-3. **Assess risk** — Max drawdown, losing streaks, and volatility of returns. Crucial for capital management.
-4. **Check robustness** — Does the strategy work across trending, sideways, volatile, and calm markets?
-5. **Compare strategies** — Objectively compare different approaches.
+1. **Evaluate strategy performance** ï¿½ Did the strategy profit in the past? How stable was it?
+2. **Optimize parameters** ï¿½ Find better settings for indicators, stops, and targets. For example, with the [RSI indicator](https://felag.online/en/library/technical-analysis-rsi) traders can test different periods and overbought/oversold levels.
+3. **Assess risk** ï¿½ Max drawdown, losing streaks, and volatility of returns. Crucial for capital management.
+4. **Check robustness** ï¿½ Does the strategy work across trending, sideways, volatile, and calm markets?
+5. **Compare strategies** ï¿½ Objectively compare different approaches.
 
 ### Types of Backtests
 
-- **Historical backtest** — Test on a fixed past period (e.g. 2–3 years).
-- **Walk?forward** — Optimize on one window, test on the next; reduces overfitting.
-- **Monte Carlo** — Shuffle historical trades to estimate outcome distributions.
-- **Stress testing** — Test in extreme conditions (crashes, pumps).
+- **Historical backtest** ï¿½ Test on a fixed past period (e.g. 2ï¿½3 years).
+- **Walk?forward** ï¿½ Optimize on one window, test on the next; reduces overfitting.
+- **Monte Carlo** ï¿½ Shuffle historical trades to estimate outcome distributions.
+- **Stress testing** ï¿½ Test in extreme conditions (crashes, pumps).
 
 ## How to Backtest
 
 ### 1. TradingView
 
-TradingView uses **Pine Script** to define entry/exit logic. The Strategy Tester computes profitability, max drawdown, profit factor, and trade count. Good for visual, quick checks. Strategies based on [candlestick patterns](https://Felag-academy.org/en/library/what-are-doji-candles) such as doji can be tested together with other signals.
+TradingView uses **Pine Script** to define entry/exit logic. The Strategy Tester computes profitability, max drawdown, profit factor, and trade count. Good for visual, quick checks. Strategies based on [candlestick patterns](https://felag.online/en/library/what-are-doji-candles) such as doji can be tested together with other signals.
 
 ![Strategy tester window: equity curve, trade count, and win rate](./assets/Example-of-backtest-results.png)
 
@@ -52,7 +52,7 @@ Parameters are tuned from test results. The goal is not only maximum profit but 
 
 ### Overfitting Risk
 
-**Overfitting** means the strategy is fitted too closely to history and fails live. Avoid it by: using walk?forward tests, testing on different periods and assets, not optimizing too many parameters at once, and validating on out?of?sample data. For strategies based on the [MFI indicator](https://Felag-academy.org/en/library/money-flow-index), test various periods and overbought/oversold levels.
+**Overfitting** means the strategy is fitted too closely to history and fails live. Avoid it by: using walk?forward tests, testing on different periods and assets, not optimizing too many parameters at once, and validating on out?of?sample data. For strategies based on the [MFI indicator](https://felag.online/en/library/money-flow-index), test various periods and overbought/oversold levels.
 
 ### What Is Parameter Optimization
 
@@ -69,22 +69,22 @@ Optimization is the process of finding the best values for strategy parameters. 
 
 When optimizing, it's important to consider not only profit but also other metrics:
 
-1. **Profit Factor** — ratio of total profit to total loss (should be > 1.5)
-2. **Maximum Drawdown** — maximum capital decline (the lower, the better)
-3. **Sharpe Ratio** — return to risk ratio (the higher, the better)
-4. **Number of Trades** — should be sufficient for statistical significance (minimum 30-50)
-5. **Win Rate** — important but not critical (even 40% can be profitable with proper profit/loss ratio)
+1. **Profit Factor** ï¿½ ratio of total profit to total loss (should be > 1.5)
+2. **Maximum Drawdown** ï¿½ maximum capital decline (the lower, the better)
+3. **Sharpe Ratio** ï¿½ return to risk ratio (the higher, the better)
+4. **Number of Trades** ï¿½ should be sufficient for statistical significance (minimum 30-50)
+5. **Win Rate** ï¿½ important but not critical (even 40% can be profitable with proper profit/loss ratio)
 
 ## Limitations of Backtests
 
 Past results do not guarantee future performance. Backtests do not account for:
 
-- **Slippage** — Execution price vs expected, especially in fast or illiquid markets.
-- **Liquidity changes** — Crises can reduce liquidity.
-- **Psychology** — Fear and greed in real trading.
-- **Fees and spreads** — Every trade has a cost.
-- **Market structure shifts** — Regulators, technology, new participants.
-- **Data errors** — Gaps, bad ticks, especially in older data.
+- **Slippage** ï¿½ Execution price vs expected, especially in fast or illiquid markets.
+- **Liquidity changes** ï¿½ Crises can reduce liquidity.
+- **Psychology** ï¿½ Fear and greed in real trading.
+- **Fees and spreads** ï¿½ Every trade has a cost.
+- **Market structure shifts** ï¿½ Regulators, technology, new participants.
+- **Data errors** ï¿½ Gaps, bad ticks, especially in older data.
 
 ### Factors Not Accounted for in Backtests
 
@@ -111,7 +111,7 @@ Backtest does not account for trader emotions:
 Every trade costs money in real trading:
 - Exchange/broker fees
 - Spreads (difference between buy and sell price)
-- For crypto — network fees
+- For crypto ï¿½ network fees
 
 **5. Market Structure Changes**
 
@@ -175,7 +175,7 @@ Make sure that:
 
 ### 6. Test on Multiple Assets
 
-If a strategy works only on one asset — this may be coincidence. It is recommended to test on:
+If a strategy works only on one asset ï¿½ this may be coincidence. It is recommended to test on:
 - Similar assets (e.g., different cryptocurrencies)
 - Different sectors (if trading stocks)
 - Different timeframes
@@ -192,14 +192,14 @@ This will help understand the strategy evolution and avoid repeating mistakes.
 
 ### 8. Don't Ignore Bad Results
 
-If a strategy shows losses under certain conditions — this is valuable information. Understanding weaknesses helps to:
+If a strategy shows losses under certain conditions ï¿½ this is valuable information. Understanding weaknesses helps to:
 - Improve the strategy
 - Avoid trading in unfavorable conditions
 - Manage risks correctly
 
 ## Frequently Asked Questions
 
-**How much data do I need?** For daily timeframes, at least 1–2 years; for intraday, 6–12 months. More is better if it covers different regimes.
+**How much data do I need?** For daily timeframes, at least 1ï¿½2 years; for intraday, 6ï¿½12 months. More is better if it covers different regimes.
 
 **Can I trust backtest results?** They are a guide, not a guarantee. Always test on a demo account before using real money.
 
@@ -228,7 +228,7 @@ Backtest results are a guide, not a guarantee. They show how a strategy performe
 **What if a backtest shows profit, but the strategy is unprofitable in a real account?**
 
 This is a common situation. Possible reasons:
-- Overfitting – the strategy is tailored to historical data.
+- Overfitting ï¿½ the strategy is tailored to historical data.
 - Commissions and slippage were not accounted for in the backtest.
 - Market conditions have changed.
 - Psychological factors influence execution.
@@ -257,7 +257,7 @@ It is less effective for:
 
 **What's more important: high profitability or stability?**
 
-There is no single answer—it depends on your goals and risk tolerance. However, for most traders, stability is more important:
+There is no single answerï¿½it depends on your goals and risk tolerance. However, for most traders, stability is more important:
 - A stable strategy with 15% annual returns is better than an unstable one with 50%.
 - Low drawdown allows for better capital management.
 - Predictability is more important than peak profitability.

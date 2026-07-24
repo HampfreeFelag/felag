@@ -434,7 +434,7 @@ Value = 100/1.15 + 100/1.15² + ... + 100/1.15⁵ = $335M
 - DeFi: P/S + TVL + revenue
 - Memecoins: only market cap and volume (rest doesn't work)
 
-**Next step:** [Fundamental Analysis Checklist](https://Felag-academy.org/en/library/fundamental-analysis-checklist/) — quick 15-minute token check.
+**Next step:** [Fundamental Analysis Checklist](https://felag.online/en/library/fundamental-analysis-checklist/) — quick 15-minute token check.
 
 ---
 

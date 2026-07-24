@@ -394,7 +394,7 @@ IF loss > 5% в†’ STOP-LOSS
 
 **Keeping a journal:**
 
-Alongside the algorithm, it's recommended to keep a [trading journal](https://Felag-academy.org/en/library/trading-journal-guide/) вЂ” record why you entered a trade, why you exited, what emotions you felt. This helps identify behavioral patterns and improve discipline.
+Alongside the algorithm, it's recommended to keep a [trading journal](https://felag.online/en/library/trading-journal-guide/) вЂ” record why you entered a trade, why you exited, what emotions you felt. This helps identify behavioral patterns and improve discipline.
 
 ---
 

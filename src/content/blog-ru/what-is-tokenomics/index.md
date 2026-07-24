@@ -293,7 +293,7 @@ category: 'fundamental-analysis'
 
 Хорошая токеномика стимулирует долгосрочное участие, прозрачна и имеет понятные механизмы влияния на цену. Перед инвестированием стоит изучить whitepaper, unlock schedule и сравнить с конкурентами.
 
-Подробнее о том, как анализировать проекты по документации, читайте в статье про [Whitepaper](https://Felag-academy.org/ru/library/what-is-whitepaper/).
+Подробнее о том, как анализировать проекты по документации, читайте в статье про [Whitepaper](https://felag.online/ru/library/what-is-whitepaper/).
 
 ## FAQ
 

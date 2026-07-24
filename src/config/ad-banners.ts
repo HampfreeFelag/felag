@@ -34,7 +34,6 @@ export const REFERRAL_LINKS = {
   bingx: 'https://bingxdao.com/invite/CUBDBG/',
   veles: 'https://veles.finance/invite/washmallay',
   finbazar: 'https://finbazar.ru/profile/Hampfree/?ref=9483974260',
-  bitmex: 'https://www.bitmex.com/app/register/LcYXS3',
 };
 
 export function getReferralLink(platform: keyof typeof REFERRAL_LINKS, lang: string = 'ru'): string {
@@ -274,22 +273,6 @@ export const BANNER_TRANSLATIONS: Record<string, {
     colors: { bgStart: '#0B1E1A', bgEnd: '#051410', text: '#FFFFFF', ctaBg: '#00C9A7', ctaText: '#000000', border: '#14D0BB' }
   },
 
-  // BitMEX — для Ginarea-статей (фьючерсы, мультибиржа)
-  'bitmex-algo': {
-    title: { ru: 'BitMEX: Криптобиржа', en: 'BitMEX: Crypto Exchange' },
-    subtitle: { ru: 'Фьючерсы, низкие комиссии, высокая ликвидность', en: 'Futures, low fees, high liquidity' },
-    cta: { ru: 'Регистрация', en: 'Sign up' },
-    link: 'https://www.bitmex.com/app/register/LcYXS3',
-    colors: {
-      bgStart: '#1A0A0A',     // Тёмный с красным оттенком
-      bgEnd: '#0D0606',       // Почти чёрный с тёплым тоном
-      text: '#FFFFFF',        // Белый текст
-      ctaBg: '#FF0201',       // Фирменный красный BitMEX
-      ctaText: '#FFFFFF',     // Белый текст на красном
-      border: '#FF0201',      // Красная рамка (бренд BitMEX)
-    }
-  },
-
   'default-felag': {
     title: { ru: 'FÉLAG', en: 'FÉLAG' },
     subtitle: { ru: 'Трейдинг, крипта, автоматизация', en: 'Trading, crypto, automation' },
@@ -308,9 +291,9 @@ export function getBannerForArticle(category: string, lang: string, slug: string
   let bannerId = 'bybit-general'; // fallback
 
   if (category === 'algo-trading') {
-    // Ginarea-статьи → BitMEX (они упоминают BitMEX как одну из бирж), Veles → Veles
+    // Ginarea-статьи → Bybit, Veles → Veles
     const isGinarea = slug.includes('ginarea');
-    bannerId = isGinarea ? 'bitmex-algo' : 'veles-algo';
+    bannerId = isGinarea ? 'bybit-general' : 'veles-algo';
   } else if (category === 'fundamental-analysis' && lang === 'ru') {
     bannerId = 'finbazar-fundamental'; // Только для RU!
   } else if (category === 'fundamental-analysis' && (lang === 'en' || lang === 'es')) {
