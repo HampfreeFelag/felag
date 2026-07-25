@@ -3,19 +3,9 @@
 import ConsentBanner from './ConsentBanner.astro';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
-const today = new Date();
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
-const bitgetCopyUrl = lang === 'ru'
-	? 'https://www.bitget.com/ru/copy-trading/trader/bdb24c7186bb3856a397/futures-order?clacCode=&shareType=2'
-	: 'https://www.bitget.com/copy-trading/trader/bdb24c7186bb3856a397/futures-order?clacCode=&shareType=2';
-const bitgetReferralUrl = lang === 'ru'
-	? 'https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD'
-	: 'https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD';
-const bybitInviteUrl = lang === 'ru'
-	? 'https://www.bybit.com/ru-RU/invite?ref=PWMD24'
-	: 'https://www.bybit.com/en/invite?ref=PWMD24';
 ---
 
 <footer class="main-footer">
