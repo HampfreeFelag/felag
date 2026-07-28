@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Rising Wedge in Trading: What It Is and How to Use It'
 description: 'Rising wedge: a chart pattern in technical analysis. How to spot it, how to trade it. How it differs from other patterns, entry and exit signals.'
 pubDate: '2026-01-24'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 # Rising Wedge in Trading: What It Is and How to Use It

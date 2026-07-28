@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'What Are Doji Candles in Trading'
 description: 'Learn how to recognize doji candles on charts and use them to identify uncertainty moments and potential trend reversals.'
 pubDate: '2025-09-11'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 Technical analysis is the basis for decision-making for most traders. One of the most recognisable and important elements of candlestick analysis is the **doji** pattern. These candles reflect a moment of indecision in the market and often act as a precursor to a reversal or pause in the trend.

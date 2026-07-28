@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Trading Journal: How to Track Trades and Analyze Results'
 description: 'Why you need a trading journal, how to keep one, and what tools to use. From paper notebooks to digital platforms like TMM.'
 pubDate: '2026-03-05'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 Trading without records is like sailing without a map: you can move, but it's unclear where and why. A trading journal helps you track trades, analyze mistakes, and monitor progress. In this article, we cover why you need a trading journal, how to maintain one, and what tools to use.

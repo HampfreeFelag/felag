@@ -2,8 +2,8 @@
 title: 'Crypto Project Verification: 10-Point Checklist (Avoid Scams 2026)'
 description: 'Step-by-step checklist for crypto project verification before investing. Team, tokenomics, product, community, red flags. 10 minutes to check.'
 pubDate: '2026-03-16'
-category: 'fundamental-analysis'
-draft: false
+category: 'compass'
+draft: true
 ---
 
 **Important:** This checklist is a "junk/not junk" filter, not a buy recommendation. For deep analysis, see [Fundamental Analysis: 15-Minute Checklist](https://felag.online/en/library/fundamental-analysis-checklist/).

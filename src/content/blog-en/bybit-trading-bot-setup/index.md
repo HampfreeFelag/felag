@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Bybit Trading Bot Setup: API Keys, Connection, Strategy 2026'
 description: 'Step-by-step guide to setting up a trading bot on Bybit: creating API keys safely, connecting external platforms, choosing strategies. Start automation in 2026.'
 pubDate: '2026-02-05'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 Automating trading on Bybit lets you trade 24/7 without constantly watching the market. Register at Bybit (referral link) if you don’t have an account yet.

@@ -27,10 +27,13 @@ const catKey = rawCat.toLowerCase().trim();
 const rubric = t(`cat.${catKey}` as any) || rawCat;
 
 // Category color class
-const catClass = category === 'crypto' ? 'cat-crypto' :
-                 category === 'technical-analysis' ? 'cat-technical' :
-                 category === 'algo-trading' ? 'cat-algo' :
-                 category === 'fundamental-analysis' ? 'cat-fundamental' : '';
+const catClass = category === 'route' ? 'cat-route' :
+                 category === 'forge' ? 'cat-forge' :
+                 category === 'helm' ? 'cat-helm' :
+                 category === 'treasury' ? 'cat-treasury' :
+                 category === 'compass' ? 'cat-compass' :
+                 category === 'logbook' ? 'cat-logbook' :
+                 category === 'crew' ? 'cat-crew' : '';
 ---
 
 <div class={`banner banner--${type} ${className}`}>

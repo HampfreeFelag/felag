@@ -4,14 +4,13 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 export async function GET(context) {
 	// Get posts from all language collections
-	const [postsRu, postsEn, postsEs] = await Promise.all([
+	const [postsRu, postsEn] = await Promise.all([
 		getCollection('blog-ru').catch(() => []),
 		getCollection('blog-en').catch(() => []),
-		getCollection('blog-es').catch(() => []),
 	]);
 	
 	// Combine all posts, exclude draft articles, and sort by date
-	const allPosts = [...postsRu, ...postsEn, ...postsEs]
+	const allPosts = [...postsRu, ...postsEn]
 		.filter(post => !post.data.draft) // Исключаем draft статьи
 		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 	

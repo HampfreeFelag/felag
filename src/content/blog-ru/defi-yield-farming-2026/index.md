@@ -2,7 +2,7 @@
 title: 'DeFi Yield Farming: полное руководство по заработку в 2026'
 description: 'Yield Farming в DeFi: как зарабатывать на предоставлении ликвидности. Стратегии, риски, доходность, лучшие платформы 2026 года. Для опытных пользователей.'
 pubDate: '2026-03-20'
-category: 'crypto'
+category: 'route'
 draft: true
 ---
 

@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'What Are Trading Signals in Cryptocurrency'
 description: 'Crypto trading signals: what they are, types, how they are formed. Link to indicators and algo trading. How to use signals and what to avoid.'
 pubDate: '2026-01-24'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 # What Are Trading Signals in Cryptocurrency

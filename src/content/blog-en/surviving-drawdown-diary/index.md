@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'How We Survive Drawdown: A Live Account Diary'
 description: "When Bitcoin drops and the account shrinks: our survival plan, why we don't average down blindly, and how to get through a drawdown without breaking the system. Live account, real drawdown."
 pubDate: '2026-02-05'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 Against the backdrop of the current crypto market — once again a roller coaster — the topic of surviving drawdown is especially relevant. At the time of writing, Bitcoin is well below its all-time high and volatility is elevated; analysts compare the depth of the correction to past cycles, but the market’s foundation has changed: more institutional money, flows into regulated products. It’s in this live, nervous, but structured market that we’re experiencing our drawdown — not in a vacuum, but in real time.

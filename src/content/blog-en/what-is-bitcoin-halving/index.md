@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'What Is Bitcoin Halving and Why It Matters'
 description: 'Bitcoin halving cuts miner rewards in half every ~4 years. Why it exists, how it affects supply and BTC price. Halving history and what to expect next.'
 pubDate: '2026-01-24'
-category: 'crypto'
+category: 'route'
 ---
 
 # What Is Bitcoin Halving and Why It Matters

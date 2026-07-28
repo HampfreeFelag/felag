@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Trading System Setup. Part 2'
 description: 'How to build and configure a trading system: entry and exit rules, position size, stop losses, choosing and configuring bots.'
 pubDate: '2026-02-24'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 A trading system is a set of rules: when to enter and exit, how much to risk, how to allocate capital. Without clear rules, decisions become emotional and inconsistent; with rules it’s easier to keep discipline and evaluate results.

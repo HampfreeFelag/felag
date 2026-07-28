@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Индекс денежного потока (MFI)'
 description: 'Полное руководство по индикатору Money Flow Index: как использовать MFI для определения точек входа и выхода на рынке криптовалют с учетом объемов торгов'
 pubDate: '2026-01-27'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 

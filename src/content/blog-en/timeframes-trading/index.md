@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Timeframes in Trading: What They Are and How to Choose'
 description: 'What timeframes are in technical analysis: M1, M5, H1, H4, D1, how to choose for your trading style, and link to indicators and strategies.'
 pubDate: '2026-02-03'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 A timeframe is the time interval that one candle (or bar) represents on the chart. The choice of timeframe affects indicator settings, the number of signals, and the type of strategy: scalping, intraday trading, or swing. This article covers what timeframes are, how they are denoted, how to choose one for your style, and how to align them with [RSI](https://felag.online/en/library/technical-analysis-rsi/), [backtests](https://felag.online/en/library/what-are-backtests/), and strategies.

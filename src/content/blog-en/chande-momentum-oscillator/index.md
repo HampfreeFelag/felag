@@ -2,8 +2,8 @@
 title: 'Chande Momentum Oscillator (CMO) Indicator'
 description: 'CMO: what it is, formula, overbought and oversold zones, buy and sell signals, connection with the ELDER strategy.'
 pubDate: '2026-02-13'
-category: 'technical-analysis'
-draft: false
+category: 'compass'
+draft: true
 ---
 
 **Chande Momentum Oscillator (CMO)** is a technical indicator, a momentum oscillator developed by Tushar Chande. Unlike RSI or Stochastic, CMO measures momentum directly, using data on the sum of all price changes (up and down) over a certain period in its calculations.

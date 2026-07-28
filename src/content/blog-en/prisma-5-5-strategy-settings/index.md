@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Prisma 5.5: Strategy Settings on the Veles Platform'
 description: 'Breaking down the settings of the Prisma 5.5 proprietary strategy on the Veles platform: entry indicators, filters, order grid management, and pair recommendations.'
 pubDate: '2026-02-28'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 **Prisma 5.5** is a proprietary strategy from the [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings) platform for automated trading. This article provides a full breakdown of the settings: which indicators are used for entry, how to set up the order grid, and which pairs to launch on.

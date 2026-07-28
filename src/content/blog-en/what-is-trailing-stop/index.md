@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'What Is a Trailing Stop and How to Use It'
 description: 'Trailing stop: a stop-loss that follows price. How it works, how to set it. Pros, cons, and common mistakes when using it in trading.'
 pubDate: '2026-01-24'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 # What Is a Trailing Stop and How to Use It

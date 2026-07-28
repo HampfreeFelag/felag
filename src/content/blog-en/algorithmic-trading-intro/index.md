@@ -1,8 +1,9 @@
 ---
+draft: true
 title: "Algorithmic Trading: From Caveman's Stick to Crypto Bots"
 description: 'Algo trading for beginners: what is a trading algorithm, history from simple rules to AI. Crypto markets, traditional platforms, strategy automation.'
 pubDate: '2026-03-10'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 **Algorithmic trading** вЂ” using predefined rules (algorithms) to buy and sell assets. Come to think of it, when a caveman picked up a stick and rolled a huge boulder off the path вЂ” that's also an algorithm: "If rock blocks path в†’ pick up stick в†’ roll rock."

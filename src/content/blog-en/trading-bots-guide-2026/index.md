@@ -1,8 +1,9 @@
 ---
+draft: false
 title: 'Trading Bots for Beginners: Complete Guide 2026'
 description: 'What is a trading bot and how to choose one. Bot types (DCA, grid, arbitrage), setup, risks. Step-by-step guide for beginners.'
 pubDate: '2026-03-31'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 **A trading bot** is a program that automatically opens and closes trades based on predefined rules. The bot doesn't sleep, doesn't get tired, and doesn't succumb to emotions. But it can quickly drain your deposit if set up incorrectly.

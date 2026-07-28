@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'ORACLE 1.1: Настройки Стратегии на 4 Индикаторах (H1→M5)'
 description: 'Настройки ORACLE 1.1: Bollinger Bands, ATR%, ROC, Williams %R по таймфреймам. Бэктесты, тест на BingX. Стратегия для Veles.'
 pubDate: '2026-02-03'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 ORACLE версии 1.1 — набор настроек стратегии, в которой сигнал формируется по согласованию четырёх индикаторов на разных [таймфреймах](https://felag.online/ru/library/timeframes-trading/): от старшего к младшему идут полосы Боллинджера, ATR%, ROC и Williams %R. Настроить и запустить стратегию можно на платформе алготрейдинга Veles [реферальная ссылка](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=oracle-strategy). Ниже — архитектура настроек, какие движения вытягиваем, годовые бэктесты и ссылка на тестовый аккаунт копимастера на BingX.

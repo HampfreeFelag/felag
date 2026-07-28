@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'ORACLE 1.1: 4-Indicator Strategy Settings (H1→M5)'
 description: 'ORACLE 1.1 settings: Bollinger Bands, ATR%, ROC, Williams %R on timeframes. Backtests, BingX test. Veles strategy setup guide.'
 pubDate: '2026-02-03'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 ORACLE version 1.1 is a set of strategy settings where the signal is formed by the alignment of four indicators on different [timeframes](https://felag.online/en/library/timeframes-trading/): from higher to lower — Bollinger Bands, ATR%, ROC, and Williams %R. You can set up and run the strategy on the algo-trading platform Veles [referral link](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=oracle-strategy). Below: the setup architecture, what kind of moves we target, annual backtests, and a link to the BingX copy-master test account.

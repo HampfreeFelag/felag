@@ -1,8 +1,9 @@
 ---
+draft: false
 title: 'RSI Technical Analysis'
 description: 'Complete guide to RSI indicator: how to use Relative Strength Index to determine entry and exit points in the cryptocurrency market'
 pubDate: '2026-01-10'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 The RSI (Relative Strength Index) indicator is one of the most popular oscillators in technical analysis. It measures the speed and change of price movements, helping traders determine entry and exit points from the market.

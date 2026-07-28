@@ -2,8 +2,8 @@
 title: 'Stochastic Oscillator: Complete Trading Guide'
 description: 'How to use Stochastic in trading: setting up %K and %D lines, identifying overbought and oversold zones, entry signals and strategies.'
 pubDate: '2026-02-10'
-category: 'technical-analysis'
-draft: false
+category: 'compass'
+draft: true
 ---
 
 The Stochastic Oscillator is one of the most popular technical analysis indicators, allowing traders to identify moments of price momentum slowdown and find potential market reversal points.

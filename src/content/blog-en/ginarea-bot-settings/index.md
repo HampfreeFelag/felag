@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Ginarea: Detailed Trading Bot Setup'
 description: 'Our experience setting up trading bots on Ginarea: Dynamic, P&L trailing, asset selection, and specific configurations.'
 pubDate: '2026-04-08'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 > ⚠️ **Disclaimer:** This review and configurations are not investment advice or a guide to action. Cryptocurrency trading involves the risk of capital loss. Always refer to the official platform documentation: [Ginarea Documentation](https://ginareas-organization.gitbook.io/ginarea.org/nastroiki-botov).

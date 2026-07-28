@@ -14,13 +14,12 @@ export async function POST({ request }) {
     }
 
     // Получаем последний пост из всех языковых коллекций
-    const [postsRu, postsEn, postsEs] = await Promise.all([
+    const [postsRu, postsEn] = await Promise.all([
       getCollection('blog-ru').catch(() => []),
       getCollection('blog-en').catch(() => []),
-      getCollection('blog-es').catch(() => []),
     ]);
     
-    const allPosts = [...postsRu, ...postsEn, ...postsEs]
+    const allPosts = [...postsRu, ...postsEn]
       .filter(post => !post.data.draft); // Исключаем draft статьи
     const latestPost = allPosts.sort((a, b) =>
       new Date(b.data.pubDate) - new Date(a.data.pubDate)

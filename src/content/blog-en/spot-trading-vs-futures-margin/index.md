@@ -2,8 +2,8 @@
 title: 'Spot, Futures, and Margin: Whats the Difference'
 description: 'A side-by-side look at spot, margin, and futures trading: risks, leverage, liquidation, and how to choose between them.'
 pubDate: '2026-02-13'
-category: 'crypto'
-draft: false
+category: 'route'
+draft: true
 ---
 
 Understanding the difference between spot, margin, and futures trading is a core foundation for any crypto trader. Each instrument has its own mechanics, risks, and typical use cases.

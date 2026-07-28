@@ -36,18 +36,14 @@
   --nes-accent-red: #F83800;        /* NES red (alerts) */
   --nes-accent-yellow: #FCFC00;     /* NES yellow (highlight) */
   
-	/* Category colors (Market Lab Characters — NES-like palette) */
-	/* Emily — Зелёный (crypto): рост, движение, уверенность */
-	--cat-crypto: #00A800;           /* NES green-dark (тёмнее для контраста) */
-	
-	/* Kai — Синий (technical-analysis): спокойствие, защита, анализ */
-	--cat-technical-analysis: #0078B4;  /* NES blue-dark (тёмнее для контраста) */
-	
-	/* Leon — Жёлтый (algo-trading): обучение, свет, наставничество */
-	--cat-algo-trading: #D4B800;     /* NES yellow-dark (золотистый) */
-	
-	/* Vera — Оранжевый (fundamental-analysis): опыт, энергия, практицизм */
-	--cat-fundamental-analysis: #D45800;  /* NES orange-dark (тёмнее) */
+	/* Category colors (FÉLAG 7 categories) */
+	--cat-route: #2C4A6E;
+	--cat-forge: #D49B3B;
+	--cat-helm: #4A7BA7;
+	--cat-treasury: #B8862B;
+	--cat-compass: #6B7B5E;
+	--cat-logbook: #5B8DB8;
+	--cat-crew: #B85450;
 	
 	/* Alex — Фиолетовый (regulation): интеллект, аналитика, магия цифр */
 	--cat-regulation: #7038C0;       /* NES purple-dark (тёмнее) */

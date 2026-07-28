@@ -1,8 +1,9 @@
 ---
+draft: false
 title: 'What Are Stablecoins (Simple Explanation)'
 description: 'Stablecoins are cryptocurrencies pegged to an external benchmark (usually USD). USDT, USDC, DAI: why they exist, how the peg is maintained, and key risks.'
 pubDate: '2026-01-24'
-category: 'crypto'
+category: 'route'
 ---
 
 A **stablecoin** is a cryptocurrency whose price is pegged to an external reference — most commonly the US dollar (1:1). Unlike Bitcoin or Ether, a stablecoin’s price is designed to fluctuate much less, which makes it useful for payments, savings, and transfers without direct exposure to crypto volatility.

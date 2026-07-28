@@ -1,8 +1,9 @@
 ---
+draft: true
 title: "Whitepaper in Crypto: What It Is and Why It Matters"
 description: "Whitepaper in cryptocurrency: what it is, why it matters, how it's used. Differences from roadmap, what to look for when analyzing projects and evaluating investments."
 pubDate: '2026-02-15'
-category: 'fundamental-analysis'
+category: 'compass'
 ---
 
 Whitepaper (white paper) is a foundational document when launching new crypto projects. The document contains detailed description of technology, goals, [tokenomics](https://felag.online/en/library/what-is-tokenomics/) and other important aspects of crypto project. Interested investors and users refer to Whitepaper to understand how promising the project is, what problems it solves and what benefits it brings.

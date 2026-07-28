@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Keltner Channel Indicator: Settings, Breakouts, Trading Strategies'
 description: 'Keltner Channel — a volatility indicator based on EMA and ATR: settings, breakout zones, and use in spot trading strategies.'
 pubDate: '2026-02-27'
-category: 'technical-analysis'
+category: 'compass'
 ---
 **Keltner Channel** is a volatility-based indicator built around an Exponential Moving Average (EMA) with bands based on the Average True Range (ATR). In modern trading systems like Prisma 5.5, it is used as a volatility filter and a breakout signal.
 

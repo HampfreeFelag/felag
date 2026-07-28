@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'ATR и ATR% в криптовалютной торговле'
 description: 'Что такое Average True Range (ATR) и ATR%: как измеряют волатильность, настройка стоп-лоссов и связь с рисками и индикаторами.'
 pubDate: '2026-02-03'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 ATR (Average True Range) — индикатор волатильности, разработанный Уэллсом Уайлдером, автором [RSI](https://felag.online/ru/library/technical-analysis-rsi/). Он показывает средний «истинный» диапазон цены за период — то, насколько сильно цена двигалась от свечи к свече. ATR% — это ATR, выраженный в процентах от текущей цены; им удобно сравнивать волатильность разных активов и таймфреймов. В статье — как считаются ATR и ATR%, зачем они нужны для стоп-лоссов и размера позиции и как увязать их с [трейлинг-стопом](https://felag.online/ru/library/what-is-trailing-stop/) и [риск-менеджментом](https://felag.online/ru/library/risk-management-crypto-trading-bots/).

@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Trading System Setup. Part 3'
 description: 'How to adapt your trading system: monitoring, tuning, common mistakes and how to avoid them.'
 pubDate: '2026-02-27'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 A system on paper and a system in practice are not the same. It's important to monitor it, adjust when needed, and not repeat common mistakes.

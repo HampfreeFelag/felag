@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Fundamental Analysis: Traditional Finance vs Crypto'
 description: 'Why fundamental analysis is as important as technical analysis. Classic vs crypto, on-chain metrics, trader framework. Short and to the point.'
 pubDate: '2026-03-02'
-category: 'fundamental-analysis'
+category: 'compass'
 ---
 
 Fundamental analysis helps understand whether an asset deserves attention and if the market is overheated. In crypto there are no IFRS reports, but there are on-chain metrics, tokenomics, and macro. This article covers how FA in crypto differs from classics and how to combine it with technical analysis.

@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Exchange Uptime and Downtime Explained'
 description: 'Exchange uptime and downtime: what it is, how reliability is measured, what to look for when choosing a trading platform.'
 pubDate: '2026-02-19'
-category: 'fundamental-analysis'
+category: 'compass'
 ---
 
 Uptime and downtime are service availability metrics: how long exchange operated without failures and how long it was unavailable. For traders, both platform reputation and infrastructure reliability matter.

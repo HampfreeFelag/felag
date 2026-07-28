@@ -1,8 +1,9 @@
 ---
+draft: false
 title: 'Bitcoin Basics'
 description: 'What is the first cryptocurrency, how it works and why it changed the financial world forever'
 pubDate: '2026-01-10'
-category: 'crypto'
+category: 'route'
 ---
 
 Bitcoin is the first and most well-known cryptocurrency in the world. Created by an anonymous developer under the pseudonym Satoshi Nakamoto in 2009, it introduced blockchain technology to the world and changed the way we think about money.

@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'DCA Strategy (Dollar Cost Averaging) in Crypto'
 description: 'What DCA is in cryptocurrencies: how the averaging strategy works, pros and cons, how to apply it in practice, and how it differs from lump-sum buying.'
 pubDate: '2026-01-30'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 DCA (Dollar Cost Averaging) is a strategy of buying an asset for the same amount at regular intervals regardless of price. In crypto it is used both for long-term accumulation and in algorithmic trading (DCA bots).

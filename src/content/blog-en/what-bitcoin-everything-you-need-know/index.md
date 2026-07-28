@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'What Is Bitcoin: Complete Guide in Simple Terms'
 description: 'How Bitcoin works, its pros and cons. Blockchain, mining, and security explained for beginners.'
 pubDate: '2026-01-15'
-category: 'crypto'
+category: 'route'
 ---
 
 Bitcoin is the first cryptocurrency, built on blockchain. The core idea is decentralization: no single authority, which makes it independent of traditional finance.

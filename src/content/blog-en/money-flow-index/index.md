@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Money Flow Index (MFI)'
 description: 'Complete guide to the Money Flow Index indicator: how to use MFI to identify entry and exit points in cryptocurrency trading with volume analysis.'
 pubDate: '2026-01-27'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 There are many proven indicators in trading. However, only a small portion of them analyze information based not only on the asset's price but also on other metrics, such as volume. The Money Flow Index is exactly such an indicator.

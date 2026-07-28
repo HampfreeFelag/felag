@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Cryptocurrency Valuation: How to Determine Fair Token Value in 2026'
 description: 'Cryptocurrency valuation methods: P/S, P/E, NVT, MVRV. How to understand if a token is overvalued or undervalued. Competitor comparison, red flags.'
 pubDate: '2026-03-31'
-category: 'fundamental-analysis'
+category: 'compass'
 ---
 
 **Cryptocurrency valuation** is the process of determining a token's fair value. Unlike traditional stocks, crypto has no single formula. But there's a set of metrics that will help you understand: **is a token overvalued or undervalued**.

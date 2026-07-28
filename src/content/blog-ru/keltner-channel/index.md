@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Канал Кельтнера (Keltner Channel)'
 description: 'Keltner Channel — индикатор волатильности на основе ATR: настройка, зоны пробоя и использование в спотовых стратегиях.'
 pubDate: '2026-02-27'
-category: 'technical-analysis'
+category: 'compass'
 ---
 **Канал Кельтнера (Keltner Channel)** — индикатор волатильности, строящийся вокруг экспоненциальной скользящей средней (EMA) с отступами на основе ATR. В современных торговых системах, таких как [Prisma 5.5](https://felag.online/ru/library/prisma-5-5-strategy-settings/), он применяется как фильтр волатильности и индикатор пробоя.
 

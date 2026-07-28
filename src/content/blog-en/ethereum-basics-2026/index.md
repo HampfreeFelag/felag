@@ -2,8 +2,8 @@
 title: 'Ethereum (ETH): Blockchain, Smart Contracts, Staking Guide 2026'
 description: 'Complete Ethereum guide for beginners: how blockchain works, smart contracts, gas fees, staking. ETH vs Bitcoin comparison. Start your crypto journey in 2026.'
 pubDate: '2026-03-15'
-category: 'crypto'
-draft: false
+category: 'route'
+draft: true
 ---
 
 **Ethereum** — a decentralized blockchain platform for launching smart contracts and decentralized applications (dApps). Unlike Bitcoin, which was created as digital currency, Ethereum was conceived as a "world computer" for programmable financial operations.

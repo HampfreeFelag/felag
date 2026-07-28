@@ -31,10 +31,13 @@
   --color-tag-text: #6B6B66;
   
   /* Category colors */
-  --cat-crypto: #2C4A6E;
-  --cat-technical: #3D6B50;
-  --cat-algo: #B8862B;
-  --cat-fundamental: #8B5E3C;
+  --cat-route: #2C4A6E;
+  --cat-forge: #D49B3B;
+  --cat-helm: #4A7BA7;
+  --cat-treasury: #B8862B;
+  --cat-compass: #6B7B5E;
+  --cat-logbook: #5B8DB8;
+  --cat-crew: #B85450;
   
   /* Typography */
   --font-serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
@@ -579,10 +582,13 @@ a:hover {
   margin-left: auto;
 }
 
-.cat-crypto { color: var(--cat-crypto); }
-.cat-technical { color: var(--cat-technical); }
-.cat-algo { color: var(--cat-algo); }
-.cat-fundamental { color: var(--cat-fundamental); }
+.cat-route { color: var(--cat-route); }
+.cat-forge { color: var(--cat-forge); }
+.cat-helm { color: var(--cat-helm); }
+.cat-treasury { color: var(--cat-treasury); }
+.cat-compass { color: var(--cat-compass); }
+.cat-logbook { color: var(--cat-logbook); }
+.cat-crew { color: var(--cat-crew); }
 
 /* ═══════════════════════════════════════════════════════
    11. SUBSCRIBE FORM

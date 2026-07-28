@@ -130,10 +130,13 @@ section[aria-labelledby*="recent"] {
 	margin-left: auto;
 }
 
-.cat-crypto { color: var(--cat-crypto); }
-.cat-technical-analysis { color: var(--cat-technical-analysis); }
-.cat-algo-trading { color: var(--cat-algo-trading); }
-.cat-fundamental-analysis { color: var(--cat-fundamental-analysis); }
+.cat-route { color: var(--cat-route); }
+.cat-forge { color: var(--cat-forge); }
+.cat-helm { color: var(--cat-helm); }
+.cat-treasury { color: var(--cat-treasury); }
+.cat-compass { color: var(--cat-compass); }
+.cat-logbook { color: var(--cat-logbook); }
+.cat-crew { color: var(--cat-crew); }
 
 .post-card-tags {
 	display: flex;

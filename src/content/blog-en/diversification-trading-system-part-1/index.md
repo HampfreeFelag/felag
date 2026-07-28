@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Trading System Setup. Part 1'
 description: 'Why traders diversify: assets, strategies, venues. How not to put everything in one basket and reduce risk when trading and using bots.'
 pubDate: '2026-02-20'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 Diversification is spreading capital and risk: across assets, strategies, and venues. One position, one bot, or one exchange can fail; diversification does not guarantee profit but reduces the chance of losing everything to a single factor.

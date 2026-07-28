@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'ROC (Rate of Change) в криптовалютной торговле'
 description: 'Что такое индикатор ROC (Rate of Change): как измеряет скорость изменения цены, сигналы и комбинация с RSI и Williams %R.'
 pubDate: '2026-02-03'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 ROC (Rate of Change) — осциллятор импульса: он показывает, на сколько процентов изменилась цена за выбранный период. Нулевая линия и отклонения выше/ниже неё дают представление об ускорении или замедлении движения и возможных разворотах. В статье — как считается ROC, как читать уровни и дивергенции и как комбинировать его с [RSI](https://felag.online/ru/library/technical-analysis-rsi/) и [Williams %R](https://felag.online/ru/library/williams-percent-range-r/) в одной линейке осцилляторов.

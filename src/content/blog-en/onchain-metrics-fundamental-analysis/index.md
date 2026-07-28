@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'On-Chain Metrics: MVRV, SOPR, Whales'
 description: 'How to use on-chain data in fundamental analysis. MVRV, SOPR, exchange flows, liquidation zones. For intermediate traders and beginners — without oversimplification.'
 pubDate: '2026-03-11'
-category: 'fundamental-analysis'
+category: 'compass'
 ---
 
 On-chain analysis is working with data from the blockchain itself: transactions, wallets, asset movements. If technical analysis shows *how* price moves, on-chain explains *why* it happens. For traders, on-chain metrics are part of fundamental analysis: they help assess cycle context, overheating or undervaluation zones, and behavior of large players. This article covers key metrics to track and how not to overestimate their role.

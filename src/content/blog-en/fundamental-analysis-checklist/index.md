@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Fundamental Analysis: 15-Minute Checklist'
 description: 'Simple token checklist instead of complex models. Basic info, project and team, tokenomics, on-chain metrics, red flags. For traders.'
 pubDate: '2026-02-23'
-category: 'fundamental-analysis'
+category: 'compass'
 ---
 
 From "this is complicated" to "I have a 15-minute checklist". The goal is to quickly scan a token and decide: dig deeper or skip. The checklist doesn't replace deep analysis, but helps filter out what's not worth even looking at the chart. Introduction to fundamental analysis and connection with technical analysis — in the [overview article](https://felag.online/en/library/fundamental-analysis-intro/).

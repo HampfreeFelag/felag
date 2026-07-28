@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'What Are Backtests in Trading'
 description: 'Learn what backtesting is, why it is critically important for traders, and how to properly test strategies on historical data.'
 pubDate: '2025-06-03'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 Backtests are the foundation of any robust trading system. Without testing on historical data, it is impossible to objectively assess a strategy�s effectiveness before risking real capital. Professional traders and algorithmic systems rely on backtesting as a mandatory step in developing and optimizing strategies.

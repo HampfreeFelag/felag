@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'What Is Digital Currency in Simple Terms'
 description: 'What digital currencies are, how they differ from crypto and fiat. Pros, cons, and the future of central bank digital currencies (CBDC).'
 pubDate: '2026-01-15'
-category: 'crypto'
+category: 'route'
 ---
 
 Digital currency is money that exists only in electronic form. Unlike cash and coins, it has no physical form and is used over the internet, mobile apps, and digital wallets.

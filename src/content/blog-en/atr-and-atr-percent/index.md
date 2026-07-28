@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'ATR and ATR% in Cryptocurrency Trading'
 description: 'What Average True Range (ATR) and ATR% are: how they measure volatility, setting stop-losses, and link to risk and other indicators.'
 pubDate: '2026-02-03'
-category: 'technical-analysis'
+category: 'compass'
 ---
 
 ATR (Average True Range) is a volatility indicator developed by Welles Wilder, who also created [RSI](https://felag.online/en/library/technical-analysis-rsi/). It shows the average "true" range of price over the period — how much price moved from candle to candle. ATR% is ATR expressed as a percentage of the current price; it makes it easy to compare volatility across assets and timeframes. This article covers how ATR and ATR% are calculated, why they are useful for stop-losses and position size, and how to align them with [trailing stop](https://felag.online/en/library/what-is-trailing-stop/) and [risk management](https://felag.online/en/library/risk-management-crypto-trading-bots/).

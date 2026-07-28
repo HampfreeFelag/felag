@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Prisma 5.5: настройки стратегии на платформе Veles'
 description: 'Разбираем настройки авторской стратегии Prisma 5.5 на платформе Veles: индикаторы входа, фильтры, управление сеткой ордеров и рекомендации по парам.'
 pubDate: '2026-02-28'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 **Prisma 5.5** — авторская стратегия платформы [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=prisma-5-5-strategy-settings) для автоматической торговли. В этой статье — полный разбор настроек: какие индикаторы используются для входа, как выставить сетку ордеров и на каких парах запускать.

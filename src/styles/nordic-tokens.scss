@@ -100,12 +100,14 @@
   --z-header: 1000;
   --z-overlay: 2000;
   
-  /* Category colors (FÉLAG characters - Nordic palette) */
-  --cat-crypto: var(--nordic-deep-blue);
-  --cat-technical-analysis: var(--nordic-deep-blue-dark);
-  --cat-algo-trading: var(--nordic-amber);
-  --cat-fundamental-analysis: var(--nordic-amber-dark);
-  --cat-regulation: var(--nordic-moss-green);
+  /* Category colors (FÉLAG 7 categories - Nordic palette) */
+  --cat-route: var(--nordic-deep-blue);
+  --cat-forge: var(--nordic-amber);
+  --cat-helm: var(--nordic-deep-blue-light);
+  --cat-treasury: var(--nordic-amber-dark);
+  --cat-compass: var(--nordic-moss-green);
+  --cat-logbook: var(--nordic-blue-secondary);
+  --cat-crew: var(--nordic-muted-red);
 }
 
 /* ═══════════════════════════════════════════════════════════════

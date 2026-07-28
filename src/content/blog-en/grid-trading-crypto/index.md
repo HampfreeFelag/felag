@@ -1,8 +1,9 @@
 ---
+draft: true
 title: 'Grid Trading on the Crypto Market'
 description: 'What grid trading is in crypto: how the order grid works, when the strategy is effective, pros and cons, and how it relates to sideways markets.'
 pubDate: '2026-01-30'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 Grid trading is a strategy where buy and sell orders are placed in a grid over a chosen price range. A bot buys at lower levels and sells at higher ones, profiting from price swings inside the range.
