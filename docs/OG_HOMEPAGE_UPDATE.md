@@ -23,7 +23,7 @@
 
 ### Элементы:
 
-1. **Заголовок:** "Felag ACADEMY" (зелёный, 8-bit шрифт Press Start 2P)
+1. **Заголовок:** "FÉLAG" (янтарный, Nordic шрифт)
 2. **Описание:** "Блог о трейдинге, криптовалюте и автоматизации торговли" (серый, JetBrains Mono)
 3. **Три фичи:** 
    - 🟢 Трейдинг
@@ -34,7 +34,7 @@
 
 ### Цвета:
 - **Фон:** `#050608` (тёмно-серый)
-- **Заголовок:** `#00D800` (зелёный NES)
+- **Заголовок:** `#D49B3B` (янтарь Nordic)
 - **Описание:** `#B0B0B0` (серый)
 - **Фичи:** `#3CBCFC` (синий) + `#00D800` (зелёный квадратик)
 
@@ -82,9 +82,8 @@ OG изображения генерируются для 3 языков:
 
 | Язык | Файл | Заголовок | Описание |
 |------|------|-----------|----------|
-| **RU** | `ru-homepage.png` | Felag Academy | Блог о трейдинге, криптовалюте и автоматизации торговли |
-| **EN** | `en-homepage.png` | Felag Academy | Blog about trading, cryptocurrency and trading automation |
-| **ES** | `es-homepage.png` | Felag Academy | Blog sobre trading, criptomonedas y automatización de trading |
+| **RU** | `ru-homepage.png` | FÉLAG | Образовательный блог о трейдинге, криптовалюте и ремесле |
+| **EN** | `en-homepage.png` | FÉLAG | Educational blog about trading, cryptocurrency and craft |
 
 ---
 
@@ -129,7 +128,7 @@ curl -sI https://felag.online/og/ru-homepage.png
 - [x] Создан шаблон `og-homepage-template.html`
 - [x] Добавлена функция `generateHomepageOGImage()`
 - [x] Обновлён скрипт генерации
-- [x] Сгенерированы изображения для RU, EN, ES
+- [x] Сгенерированы изображения для RU, EN
 - [x] Задеплой на GitHub Pages
 - [x] Проверено на сайте
 

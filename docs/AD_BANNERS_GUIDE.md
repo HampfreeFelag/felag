@@ -1,6 +1,6 @@
 # 🎨 Реферальные баннеры: Руководство по использованию
 
-**Дата:** 22 марта 2026  
+**Дата:** 29 июля 2026  
 **Статус:** ✅ Готово к использованию
 
 ---
@@ -17,8 +17,8 @@
 **Логика выбора:**
 | Категория | Язык | Баннер | Ссылка |
 |-----------|------|--------|--------|
-| `algo-trading` | RU | Veles | Veles referral |
-| Любая другая | RU/EN/ES | Bybit | Bybit referral (локализация) |
+| `forge` | RU | Veles | Veles referral |
+| Любая другая | RU/EN | Bybit | Bybit referral (локализация) |
 
 ---
 
@@ -65,7 +65,7 @@ export const AD_BANNERS: AdBanner[] = [
     subtitle: 'Описание баннера',
     cta: 'CTA кнопка →',
     link: 'https://example.com',
-    categories: ['algo-trading'], // Опционально: для каких категорий
+    categories: ['forge'], // Опционально: для каких категорий
     languages: ['ru', 'en'], // Опционально: для каких языков
     priority: 10, // Опционально: приоритет (чем выше, тем важнее)
     colors: {
@@ -101,7 +101,7 @@ export const AD_BANNERS: AdBanner[] = [
 ## 📁 Структура файлов
 
 ```
-d:\Projects\HampfreeBlog\
+d:\Projects\Github-crypto\felag\
 ├── astro.config.mjs              ← Интеграция (пока не подключена)
 ├── package.json                  ← Скрипт "generate-ads"
 ├── src/
@@ -122,14 +122,11 @@ d:\Projects\HampfreeBlog\
 │               ├── veles-algo_ru.png
 │               ├── bybit-general_ru.png
 │               ├── bybit-general_en.png
-│               ├── bybit-general_es.png
 │               ├── bingx-copy_ru.png
 │               ├── bingx-copy_en.png
-│               ├── bingx-copy_es.png
-│               ├── finbazar-fundamental_ru.png
-│               ├── default-academy_ru.png
-│               ├── default-academy_en.png
-│               └── default-academy_es.png
+│               ├── finbazar-route_ru.png
+│               ├── default-felag_ru.png
+│               └── default-felag_en.png
 ```
 
 ---
@@ -165,10 +162,9 @@ d:\Projects\HampfreeBlog\
    ```typescript
    export const REFERRAL_LINKS = {
      bybit: {
-       ru: 'https://...', // Новая ссылка
-       en: 'https://...',
-       es: 'https://...',
-     },
+        ru: 'https://...', // Новая ссылка
+        en: 'https://...',
+      },
    };
    ```
 
@@ -186,7 +182,7 @@ d:\Projects\HampfreeBlog\
 ```mdx
 ---
 title: 'Моя статья'
-category: 'algo-trading'
+category: 'forge'
 ---
 
 Контент статьи...
@@ -216,11 +212,11 @@ category: 'algo-trading'
 
 | ID | Название | Категории | Языки | Приоритет |
 |----|----------|-----------|-------|-----------|
-| `veles-algo` | Veles: Торговые боты | algo-trading | RU | 10 |
-| `bybit-general` | Bybit: Торгуй крипто | Все | RU/EN/ES | 5 |
-| `finbazar-fundamental` | FinBazar: Ончейн | fundamental-analysis | RU | 8 |
-| `bingx-copy` | BingX: Копируй сделки | algo-trading, technical-analysis | RU/EN/ES | 7 |
-| `default-academy` | Felag Academy | Все | RU/EN/ES | 0 |
+| `veles-forge` | Veles: Торговые боты | forge | RU | 10 |
+| `bybit-general` | Bybit: Торгуй крипто | Все | RU/EN | 5 |
+| `finbazar-route` | FinBazar: Ончейн | route | RU | 8 |
+| `bingx-copy` | BingX: Копируй сделки | forge, route | RU/EN | 7 |
+| `default-felag` | FÉLAG | Все | RU/EN | 0 |
 
 ---
 

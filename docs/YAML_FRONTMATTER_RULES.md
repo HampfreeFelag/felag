@@ -207,7 +207,7 @@ grep -r "description: '.*'.*[A-Za-z]'[A-Za-z]" src/content/
 title: "Bitcoin's Price Analysis"
 description: "Learn how Bitcoin's price changes and what it means for investors."
 pubDate: '2026-03-14'
-category: 'crypto'
+category: 'route'
 ---
 ```
 
