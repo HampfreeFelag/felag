@@ -1,0 +1,124 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE_TITLE } from '../../consts';
+import FormattedDate from '../../components/FormattedDate.astro';
+import ScrollTop from '../../components/ScrollTop.astro';
+import Banner from '../../components/Banner.astro';
+import { ui } from '../../i18n/ui';
+import { useTranslations, useTranslatedPath } from '../../i18n/utils';
+import { isTempArticle } from '../../utils/blog';
+
+export async function getStaticPaths() {
+	const categories = ['route', 'forge', 'helm', 'treasury', 'compass', 'logbook', 'crew'];
+	return categories.map(cat => ({
+		params: { lang: 'ru', category: cat },
+	}));
+}
+
+const { lang, category } = Astro.params;
+const t = useTranslations(lang as keyof typeof ui);
+const translatePath = useTranslatedPath(lang as keyof typeof ui);
+
+// Get category info
+const categoryInfo: Record<string, { label: string; full: string }> = {
+	route: { label: t('cat.route'), full: t('cat.route.full') },
+	forge: { label: t('cat.forge'), full: t('cat.forge.full') },
+	helm: { label: t('cat.helm'), full: t('cat.helm.full') },
+	treasury: { label: t('cat.treasury'), full: t('cat.treasury.full') },
+	compass: { label: t('cat.compass'), full: t('cat.compass.full') },
+	logbook: { label: t('cat.logbook'), full: t('cat.logbook.full') },
+	crew: { label: t('cat.crew'), full: t('cat.crew.full') },
+};
+
+const info = categoryInfo[category] || { label: category, full: '' };
+
+// Fetch posts for this category
+const collectionName = `blog-${lang}` as 'blog-ru' | 'blog-en';
+const posts = await getCollection(collectionName).catch(() => []);
+
+// Filter by category, exclude drafts and temp
+const filteredPosts = posts
+	.filter(post => post.data.category === category && !post.data.draft && !isTempArticle(post.id))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const breadcrumbItems = [
+	{ label: t('nav.library'), link: `/${lang}/library/` },
+	{ label: info.label },
+];
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<BaseHead title={`${SITE_TITLE} - ${info.label}`} description={info.full} />
+	</head>
+	<body>
+		<Header />
+		<main class="container">
+			<div class="library-header">
+				<Breadcrumb items={breadcrumbItems} />
+				<h1 class="mono responsive-title">> {info.label}</h1>
+				<p class="category-description">{info.full}</p>
+			</div>
+			
+			<section class="posts-grid fade-in" id="postsGrid">
+				{filteredPosts.length > 0 ? (
+					<div id="postsList" class="posts-list">
+						{filteredPosts.map((post) => (
+							<a 
+								href={`/${lang}/library/${post.id}/`} 
+								class="post-card" 
+								data-title={post.data.title.toLowerCase()}
+								data-description={post.data.description.toLowerCase()}
+								data-category={post.data.category || ''}
+								data-tags={post.data.tags?.join(',').toLowerCase() || ''}
+							>
+								<Banner 
+									title={post.data.title} 
+									subtitle={post.data.description}
+									category={post.data.category} 
+									type="preview" 
+								/>
+								<div class="post-meta-wrap">
+									<div class="post-meta">
+										<span><FormattedDate date={post.data.pubDate} /></span>
+									</div>
+								</div>
+								<div class="read-more-link" aria-hidden="true">> {t('library.read_more')}</div>
+							</a>
+						))}
+					</div>
+				) : (
+					<div class="no-posts" style="padding: var(--space-6); text-align: center; color: var(--color-text-secondary);">
+						<p>В этой категории пока нет опубликованных статей.</p>
+					</div>
+				)}
+			</section>
+			<ScrollTop />
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.responsive-title {
+		font-size: clamp(1.5rem, 5vw, 2.5rem);
+		word-break: break-word;
+		line-height: 1.2;
+	}
+	.category-description {
+		font-size: 1rem;
+		color: var(--nordic-text-secondary);
+		margin-top: 0.5rem;
+		opacity: 0.8;
+	}
+	@media (max-width: 480px) {
+		.responsive-title {
+			font-size: 1.25rem;
+		}
+	}
+</style>

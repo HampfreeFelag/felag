@@ -8,9 +8,44 @@ const translatePath = useTranslatedPath(lang);
 const currentPath = Astro.url.pathname;
 const isLibrary = currentPath.includes('/library');
 const isAbout = currentPath.includes('/about');
+const isCategory = currentPath.match(/\/(route|forge|helm|treasury|compass|logbook|crew)$/);
+
+const categories = [
+	{ id: 'route', label: t('cat.route'), full: t('cat.route.full'), href: `/${lang}/route/` },
+	{ id: 'forge', label: t('cat.forge'), full: t('cat.forge.full'), href: `/${lang}/forge/` },
+	{ id: 'helm', label: t('cat.helm'), full: t('cat.helm.full'), href: `/${lang}/helm/` },
+	{ id: 'treasury', label: t('cat.treasury'), full: t('cat.treasury.full'), href: `/${lang}/treasury/` },
+	{ id: 'compass', label: t('cat.compass'), full: t('cat.compass.full'), href: `/${lang}/compass/` },
+	{ id: 'logbook', label: t('cat.logbook'), full: t('cat.logbook.full'), href: `/${lang}/logbook/` },
+	{ id: 'crew', label: t('cat.crew'), full: t('cat.crew.full'), href: `/${lang}/crew/` },
+];
 ---
 
 <nav class="desktop-nav" aria-label={t('nav.aria_label')}>
 	<a href={translatePath('library')} class:list={['nav-link', { active: isLibrary }]} aria-current={isLibrary ? 'page' : undefined}>{t('nav.library')}</a>
+	
+	<!-- CATEGORIES DROPDOWN -->
+	<div class="nav-dropdown">
+		<button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+			{t('home.categories_label')} ▾
+		</button>
+		<div class="nav-dropdown-menu" role="menu">
+			{categories.map(cat => {
+				const isActive = isCategory?.[1] === cat.id;
+				return (
+					<a 
+						href={cat.href} 
+						class:list={['nav-dropdown-item', { active: isActive }]} 
+						role="menuitem"
+						title={cat.full}
+					>
+						<span class="cat-label">{cat.label}</span>
+						<span class="cat-desc">{cat.full}</span>
+					</a>
+				);
+			})}
+		</div>
+	</div>
+	
 	<a href={translatePath('about')} class:list={['nav-link', { active: isAbout }]} aria-current={isAbout ? 'page' : undefined}>{t('nav.about')}</a>
 </nav>
