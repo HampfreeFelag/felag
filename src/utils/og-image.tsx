@@ -34,21 +34,38 @@ const COLORS = {
 
 // Category background patterns (simplified for Satori)
 const CATEGORY_COLORS: Record<string, string> = {
-	'crypto': COLORS.deepBlue,
-	'technical-analysis': COLORS.deepBlueDark,
-	'algo-trading': COLORS.amber,
-	'fundamental-analysis': COLORS.amberDark,
-	'regulation': COLORS.mossGreen,
+	'route': COLORS.deepBlue,
+	'forge': COLORS.amber,
+	'helm': '#4A7BA7',
+	'treasury': COLORS.amberDark,
+	'compass': COLORS.mossGreen,
+	'logbook': '#5B8DB8',
+	'crew': '#B85450',
 	'general': COLORS.deepBlue, // Default
+};
+
+// Rune symbols for each category (Elder Futhark)
+const CATEGORY_RUNES: Record<string, string> = {
+	'route': 'ᚱ',      // Raido — путь, путешествие
+	'forge': 'ᚠ',      // Fehu — ремесло, созидание
+	'helm': 'ᚺ',       // Hagalaz — управление, руль
+	'treasury': 'ᛇ',    // Eihwaz — сокровище, защита
+	'compass': 'ᚲ',     // Kaunan — маяк, факел, руководство
+	'logbook': 'ᚨ',     // Ansuz — знание, запись
+	'crew': 'ᛗ',       // Mannaz — общность, люди
+	'general': 'ᚠ',    // Fehu — по умолчанию
 };
 
 // Background patterns (simplified gradients for Satori)
 const getBackgroundPattern = (category: string = 'general'): string => {
 	const patterns: Record<string, string> = {
-		'crypto': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(58, 95, 127, 0.05) 50%, ${COLORS.bgPrimary} 100%)`,
-		'technical-analysis': `${COLORS.bgPrimary}`, // Solid with grid effect (simplified)
-		'algo-trading': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(212, 155, 59, 0.05) 50%, ${COLORS.bgPrimary} 100%)`,
-		'fundamental-analysis': `${COLORS.bgPrimary}`,
+		'route': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(58, 95, 127, 0.05) 50%, ${COLORS.bgPrimary} 100%)`,
+		'forge': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(212, 155, 59, 0.05) 50%, ${COLORS.bgPrimary} 100%)`,
+		'helm': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(74, 123, 167, 0.05) 50%, ${COLORS.bgPrimary} 100%)`,
+		'treasury': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(184, 134, 43, 0.05) 50%, ${COLORS.bgPrimary} 100%)`,
+		'compass': `${COLORS.bgPrimary}`,
+		'logbook': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(91, 141, 184, 0.05) 50%, ${COLORS.bgPrimary} 100%)`,
+		'crew': `linear-gradient(135deg, ${COLORS.bgPrimary} 0%, rgba(184, 84, 80, 0.05) 50%, ${COLORS.bgPrimary} 100%)`,
 		'general': `${COLORS.bgPrimary}`,
 	};
 	return patterns[category] || patterns['general'];
@@ -64,6 +81,7 @@ interface OGImageProps {
 export function OGImageComponent({ title, subtitle, category = 'general', rubric }: OGImageProps) {
 	const bgPattern = getBackgroundPattern(category);
 	const categoryColor = CATEGORY_COLORS[category] || CATEGORY_COLORS['general'];
+	const rune = CATEGORY_RUNES[category] || CATEGORY_RUNES['general'];
 	const displayRubric = rubric || category.toUpperCase();
 
 	return (
@@ -100,8 +118,8 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 				}}
 			/>
 
-			{/* Grid pattern for technical-analysis */}
-			{category === 'technical-analysis' && (
+			{/* Category decorative pattern */}
+			{category !== 'general' && (
 				<div
 					style={{
 						position: 'absolute',
@@ -128,6 +146,25 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 					}}
 				/>
 			)}
+
+			{/* Decorative rune watermark */}
+			<div
+				style={{
+					position: 'absolute',
+					right: '40px',
+					top: '50%',
+					transform: 'translateY(-50%)',
+					fontSize: '200px',
+					fontWeight: '900',
+					color: `${categoryColor}08`,
+					pointerEvents: 'none',
+					zIndex: 1,
+					fontFamily: 'serif',
+					lineHeight: 1,
+				}}
+			>
+				{rune}
+			</div>
 
 			{/* Content */}
 			<div
@@ -201,7 +238,7 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 						whiteSpace: 'nowrap',
 					}}
 				>
-					[{displayRubric}]
+					{rune} [{displayRubric}]
 				</span>
 
 				{/* Watermark */}
