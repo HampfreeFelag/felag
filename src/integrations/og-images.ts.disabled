@@ -166,7 +166,7 @@ const [postsRu, postsEn] = await Promise.all([
 
 				// Generate OG image for homepage
 				const homepageData: OGImageData = {
-					title: 'MarketLab Academy',
+					title: 'FÉLAG',
 					subtitle: 'Блог о трейдинге, криптовалюте и автоматизации торговли',
 					category: 'general',
 					lang: 'ru',

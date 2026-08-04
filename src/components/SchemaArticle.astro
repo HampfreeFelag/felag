@@ -14,7 +14,7 @@ export interface Props {
   description: string;
   /** Дата публикации (ISO 8601) */
   pubDate: string;
-  /** Автор (по умолчанию MarketLab Academy) */
+  /** Автор (по умолчанию FÉLAG) */
   author?: string;
   /** URL изображения (og:image) */
   image?: string;
@@ -28,14 +28,14 @@ const {
   title,
   description,
   pubDate,
-  author = 'MarketLab Academy',
+  author = 'FÉLAG',
   image,
   category,
   lang = 'ru'
 } = Astro.props;
 
 // Формируем canonical URL
-const canonicalURL = new URL(Astro.url.pathname, 'https://marketlab-academy.org');
+const canonicalURL = new URL(Astro.url.pathname, 'https://felag.online');
 
 // Формируем URL изображения (если есть)
 const imageUrl = image ? new URL(image, canonicalURL).href : '';
@@ -57,20 +57,20 @@ const articleSection = categoryMap[category] || category;
   "@type": "Article",
   "headline": {title},
   "description": {description},
-  "image": {imageUrl || 'https://marketlab-academy.org/og/default.png'},
+  "image": {imageUrl || 'https://felag.online/og/default.png'},
   "datePublished": "{pubDate}",
   "dateModified": "{pubDate}",
   "author": {
     "@type": "Organization",
-    "name": "MarketLab Academy",
-    "url": "https://marketlab-academy.org"
+    "name": "FÉLAG",
+    "url": "https://felag.online"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "MarketLab Academy",
+    "name": "FÉLAG",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://marketlab-academy.org/logo.svg",
+      "url": "https://felag.online/logo.svg",
       "width": 600,
       "height": 60
     }

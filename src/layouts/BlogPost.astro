@@ -92,11 +92,11 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				"dateModified": updatedDateObj ? updatedDateObj.toISOString() : pubDateObj.toISOString(),
 				"publisher": {
 					"@type": "Organization",
-					"name": "MarketLab Academy",
-					"url": Astro.site?.href || "https://marketlab-academy.org",
+					"name": "FÉLAG",
+					"url": Astro.site?.href || "https://felag.online",
 					"logo": {
 						"@type": "ImageObject",
-						"url": new URL("/favicon-96x96.png", Astro.site || "https://marketlab-academy.org").href
+						"url": new URL("/favicon-96x96.png", Astro.site || "https://felag.online").href
 					}
 				},
 				"mainEntityOfPage": {
@@ -108,7 +108,7 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 			if (displayImage) {
 				articleSchema.image = {
 					"@type": "ImageObject",
-					"url": new URL(displayImage, Astro.site || "https://marketlab-academy.org").href
+					"url": new URL(displayImage, Astro.site || "https://felag.online").href
 				};
 			}
 			
@@ -127,7 +127,7 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 					"position": index + 1,
 					"name": item.label,
 					"item": item.href 
-						? new URL(item.href, Astro.site || "https://marketlab-academy.org").href
+						? new URL(item.href, Astro.site || "https://felag.online").href
 						: Astro.url.href
 				}))
 			};
@@ -538,9 +538,9 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				}
 				
 				// Build UTM-tagged link
-				const utmParams = `?utm_source=marketlab-blog&utm_medium=referral-banner&utm_campaign=${bannerData.id}&utm_content=${slug}&utm_term=${category}`;
+				const utmParams = `?utm_source=felag-blog&utm_medium=referral-banner&utm_campaign=${bannerData.id}&utm_content=${slug}&utm_term=${category}`;
 				const finalLink = bannerData.link.includes('?') 
-					? `${bannerData.link}&utm_source=marketlab-blog&utm_medium=referral-banner&utm_campaign=${bannerData.id}&utm_content=${slug}&utm_term=${category}`
+					? `${bannerData.link}&utm_source=felag-blog&utm_medium=referral-banner&utm_campaign=${bannerData.id}&utm_content=${slug}&utm_term=${category}`
 					: `${bannerData.link}${utmParams}`;
 
 				const bannerContainer = document.createElement('div');
