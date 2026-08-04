@@ -105,7 +105,7 @@ const breadcrumbItems = [
 		<main class="container">
 			<div class="library-header">
 				<Breadcrumb items={breadcrumbItems} />
-				<h1 class="mono responsive-title">> {t('library.title')}</h1>
+				<h1 class="responsive-title">{t('library.title')}</h1>
 			</div>
 			
 			<section class="posts-grid fade-in" id="postsGrid">
@@ -153,7 +153,7 @@ const breadcrumbItems = [
 										<span><FormattedDate date={post.data.pubDate} /></span>
 									</div>
 								</div>
-								<div class="read-more-link" aria-hidden="true">> {t('library.read_more')}</div>
+								<div class="read-more-link" aria-hidden="true">{t('library.read_more')}</div>
 							</a>
 						))}
 					</div>
@@ -169,7 +169,7 @@ const breadcrumbItems = [
 			</div>
 			
 			<div id="noResults" class="no-results">
-				> {t('library.no_results')}
+				{t('library.no_results')}
 			</div>
 			<ScrollTop />
 		</main>

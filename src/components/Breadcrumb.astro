@@ -29,42 +29,27 @@ const translatePath = useTranslatedPath(lang);
 
 <style>
 	.breadcrumb {
-		margin-bottom: 2rem;
-		font-family: 'JetBrains Mono', monospace;
-		font-size: 0.8rem;
-	}
-
-	ol {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 8px;
-	}
-
-	li {
 		display: flex;
 		align-items: center;
-		gap: 8px;
-		color: var(--color-text-secondary);
+		gap: 0.5rem;
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		margin-bottom: 1rem;
+		flex-wrap: wrap;
 	}
-
-	a {
-		color: var(--color-text-secondary);
+	.breadcrumb a {
+		color: var(--color-text-tertiary);
 		text-decoration: none;
 	}
-
-	a:hover {
-		color: var(--nes-accent-green);
+	.breadcrumb a:hover {
+		color: var(--color-accent);
 	}
-
-	.separator {
-		opacity: 0.3;
+	.breadcrumb .separator {
+		color: var(--color-text-tertiary);
+		opacity: 0.5;
 	}
-
-	.current {
-		color: var(--nes-accent-green);
-		font-weight: bold;
+	.breadcrumb .current {
+		color: var(--color-text-secondary);
+		font-weight: 500;
 	}
 </style>

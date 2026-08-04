@@ -47,8 +47,9 @@ const getSwitchPath = (targetLang: string) => {
 		display: flex;
 		align-items: center;
 		gap: 4px;
-		font-family: 'Press Start 2P', monospace;
-		font-size: 0.75rem;
+		font-family: var(--font-sans);
+		font-size: 0.8rem;
+		font-weight: 500;
 	}
 	.lang-btn {
 		background: transparent;
@@ -56,17 +57,18 @@ const getSwitchPath = (targetLang: string) => {
 		color: var(--color-text-secondary);
 		cursor: pointer;
 		padding: 4px 8px;
-		transition: color 0.2s steps(3);
+		transition: color var(--duration-fast) var(--ease-out);
+		text-decoration: none;
 	}
 	.lang-btn:hover {
-		color: var(--nes-accent-green);
+		color: var(--color-accent);
 	}
 	.lang-btn.active {
-		color: var(--nes-accent-green);
-		font-weight: bold;
+		color: var(--color-accent);
+		font-weight: 600;
 	}
 	.lang-divider {
-		color: var(--nes-border-primary);
+		color: var(--color-border);
 		opacity: 0.5;
 	}
 </style>

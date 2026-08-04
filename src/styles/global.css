@@ -695,13 +695,21 @@ a:hover {
 }
 
 /* ═══════════════════════════════════════════════════════
-   9. POSTS GRID — clean cards
-   ═══════════════════════════════════════════════════════ */
+    9. POSTS GRID — clean cards
+    ═══════════════════════════════════════════════════════ */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-xl);
-  margin-bottom: var(--space-4xl);
+  margin-bottom: var(--space-2xl);
+}
+
+/* Posts list (library page) — same grid */
+.posts-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
 }
 
 .post-card {
@@ -755,6 +763,81 @@ a:hover {
 
 .read-more-link:hover {
   color: var(--color-accent-hover);
+}
+
+/* Library page styles */
+.library-header {
+  margin-bottom: var(--space-xl);
+}
+
+.search-and-filter {
+  margin-bottom: var(--space-lg);
+}
+
+.search-bar {
+  margin-bottom: var(--space-md);
+}
+
+.search-bar input[type="text"] {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.search-bar input[type="text"]:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.categories-filter {
+  margin-bottom: 0;
+}
+
+.categories-container-with-margin {
+  margin-bottom: var(--space-md);
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin: var(--space-2xl) 0;
+  flex-wrap: wrap;
+}
+
+.no-results {
+  display: none;
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.post-meta-wrap {
+  padding: var(--space-sm) var(--space-md);
+}
+
+/* Post card style in library */
+#postsList .post-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+#postsList .post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -842,28 +925,30 @@ a:hover {
    11. SUBSCRIBE FORM
    ═══════════════════════════════════════════════════════ */
 .subscribe-section {
-  padding: var(--space-4xl) 0;
-  margin-bottom: var(--space-4xl);
+  padding: var(--space-2xl) 0;
+  margin-bottom: 0;
 }
 
 .subscribe-with-container {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-3xl);
+  padding: var(--space-xl);
   text-align: center;
 }
 
 .subscribe-with-container h2 {
-  font-size: 1.8rem;
-  margin-bottom: var(--space-md);
+  font-size: 1.4rem;
+  margin-bottom: var(--space-sm);
 }
 
 .subscribe-with-container p.newsletter-desc {
-  margin-bottom: var(--space-xl);
+  margin-bottom: 0;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
 }
 
 .subscribe-form {
@@ -1219,6 +1304,9 @@ a:hover {
    ═══════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
   .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  .posts-list {
     grid-template-columns: 1fr;
   }
 }
