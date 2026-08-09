@@ -3,6 +3,7 @@ draft: true
 title: 'Veles: платформа для автоматизации криптотрейдинга'
 description: 'Veles Finance — облачная платформа для алготрейдинга от $10. Grid-боты, DCA, бэктесты, готовые стратегии. Комиссия 20%, 7 бирж, приложение Android. Обзор.'
 pubDate: '2026-03-10'
+updatedDate: '2026-08-09'
 category: 'forge'
 ---
 

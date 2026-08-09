@@ -3,6 +3,7 @@ draft: true
 title: 'Whitepaper в крипте: что это и зачем нужен'
 description: 'Whitepaper в криптовалюте: что это, зачем нужен, как используется. Отличия от roadmap, на что смотреть при анализе проектов и оценке инвестиций.'
 pubDate: '2026-02-15'
+updatedDate: '2026-08-09'
 category: 'compass'
 ---
 

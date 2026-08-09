@@ -3,6 +3,7 @@ draft: true
 title: 'Ginarea: подробная настройка торговых ботов'
 description: 'Наш опыт настройки торговых ботов в Ginarea: Dynamic, P&L трейлинг, выбор активов и конкретные конфигурации.'
 pubDate: '2026-04-08'
+updatedDate: '2026-08-09'
 category: 'forge'
 ---
 

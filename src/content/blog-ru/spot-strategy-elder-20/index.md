@@ -3,6 +3,7 @@ draft: true
 title: 'Та самая спотовая стратегия ELDER 2.0'
 description: 'Проверенная стратегия ELDER 2.0 с усреднением: настройки Stochastic, Bollinger, CMO для спотовых ботов на крипторынке.'
 pubDate: '2026-02-28'
+updatedDate: '2026-08-09'
 category: 'forge'
 ---
 

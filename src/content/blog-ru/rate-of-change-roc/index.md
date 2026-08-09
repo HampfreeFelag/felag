@@ -3,6 +3,7 @@ draft: true
 title: 'ROC (Rate of Change) в криптовалютной торговле'
 description: 'Что такое индикатор ROC (Rate of Change): как измеряет скорость изменения цены, сигналы и комбинация с RSI и Williams %R.'
 pubDate: '2026-02-03'
+updatedDate: '2026-08-09'
 category: 'compass'
 ---
 

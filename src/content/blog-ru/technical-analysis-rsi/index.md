@@ -2,6 +2,7 @@
 title: 'Технический анализ RSI'
 description: 'Полное руководство по индикатору RSI: как использовать Relative Strength Index для определения точек входа и выхода на рынке криптовалют'
 pubDate: '2026-06-22'
+updatedDate: '2026-08-09'
 category: 'compass'
 draft: false
 tags: ['RSI', 'осцилляторы', 'технический анализ']

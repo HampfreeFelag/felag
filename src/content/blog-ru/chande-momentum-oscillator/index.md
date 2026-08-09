@@ -2,6 +2,7 @@
 title: 'Индикатор Chande Momentum Oscillator (CMO)'
 description: 'CMO: что это, формула расчёта, зоны перекупленности и перепроданности, сигналы на покупку и продажу. Связь со стратегией ELDER. Практическое руководство для трейдеров.'
 pubDate: '2026-02-13'
+updatedDate: '2026-08-09'
 category: 'compass'
 draft: true
 ---

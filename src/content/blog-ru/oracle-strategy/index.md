@@ -3,6 +3,7 @@ draft: true
 title: 'ORACLE 1.1: Настройки Стратегии на 4 Индикаторах (H1→M5)'
 description: 'Настройки ORACLE 1.1: Bollinger Bands, ATR%, ROC, Williams %R по таймфреймам. Бэктесты, тест на BingX. Стратегия для Veles.'
 pubDate: '2026-02-03'
+updatedDate: '2026-08-09'
 category: 'forge'
 ---
 

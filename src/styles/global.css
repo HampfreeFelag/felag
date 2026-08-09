@@ -1355,3 +1355,37 @@ a:hover {
     padding: var(--space-2xl) var(--space-lg);
   }
 }
+
+/* ============================================================
+   DISCLAIMER (дисклеймер после статьи)
+   ============================================================ */
+.post-disclaimer {
+  margin-top: var(--space-2xl);
+  padding: var(--space-lg) var(--space-lg) var(--space-md);
+  border: 2px solid var(--color-border, rgba(0, 216, 0, 0.2));
+  border-radius: 4px;
+  background: var(--color-bg-elevated, rgba(0, 0, 0, 0.15));
+}
+
+.post-disclaimer .disclaimer {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary, #888);
+}
+
+.post-disclaimer .disclaimer-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.post-disclaimer .disclaimer p {
+  margin: 0.75rem 0;
+}
+
+.post-disclaimer .disclaimer p:first-of-type {
+  margin-top: 0;
+}
+
+.post-disclaimer .disclaimer p:last-of-type {
+  margin-bottom: 0;
+}

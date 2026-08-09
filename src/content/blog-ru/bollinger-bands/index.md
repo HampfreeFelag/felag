@@ -3,6 +3,7 @@ draft: true
 title: 'Полосы Боллинджера в криптовалютной торговле'
 description: 'Что такое полосы Боллинджера (Bollinger Bands): как строятся, зоны перекупленности и перепроданности, комбинация с RSI и Williams %R.'
 pubDate: '2026-02-03'
+updatedDate: '2026-08-09'
 category: 'compass'
 ---
 

@@ -2,6 +2,7 @@
 title: 'Layer 2 решения для Ethereum в 2026: полное руководство'
 description: 'Layer 2 для Ethereum: Arbitrum, Optimism, zkSync, Starknet. Как работают, сравнение комиссий, безопасность и доходность. Мосты, стейкинг и DeFi в L2.'
 pubDate: '2026-03-20'
+updatedDate: '2026-08-09'
 category: 'route'
 draft: true
 ---

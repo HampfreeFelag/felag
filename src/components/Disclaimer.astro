@@ -5,7 +5,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class="disclaimer nes-dialog is-rounded">
+<div class="disclaimer">
 	<p class="disclaimer-title"><strong>{t('disclaimer.title')}</strong></p>
 	<div class="disclaimer-content">
 		<p>{t('disclaimer.p1')}</p>
@@ -30,7 +30,7 @@ const t = useTranslations(lang);
 
 	.disclaimer-title {
 		margin: 0 0 1rem 0;
-		color: var(--nes-accent-red);
+		color: var(--color-accent);
 		font-weight: 700;
 		position: relative;
 		z-index: 2;

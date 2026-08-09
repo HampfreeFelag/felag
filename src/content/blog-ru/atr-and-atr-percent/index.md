@@ -3,6 +3,7 @@ draft: true
 title: 'ATR и ATR% в криптовалютной торговле'
 description: 'Что такое Average True Range (ATR) и ATR%: как измеряют волатильность, настройка стоп-лоссов и связь с рисками и индикаторами.'
 pubDate: '2026-02-03'
+updatedDate: '2026-08-09'
 category: 'compass'
 ---
 

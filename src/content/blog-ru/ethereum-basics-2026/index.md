@@ -3,6 +3,7 @@ draft: true
 title: 'Ethereum (ETH): Блокчейн, Смарт-Контракты, Стикинг 2026'
 description: 'Ethereum для начинающих: как работает блокчейн, смарт-контракты, газ, стейкинг. Чем ETH отличается от Bitcoin. Полный гид 2026.'
 pubDate: '2026-03-15'
+updatedDate: '2026-08-09'
 category: 'route'
 ---
 
