@@ -14,9 +14,14 @@ import { isTempArticle } from '../../utils/blog';
 
 export async function getStaticPaths() {
 	const categories = ['route', 'forge', 'helm', 'treasury', 'compass', 'logbook', 'crew'];
-	return categories.map(cat => ({
-		params: { lang: 'ru', category: cat },
-	}));
+	const langs = ['ru', 'en'];
+	const paths = [];
+	for (const lang of langs) {
+		for (const cat of categories) {
+			paths.push({ params: { lang, category: cat } });
+		}
+	}
+	return paths;
 }
 
 const { lang, category } = Astro.params;
@@ -61,7 +66,7 @@ const breadcrumbItems = [
 		<main class="container">
 			<div class="library-header">
 				<Breadcrumb items={breadcrumbItems} />
-				<h1 class="responsive-title">{info.label}</h1>
+				<h1 class="page-title">{info.label}</h1>
 				<p class="category-description">{info.full}</p>
 			</div>
 			
@@ -72,10 +77,6 @@ const breadcrumbItems = [
 							<a 
 								href={`/${lang}/library/${post.id}/`} 
 								class="post-card" 
-								data-title={post.data.title.toLowerCase()}
-								data-description={post.data.description.toLowerCase()}
-								data-category={post.data.category || ''}
-								data-tags={post.data.tags?.join(',').toLowerCase() || ''}
 							>
 								<Banner 
 									title={post.data.title} 
@@ -83,17 +84,15 @@ const breadcrumbItems = [
 									category={post.data.category} 
 									type="preview" 
 								/>
-								<div class="post-meta-wrap">
-									<div class="post-meta">
-										<span><FormattedDate date={post.data.pubDate} /></span>
-									</div>
+								<div class="post-meta">
+									<span class="banner-date"><FormattedDate date={post.data.pubDate} /></span>
 								</div>
-								<div class="read-more-link" aria-hidden="true">> {t('library.read_more')}</div>
+								<div class="read-more-link" aria-hidden="true">{t('library.read_more')}</div>
 							</a>
 						))}
 					</div>
 				) : (
-					<div class="no-posts" style="padding: var(--space-6); text-align: center; color: var(--color-text-secondary);">
+					<div class="no-posts" style="padding: var(--space-2xl); text-align: center; color: var(--color-text-secondary);">
 						<p>В этой категории пока нет опубликованных статей.</p>
 					</div>
 				)}
@@ -105,20 +104,8 @@ const breadcrumbItems = [
 </html>
 
 <style>
-	.responsive-title {
-		font-size: clamp(1.5rem, 5vw, 2.5rem);
+	.page-title {
 		word-break: break-word;
-		line-height: 1.2;
-	}
-	.category-description {
-		font-size: 1rem;
-		color: var(--nordic-text-secondary);
-		margin-top: 0.5rem;
-		opacity: 0.8;
-	}
-	@media (max-width: 480px) {
-		.responsive-title {
-			font-size: 1.25rem;
-		}
+		line-height: 1.15;
 	}
 </style>

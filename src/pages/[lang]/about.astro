@@ -33,238 +33,239 @@ const breadcrumbItems = [
 		<main class="container">
 			<div class="library-header">
 				<Breadcrumb items={breadcrumbItems} />
-				<h1 class="responsive-title">{t('nav.about')}</h1>
+				<h1 class="page-title">{t('nav.about')}</h1>
 			</div>
 
-			<article class="fade-in">
-				<section class="about-content" style="line-height: 1.8; margin-top: 0;">
-					{lang === 'ru' ? (
-						<>
-							<p style="margin-bottom: 2rem; font-size: 1.1rem; margin-top: 0;">
-								<strong>FÉLAG</strong> — образовательная лаборатория о трейдинге.
-							</p>
-							<p style="margin-bottom: 2rem; font-size: 1rem;">
-								Мы не учим «как надо». Мы показываем: как устроены рынки, как работают стратегии, какие ошибки совершали сами.
-							</p>
-							<p style="margin-bottom: 3rem; font-size: 1rem;">
-								Здесь нет гуру. Есть только опыт, данные и готовность делиться.
-							</p>
+			<article class="prose fade-in">
+				{lang === 'ru' ? (
+					<>
+						<p class="post-lead">
+							<strong>FÉLAG</strong> — образовательная лаборатория о трейдинге.
+						</p>
+						<p>
+							Мы не учим «как надо». Мы показываем: как устроены рынки, как работают стратегии, какие ошибки совершали сами.
+						</p>
+						<p>
+							Здесь нет гуру. Есть только опыт, данные и готовность делиться.
+						</p>
 
-							<h2 id="history-ru" style="margin-top: 3rem; margin-bottom: 1.5rem;">Наша история</h2>
-							<p style="margin-bottom: 1rem;">
-								FÉLAG родился из личной истории. В крипту пришли не из хайпа, а из жизни.
-							</p>
-							<p style="margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.95rem;">
-								Традиционные рынки → Травма → крипта → Veles → сообщество → FÉLAG
-							</p>
-							<p style="margin-bottom: 1rem;">
-								Каждый этап — урок. Каждый урок — материал для статей.
-							</p>
-							<p style="margin-bottom: 2rem;">
-								Мы не обещаем «100% в месяц». Мы показываем: как работает риск-менеджмент, почему 90% трейдеров теряют депозит, как построить систему, а не гнаться за удачей.
-							</p>
+						<h2 id="history-ru">Наша история</h2>
+						<p>
+							FÉLAG родился из личной истории. В крипту пришли не из хайпа, а из жизни.
+						</p>
+						<p class="about-path">
+							Традиционные рынки → Травма → крипта → Veles → сообщество → FÉLAG
+						</p>
+						<p>
+							Каждый этап — урок. Каждый урок — материал для статей.
+						</p>
+						<p>
+							Мы не обещаем «100% в месяц». Мы показываем: как работает риск-менеджмент, почему 90% трейдеров теряют депозит, как построить систему, а не гнаться за удачей.
+						</p>
 
-							<h2 id="principles-ru" style="margin-top: 3rem; margin-bottom: 1.5rem;">Наши принципы</h2>
-							<ul style="margin-bottom: 2.5rem; list-style-type: square; padding-left: 1.5rem;">
-								<li style="margin-bottom: 1rem;"><strong>Честность:</strong> говорим о провалах так же открыто, как об успехах.</li>
-								<li style="margin-bottom: 1rem;"><strong>Взаимопомощь:</strong> если можешь — поделись, если не знаешь — спроси.</li>
-								<li style="margin-bottom: 1rem;"><strong>Осознанность:</strong> разбираем механизмы, а не даём готовых решений.</li>
-								<li style="margin-bottom: 1rem;"><strong>Долгосрочность:</strong> строим систему, а не гонимся за мгновенной прибылью.</li>
-							</ul>
+						<h2 id="principles-ru">Наши принципы</h2>
+						<ul>
+							<li><strong>Честность:</strong> говорим о провалах так же открыто, как об успехах.</li>
+							<li><strong>Взаимопомощь:</strong> если можешь — поделись, если не знаешь — спроси.</li>
+							<li><strong>Осознанность:</strong> разбираем механизмы, а не даём готовых решений.</li>
+							<li><strong>Долгосрочность:</strong> строим систему, а не гонимся за мгновенной прибылью.</li>
+						</ul>
 
-							<h2 id="testimonials-ru" style="margin-top: 3rem; margin-bottom: 1.5rem;">Что говорят читатели</h2>
-							<blockquote style="margin-bottom: 1.5rem; border-left: 4px solid var(--color-accent); padding-left: 1rem; font-style: italic;">
-								«FÉLAG — это не школа, а лаборатория. Здесь не учат, а делятся опытом.»
-								<footer style="margin-top: 0.5rem; font-size: 0.9rem; font-style: normal;">— Алексей, трейдер с 2020</footer>
-							</blockquote>
-							<blockquote style="margin-bottom: 1.5rem; border-left: 4px solid var(--color-accent); padding-left: 1rem; font-style: italic;">
-								«Наконец-то блог, где не продают курсы, а реально помогают.»
-								<footer style="margin-top: 0.5rem; font-size: 0.9rem; font-style: normal;">— Мария, начала с депозита $50</footer>
-							</blockquote>
-							<blockquote style="margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent); padding-left: 1rem; font-style: italic;">
-								«Статьи по алготрейдингу сэкономили мне месяцы тестов. Взял готовые стратегии и адаптировал под себя.»
-								<footer style="margin-top: 0.5rem; font-size: 0.9rem; font-style: normal;">— Дмитрий, разработчик</footer>
-							</blockquote>
+						<h2 id="testimonials-ru">Что говорят читатели</h2>
+						<blockquote>
+							«FÉLAG — это не школа, а лаборатория. Здесь не учат, а делятся опытом.»
+							<footer>— Алексей, трейдер с 2020</footer>
+						</blockquote>
+						<blockquote>
+							«Наконец-то блог, где не продают курсы, а реально помогают.»
+							<footer>— Мария, начала с депозита $50</footer>
+						</blockquote>
+						<blockquote>
+							«Статьи по алготрейдингу сэкономили мне месяцы тестов. Взял готовые стратегии и адаптировал под себя.»
+							<footer>— Дмитрий, разработчик</footer>
+						</blockquote>
 
-							<h2 id="contact-ru" style="margin-top: 3rem; margin-bottom: 1.5rem;">Связаться</h2>
-							<p style="margin-bottom: 2rem;">
-								Партнёрства и предложения: <a href="https://t.me/Hampfree" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); text-decoration: underline;">Hampfree</a> (Telegram)
-							</p>
+						<h2 id="contact-ru">Связаться</h2>
+						<p>
+							Партнёрства и предложения: <a href="https://t.me/Hampfree" target="_blank" rel="noopener noreferrer">Hampfree</a> (Telegram)
+						</p>
 
-							<h2 id="support-ru" style="margin-top: 3rem; margin-bottom: 1.5rem;">Поддержать проект</h2>
-							<p style="margin-bottom: 1rem;">
-								Есть два способа поддержать проект:
-							</p>
-							<p style="margin-bottom: 1.5rem;">
-								<strong>1. Реферальные ссылки</strong> — в футере каждой страницы блога. Регистрируясь по ним: <strong>вы</strong> получаете бонусы на бирже, <strong>мы</strong> — небольшую комиссию (без дополнительных трат с вашей стороны). Win-win.
-							</p>
-							<p style="margin-bottom: 1rem;">
-								<strong>2. Криптовалюты (USDT, BTC, ETH):</strong>
-							</p>
-							<p style="margin-bottom: 0.5rem;">Адрес (любая EVM-сеть):</p>
-							<button type="button" class="evm-address-copy" data-address="0x7428658Cf98E663080b70214bC41FB45Aa8C4405" title="Копировать адрес">0x7428658Cf98E663080b70214bC41FB45Aa8C4405</button>
-							<p style="margin-bottom: 1rem;">
-								Принимаем: ETH, USDT, USDC и другие токены в сетях <strong>Ethereum, Polygon, Arbitrum, Optimism, BSC</strong>.
-							</p>
-							<p style="margin-bottom: 2rem; font-size: 0.95rem; color: var(--color-text-secondary);">
-								Средства идут на оплату серверов, подписок и развитие проекта.
-							</p>
+						<h2 id="support-ru">Поддержать проект</h2>
+						<p>
+							Есть два способа поддержать проект:
+						</p>
+						<p>
+							<strong>1. Реферальные ссылки</strong> — в футере каждой страницы блога. Регистрируясь по ним: <strong>вы</strong> получаете бонусы на бирже, <strong>мы</strong> — небольшую комиссию (без дополнительных трат с вашей стороны). Win-win.
+						</p>
+						<p>
+							<strong>2. Криптовалюты (USDT, BTC, ETH):</strong>
+						</p>
+						<p>Адрес (любая EVM-сеть):</p>
+						<button type="button" class="evm-address-copy" data-address="0x7428658Cf98E663080b70214bC41FB45Aa8C4405" title="Копировать адрес">0x7428658Cf98E663080b70214bC41FB45Aa8C4405</button>
+						<p>
+							Принимаем: ETH, USDT, USDC и другие токены в сетях <strong>Ethereum, Polygon, Arbitrum, Optimism, BSC</strong>.
+						</p>
+						<p>
+							Средства идут на оплату серверов, подписок и развитие проекта.
+						</p>
 
-							<h2 id="development-ru" style="margin-top: 3rem; margin-bottom: 1.5rem;">Проект в активной разработке</h2>
-							<p style="margin-bottom: 1rem;">
-								FÉLAG — живой организм, а не законченный продукт. Мы честно признаём: проект регулярно находится на стадии разработки и улучшения, и мы не знаем, когда его «закончим». Вероятно, никогда — и это нормально.
-							</p>
-							<p style="margin-bottom: 1rem;">
-								Рынки меняются, инструменты эволюционируют, стратегии устаревают. Блог, боты и каналы растут вместе с ними. Каждая статья, каждый бэктест и каждый пост-mortem — кирпичик в этой живой системе.
-							</p>
-							<p style="margin-bottom: 2rem;">
-								Поэтому здесь могут появляться черновики, эксперименты, промежуточные результаты и откровенные разборы неудач. Это не баг — это наша философия: мы показываем процесс, а не только отполированный результат.
-							</p>
+						<h2 id="development-ru">Проект в активной разработке</h2>
+						<p>
+							FÉLAG — живой организм, а не законченный продукт. Мы честно признаём: проект регулярно находится на стадии разработки и улучшения, и мы не знаем, когда его «закончим». Вероятно, никогда — и это нормально.
+						</p>
+						<p>
+							Рынки меняются, инструменты эволюционируют, стратегии устаревают. Блог, боты и каналы растут вместе с ними. Каждая статья, каждый бэктест и каждый пост-mortem — кирпичик в этой живой системе.
+						</p>
+						<p>
+							Поэтому здесь могут появляться черновики, эксперименты, промежуточные результаты и откровенные разборы неудач. Это не баг — это наша философия: мы показываем процесс, а не только отполированный результат.
+						</p>
 
-							<h2 id="channels-ru" style="margin-top: 3rem; margin-bottom: 1.5rem;">Наши каналы</h2>
-							<p style="margin-bottom: 1rem;">
-								<strong>📚 Felag | Haven (VK)</strong> — лонгриды, гайды по налогам, архитектурные схемы и дискуссии.
-							</p>
-							<p style="margin-bottom: 1rem;">
-								<strong>📓 Felag | Logbook (MAX)</strong> — сигналы, алерты, логи ботов и короткие заметки с полей.
-							</p>
-							<p style="margin-bottom: 2rem;">
-								<strong>💻 Dev.to</strong> — инженерные кейсы: как мы пишем код, боремся с latency API и настраиваем вебхуки в n8n.
-							</p>
+						<h2 id="channels-ru">Наши каналы</h2>
+						<p>
+							<strong>📚 Felag | Haven (VK)</strong> — лонгриды, гайды по налогам, архитектурные схемы и дискуссии.
+						</p>
+						<p>
+							<strong>📓 Felag | Logbook (MAX)</strong> — сигналы, алерты, логи ботов и короткие заметки с полей.
+						</p>
+						<p>
+							<strong>💻 Dev.to</strong> — инженерные кейсы: как мы пишем код, боремся с latency API и настраиваем вебхуки в n8n.
+						</p>
 
-							<p style="font-style: italic; border-left: 4px solid var(--color-accent); padding-left: 1rem; margin-top: 2rem;">
-								Здесь нет учителей. Есть только те, кто идёт своим путём и готов делиться опытом.
-							</p>
-						</>
-					) : (
-						<>
-							<p style="margin-bottom: 2rem; font-size: 1.1rem; margin-top: 0;">
-								<strong>FÉLAG</strong> — an educational laboratory about trading.
-							</p>
-							<p style="margin-bottom: 2rem; font-size: 1rem;">
-								We don't teach "how to". We show: how markets work, how strategies function, what mistakes we made ourselves.
-							</p>
-							<p style="margin-bottom: 3rem; font-size: 1rem;">
-								There are no gurus here. Only experience, data, and willingness to share.
-							</p>
+						<blockquote class="about-final">
+							Здесь нет учителей. Есть только те, кто идёт своим путём и готов делиться опытом.
+						</blockquote>
+					</>
+				) : (
+					<>
+						<p class="post-lead">
+							<strong>FÉLAG</strong> — an educational laboratory about trading.
+						</p>
+						<p>
+							We don't teach "how to". We show: how markets work, how strategies function, what mistakes we made ourselves.
+						</p>
+						<p>
+							There are no gurus here. Only experience, data, and willingness to share.
+						</p>
 
-							<h2 id="history-en" style="margin-top: 3rem; margin-bottom: 1.5rem;">Our History</h2>
-							<p style="margin-bottom: 1rem;">
-								FÉLAG was born from a personal story. We came into crypto not from hype, but from life.
-							</p>
-							<p style="margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.95rem;">
-								Traditional markets → Trauma → crypto → Veles → community → FÉLAG
-							</p>
-							<p style="margin-bottom: 1rem;">
-								Every stage is a lesson. Every lesson is material for articles.
-							</p>
-							<p style="margin-bottom: 2rem;">
-								We don't promise "100% per month". We show: how risk management works, why 90% of traders lose deposits, how to build a system instead of chasing luck.
-							</p>
+						<h2 id="history-en">Our History</h2>
+						<p>
+							FÉLAG was born from a personal story. We came into crypto not from hype, but from life.
+						</p>
+						<p class="about-path">
+							Traditional markets → Trauma → crypto → Veles → community → FÉLAG
+						</p>
+						<p>
+							Every stage is a lesson. Every lesson is material for articles.
+						</p>
+						<p>
+							We don't promise "100% per month". We show: how risk management works, why 90% of traders lose deposits, how to build a system instead of chasing luck.
+						</p>
 
-							<h2 id="principles-en" style="margin-top: 3rem; margin-bottom: 1.5rem;">Our Principles</h2>
-							<ul style="margin-bottom: 2.5rem; list-style-type: square; padding-left: 1.5rem;">
-								<li style="margin-bottom: 1rem;"><strong>Honesty:</strong> we talk about failures as openly as about successes.</li>
-								<li style="margin-bottom: 1rem;"><strong>Mutual Aid:</strong> if you can — share, if you don't know — ask.</li>
-								<li style="margin-bottom: 1rem;"><strong>Awareness:</strong> we analyze mechanisms, not give ready-made solutions.</li>
-								<li style="margin-bottom: 1rem;"><strong>Long-term:</strong> we build a system, not chase instant profit.</li>
-							</ul>
+						<h2 id="principles-en">Our Principles</h2>
+						<ul>
+							<li><strong>Honesty:</strong> we talk about failures as openly as about successes.</li>
+							<li><strong>Mutual Aid:</strong> if you can — share, if you don't know — ask.</li>
+							<li><strong>Awareness:</strong> we analyze mechanisms, not give ready-made solutions.</li>
+							<li><strong>Long-term:</strong> we build a system, not chase instant profit.</li>
+						</ul>
 
-							<h2 id="testimonials-en" style="margin-top: 3rem; margin-bottom: 1.5rem;">What Readers Say</h2>
-							<blockquote style="margin-bottom: 1.5rem; border-left: 4px solid var(--color-accent); padding-left: 1rem; font-style: italic;">
-								"FÉLAG is not a school, it's a laboratory. They don't teach, they share experience."
-								<footer style="margin-top: 0.5rem; font-size: 0.9rem; font-style: normal;">— Alexey, trader since 2020</footer>
-							</blockquote>
-							<blockquote style="margin-bottom: 1.5rem; border-left: 4px solid var(--color-accent); padding-left: 1rem; font-style: italic;">
-								"Finally a blog where they don't sell courses, but really help."
-								<footer style="margin-top: 0.5rem; font-size: 0.9rem; font-style: normal;">— Maria, started with $50 deposit</footer>
-							</blockquote>
-							<blockquote style="margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent); padding-left: 1rem; font-style: italic;">
-								"Algo-trading articles saved me months of testing. Took ready strategies and adapted them for myself."
-								<footer style="margin-top: 0.5rem; font-size: 0.9rem; font-style: normal;">— Dmitry, developer</footer>
-							</blockquote>
+						<h2 id="testimonials-en">What Readers Say</h2>
+						<blockquote>
+							"FÉLAG is not a school, it's a laboratory. They don't teach, they share experience."
+							<footer>— Alexey, trader since 2020</footer>
+						</blockquote>
+						<blockquote>
+							"Finally a blog where they don't sell courses, but really help."
+							<footer>— Maria, started with $50 deposit</footer>
+						</blockquote>
+						<blockquote>
+							"Algo-trading articles saved me months of testing. Took ready strategies and adapted them for myself."
+							<footer>— Dmitry, developer</footer>
+						</blockquote>
 
-							<h2 id="contact-en" style="margin-top: 3rem; margin-bottom: 1.5rem;">Contact</h2>
-							<p style="margin-bottom: 2rem;">
-								Partnerships and proposals: <a href="https://t.me/Hampfree" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); text-decoration: underline;">Hampfree</a> (Telegram)
-							</p>
+						<h2 id="contact-en">Contact</h2>
+						<p>
+							Partnerships and proposals: <a href="https://t.me/Hampfree" target="_blank" rel="noopener noreferrer">Hampfree</a> (Telegram)
+						</p>
 
-							<h2 id="support-en" style="margin-top: 3rem; margin-bottom: 1.5rem;">Support the Project</h2>
-							<p style="margin-bottom: 1rem;">
-								There are two ways to support the project:
-							</p>
-							<p style="margin-bottom: 1.5rem;">
-								<strong>1. Referral links</strong> — in the footer of every blog page. When you sign up via them: <strong>you</strong> get exchange bonuses, <strong>we</strong> get a small commission (no extra cost to you). Win-win.
-							</p>
-							<p style="margin-bottom: 1rem;">
-								<strong>2. Crypto donations (USDT, BTC, ETH):</strong>
-							</p>
-							<p style="margin-bottom: 0.5rem;">Address (any EVM network):</p>
-							<button type="button" class="evm-address-copy" data-address="0x7428658Cf98E663080b70214bC41FB45Aa8C4405" title="Copy address">0x7428658Cf98E663080b70214bC41FB45Aa8C4405</button>
-							<p style="margin-bottom: 1rem;">
-								We accept: ETH, USDT, USDC and other tokens on <strong>Ethereum, Polygon, Arbitrum, Optimism, BSC</strong>.
-							</p>
-							<p style="margin-bottom: 2rem; font-size: 0.95rem; color: var(--color-text-secondary);">
-								Funds go to paying for servers, subscriptions and project development.
-							</p>
+						<h2 id="support-en">Support the Project</h2>
+						<p>
+							There are two ways to support the project:
+						</p>
+						<p>
+							<strong>1. Referral links</strong> — in the footer of every blog page. When you sign up via them: <strong>you</strong> get exchange bonuses, <strong>we</strong> get a small commission (no extra cost to you). Win-win.
+						</p>
+						<p>
+							<strong>2. Crypto donations (USDT, BTC, ETH):</strong>
+						</p>
+						<p>Address (any EVM network):</p>
+						<button type="button" class="evm-address-copy" data-address="0x7428658Cf98E663080b70214bC41FB45Aa8C4405" title="Copy address">0x7428658Cf98E663080b70214bC41FB45Aa8C4405</button>
+						<p>
+							We accept: ETH, USDT, USDC and other tokens on <strong>Ethereum, Polygon, Arbitrum, Optimism, BSC</strong>.
+						</p>
+						<p>
+							Funds go to paying for servers, subscriptions and project development.
+						</p>
 
-							<h2 id="development-en" style="margin-top: 3rem; margin-bottom: 1.5rem;">Project in Active Development</h2>
-							<p style="margin-bottom: 1rem;">
-								FÉLAG is a living organism, not a finished product. We honestly admit: the project is regularly under development and improvement, and we don't know when we'll "finish" it. Probably never — and that's fine.
-							</p>
-							<p style="margin-bottom: 1rem;">
-								Markets change, tools evolve, strategies become outdated. The blog, bots and channels grow with them. Every article, every backtest and every post-mortem is a brick in this living system.
-							</p>
-							<p style="margin-bottom: 2rem;">
-								That's why you'll find drafts, experiments, intermediate results and honest breakdowns of failures here. This isn't a bug — it's our philosophy: we show the process, not just the polished result.
-							</p>
+						<h2 id="development-en">Project in Active Development</h2>
+						<p>
+							FÉLAG is a living organism, not a finished product. We honestly admit: the project is regularly under development and improvement, and we don't know when we'll "finish" it. Probably never — and that's fine.
+						</p>
+						<p>
+							Markets change, tools evolve, strategies become outdated. The blog, bots and channels grow with them. Every article, every backtest and every post-mortem is a brick in this living system.
+						</p>
+						<p>
+							That's why you'll find drafts, experiments, intermediate results and honest breakdowns of failures here. This isn't a bug — it's our philosophy: we show the process, not just the polished result.
+						</p>
 
-							<h2 id="channels-en" style="margin-top: 3rem; margin-bottom: 1.5rem;">Our Channels</h2>
-							<p style="margin-bottom: 1rem;">
-								<strong>📚 Felag | Haven (VK)</strong> — long reads, tax guides, architectural diagrams and discussions.
-							</p>
-							<p style="margin-bottom: 1rem;">
-								<strong>📓 Felag | Logbook (MAX)</strong> — signals, alerts, bot logs and short field notes.
-							</p>
-							<p style="margin-bottom: 2rem;">
-								<strong>💻 Dev.to</strong> — engineering cases: how we write code, fight API latency and set up n8n webhooks.
-							</p>
+						<h2 id="channels-en">Our Channels</h2>
+						<p>
+							<strong>📚 Felag | Haven (VK)</strong> — long reads, tax guides, architectural diagrams and discussions.
+						</p>
+						<p>
+							<strong>📓 Felag | Logbook (MAX)</strong> — signals, alerts, bot logs and short field notes.
+						</p>
+						<p>
+							<strong>💻 Dev.to</strong> — engineering cases: how we write code, fight API latency and set up n8n webhooks.
+						</p>
 
-							<p style="font-style: italic; border-left: 4px solid var(--color-accent); padding-left: 1rem; margin-top: 2rem;">
-								There are no teachers here. Only those who go their own way and are ready to share experience.
-							</p>
-						</>
-					)}
-				</section>
+						<blockquote class="about-final">
+							There are no teachers here. Only those who go their own way and are ready to share experience.
+						</blockquote>
+					</>
+				)}
 			</article>
 		</main>
 		<Footer />
 		<style>
-			.responsive-title {
-				font-size: clamp(1.5rem, 5vw, 2.5rem);
+			.page-title {
 				word-break: break-word;
-				line-height: 1.2;
+				line-height: 1.15;
 			}
-			@media (max-width: 480px) {
-				.responsive-title {
-					font-size: 1.25rem;
-				}
+			.about-path {
+				font-family: var(--font-mono);
+				font-size: 0.9rem;
+				color: var(--color-text-secondary);
+				padding-left: var(--space-lg);
+				border-left: 2px solid var(--color-amber);
 			}
-			.about-content {
-				color: var(--color-text);
+			blockquote footer {
+				margin-top: 0.5rem;
+				font-size: 0.9rem;
+				font-style: normal;
+				color: var(--color-text-tertiary);
 			}
-			h2 {
-				color: var(--color-accent);
-				font-size: 1.4rem;
+			.about-final {
+				margin-top: var(--space-2xl);
 			}
 			.evm-address-copy {
 				display: block;
 				width: 100%;
 				max-width: 100%;
-				margin-bottom: 1rem;
+				margin-bottom: var(--space-md);
 				padding: 0.6rem 0.75rem;
 				font-family: var(--font-mono);
-				font-size: 0.9rem;
+				font-size: 0.85rem;
 				word-break: break-all;
 				text-align: left;
 				background: transparent;
@@ -272,7 +273,7 @@ const breadcrumbItems = [
 				border: 1px solid var(--color-border);
 				border-radius: var(--radius-sm);
 				cursor: pointer;
-				transition: border-color var(--duration-fast) var(--ease), background var(--duration-fast) var(--ease);
+				transition: border-color var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out);
 			}
 			.evm-address-copy:hover {
 				border-color: var(--color-accent);

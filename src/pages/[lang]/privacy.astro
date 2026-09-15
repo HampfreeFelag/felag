@@ -65,7 +65,7 @@ const c = content[lang as keyof typeof content] || content.en;
 		<main class="container">
 			<div class="library-header">
 				<Breadcrumb items={breadcrumbItems} />
-				<h1 class="responsive-title">{c.title}</h1>
+				<h1 class="page-title">{c.title}</h1>
 			</div>
 			<article class="fade-in">
 				<section class="privacy-content prose" style="line-height: 1.8;">
@@ -83,7 +83,7 @@ const c = content[lang as keyof typeof content] || content.en;
 		</main>
 		<Footer />
 		<style>
-			.responsive-title { font-size: clamp(1.5rem, 5vw, 2.5rem); word-break: break-word; line-height: 1.2; }
+			.page-title { word-break: break-word; line-height: 1.15; }
 			.privacy-content { color: var(--color-text); }
 			.privacy-content h2 { color: var(--color-accent); font-size: 1.4rem; margin-top: 2rem; margin-bottom: 0.75rem; }
 			.privacy-contact-link { color: var(--color-accent); text-decoration: underline; }

@@ -87,8 +87,8 @@ const readMoreText = {
 
 	.related-posts-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: var(--space-lg);
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		column-gap: var(--space-2xl);
 		align-items: start;
 		min-width: 0;
 	}
@@ -98,19 +98,19 @@ const readMoreText = {
 		align-self: start;
 		height: auto;
 		min-width: 0;
-		padding: var(--space-md);
-		border: 1px solid var(--color-border);
-		border-bottom: 3px solid var(--color-border);
-		background: var(--color-surface);
-		border-radius: var(--radius-md);
+		padding: var(--space-md) 0;
+		border: none;
+		border-top: 1px solid var(--color-border-light);
+		background: transparent;
+		border-radius: 0;
 		text-decoration: none;
 		color: inherit;
-		transition: all var(--duration-fast) var(--ease-out);
+		transition: border-color var(--duration-fast) var(--ease-out);
 	}
 
 	.related-post-card:hover {
-		border-bottom-color: var(--color-accent);
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+		border-top-color: var(--color-accent);
+		box-shadow: none;
 		text-decoration: none !important;
 	}
 
@@ -142,13 +142,13 @@ const readMoreText = {
 		align-items: center;
 		gap: var(--space-sm);
 		font-family: var(--font-mono);
-		font-size: 0.75rem;
+		font-size: 0.72rem;
 		margin-top: var(--space-md);
 	}
 
 	.related-post-category {
-		color: var(--color-accent);
-		font-weight: 700;
+		color: var(--color-amber);
+		font-weight: 500;
 	}
 
 	@media (max-width: 768px) {

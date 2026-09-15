@@ -39,12 +39,9 @@ const catClass = category === 'route' ? 'cat-route' :
 <div class={`banner banner--${type} ${className}`}>
 	<div class="banner-inner">
 		<div class="banner-top">
+			{rubric && <span class={`banner-rubric ${catClass}`}>{rubric}</span>}
 			{title && <h2 class="banner-title">{title}</h2>}
 			{cleanSubtitle && <p class="banner-subtitle">{cleanSubtitle}</p>}
-		</div>
-		<div class="banner-bottom">
-			{rubric && <span class={`banner-rubric ${catClass}`}>{rubric}</span>}
-			<span class="banner-watermark">FÉLAG</span>
 		</div>
 	</div>
 </div>

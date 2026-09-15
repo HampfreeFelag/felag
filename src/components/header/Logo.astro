@@ -1,11 +1,10 @@
 ---
-import { SITE_TITLE } from '../../consts';
 import { getLangFromUrl, useTranslatedPath } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<a href={translatePath('')} class="logo-link" aria-label={`${SITE_TITLE} - Home`}>
-	{SITE_TITLE}
+<a href={translatePath('')} class="logo-link" aria-label="FÉLAG — home">
+	FÉLAG<span class="logo-mark">ᛉ</span>
 </a>

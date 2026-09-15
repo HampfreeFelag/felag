@@ -7,8 +7,6 @@ import { SITE_TITLE } from '../../consts';
 import FormattedDate from '../../components/FormattedDate.astro';
 import ScrollTop from '../../components/ScrollTop.astro';
 import Banner from '../../components/Banner.astro';
-import SubscribeForm from '../../components/SubscribeForm.astro';
-import NovelScene from '../../components/NovelScene.astro';
 import { ui } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
 import { isTempArticle } from '../../utils/blog';
@@ -84,15 +82,16 @@ const categories = [
 	<body>
 		<Header />
 		<main class="container">
-			<!-- Hero section with background vector -->
+			<!-- Hero: editorial, типографика-first -->
 			<section class="hero">
-				<NovelScene />
 				<div class="hero-content">
+					<p class="hero-kicker">{t('home.categories_label')} · felag.online</p>
 					<h1>{t('home.hero_title')}</h1>
 					<p>{t('home.hero_description')}</p>
 					<div class="hero-actions">
-						<a href={translatePath('library')} class="btn"><span>{t('home.hero_cta')}</span></a>
+						<a href={translatePath('library')} class="text-link"><span>{t('home.hero_cta')}</span></a>
 					</div>
+					<div class="rune-row" aria-hidden="true">ᚠᛖᛚᚨᚷ · ᚱᛖᛗᛖᛊᛚᛟ</div>
 				</div>
 			</section>
 
@@ -109,17 +108,15 @@ const categories = [
 									category={post.data.category} 
 									type="preview" 
 								/>
-								<div class="post-meta-wrap">
-									<div class="post-meta">
-										<span><FormattedDate date={post.data.pubDate} /></span>
-									</div>
+								<div class="post-meta">
+									<span class="banner-date"><FormattedDate date={post.data.pubDate} /></span>
 								</div>
 								<div class="read-more-link" aria-hidden="true">{t('library.read_more')}</div>
 							</a>
 						))}
 					</div>
 				) : (
-					<div style="padding: var(--space-6); text-align: center; color: var(--color-text-secondary);">
+					<div style="padding: var(--space-2xl); text-align: center; color: var(--color-text-secondary);">
 						<p>Статьи не найдены.</p>
 					</div>
 				)}

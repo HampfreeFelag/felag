@@ -105,7 +105,7 @@ const breadcrumbItems = [
 		<main class="container">
 			<div class="library-header">
 				<Breadcrumb items={breadcrumbItems} />
-				<h1 class="responsive-title">{t('library.title')}</h1>
+				<h1 class="page-title">{t('library.title')}</h1>
 			</div>
 			
 			<section class="posts-grid fade-in" id="postsGrid">
@@ -131,37 +131,35 @@ const breadcrumbItems = [
 						</div>
 					</div>
 				</div>
-				{sortedPosts.length > 0 ? (
-					<div id="postsList" class="posts-list">
-						{sortedPosts.map((post) => (
-							<a 
-								href={`/${lang}/library/${post.id}/`} 
-								class="post-card" 
-								data-title={post.data.title.toLowerCase()}
-								data-description={post.data.description.toLowerCase()}
-								data-category={post.data.category || ''}
-								data-tags={post.data.tags?.join(',').toLowerCase() || ''}
-							>
-								<Banner 
-									title={post.data.title} 
-									subtitle={post.data.description}
-									category={post.data.category} 
-									type="preview" 
-								/>
-								<div class="post-meta-wrap">
-									<div class="post-meta">
-										<span><FormattedDate date={post.data.pubDate} /></span>
-									</div>
-								</div>
-								<div class="read-more-link" aria-hidden="true">{t('library.read_more')}</div>
-							</a>
-						))}
-					</div>
-				) : (
-					<div class="no-posts" style="padding: var(--space-6); text-align: center; color: var(--color-text-secondary);">
-						<p>Статьи не найдены. Проверьте консоль браузера для диагностики.</p>
-					</div>
-				)}
+			{sortedPosts.length > 0 ? (
+				<div id="postsList" class="posts-list">
+					{sortedPosts.map((post) => (
+						<a 
+							href={`/${lang}/library/${post.id}/`} 
+							class="post-card" 
+							data-title={post.data.title.toLowerCase()}
+							data-description={post.data.description.toLowerCase()}
+							data-category={post.data.category || ''}
+							data-tags={post.data.tags?.join(',').toLowerCase() || ''}
+						>
+							<Banner 
+								title={post.data.title} 
+								subtitle={post.data.description}
+								category={post.data.category} 
+								type="preview" 
+							/>
+							<div class="post-meta">
+								<span class="banner-date"><FormattedDate date={post.data.pubDate} /></span>
+							</div>
+							<div class="read-more-link" aria-hidden="true">{t('library.read_more')}</div>
+						</a>
+					))}
+				</div>
+			) : (
+				<div class="no-posts" style="padding: var(--space-2xl); text-align: center; color: var(--color-text-secondary);">
+					<p>Статьи не найдены. Проверьте консоль браузера для диагностики.</p>
+				</div>
+			)}
 			</section>
 
 			<div class="pagination-container" id="pagination">
@@ -431,15 +429,9 @@ const breadcrumbItems = [
 			});
 		</script>
 <style>
-	.responsive-title {
-		font-size: clamp(1.5rem, 5vw, 2.5rem);
+	.page-title {
 		word-break: break-word;
-		line-height: 1.2;
-	}
-	@media (max-width: 480px) {
-		.responsive-title {
-			font-size: 1.25rem;
-		}
+		line-height: 1.15;
 	}
 </style>
 	</body>

@@ -147,11 +147,11 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 					<Breadcrumb items={breadcrumbItems} />
 					
 					{pubDate && (
-						<div class="meta" style="margin-bottom: var(--space-1); display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap;">
+						<div class="post-meta">
 							<FormattedDate date={pubDate} />
-							{updatedDate && <span> • UPDATED: <FormattedDate date={updatedDate} /></span>}
+							{updatedDate && <span>· обновлено <FormattedDate date={updatedDate} /></span>}
 							{readingTime && readingTime > 0 && (
-								<span> • {readingTime} {lang === 'ru' ? 'мин' : lang === 'en' ? 'min' : 'min'} {lang === 'ru' ? 'чтения' : lang === 'en' ? 'read' : 'lectura'}</span>
+								<span>· {readingTime} {lang === 'ru' ? 'мин чтения' : 'min read'}</span>
 							)}
 						</div>
 					)}
@@ -169,8 +169,8 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 					</div>
 
 					{postId && (
-						<div class="nes-container with-title related-posts-container">
-							<p class="title">{t('home.recent_label') || 'RELATED'}</p>
+						<div class="related-posts-container">
+							<div class="section-label">{t('home.recent_label')}</div>
 							<RelatedPosts currentPostId={postId} category={category} />
 						</div>
 					)}
@@ -181,18 +181,16 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				</article>
 
 				<aside class="toc-sticky">
-					<div class="nes-container with-title">
-						<p class="title">{tocTitle}</p>
+					<p class="toc-title">{tocTitle}</p>
 					<ul class="toc-list">
 						{headings?.map((heading) => {
 							// Отступ слева для оглавления:
-							// depth=2: 0, depth=3: 16px (--space-2), depth=4: 24px (--space-3)
-							// (раньше depth=2 уже был 32px и выглядел "съехавшим")
+							// depth=2: 0, depth=3: 16px (--space-md), depth=4: 24px
 							const paddingLeft =
 								heading.depth === 2 ? '0' :
-								heading.depth === 3 ? 'var(--space-2)' :
-								heading.depth === 4 ? 'var(--space-3)' :
-								`calc(var(--space-2) * ${Math.max(0, heading.depth - 2)})`;
+								heading.depth === 3 ? 'var(--space-md)' :
+								heading.depth === 4 ? 'var(--space-lg)' :
+								`calc(var(--space-md) * ${Math.max(1, heading.depth - 2)})`;
 							return (
 								<li class="toc-item" style={`padding-left: ${paddingLeft}`}>
 									<a href={`#${heading.slug}`}>{heading.text}</a>
@@ -200,7 +198,6 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 							);
 						})}
 					</ul>
-					</div>
 				</aside>
 			</div>
 
