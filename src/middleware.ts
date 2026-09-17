@@ -6,7 +6,9 @@ import { defineMiddleware } from 'astro:middleware';
 const MAINTENANCE_MODE = true;
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  if (MAINTENANCE_MODE && !context.url.pathname.includes('/maintenance')) {
+  // В dev-режиме (npm run dev) maintenance не блокирует — иначе нельзя ревьюить локально.
+  // На проде (build) import.meta.env.DEV === false, maintenance работает.
+  if (MAINTENANCE_MODE && !import.meta.env.DEV && !context.url.pathname.includes('/maintenance')) {
     // Standard response for maintenance
     return context.redirect('/maintenance');
   }

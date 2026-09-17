@@ -481,15 +481,6 @@ a:hover {
   position: relative;
 }
 
-.hero-kicker {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--color-amber);
-  margin-bottom: var(--space-lg);
-}
-
 .hero-content {
   max-width: var(--max-width-narrow);
 }
