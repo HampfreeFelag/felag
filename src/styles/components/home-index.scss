@@ -38,7 +38,6 @@
 	font-size: 3.5rem;
 	line-height: 1;
 	margin-bottom: var(--space-3); /* 24px — кратно 8 */
-	text-transform: uppercase;
 	color: var(--color-text-primary);
 }
 
@@ -75,8 +74,6 @@
 	color: var(--color-accent);
 	font-size: 0.85rem;
 	margin: var(--space-2) 0 var(--space-1); /* Reduced: 16px top, 8px bottom — строго кратно 8 */
-	text-transform: uppercase;
-	letter-spacing: 2px;
 }
 
 .categories-container {

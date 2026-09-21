@@ -298,8 +298,6 @@ a:hover {
 .cat-label {
   font-weight: 600;
   font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: var(--color-text);
 }
 
@@ -510,10 +508,8 @@ a:hover {
   align-items: center;
   gap: var(--space-sm);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
   color: var(--color-accent);
   text-decoration: none;
   padding-bottom: 4px;
@@ -555,10 +551,8 @@ a:hover {
   gap: var(--space-sm);
   padding: var(--space-md) var(--space-xl);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: var(--color-bg);
   background: var(--color-accent);
   border: none;
@@ -585,10 +579,8 @@ a:hover {
   align-items: center;
   gap: var(--space-md);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
   color: var(--color-amber);
   margin-bottom: var(--space-xl);
 }
@@ -711,10 +703,8 @@ a:hover {
   gap: var(--space-xs);
   margin-top: var(--space-md);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
   color: var(--color-text-tertiary);
   transition: color var(--duration-fast) var(--ease-out);
 }
@@ -1171,9 +1161,7 @@ a:hover {
 
 .post-disclaimer .disclaimer-title {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.8rem;
   color: var(--color-amber);
 }
 
@@ -1230,10 +1218,8 @@ a:hover {
 
 .toc-title {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
   color: var(--color-amber);
   margin-bottom: var(--space-md);
 }
