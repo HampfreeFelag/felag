@@ -189,7 +189,7 @@ draft: false
 
 ### Шаг 2: Выбор способа
 
-**Для новичков:** Биржа ([Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026), [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026), [BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026))
+**Для новичков:** крупная централизованная биржа со встроенным стейкингом — сравнивайте комиссии и APY самостоятельно (ссылки не размещаем: в РФ реклама зарубежных криптобирж запрещена, 382-ФЗ)
 
 **Почему:**
 - Простота (2 клика)
@@ -213,11 +213,6 @@ draft: false
 5. Подтвердите
 
 **Готово!** Вознаграждение начнёт начисляться через 1-3 дня.
-
-**Реферальные ссылки:**
-- [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — снижение комиссий
-- [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — бонусы для новичков
-- [BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=crypto-staking-guide-2026) — социальный трейдинг
 
 ---
 
