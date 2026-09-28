@@ -7,7 +7,7 @@ import { BANNER_TRANSLATIONS } from '../config/ad-banners';
 const bannerDataJson = JSON.stringify(BANNER_TRANSLATIONS, null, 0);
 ---
 
-<script type="application/json" id="banner-data-json">{bannerDataJson}</script>
+<script type="application/json" id="banner-data-json" set:html={bannerDataJson} />
 
 <script>
   const jsonEl = document.getElementById('banner-data-json');

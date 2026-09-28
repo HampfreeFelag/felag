@@ -307,6 +307,14 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 						display: block;
 						box-sizing: border-box;
 					}
+					.ad-banner-mark {
+						margin-top: 6px;
+						font-family: var(--font-mono);
+						font-size: 0.7rem;
+						color: var(--color-text-tertiary);
+						text-align: center;
+						user-select: text;
+					}
 					.ad-banner-link {
 						display: block;
 						background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
@@ -469,47 +477,32 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				console.log('[DEBUG] category:', category, 'lang:', lang, 'slug:', slug);
 
 				// Banner data from BannerDataInjector (единый источник — ad-banners.ts)
-				function getBannerForCategory(category, lang, slug) {
-					// Логика выбора баннера по категории и языку с балансом
-					let bannerId = 'bybit-general'; // fallback
+				function getBannerForCategory(category, lang) {
+					const entries = Object.entries(BANNER_DATA || {});
 
-					if (category === 'algo-trading') {
-						// Ginarea-статьи → Bybit, Veles → Veles
-						const isGinarea = slug.includes('ginarea');
-						bannerId = isGinarea ? 'bybit-general' : 'veles-algo';
-					} else if (category === 'fundamental-analysis' && lang === 'ru') {
-						bannerId = 'finbazar-fundamental'; // Только для RU!
-					} else if (category === 'fundamental-analysis' && lang === 'en') {
-						bannerId = 'bybit-general'; // EN/ES → Bybit
-					} else if (category === 'crypto') {
-						// Баланс: 50% Bybit, 50% Bitget
-						bannerId = (slug.includes('staking') || slug.includes('defi') || slug.includes('token'))
-							? 'bitget-general'
-							: 'bybit-general';
-					} else if (category === 'technical-analysis') {
-						// Баланс: 50% BingX, 50% Bitget
-						bannerId = (slug.includes('rsi') || slug.includes('macd') || slug.includes('bollinger'))
-							? 'bingx-general'
-							: 'bitget-general';
-					} else {
-						// fallback: Bitget → Bybit → BingX
-						bannerId = 'bitget-general';
-					}
+					// Реклама: только с erid (38-ФЗ) и совпадением категории/языка
+					const adEntry = entries.find(([id, b]) =>
+						!b.internal && b.erid &&
+						(!b.categories || b.categories.includes(category)) &&
+						(!b.languages || b.languages.includes(lang))
+					);
 
-					const banner = BANNER_DATA[bannerId];
-					if (!banner) {
-						console.error('[BANNER] Banner ID not found:', bannerId);
-						return null;
-					}
-					const link = typeof banner.link === 'string' ? banner.link : (banner.link[lang] || banner.link.ru);
+					// Fallback — внутренний баннер Félag (не реклама)
+					const chosenEntry = adEntry || entries.find(([id, b]) => b.id === 'default-felag' || id === 'default-felag');
+					if (!chosenEntry) return null;
 
+					const [, b] = chosenEntry;
+					const link = typeof b.link === 'string' ? b.link : (b.link[lang] || b.link.ru);
 					return {
-						id: bannerId,
-						title: banner.title[lang] || banner.title.ru,
-						subtitle: banner.subtitle[lang] || banner.subtitle.ru,
-						cta: banner.cta[lang] || banner.cta.ru,
+						id: chosenEntry[0],
+						title: b.title[lang] || b.title.ru,
+						subtitle: b.subtitle[lang] || b.subtitle.ru,
+						cta: b.cta[lang] || b.cta.ru,
 						link: link,
-						colors: banner.colors
+						colors: b.colors,
+						erid: b.erid || '',
+						internal: !!b.internal,
+						advertiser: b.advertiser || null
 					};
 				}
 
@@ -533,23 +526,30 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 					console.log('[DEBUG] No banner data available');
 					return;
 				}
-				
-				// Build UTM-tagged link
-				const utmParams = `?utm_source=felag-blog&utm_medium=referral-banner&utm_campaign=${bannerData.id}&utm_content=${slug}&utm_term=${category}`;
-				const finalLink = bannerData.link.includes('?') 
-					? `${bannerData.link}&utm_source=felag-blog&utm_medium=referral-banner&utm_campaign=${bannerData.id}&utm_content=${slug}&utm_term=${category}`
-					: `${bannerData.link}${utmParams}`;
+
+				// Внутренний баннер (перелинковка Félag) — без UTM и рекламной плашки
+				const isInternal = !!bannerData.internal;
+				const finalLink = isInternal
+					? bannerData.link
+					: (bannerData.link.includes('?')
+						? `${bannerData.link}&utm_source=felag-blog&utm_medium=referral-banner&utm_campaign=${bannerData.id}&utm_content=${slug}&utm_term=${category}`
+						: `${bannerData.link}?utm_source=felag-blog&utm_medium=referral-banner&utm_campaign=${bannerData.id}&utm_content=${slug}&utm_term=${category}`);
+
+				// 38-ФЗ: реклама = слово «Реклама» + рекламодатель + erid
+				const adMark = isInternal ? '' : `
+					<div class="ad-banner-mark">
+						Реклама · ${bannerData.advertiser ? bannerData.advertiser.name : ''} · erid: ${bannerData.erid}
+					</div>`;
 
 				const bannerContainer = document.createElement('div');
 				bannerContainer.className = 'in-article-ad-container';
 				bannerContainer.setAttribute('role', 'banner');
-				bannerContainer.setAttribute('aria-label', 'Advertisement');
+				bannerContainer.setAttribute('aria-label', isInternal ? 'Félag library' : 'Advertisement');
 
 				bannerContainer.innerHTML = `
 					<a
 						href="${finalLink}"
-						target="_blank"
-						rel="nofollow sponsored"
+						${isInternal ? '' : 'target="_blank" rel="nofollow sponsored"'}
 						class="ad-banner-link"
 						data-banner-id="${bannerData.id}"
 						data-banner-name="${bannerData.title.replace(/"/g, '&quot;')}"
@@ -568,6 +568,7 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 							</div>
 						</div>
 					</a>
+					${adMark}
 				`;
 
 				if (targetH2.parentNode) {

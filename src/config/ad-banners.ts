@@ -1,6 +1,13 @@
-// Конфигурация реферальных баннеров
-// Все ссылки и параметры в одном месте для удобного обновления
-// Цвета подобраны по брендбукам + адаптированы для 8-bit стиля блога
+// Конфигурация партнёрских баннеров — «белые схемы» (RF-legal)
+//
+// ⚖️ ПРАВИЛА (см. docs/PROD_CHECKLIST.md раздел 6):
+// 1. Баннер с внешней партнёрской ссылкой НЕ рендерится, пока erid === ''
+//    (38-ФЗ: реклама без токена ОРД запрещена). Токен выдаёт ОРД
+//    (рекламодатель партнёрки может выдать готовый erid — спросить у kvmka/Reg.ru).
+// 2. Плашка «Реклама» + рекламодатель + erid — обязательны (рендерится компонентами).
+// 3. Криптобиржи и офшорные крипто-сервисы — ЗАПРЕЩЕНЫ (382-ФЗ), список —
+//    в REFERRAL_LINKS_GUIDE (private). Pre-commit (проверка 7) блокирует их попадание сюда.
+// 4. internal: true — собственная перелинковка (не реклама, erid не нужен).
 
 export type AdBanner = {
   id: string;
@@ -8,9 +15,16 @@ export type AdBanner = {
   subtitle: string;
   cta: string;
   link: string;
+  /** Токен ОРД (erid). '' = баннер скрыт до регистрации креатива в ОРД */
+  erid: string;
+  /** Рекламодатель для пометки «Реклама» (38-ФЗ) */
+  advertiser?: { name: string; inn: string; site: string };
+  /** Категории статей (frontmatter): route/forge/helm/treasury/compass/logbook/crew */
   categories?: string[];
   languages?: ('ru' | 'en')[];
   priority?: number;
+  /** true = внутренняя ссылка Félag (не реклама, маркировка не нужна) */
+  internal?: boolean;
   colors: {
     bgStart: string;
     bgEnd: string;
@@ -21,316 +35,137 @@ export type AdBanner = {
   };
 };
 
-// Реферальные ссылки с локализацией
+// Партнёрские ссылки (белые схемы — VPS/хостинг, РФ-юрлица)
 export const REFERRAL_LINKS = {
-  bybit: {
-    ru: 'https://www.bybit.com/ru-RU/invite?ref=PWMD24',
-    en: 'https://www.bybit.com/en/invite?ref=PWMD24',
-  },
-  bitget: {
-    ru: 'https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD',
-    en: 'https://www.bitget.com/en/referral/register?from=referral&clacCode=23EHR2VD',
-  },
-  bingx: 'https://bingxdao.com/invite/CUBDBG/',
-  veles: 'https://veles.finance/invite/washmallay',
-  finbazar: 'https://finbazar.ru/profile/Hampfree/?ref=9483974260',
-};
+  // ✅ готова (REFERRAL_LINKS_GUIDE v2)
+  kvmka: 'https://kvmka.ru/?from=23600',
+  // ✅ партнёрский код из гайда (rlink); формат проверить при активации
+  regru: 'https://www.reg.ru/?rlink=2sf6wowehp',
+} as const;
 
-export function getReferralLink(platform: keyof typeof REFERRAL_LINKS, lang: string = 'ru'): string {
-  const link = REFERRAL_LINKS[platform];
-  if (typeof link === 'string') return link;
-  return (link as Record<string, string>)[lang] || link.ru;
+export function getReferralLink(platform: keyof typeof REFERRAL_LINKS): string {
+  return REFERRAL_LINKS[platform];
 }
 
-// Конфигурация всех баннеров (8-bit стиль, спокойные цвета)
-export const AD_BANNERS: AdBanner[] = [
-  // Veles — для статей по алготрейдингу (все языки)
+const ALL_BANNERS: AdBanner[] = [
+  // ── kvmka — VPS для ботов (статьи forge: боты, n8n, автоматизация) ──
+  // Скрыт до получения erid: спросить у kvmka готовый токен либо
+  // зарегистрировать креатив в ОРД (Яндекс ОРД — пока бесплатный).
   {
-    id: 'veles-algo',
-    title: 'Veles: Trading Bots',
-    subtitle: 'Automate trading on crypto exchanges',
-    cta: 'Try now →',
-    link: getReferralLink('veles', 'ru'),
-    categories: ['algo-trading'],
-    languages: ['ru', 'en'],
+    id: 'kvmka-vps',
+    title: 'kvmka: VPS для ботов',
+    subtitle: 'Серверы для торговых ботов и автоматизации',
+    cta: 'Выбрать сервер →',
+    link: REFERRAL_LINKS.kvmka,
+    erid: '',
+    advertiser: { name: 'kvmka.ru', inn: '', site: 'kvmka.ru' }, // ИНН уточнить при активации
+    categories: ['forge'],
+    languages: ['ru'],
     priority: 10,
     colors: {
-      bgStart: '#2D1B69',    // Глубокий фиолетовый
-      bgEnd: '#1A0F3D',      // Тёмный индиго
-      text: '#E5E5E5',       // Светло-серый текст
-      ctaBg: '#F97316',      // Приглушённый оранжевый
-      ctaText: '#FFFFFF',    // Белый текст кнопки
-      border: '#8B5CF6',     // Светло-фиолетовая рамка
-    },
-  },
-
-  // Bybit — универсальный баннер (основной для algo-trading)
-  {
-    id: 'bybit-general',
-    title: 'Bybit: Crypto Exchange',
-    subtitle: 'Spot, futures, low fees',
-    cta: 'Sign up →',
-    link: getReferralLink('bybit', 'ru'),
-    languages: ['ru', 'en'],
-    priority: 10,
-    colors: {
-      bgStart: '#1A1D26',    // Тёмный серо-чёрный
-      bgEnd: '#0D0E12',      // Почти чёрный
-      text: '#FFFFFF',       // Белый текст
-      ctaBg: '#F7A600',      // Фирменный оранжевый
-      ctaText: '#000000',    // Чёрный текст на оранжевом
-      border: '#F7A600',     // Оранжевая рамка
-    },
-  },
-
-  // Bybit — альтернативный баннер (для diversification)
-  {
-    id: 'bybit-alternative',
-    title: 'Bybit: Trade Crypto',
-    subtitle: 'Low fees, high liquidity',
-    cta: 'Get started →',
-    link: getReferralLink('bybit', 'ru'),
-    languages: ['ru', 'en'],
-    priority: 8,
-    colors: {
-      bgStart: '#0D0E12',    // Почти чёрный
-      bgEnd: '#1A1D26',      // Тёмный серо-чёрный
-      text: '#E5E5E5',       // Светло-серый текст
-      ctaBg: '#F7A600',      // Оранжевый
-      ctaText: '#000000',
-      border: '#F7A600',
-    },
-  },
-
-  // FinBazar — для фундаментального анализа (только RU, СНГ-аудитория)
-  {
-    id: 'finbazar-fundamental',
-    title: 'FinBazar: On-Chain',
-    subtitle: 'Analytics and signals for traders',
-    cta: 'Инструменты →',
-    link: getReferralLink('finbazar', 'ru'),
-    categories: ['fundamental-analysis'],
-    languages: ['ru'],  // Только русская аудитория!
-    priority: 10,
-    colors: {
-      bgStart: '#064E3B',    // Тёмно-изумрудный
-      bgEnd: '#022C22',      // Очень тёмный зелёный
-      text: '#E5E5E5',       // Светло-серый
-      ctaBg: '#10B981',      // Изумрудный
+      bgStart: '#1E3A5F',
+      bgEnd: '#14283F',
+      text: '#E5E5E5',
+      ctaBg: '#A97B2C',
       ctaText: '#FFFFFF',
-      border: '#34D399',     // Светло-изумрудная рамка
+      border: '#2C4E77',
     },
   },
 
-  // Bybit — универсальный баннер (для crypto и fallback)
+  // ── Reg.ru — домены/хостинг (статьи forge) ──
   {
-    id: 'bybit-crypto',
-    title: 'Bybit: Crypto Exchange',
-    subtitle: 'Spot, futures, low fees',
-    cta: 'Sign up →',
-    link: getReferralLink('bybit', 'ru'),
-    categories: ['crypto'],
-    languages: ['ru', 'en'],
-    priority: 10,
-    colors: {
-      bgStart: '#1A1D26',    // Тёмный серо-чёрный
-      bgEnd: '#0D0E12',      // Почти чёрный
-      text: '#FFFFFF',       // Белый текст
-      ctaBg: '#F7A600',      // Фирменный оранжевый
-      ctaText: '#000000',    // Чёрный текст на оранжевом
-      border: '#F7A600',     // Оранжевая рамка
-    },
-  },
-
-  // BingX — для технического анализа
-  {
-    id: 'bingx-general',
-    title: 'BingX: Crypto Exchange',
-    subtitle: 'Social trading, low fees',
-    cta: 'Get started →',
-    link: getReferralLink('bingx', 'ru'),
-    categories: ['technical-analysis'],
-    languages: ['ru', 'en'],
-    priority: 10,
-    colors: {
-      bgStart: '#0A0E27',    // Тёмно-синий
-      bgEnd: '#1A237E',      // Насыщенный синий
-      text: '#FFFFFF',       // Белый текст
-      ctaBg: '#00D4FF',      // Ярко-голубой
-      ctaText: '#0A0E27',    // Тёмный текст на голубом
-      border: '#00B4D8',     // Голубая рамка
-    },
-  },
-
-  // Bitget — универсальный fallback
-  {
-    id: 'bitget-general',
-    title: 'Bitget: Crypto Exchange',
-    subtitle: 'Futures, spot, copy trading',
-    cta: 'Sign up →',
-    link: getReferralLink('bitget', 'ru'),
-    languages: ['ru', 'en'],
+    id: 'regru-hosting',
+    title: 'Reg.ru: домены и хостинг',
+    subtitle: 'Промокод mzpvbkdfyf — скидка 5% на первый заказ',
+    cta: 'Перейти →',
+    link: REFERRAL_LINKS.regru,
+    erid: '',
+    advertiser: { name: 'ООО «РЕГ.РУ»', inn: '7710655749', site: 'reg.ru' },
+    categories: ['forge'],
+    languages: ['ru'],
     priority: 5,
     colors: {
-      bgStart: '#0B1E1A',    // Тёмный бирюзовый
-      bgEnd: '#051410',      // Очень тёмный
-      text: '#FFFFFF',       // Белый текст
-      ctaBg: '#00C9A7',      // Фирменный бирюзовый
-      ctaText: '#000000',    // Чёрный текст
-      border: '#14D0BB',     // Светло-бирюзовая рамка
+      bgStart: '#1E3A5F',
+      bgEnd: '#14283F',
+      text: '#E5E5E5',
+      ctaBg: '#A97B2C',
+      ctaText: '#FFFFFF',
+      border: '#2C4E77',
     },
   },
 
-  // Default — FÉLAG (fallback)
+  // ── FÉLAG — внутренняя перелинковка (не реклама, всегда виден) ──
   {
     id: 'default-felag',
     title: 'FÉLAG',
     subtitle: 'Трейдинг, крипта, автоматизация',
     cta: 'Библиотека →',
     link: '/{lang}/library/',
-    priority: 0,
-    languages: ['ru', 'en'],
+    erid: '',
+    internal: true,
     colors: {
-      bgStart: '#1B3A5F',    // Deep Blue брендовый
-      bgEnd: '#142A42',      // Тёмно-синий
-      text: '#E5E5E5',       // Светло-серый
-      ctaBg: '#D49B3B',      // Amber брендовый
-      ctaText: '#1B3A5F',
-      border: '#254D7A',     // Light Blue
+      bgStart: '#1E3A5F',
+      bgEnd: '#14283F',
+      text: '#E5E5E5',
+      ctaBg: '#A97B2C',
+      ctaText: '#FFFFFF',
+      border: '#2C4E77',
     },
   },
 ];
 
-export function findBestAdBanner(category: string, lang: 'ru' | 'en' = 'ru'): AdBanner {
-  const langBanners = AD_BANNERS.filter(banner => {
-    if (!banner.languages) return true;
-    return banner.languages.includes(lang);
-  });
+/**
+ * Публичный список баннеров: реклама без erid скрыта (38-ФЗ),
+ * внутренние (internal) — всегда доступны.
+ */
+export const AD_BANNERS: AdBanner[] = ALL_BANNERS.filter(
+  (b) => b.internal || b.erid !== ''
+);
 
-  const categoryBanners = langBanners.filter(banner => {
-    if (!banner.categories) return true;
-    return banner.categories.includes(category);
-  });
-
-  if (categoryBanners.length > 0) {
-    return categoryBanners.sort((a, b) => (b.priority || 0) - (a.priority || 0))[0];
+// Данные для клиентской автовставки (BlogPost.astro читает window.BANNER_DATA)
+export const BANNER_TRANSLATIONS: Record<
+  string,
+  {
+    title: { ru: string; en: string };
+    subtitle: { ru: string; en: string };
+    cta: { ru: string; en: string };
+    colors: AdBanner['colors'];
+    link?: string | { ru: string; en: string };
+    erid?: string;
+    internal?: boolean;
+    advertiser?: { name: string; inn: string; site: string };
+    categories?: string[];
+    languages?: ('ru' | 'en')[];
   }
-
-  const defaultBanner = langBanners.find(b => b.id === 'default-academy');
-  if (defaultBanner) return defaultBanner;
-
-  return langBanners[0] || AD_BANNERS[0];
-}
-
-export function getBannerLink(banner: AdBanner, lang: string = 'ru'): string {
-  if (banner.link.startsWith('/')) {
-    return banner.link.replace('{lang}', lang);
-  }
-  return banner.link;
-}
-
-// Переводы для баннеров (используются в JavaScript для автовставки)
-export const BANNER_TRANSLATIONS: Record<string, {
-  title: { ru: string; en: string };
-  subtitle: { ru: string; en: string };
-  cta: { ru: string; en: string };
-  colors: AdBanner['colors'];
-  link?: string | { ru: string; en: string };
-}> = {
-  'veles-algo': {
-    title: { ru: 'Veles: Торговые боты', en: 'Veles: Trading Bots' },
-    subtitle: { ru: 'Автоматизируй торговлю на криптобиржах', en: 'Automate trading on crypto exchanges' },
-    cta: { ru: 'Попробовать', en: 'Try now' },
-    link: 'https://veles.finance/invite/washmallay',
-    colors: { bgStart: '#2D1B69', bgEnd: '#1A0F3D', text: '#E5E5E5', ctaBg: '#F97316', ctaText: '#FFFFFF', border: '#8B5CF6' }
-  },
-  'bybit-general': {
-    title: { ru: 'Bybit: Криптобиржа', en: 'Bybit: Crypto Exchange' },
-    subtitle: { ru: 'Спот, фьючерсы, низкие комиссии', en: 'Spot, futures, low fees' },
-    cta: { ru: 'Регистрация', en: 'Sign up' },
-    link: { ru: 'https://www.bybit.com/ru-RU/invite?ref=PWMD24', en: 'https://www.bybit.com/en/invite?ref=PWMD24' },
-    colors: { bgStart: '#1A1D26', bgEnd: '#0D0E12', text: '#FFFFFF', ctaBg: '#F7A600', ctaText: '#000000', border: '#F7A600' }
-  },
-  'finbazar-fundamental': {
-    title: { ru: 'FinBazar: On-Chain', en: 'FinBazar: On-Chain' },
-    subtitle: { ru: 'Аналитика и сигналы для трейдеров', en: 'Analytics and signals for traders' },
-    cta: { ru: 'Инструменты', en: 'Tools' },
-    link: 'https://finbazar.ru/profile/Hampfree/?ref=9483974260',
-    colors: { bgStart: '#064E3B', bgEnd: '#022C22', text: '#E5E5E5', ctaBg: '#10B981', ctaText: '#FFFFFF', border: '#34D399' }
-  },
-  'bingx-general': {
-    title: { ru: 'BingX: Криптобиржа', en: 'BingX: Crypto Exchange' },
-    subtitle: { ru: 'Социальный трейдинг, низкие комиссии', en: 'Social trading, low fees' },
-    cta: { ru: 'Начать', en: 'Get started' },
-    link: 'https://bingxdao.com/invite/CUBDBG/',
-    colors: { bgStart: '#0A0E27', bgEnd: '#1A237E', text: '#FFFFFF', ctaBg: '#00D4FF', ctaText: '#0A0E27', border: '#00B4D8' }
-  },
-  'bitget-general': {
-    title: { ru: 'Bitget: Криптобиржа', en: 'Bitget: Crypto Exchange' },
-    subtitle: { ru: 'Фьючерсы, спот, копи-трейдинг', en: 'Futures, spot, copy trading' },
-    cta: { ru: 'Регистрация', en: 'Sign up' },
-    link: { ru: 'https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD', en: 'https://www.bitget.com/en/referral/register?from=referral&clacCode=23EHR2VD' },
-    colors: { bgStart: '#0B1E1A', bgEnd: '#051410', text: '#FFFFFF', ctaBg: '#00C9A7', ctaText: '#000000', border: '#14D0BB' }
-  },
-
-  'default-felag': {
-    title: { ru: 'FÉLAG', en: 'FÉLAG' },
-    subtitle: { ru: 'Трейдинг, крипта, автоматизация', en: 'Trading, crypto, automation' },
-    cta: { ru: 'Библиотека', en: 'Library' },
-    link: '/{lang}/library/',
-    colors: { bgStart: '#1B3A5F', bgEnd: '#142A42', text: '#E5E5E5', ctaBg: '#D49B3B', ctaText: '#1B3A5F', border: '#254D7A' }
-  }
-};
+> = Object.fromEntries(
+  AD_BANNERS.map((b) => [
+    b.id,
+    {
+      title: { ru: b.title, en: b.title },
+      subtitle: { ru: b.subtitle, en: b.subtitle },
+      cta: { ru: b.cta, en: b.cta },
+      colors: b.colors,
+      link: b.link.startsWith('/') ? { ru: b.link.replace('{lang}', 'ru'), en: b.link.replace('{lang}', 'en') } : b.link,
+      erid: b.erid,
+      internal: b.internal,
+      advertiser: b.advertiser,
+      categories: b.categories,
+      languages: b.languages,
+    },
+  ])
+);
 
 /**
- * Получить баннер для статьи с учётом категории, языка и slug
- * Используется для автовставки в BlogPost.astro
+ * Выбор баннера для статьи (серверная версия, для BannerCard).
+ * Реклама — только с erid и совпадением категории/языка; иначе внутренний fallback.
  */
-export function getBannerForArticle(category: string, lang: string, slug: string) {
-  // Логика выбора баннера с специальными правилами
-  let bannerId = 'bybit-general'; // fallback
-
-  if (category === 'algo-trading') {
-    // Ginarea-статьи → Bybit, Veles → Veles
-    const isGinarea = slug.includes('ginarea');
-    bannerId = isGinarea ? 'bybit-general' : 'veles-algo';
-  } else if (category === 'fundamental-analysis' && lang === 'ru') {
-    bannerId = 'finbazar-fundamental'; // Только для RU!
-  } else if (category === 'fundamental-analysis' && (lang === 'en' || lang === 'es')) {
-    bannerId = 'bybit-general'; // EN/ES → Bybit
-  } else if (category === 'crypto') {
-    // Баланс: 50% Bybit, 50% Bitget
-    bannerId = (slug.includes('staking') || slug.includes('defi') || slug.includes('token'))
-      ? 'bitget-general'
-      : 'bybit-general';
-  } else if (category === 'technical-analysis') {
-    // Баланс: 50% BingX, 50% Bitget
-    bannerId = (slug.includes('rsi') || slug.includes('macd') || slug.includes('bollinger'))
-      ? 'bingx-general'
-      : 'bitget-general';
-  } else {
-    // fallback: Bitget → Bybit → BingX
-    bannerId = 'bitget-general';
-  }
-
-  const banner = BANNER_TRANSLATIONS[bannerId];
-  if (!banner) {
-    console.error(`[getBannerForArticle] Banner "${bannerId}" not found`);
-    return getBannerForArticle('algo-trading', lang, slug); // fallback к algo-trading
-  }
-
-  const link = banner.link
-    ? (typeof banner.link === 'string'
-      ? banner.link
-      : (banner.link[lang as 'ru' | 'en'] || banner.link.ru))
-    : '#';
-
-  return {
-    id: bannerId,
-    title: banner.title[lang as 'ru' | 'en'] || banner.title.ru,
-    subtitle: banner.subtitle[lang as 'ru' | 'en'] || banner.subtitle.ru,
-    cta: banner.cta[lang as 'ru' | 'en'] || banner.cta.ru,
-    link: link,
-    colors: banner.colors
-  };
+export function getBannerForArticle(category: string, lang: string): AdBanner | null {
+  const ad = AD_BANNERS.find(
+    (b) =>
+      !b.internal &&
+      (!b.categories || b.categories.includes(category)) &&
+      (!b.languages || (b.languages as string[]).includes(lang))
+  );
+  if (ad) return ad;
+  return AD_BANNERS.find((b) => b.id === 'default-felag') || null;
 }

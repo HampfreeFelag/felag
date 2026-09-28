@@ -81,17 +81,14 @@ function extractDomain(url: string): string {
 
 /**
  * Определение типа ссылки (реферальная, социальная, другая)
+ * Реферальные домены — белые схемы (см. src/config/ad-banners.ts)
  */
 function getLinkType(href: string, text: string): string {
   const referralDomains = [
-    'bybit.com',
-    'bingx.com',
-    'bitget.com',
-    'finbazar.ru',
-    'veles.finance',
-    'binance.com',
-    'okx.com',
-    'kucoin.com'
+    'kvmka.ru',
+    'reg.ru',
+    'cloudtips.ru',
+    'boosty.to'
   ];
 
   const socialDomains = [
