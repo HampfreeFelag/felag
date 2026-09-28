@@ -354,7 +354,7 @@ tags: ['алготрейдинг', 'автоматизация', 'стратег
 - **Минусы:** Нужен код, настройка
 
 **Готовые платформы:**
-- **Veles:** Алготрейдинг для крипты, бэктесты, облачные боты — [попробовать Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(партнёрская ссылка)*
+- **Veles:** Алготрейдинг для крипты, бэктесты, облачные боты
 - **Gainium:** Grid, DCA, маркет-мейкинг (бесплатно до 2 ботов)
 - **3Commas:** DCA, Grid, Trailing
 - **Antbot:** Копитрейдинг, сигналы
@@ -451,7 +451,7 @@ tags: ['алготрейдинг', 'автоматизация', 'стратег
 
 ### Для новичков (без кода)
 
-- **Veles:** Облачные боты, бэктесты, простой интерфейс — [попробовать Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(партнёрская ссылка)*
+- **Veles:** Облачные боты, бэктесты, простой интерфейс
 - **Gainium:** Grid, DCA, маркет-мейкинг (бесплатно до 2 ботов)
 - **3Commas:** DCA, Grid, Trailing
 - **Cryptohopper:** Готовые стратегии, маркетплейс

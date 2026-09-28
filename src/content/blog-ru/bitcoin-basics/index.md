@@ -203,10 +203,7 @@ tags: ['биткоин', 'блокчейн', 'основы']
 
 Биткоин возник как революционная идея децентрализованных финансов без посредников. Понимание его основ — первый шаг в мир криптовалютной торговли.
 
-Начать торговлю можно на проверенных биржах:
-- **[Bybit](https://www.bybit.com/ru-RU/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bitcoin-basics)** — отличный выбор для работы с торговыми ботами
-- **[Bitget](https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bitcoin-basics)** — удобный интерфейс и бонусы
-- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bitcoin-basics)** — социальный трейдинг и копитрейдинг
+Начать торговлю можно на крупных централизованных биржах — сравнивайте комиссии, ликвидность и удобство API для ботов. Ссылки не размещаем: в РФ реклама зарубежных криптобирж запрещена (382-ФЗ).
 
 ---
 

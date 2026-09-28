@@ -189,7 +189,7 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 
 ### Step 1: Registration and Deposit
 
-1. Register on [Bybit](https://www.bybit.com/invite?ref=PWMD24)
+1. Register on a major centralized exchange with API access (compare fees and liquidity)
 2. Complete KYC (verification)
 3. Make a deposit (minimum $100 for DCA)
 

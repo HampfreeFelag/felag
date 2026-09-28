@@ -359,7 +359,7 @@ BTC резервы: -50,000 BTC за 30 дней
 
 **Подробнее:** [Ончейн-метрики](https://felag.online/ru/library/onchain-metrics-fundamental-analysis/) — MVRV, SOPR, киты, сервисы.
 
-Для работы с ончейн-сигналами в автоматическом режиме подойдут боты на [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=fundamental-analysis-checklist) — можно настроить алерты и торговлю по метрикам.
+Для работы с ончейн-сигналами в автоматическом режиме подойдут платформы облачных торговых ботов (например, Veles) — можно настроить алерты и торговлю по метрикам.
 
 ## Шаг 5. Финальная проверка (1 минута)
 
