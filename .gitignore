@@ -143,3 +143,7 @@ commit-msg-tmp.txt
 .screens/
 .dev-server.log
 .dev-server.err.log
+
+# личные скриншоты в корне репо
+/Снимок*.png
+*.png~
