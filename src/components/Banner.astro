@@ -26,6 +26,10 @@ const rawCat = category || 'general';
 const catKey = rawCat.toLowerCase().trim();
 const rubric = t(`cat.${catKey}` as any) || rawCat;
 
+// На полной странице статьи заголовок — h1 (единственный на странице),
+// в превью/списках — h2, чтобы не ломать иерархию заголовков
+const TitleTag = type === 'full' ? 'h1' : 'h2';
+
 // Category color class
 const catClass = category === 'route' ? 'cat-route' :
                  category === 'forge' ? 'cat-forge' :
@@ -40,7 +44,7 @@ const catClass = category === 'route' ? 'cat-route' :
 	<div class="banner-inner">
 		<div class="banner-top">
 			{rubric && <span class={`banner-rubric ${catClass}`}>{rubric}</span>}
-			{title && <h2 class="banner-title">{title}</h2>}
+			{title && <TitleTag class="banner-title">{title}</TitleTag>}
 			{cleanSubtitle && <p class="banner-subtitle">{cleanSubtitle}</p>}
 		</div>
 	</div>
