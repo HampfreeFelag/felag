@@ -297,9 +297,9 @@ Grid — это сетка ордеров на покупку и продажу 
 Сеточная торговля — мощный инструмент для работы в боковом тренде. С правильными параметрами и риск-менеджментом она позволяет зарабатывать на колебаниях цены.
 
 Начать торговлю можно на проверенных биржах:
-- **[Bybit](https://www.bybit.com/ru-RU/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=grid-trading-crypto)** — отличный выбор для работы с торговыми ботами
-- **[Bitget](https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=grid-trading-crypto)** — удобный интерфейс и бонусы
-- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=grid-trading-crypto)** — социальный трейдинг и копитрейдинг
+- **Bybit** — отличный выбор для работы с торговыми ботами
+- **Bitget** — удобный интерфейс и бонусы
+- **BingX** — социальный трейдинг и копитрейдинг
 
 ---
 

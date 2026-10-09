@@ -20,7 +20,7 @@ Yes. But trading with a small balance has constraints:
 
 There are also benefits:
 
-To get started, you'll need an account on a reliable exchange. [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=how-to-start-trading-small-deposit) and [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=how-to-start-trading-small-deposit) are beginner-friendly: intuitive interface, low fees, and support for small trades.
+To get started, you'll need an account on a reliable exchange. Bybit and Bitget are beginner-friendly: intuitive interface, low fees, and support for small trades.
 
 - lower psychological pressure
 - learning with smaller mistakes

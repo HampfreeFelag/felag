@@ -100,7 +100,7 @@ Grid is a distinct strategy (range trading). The same account can be split betwe
 Grid trading is a powerful tool for working in a sideways trend. With the right parameters and risk management, it allows you to profit from price fluctuations.
 
 You can start trading on proven exchanges:
-- **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=grid-trading-crypto)** — excellent for trading bots
-- **[Bitget](https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=grid-trading-crypto)** — user-friendly interface and bonuses
-- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=grid-trading-crypto)** — social trading and copy trading
+- **Bybit** — excellent for trading bots
+- **Bitget** — user-friendly interface and bonuses
+- **BingX** — social trading and copy trading
 

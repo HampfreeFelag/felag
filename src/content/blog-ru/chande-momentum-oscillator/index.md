@@ -101,9 +101,9 @@ CMO — это мощный инструмент для определения �
 
 Начать торговлю можно на проверенных биржах:
 
-- **[Bybit](https://www.bybit.com/ru-RU/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=chande-momentum-oscillator)** — отличный выбор для работы с торговыми ботами
-- **[Bitget](https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=chande-momentum-oscillator)** — удобный интерфейс и бонусы
-- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=chande-momentum-oscillator)** — социальный трейдинг и копитрейдинг
+- **Bybit** — отличный выбор для работы с торговыми ботами
+- **Bitget** — удобный интерфейс и бонусы
+- **BingX** — социальный трейдинг и копитрейдинг
 
 ---
 

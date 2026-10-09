@@ -55,7 +55,7 @@ category: 'compass'
 
 Понимание и правильное использование восходящего клина в трейдинге может значительно повысить эффективность торговых стратегий. Этот паттерн можно интегрировать в более сложные стратегии, сочетая его с другими инструментами технического анализа, такими как [индикатор RSI](https://felag.online/ru/library/technical-analysis-rsi/) или [свечи доджи](https://felag.online/ru/library/what-are-doji-candles/), для повышения точности прогнозов. Для анализа объёмов и импульса полезен [индекс денежного потока (MFI)](https://felag.online/ru/library/money-flow-index/), а для определения зон перекупленности — [осциллятор Williams %R](https://felag.online/ru/library/williams-percent-range-r/).
 
-Для автоматической торговли по паттернам, зарегистрируйтесь на **[Bybit](https://www.bybit.com/ru-RU/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=what-is-rising-wedge).
+Для автоматической торговли по паттернам, зарегистрируйтесь на **Bybit.
 
 ## Итог
 

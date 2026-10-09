@@ -92,4 +92,4 @@ The oscillator tends to give false signals in strong trends. It is recommended t
 
 Key indicators such as [Money Flow Index (MFI)](https://felag.online/en/library/money-flow-index/) and [Bollinger Bands](https://felag.online/en/library/bollinger-bands/) complement the analysis, providing a more complete market picture.
 
-The Stochastic Oscillator is an effective tool for finding entry points in the volatile crypto market. Like any oscillator, it can give false signals during strong trends, so it should be used with trend or volatility filters. For automated Stochastic-based strategies, traders often use platforms like [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=stochastic-oscillator) — a popular service for running trading bots.
+The Stochastic Oscillator is an effective tool for finding entry points in the volatile crypto market. Like any oscillator, it can give false signals during strong trends, so it should be used with trend or volatility filters. For automated Stochastic-based strategies, traders often use platforms like Veles — a popular service for running trading bots.

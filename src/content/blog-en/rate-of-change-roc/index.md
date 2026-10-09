@@ -55,7 +55,7 @@ Before using a ROC-based strategy in live trading, it is recommended to test it 
 - ROC (Rate of Change) is the percentage change in price over N periods. Momentum oscillator around zero; positive — rise over the period, negative — fall.
 - Formula: ((Current price − Price N periods ago) / Price N periods ago) × 100. Period often 9, 12 or 14.
 - Zero crosses and extreme values give signals; ROC–price divergences can warn of a reversal.
-- ROC works well with [RSI](https://felag.online/en/library/technical-analysis-rsi/), [Williams %R](https://felag.online/en/library/williams-percent-range-r/) and [MFI](https://felag.online/en/library/money-flow-index/); in crypto, settings and levels are best tuned by timeframe and backtests. For automated ROC strategies, traders often use platforms like [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=rate-of-change-roc) — a popular service for running trading bots.
+- ROC works well with [RSI](https://felag.online/en/library/technical-analysis-rsi/), [Williams %R](https://felag.online/en/library/williams-percent-range-r/) and [MFI](https://felag.online/en/library/money-flow-index/); in crypto, settings and levels are best tuned by timeframe and backtests. For automated ROC strategies, traders often use platforms like Veles — a popular service for running trading bots.
 
 ## FAQ
 

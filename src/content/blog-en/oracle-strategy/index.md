@@ -6,7 +6,7 @@ pubDate: '2026-02-03'
 category: 'forge'
 ---
 
-ORACLE version 1.1 is a set of strategy settings where the signal is formed by the alignment of four indicators on different [timeframes](https://felag.online/en/library/timeframes-trading/): from higher to lower — Bollinger Bands, ATR%, ROC, and Williams %R. You can set up and run the strategy on the algo-trading platform Veles [referral link](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=oracle-strategy). Below: the setup architecture, what kind of moves we target, annual backtests, and a link to the BingX copy-master test account.
+ORACLE version 1.1 is a set of strategy settings where the signal is formed by the alignment of four indicators on different [timeframes](https://felag.online/en/library/timeframes-trading/): from higher to lower — Bollinger Bands, ATR%, ROC, and Williams %R. You can set up and run the strategy on the algo-trading platform Veles. Below: the setup architecture, what kind of moves we target, annual backtests, and a link to the BingX copy-master test account.
 
 **Important:** this system is currently in test mode. BingX results are for information only; before using the strategy, read about [risk management](https://felag.online/en/library/risk-management-crypto-trading-bots/) and the [Diversification and trading system setup](https://felag.online/en/library/diversification-trading-system-part-1/) series.
 
@@ -48,7 +48,7 @@ Below are the results of annual backtests (commissions — BingX at the time of 
 
 ## BingX test results
 
-This trading strategy has recently started testing on a BingX copy-master account. Public stats and results (profitability, total P/L, distribution by pair) are available at: [BingX Copy Trading — ORACLE 1.1](https://bingx.com/int/1tjKO4). To register on the exchange use the referral link: BingX — also on the [About](/en/about/) page and in the site footer alongside Bybit, Bitget and Veles.
+This trading strategy has recently started testing on a BingX copy-master account. Public stats and results (profitability, total P/L, distribution by pair) are available on the BingX copy-master page. BingX is one of the exchanges where strategies are tested; details on the [About](/en/about/) page.
 
 ![ORACLE 1.1 strategy profitability and total P/L on BingX: 7-day chart and top pairs by contribution](./assets/oracle-bingx-pnl.png)
 

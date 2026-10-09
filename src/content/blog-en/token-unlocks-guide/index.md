@@ -111,8 +111,8 @@ When large amount of tokens hits the market:
 - [tokenunlocks.app](https://tokenunlocks.app)
 
 **4. Exchanges with Unlock Calendars:**
-- **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=token-unlocks-guide)** — "Announcements" section with listing and unlock calendar
-- **[Bitget](https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=token-unlocks-guide)** — notifications about new tokens and events
+- **Bybit** — "Announcements" section with listing and unlock calendar
+- **Bitget** — notifications about new tokens and events
 
 **5. On-chain Trackers (Advanced)**
 - ✅ Data directly from blockchain
@@ -169,7 +169,7 @@ Decision: 🔴 DO NOT BUY — high dump risk
 
 **How to profit from unlocks:**
 
-For trading unlocks you need exchange with low fees and good API. We recommend **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=token-unlocks-guide)** — excellent liquidity, low fees, and built-in trading bots for DCA strategies.
+For trading unlocks you need exchange with low fees and good API. We recommend **Bybit** — excellent liquidity, low fees, and built-in trading bots for DCA strategies.
 
 1. **Sell 1-2 weeks before unlock:**
    - Market starts nervous in advance

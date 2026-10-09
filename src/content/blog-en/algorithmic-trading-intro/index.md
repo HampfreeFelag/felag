@@ -360,7 +360,7 @@ IF loss > 5% в†’ STOP-LOSS
 - **Cons:** Need coding, setup
 
 **Ready Platforms:**
-- **Veles:** Crypto algo trading, backtests, cloud bots вЂ” [try Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(affiliate link)*
+- **Veles:** Crypto algo trading, backtests, cloud bots
 - **Gainium:** Grid, DCA, market making (free up to 2 bots)
 - **3Commas:** DCA, Grid, Trailing
 - **Antbot:** Copy trading, signals
@@ -461,7 +461,7 @@ Alongside the algorithm, it's recommended to keep a [trading journal](https://fe
 
 ### For Beginners (No Code)
 
-- **Veles:** Cloud bots, backtests, simple interface — [try Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=algorithmic-trading-intro) *(affiliate link)*
+- **Veles:** Cloud bots, backtests, simple interface
 - **Gainium:** Grid, DCA, market making (free up to 2 bots)
 - **3Commas:** DCA, Grid, Trailing
 - **Cryptohopper:** Ready strategies, marketplace

@@ -34,7 +34,7 @@ $$%K = \frac{C - L_{n}}{H_{n} - L_{n}} \times 100$$
 - **Замедление (Slowing):** 3
 - **Период %D:** 3
 
-Стохастик хорошо работает в связке с другими индикаторами и подходит для торговли на биржах вроде [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=stochastic-oscillator) или [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=stochastic-oscillator).
+Стохастик хорошо работает в связке с другими индикаторами и подходит для торговли на биржах вроде Bybit или Bitget.
 
 ## Зоны перекупленности и перепроданности
 

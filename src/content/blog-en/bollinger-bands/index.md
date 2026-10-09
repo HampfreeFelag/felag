@@ -59,7 +59,7 @@ The crypto market is highly volatile. Bands on crypto pairs often widen a lot on
 
 In sideways markets, bounces off the band boundaries are clearer. In a trend, the bands can be used as zones of possible correction, with trade direction aligned to the trend.
 
-For automated Bollinger Bands strategies, traders often use platforms like [Veles](https://veles.finance/invite/washmallay?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=bollinger-bands) — a popular service for running trading bots with customizable indicator settings.
+For automated Bollinger Bands strategies, traders often use platforms like Veles — a popular service for running trading bots with customizable indicator settings.
 
 ## Summary
 

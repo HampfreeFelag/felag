@@ -171,9 +171,9 @@ category: 'compass'
 Ложные пробои — мощный инструмент в теханализе. Научитесь распознавать их, сочетайте с другими индикаторами и всегда используйте стоп-лоссы.
 
 Начать торговлю можно на проверенных биржах:
-- **[Bybit](https://www.bybit.com/ru-RU/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=false-breakouts-trading)** — отличный выбор для работы с торговыми ботами
-- **[Bitget](https://www.bitget.com/ru/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=false-breakouts-trading)** — удобный интерфейс и бонусы
-- **[BingX](https://bingxdao.com/invite/CUBDBG/?utm_source=Felag-blog&utm_medium=article-link&utm_campaign=false-breakouts-trading)** — социальный трейдинг и копитрейдинг
+- **Bybit** — отличный выбор для работы с торговыми ботами
+- **Bitget** — удобный интерфейс и бонусы
+- **BingX** — социальный трейдинг и копитрейдинг
 
 ---
 

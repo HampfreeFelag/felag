@@ -18,7 +18,7 @@ draft: true
 - **Плечо:** Нет. Торговля ведётся только на собственные средства.
 - **Цель:** Долгосрочное инвестирование и безопасное накопление.
 
-Для автоматизации спотовой торговли идеально подходит [стратегия ELDER 2.0](https://felag.online/ru/library/spot-strategy-elder-20/). Начать торговлю можно на надёжных биржах, например [Bybit](https://www.bybit.com/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=spot-trading-vs-futures-margin) или [Bitget](https://www.bitget.com/ru/referral/register?clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=spot-trading-vs-futures-margin).
+Для автоматизации спотовой торговли идеально подходит [стратегия ELDER 2.0](https://felag.online/ru/library/spot-strategy-elder-20/). Начать торговлю можно на надёжных биржах, например Bybit или Bitget.
 
 ## Маржинальная торговля (Margin)
 

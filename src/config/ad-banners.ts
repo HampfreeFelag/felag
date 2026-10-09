@@ -41,6 +41,8 @@ export const REFERRAL_LINKS = {
   kvmka: 'https://kvmka.ru/?from=23600',
   // ✅ партнёрский код из гайда (rlink); формат проверить при активации
   regru: 'https://www.reg.ru/?rlink=2sf6wowehp',
+  // ⚠️ Altyn — инструмент для отслежения портфеля, не призыв к регистрации
+  altyn: 'https://altyn.in?altyn=sRPIp55',
 } as const;
 
 export function getReferralLink(platform: keyof typeof REFERRAL_LINKS): string {
@@ -110,6 +112,30 @@ const ALL_BANNERS: AdBanner[] = [
       ctaBg: '#A97B2C',
       ctaText: '#FFFFFF',
       border: '#2C4E77',
+    },
+  },
+
+  // ── Altyn — инструмент для отслеживания портфеля (информационный) ──
+  // Без призывов к действию. Дисклеймер: «Удобный инструмент, которым пользуюсь.
+  // Ссылка может быть партнёрской. Не является рекламой или офертой.»
+  {
+    id: 'altyn-tracker',
+    title: 'Altyn: трекер портфеля',
+    subtitle: 'Отслеживание крипты и акций в одном месте',
+    cta: 'Посмотреть →',
+    link: REFERRAL_LINKS.altyn,
+    erid: '',
+    advertiser: { name: 'Altyn', inn: '', site: 'altyn.in' },
+    categories: ['compass', 'helm'],
+    languages: ['ru', 'en'],
+    priority: 3,
+    colors: {
+      bgStart: '#2D5A3D',
+      bgEnd: '#1A3A25',
+      text: '#E5E5E5',
+      ctaBg: '#A97B2C',
+      ctaText: '#FFFFFF',
+      border: '#3D7A52',
     },
   },
 ];

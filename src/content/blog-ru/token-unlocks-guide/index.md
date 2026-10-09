@@ -112,8 +112,8 @@ Token unlocks (разлоки токенов) — это запланирова�
 - [tokenunlocks.app](https://tokenunlocks.app)
 
 **4. Биржи с календарём разлоков:**
-- **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=token-unlocks-guide)** — раздел "Announcements" с календарём листингов и разлоков
-- **[Bitget](https://www.bitget.com/referral/register?from=referral&clacCode=23EHR2VD&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=token-unlocks-guide)** — уведомления о новых токенах и событиях
+- **Bybit** — раздел "Announcements" с календарём листингов и разлоков
+- **Bitget** — уведомления о новых токенах и событиях
 
 **5. On-chain трекеры (для продвинутых)**
 - ✅ Данные напрямую из блокчейна
@@ -170,7 +170,7 @@ Beneficiaries: Early Investors, Team
 
 **Как заработать на разлоках:**
 
-Для торговли на разлоках нужна биржа с низким комиссиями и хорошим API. Рекомендуем **[Bybit](https://www.bybit.com/en/invite?ref=PWMD24&utm_source=Felag-blog&utm_medium=article-link&utm_campaign=token-unlocks-guide)** — отличная ликвидность, низкие комиссии и встроенные торговые боты для DCA-стратегий.
+Для торговли на разлоках нужна биржа с низким комиссиями и хорошим API. Рекомендуем **Bybit** — отличная ликвидность, низкие комиссии и встроенные торговые боты для DCA-стратегий.
 
 1. **Продать за 1-2 недели до разлока:**
    - Рынок начинает нервничать заранее
