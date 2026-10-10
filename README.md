@@ -135,7 +135,7 @@ draft: true  # true = скрыта, false = видна
 
 - **Astro 5.x** — статический генератор сайтов
 - **TypeScript** — типизация
-- **CSS** — единый global.css с дизайн-токенами (nordic-tokens.scss)
+- **CSS** — единый `global.css` с design-tokens (полная спецификация — [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md))
 - **Markdown/MDX** — контент блога
 - **GA4** — Google Analytics 4 (отслеживание кликов, UTM-метки)
 - **GitHub Actions** — автоматический деплой на GitHub Pages
@@ -180,7 +180,7 @@ OG изображения автоматически генерируются п
 **Текущая версия:** 7 категорий, статьи на цензуре
 
 **Что готово:**
-- ✅ Nordic Layered Vector дизайн-система
+- ✅ Félag Editorial Minimal дизайн-система (см. [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md))
 - ✅ 7 категорий: Route, Forge, Helm, Treasury, Compass, Logbook, Crew
 - ✅ 2 языка: RU + EN
 - ✅ Адаптивный дизайн (mobile-first)
@@ -188,7 +188,7 @@ OG изображения автоматически генерируются п
 - ✅ Реферальные баннеры с UTM-метками
 - ✅ GA4 отслеживание кликов
 - ✅ Автоматический деплой на GitHub Pages
-- ✅ Все 118 статей скрыты (`draft: true`) — готовы к цензуре
+- ✅ 132 файла статей (66 RU + 66 EN); 14 опубликовано, 103 черновика (`draft: true`)
 
 **Что делать:**
 - 🔲 Проверить вёрстку и категории на dev-сервере

@@ -40,11 +40,11 @@ Below are the results of annual backtests (commissions — BingX at the time of 
 
 ![ORACLE 1.1 annual backtest on ZEC pair: cumulative profit, number of orders, win rate](./assets/oracle-zec-backtest.png)
 
-[✖️ 🪄 BINGX ZEC ORACLE 1.1](https://ru.veles.finance/share/EYBFB)
+✖️ 🪄 BINGX ZEC ORACLE 1.1 — settings available on the Veles platform
 
 ![ORACLE 1.1 annual backtest on WOO pair: cumulative profit, number of orders, win rate](./assets/oracle-woo-backtest.png)
 
-[✖️ 🪄 BINGX WOO ORACLE 1.1](https://ru.veles.finance/share/Krlla)
+✖️ 🪄 BINGX WOO ORACLE 1.1 — settings available on the Veles platform
 
 ## BingX test results
 

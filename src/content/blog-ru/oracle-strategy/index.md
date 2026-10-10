@@ -41,11 +41,11 @@ ORACLE версии 1.1 — набор настроек стратегии, в �
 
 ![Годовой бэктест ORACLE 1.1 на паре ZEC: кумулятивная прибыль, число ордеров, win rate](./assets/oracle-zec-backtest.png)
 
-[✖️ 🪄 BINGX ZEC ORACLE 1.1](https://ru.veles.finance/share/EYBFB)
+✖️ 🪄 BINGX ZEC ORACLE 1.1 — настройки доступны на платформе Veles
 
 ![Годовой бэктест ORACLE 1.1 на паре WOO: кумулятивная прибыль, число ордеров, win rate](./assets/oracle-woo-backtest.png)
 
-[✖️ 🪄 BINGX WOO ORACLE 1.1](https://ru.veles.finance/share/Krlla)
+✖️ 🪄 BINGX WOO ORACLE 1.1 — настройки доступны на платформе Veles
 
 ## Результаты теста на BingX
 

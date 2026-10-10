@@ -94,11 +94,11 @@ Recommended intervals:
 
 ![Annual backtest ELDER 2.0 BB SPOT LONG INJ](./assets/inj-elder-strategy.png)
 
-[ELDER 2.0 BB SPOT LONG INJ](https://veles.finance/share/QyjWG)
+ELDER 2.0 BB SPOT LONG INJ — settings available on the Veles platform
 
 ![Annual backtest ELDER 2.0 BB SPOT LONG HYPE](./assets/hype-elder-strategy.png)
 
-[ELDER 2.0 BB SPOT LONG HYPE](https://veles.finance/share/8yj24)
+ELDER 2.0 BB SPOT LONG HYPE — settings available on the Veles platform
 
 ## Summary
 

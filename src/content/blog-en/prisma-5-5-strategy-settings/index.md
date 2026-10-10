@@ -50,11 +50,11 @@ It is recommended to use liquid pairs with high trading volume:
 
 ![Annual backtest BINGX KAS PRISMA 5.5](./assets/kas-prisma-strategy.png)
 
-[✖️ 🌪 BINGX KAS PRISMA 5.5](https://veles.finance/share/Vsyhz)
+✖️ 🌪 BINGX KAS PRISMA 5.5 — settings available on the Veles platform
 
 ![Annual backtest BINGX UNI PRISMA 5.5](./assets/uni-prisma-strategy.png)
 
-[✖️ 🌪 BINGX UNI PRISMA 5.5](https://veles.finance/share/zslhm)
+✖️ 🌪 BINGX UNI PRISMA 5.5 — settings available on the Veles platform
 
 ## Summary
 

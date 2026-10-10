@@ -95,11 +95,11 @@ category: 'forge'
 
 ![Годовой бэктест ELDER 2.0 BB SPOT LONG INJ](./assets/inj-elder-strategy.png)
 
-[ELDER 2.0 BB SPOT LONG INJ](https://veles.finance/share/QyjWG)
+ELDER 2.0 BB SPOT LONG INJ — настройки доступны на платформе Veles
 
 ![Годовой бэктест ELDER 2.0 BB SPOT LONG HYPE](./assets/hype-elder-strategy.png)
 
-[ELDER 2.0 BB SPOT LONG HYPE](https://veles.finance/share/tKVEY)
+ELDER 2.0 BB SPOT LONG HYPE — настройки доступны на платформе Veles
 
 ## Итог
 
