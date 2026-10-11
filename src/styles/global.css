@@ -100,6 +100,20 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+/* Noise texture overlay — тёплый шум поверх фона */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -542,6 +556,62 @@ a:hover {
   letter-spacing: 0.5em;
   color: var(--color-text-tertiary);
   opacity: 0.55;
+}
+
+/* ═══════════════════════════════════════════════════════
+   MARQUEE — бегущая строка рубрик
+   ═══════════════════════════════════════════════════════ */
+.marquee-section {
+  padding: var(--space-2xl) 0;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  gap: var(--space-2xl);
+  animation: marquee-scroll 40s linear infinite;
+  width: max-content;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast) var(--ease-out);
+  flex-shrink: 0;
+}
+
+.marquee-item:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* CTA Button (fallback) */

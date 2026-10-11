@@ -93,6 +93,24 @@ const categories = [
 				</div>
 			</section>
 
+			<!-- Categories Marquee -->
+			<section aria-label={t('home.categories_label')} class="marquee-section">
+				<div class="marquee-container">
+					<div class="marquee-track">
+						{categories.map(cat => (
+							<a href={translatePath(cat.id + '/')} class="marquee-item">
+								{cat.full}
+							</a>
+						))}
+						{categories.map(cat => (
+							<a href={translatePath(cat.id + '/')} class="marquee-item">
+								{cat.full}
+							</a>
+						))}
+					</div>
+				</div>
+			</section>
+
 			<!-- Latest posts -->
 			<section aria-labelledby="latest-label">
 				<div id="latest-label" class="section-label">{t('home.latest_label')}</div>
