@@ -1337,10 +1337,16 @@ a:hover {
   to { opacity: 1; }
 }
 
+/* ═══════════════════════════════════════════════════════
+   18. ANIMATIONS
+   ═══════════════════════════════════════════════════════ */
+
+/* Base fade-in */
 .fade-in {
   animation: fade-in var(--duration-slow) var(--ease-out) both;
 }
 
+/* Hero staggered fade-up */
 .hero-content > * {
   animation: fade-up var(--duration-slow) var(--ease-out) both;
 }
@@ -1349,6 +1355,52 @@ a:hover {
 .hero-content > *:nth-child(2) { animation-delay: 80ms; }
 .hero-content > *:nth-child(3) { animation-delay: 160ms; }
 .hero-content > *:nth-child(4) { animation-delay: 240ms; }
+
+/* Post cards staggered */
+.posts-grid .post-card {
+  animation: fade-up var(--duration-slow) var(--ease-out) both;
+}
+
+.posts-grid .post-card:nth-child(1) { animation-delay: 0ms; }
+.posts-grid .post-card:nth-child(2) { animation-delay: 80ms; }
+.posts-grid .post-card:nth-child(3) { animation-delay: 160ms; }
+.posts-grid .post-card:nth-child(4) { animation-delay: 240ms; }
+
+/* View transitions for page navigation */
+[data-astro-transition-scope] {
+  view-transition-name: page-transition;
+}
+
+/* Page transition animations */
+@keyframes astroSlideFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes astroSlideToRight {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes astroSlideFromLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes astroSlideToLeft {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes astroFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes astroFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-8px); }
+}
 
 /* ═══════════════════════════════════════════════════════
    19. SELECTION
