@@ -4,7 +4,7 @@ import '../styles/global.css';
 
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_VERSION } from '../consts';
 import Analytics from './Analytics.astro';
 
 interface Props {
@@ -98,11 +98,11 @@ if (imageProp) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-<!-- Favicon: новый логотип FÉLAG -->
-<link rel="icon" type="image/png" href={new URL("/felag-logo.png", Astro.site).href} />
-<link rel="icon" type="image/svg+xml" href={new URL("/favicon.svg", Astro.site).href} />
-<link rel="apple-touch-icon" href={new URL("/apple-touch-icon.png", Astro.site).href} />
-<link rel="manifest" href={new URL("/site.webmanifest", Astro.site).href} />
+<!-- Favicon: новый логотип FÉLAG (с cache-busting по версии) -->
+<link rel="icon" type="image/png" href={`${new URL("/felag-logo.png", Astro.site).href}?v=${SITE_VERSION}`} />
+<link rel="icon" type="image/svg+xml" href={`${new URL("/favicon.svg", Astro.site).href}?v=${SITE_VERSION}`} />
+<link rel="apple-touch-icon" href={`${new URL("/apple-touch-icon.png", Astro.site).href}?v=${SITE_VERSION}`} />
+<link rel="manifest" href={`${new URL("/site.webmanifest", Astro.site).href}?v=${SITE_VERSION}`} />
 
 <meta name="generator" content={Astro.generator} />
 
