@@ -14,60 +14,83 @@ export interface Props {
   description: string;
   /** Дата публикации (ISO 8601) */
   pubDate: string;
-  /** Автор (по умолчанию FÉLAG) */
-  author?: string;
+  /** Дата модификации (ISO 8601, опционально) */
+  modDate?: string;
+  /** Автор (имя) */
+  authorName?: string;
+  /** URL автора (опционально) */
+  authorUrl?: string;
   /** URL изображения (og:image) */
   image?: string;
   /** Категория статьи */
   category: string;
   /** Язык статьи (ru/en) */
   lang?: 'ru' | 'en';
+  /** Количество слов */
+  wordCount?: number;
 }
 
 const {
   title,
   description,
   pubDate,
-  author = 'FÉLAG',
+  modDate,
+  authorName = 'Hampfree',
+  authorUrl = 'https://t.me/Hampfree',
   image,
   category,
-  lang = 'ru'
+  lang = 'ru',
+  wordCount = 0
 } = Astro.props;
 
 // Формируем canonical URL
 const canonicalURL = new URL(Astro.url.pathname, 'https://felag.online');
 
 // Формируем URL изображения (если есть)
-const imageUrl = image ? new URL(image, canonicalURL).href : '';
+const imageUrl = image ? new URL(image, canonicalURL).href : 'https://felag.online/og/default.png';
+
+// Дата модификации — если не указана, используем дату публикации
+const effectiveModDate = modDate || pubDate;
 
 // Категория на английском для schema.org
 const categoryMap: Record<string, string> = {
   'algo-trading': 'Algorithmic Trading',
   'technical-analysis': 'Technical Analysis',
   'fundamental-analysis': 'Fundamental Analysis',
-  'crypto': 'Cryptocurrency'
+  'crypto': 'Cryptocurrency',
+  'route': 'Route',
+  'forge': 'Forge',
+  'helm': 'Helm',
+  'treasury': 'Treasury',
+  'compass': 'Compass',
+  'logbook': 'Logbook',
+  'crew': 'Crew'
 };
 
 const articleSection = categoryMap[category] || category;
+
+// Язык для schema.org
+const schemaLang = lang === 'ru' ? 'ru-RU' : 'en-US';
 ---
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": {title},
-  "description": {description},
-  "image": {imageUrl || 'https://felag.online/og/default.png'},
+  "headline": "{title}",
+  "description": "{description}",
+  "image": "{imageUrl}",
   "datePublished": "{pubDate}",
-  "dateModified": "{pubDate}",
+  "dateModified": "{effectiveModDate}",
   "author": {
-    "@type": "Organization",
-    "name": "FÉLAG",
-    "url": "https://felag.online"
+    "@type": "Person",
+    "name": "{authorName}",
+    "url": "{authorUrl}"
   },
   "publisher": {
     "@type": "Organization",
     "name": "FÉLAG",
+    "url": "https://felag.online",
     "logo": {
       "@type": "ImageObject",
       "url": "https://felag.online/logo.svg",
@@ -79,32 +102,8 @@ const articleSection = categoryMap[category] || category;
     "@type": "WebPage",
     "@id": "{canonicalURL.href}"
   },
-  "articleSection": {articleSection},
-  "inLanguage": "{lang === 'ru' ? 'ru-RU' : 'en-US'}",
-  "wordCount": {Astro.props.wordCount || 0}
+  "articleSection": "{articleSection}",
+  "inLanguage": "{schemaLang}",
+  "wordCount": {wordCount}
 }
 </script>
-
----
-
-## 📝 Примечание
-
-Этот компонент добавляет структурированные данные Schema.org для:
-- ✅ Улучшения сниппетов в поиске
-- ✅ Поддержки Google Rich Results
-- ✅ Лучшего понимания контента поисковиками
-
-**Использование:**
-```astro
----
-import SchemaArticle from '../components/SchemaArticle.astro';
----
-
-<SchemaArticle
-  title={frontmatter.title}
-  description={frontmatter.description}
-  pubDate={frontmatter.pubDate}
-  category={frontmatter.category}
-  lang={lang}
-/>
-```

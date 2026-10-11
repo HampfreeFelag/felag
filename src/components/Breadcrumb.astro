@@ -9,7 +9,35 @@ const { items } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
+
+// Формируем canonical URL для schema.org
+const canonicalURL = new URL(Astro.url.pathname, 'https://felag.online');
+
+// Строим breadcrumbList JSON-LD
+const breadcrumbList = {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+			"@type": "ListItem",
+			"position": 1,
+			"name": t('nav.home'),
+			"item": 'https://felag.online/' + (lang === 'en' ? 'en/' : '')
+		},
+		...items.map((item, index) => ({
+			"@type": "ListItem",
+			"position": index + 2,
+			"name": item.label,
+			"item": item.href ? new URL(item.href, canonicalURL).href : undefined
+		}))
+	].filter(item => item.item) // Убираем элементы без item (текущая страница)
+};
 ---
+
+<!-- BreadcrumbList JSON-LD Schema -->
+<script type="application/ld+json">
+{JSON.stringify(breadcrumbList, null, 0)}
+</script>
 
 <nav class="breadcrumb" aria-label="Breadcrumb">
 	<ol>

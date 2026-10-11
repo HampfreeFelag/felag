@@ -1,6 +1,7 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "FÉLAG | Блог о трейдинге, криптовалюте и ремесле",
+  "short_name": "FÉLAG",
+  "description": "Блог о трейдинге, криптовалюте и автоматизации торговли. Без магии. Только ремесло и честный курс.",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +16,9 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  "theme_color": "#1E3A5F",
+  "background_color": "#FAF9F6",
+  "display": "standalone",
+  "start_url": "/ru/",
+  "scope": "/"
 }

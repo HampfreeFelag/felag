@@ -98,11 +98,9 @@ if (imageProp) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-<!-- Favicon: правильный порядок для максимальной совместимости -->
-<link rel="icon" type="image/x-icon" href={new URL("/favicon.ico", Astro.site).href} />
+<!-- Favicon: новый логотип FÉLAG -->
+<link rel="icon" type="image/png" href={new URL("/felag-logo.png", Astro.site).href} />
 <link rel="icon" type="image/svg+xml" href={new URL("/favicon.svg", Astro.site).href} />
-<link rel="icon" type="image/png" sizes="16x16" href={new URL("/favicon-96x96.png", Astro.site).href} />
-<link rel="icon" type="image/png" sizes="32x32" href={new URL("/favicon-96x96.png", Astro.site).href} />
 <link rel="apple-touch-icon" href={new URL("/apple-touch-icon.png", Astro.site).href} />
 <link rel="manifest" href={new URL("/site.webmanifest", Astro.site).href} />
 
@@ -144,24 +142,42 @@ if (imageProp) {
 	} catch {}
 </script>
 
-<!-- JSON-LD Structured Data (Organization) -->
+<!-- JSON-LD Structured Data (Organization + WebSite) -->
 {(() => {
+	const siteUrl = Astro.site || "https://felag.online";
 	const orgSchema = {
 		"@context": "https://schema.org",
 		"@type": "Organization",
 		"name": "FÉLAG",
-		"url": Astro.site?.href || "https://felag.online",
+		"url": siteUrl.href,
 		"logo": {
 			"@type": "ImageObject",
-			"url": new URL("/favicon-96x96.png", Astro.site || "https://felag.online").href
+			"url": new URL("/logo.svg", siteUrl).href
 		},
 		"description": SITE_DESCRIPTION,
 		"sameAs": [
 			"https://t.me/Hampfree"
 		]
 	};
+	const websiteSchema = {
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "FÉLAG",
+		"url": siteUrl.href,
+		"description": SITE_DESCRIPTION,
+		"inLanguage": ["ru", "en"],
+		"potentialAction": {
+			"@type": "SearchAction",
+			"target": "{siteUrl.href}{lang}/library/?q={search_term_string}",
+			"query-input": "required name=search_term_string"
+		}
+	};
 	const orgJson = JSON.stringify(orgSchema, null, 0);
-	return <script type="application/ld+json" set:html={orgJson} />;
+	const websiteJson = JSON.stringify(websiteSchema, null, 0);
+	return <>
+		<script type="application/ld+json" set:html={orgJson} />
+		<script type="application/ld+json" set:html={websiteJson} />
+	</>;
 })()}
 
 <!-- Analytics -->
