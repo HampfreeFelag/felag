@@ -1,14 +1,14 @@
 ---
 draft: false
 title: 'Trading Bots for Beginners: Complete Guide 2026'
-description: 'What is a trading bot and how to choose one. Bot types (DCA, grid, arbitrage), setup, risks. Step-by-step guide for beginners.'
+description: 'Complete guide to trading bots 2026: types (DCA, grid, arbitrage), setup, risks and beginner mistakes. How to choose a strategy and start automated trading.'
 pubDate: '2026-03-31'
 category: 'forge'
 ---
 
 **A trading bot** is a program that automatically opens and closes trades based on predefined rules. The bot doesn't sleep, doesn't get tired, and doesn't succumb to emotions. But it can quickly drain your deposit if set up incorrectly.
 
-This guide covers everything a beginner needs: from choosing a bot to first profits.
+This guide covers everything a beginner needs: from choosing a bot to setting up your first strategy.
 
 ---
 
@@ -55,9 +55,9 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 **For whom:** Conservative investors, long-term accumulation.
 
 **Examples:**
-- Bybit DCA Bot
-- Veles DCA Strategy
-- 3Commas DCA
+- Built-in DCA bots on major CEX
+- Cloud bot platforms
+- SaaS services
 
 ---
 
@@ -84,9 +84,8 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 **For whom:** Traders who trade in sideways.
 
 **Examples:**
-- Bybit Grid Bot
-- Veles Grid Strategy
-- Pionex Grid Trading
+- Grid bots on major CEX
+- Specialized platforms
 
 ---
 
@@ -95,9 +94,9 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 **How it works:** Buys on one exchange, sells on another (price difference).
 
 **Example:**
-- BTC on Bybit: $95,000
-- BTC on BingX: $95,200
-- Bot buys on Bybit, sells on BingX → profit $200
+- BTC on exchange A: $95,000
+- BTC on exchange B: $95,200
+- Bot buys on exchange A, sells on exchange B → profit $200
 
 **Pros:**
 - ✅ Low risk (no market risk)
@@ -111,9 +110,8 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 **For whom:** Experienced traders with large capital.
 
 **Examples:**
-- HaasOnline
-- Cryptohopper
-- Custom bots
+- Specialized arbitrage software
+- Custom solutions
 
 ---
 
@@ -138,7 +136,8 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 
 **Examples:**
 - Hummingbot
-- Bybit Market Making Bot
+- Hummingbot
+- Built-in bots on major CEX
 
 ---
 
@@ -161,9 +160,9 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 **For whom:** Traders who understand technical analysis.
 
 **Examples:**
-- Veles Prisma Strategy — [detailed review with backtests and settings](/en/library/veles-platform-overview/)
-- 3Commas Signal Bot
-- Custom bots on Pine Script
+- Specialized strategy platforms — [detailed review with backtests and settings](/en/library/veles-platform-overview/)
+- Signal bots on major SaaS platforms
+- Custom bots on Pine Script or Python
 
 ---
 
@@ -185,7 +184,7 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 
 ---
 
-## Step-by-Step Bot Setup (Using Bybit as Example)
+## Step-by-Step Bot Setup (Using a Major CEX as Example)
 
 ### Step 1: Registration and Deposit
 
@@ -246,7 +245,7 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 **Problem:** Bot breaks, API disconnects.
 
 **Solution:**
-- Choose reliable platforms (Bybit, Veles)
+- Choose reliable platforms with good reputation
 - Check bot logs
 - Have a backup plan (manual closure)
 
@@ -257,7 +256,7 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 **Problem:** Can't close position (no buyers).
 
 **Solution:**
-- Trade only on top exchanges (Bybit, BingX, Bitget)
+- Trade only on top exchanges with high liquidity
 - Avoid illiquid pairs
 
 ---
@@ -267,7 +266,7 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 **Problem:** Commissions eat profits.
 
 **Solution:**
-- Choose exchanges with low commissions (Bybit: 0.1%)
+- Choose exchanges with low commissions
 - Use limit orders (lower commission)
 
 ---
@@ -406,8 +405,8 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 **Why:** To find out how the strategy would have worked in the past.
 
 **Where to do it:**
-- Bybit (built-in backtester)
-- Veles (backtests for all strategies)
+- Built-in backtesters on major CEX
+- Cloud bot platforms
 - TradingView (Pine Script)
 
 **How to interpret:**
@@ -415,13 +414,13 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 - **Drawdown:** < 20% — normal, > 40% — risky
 - **Number of trades:** > 50 — statistically significant
 
-**Example (Veles Prisma 5.5):**
+**Example (strategy 5.5):**
 - Period: 1 year
 - Profit: +145%
 - Drawdown: -18%
 - Trades: 342
 
-**Conclusion:** Strategy works, drawdown is normal.
+**Conclusion:** Strategy showed good results, drawdown is within acceptable limits.
 
 ---
 
@@ -429,26 +428,26 @@ This guide covers everything a beginner needs: from choosing a bot to first prof
 
 | Platform | Type | Deposit | Commission | For Whom |
 |----------|------|---------|------------|----------|
-| **Bybit** | Built-in bots | $100 | 0.1% | Beginners |
-| **Veles** | Cloud bots | $50 | 0.1% | Beginners / Intermediate |
-| **Ginarea** | Bot builder | $0 | 0% (affiliate) | Beginners / Advanced |
-| **3Commas** | SaaS | $0 | $29/month | Intermediate |
-| **Cryptohopper** | SaaS | $0 | $29/month | Intermediate |
-| **Hummingbot** | Custom | $1000+ | 0% | Professionals |
-| **HaasOnline** | Custom | $500+ | 0.05% | Professionals |
+| **Built-in CEX bots** | Built-in bots | $100 | 0.1% | Beginners |
+| **Cloud bots** | Cloud bots | $50 | 0.1% | Beginners / Intermediate |
+| **Bot builders** | Bot builders | $0 | 0% | Beginners / Advanced |
+| **SaaS services** | SaaS | $0 | $29/month | Intermediate |
+| **Open-source** | Custom | $1000+ | 0% | Professionals |
+| **Professional** | Professional | $500+ | 0.05% | Professionals |
 
-**Recommendation for beginners:** Bybit or Veles (built-in bots, low entry threshold). For more control — [Ginarea](/en/library/ginarea-platform-overview/) (builder with free tier).
+**Recommendation for beginners:** Built-in bots on major CEX or cloud platforms (low entry threshold). For more control — bot builders with free tier.
 
 ---
 
 ## Summary
 
 **Key takeaways:**
-1. A bot is a **tool**, not a "money button"
-2. Start with **DCA or grid** (low risk)
-3. Always do **backtests** before launching
-4. Set **stop-loss** (max loss 5–10%)
-5. **Diversify** (3–5 bots on different pairs)
+1. A trading bot is a tool for automation, not a "money button"
+2. Beginners should start with DCA or grid bot (low risk)
+3. Always do backtests before launching a strategy
+4. Use stop-loss to limit losses
+5. Diversify — several bots on different pairs reduce risks
+6. Never invest more than you can afford to lose
 
 **Next step:** [DCA Strategy: Detailed Guide](https://felag.online/en/library/dca-strategy-crypto/) — how averaging works.
 
@@ -474,7 +473,7 @@ Minimum:
 
 **Which bot to choose for a beginner?**
 
-Start with DCA or grid on Bybit/Veles. These are simple strategies with low risk. Don't use arbitrage and market-making without experience.
+Start with DCA or grid on major CEX. These are simple strategies with low risk. Don't use arbitrage and market-making without experience.
 
 **Will a bot guarantee profit?**
 
@@ -486,4 +485,4 @@ Drawdown is the maximum deposit decline from a peak. Normal: < 20%. If drawdown 
 
 **Can I lose more than the deposit?**
 
-In spot trading — no (max loss = deposit). In futures with leverage — yes, if there's no stop-loss. Always use stop-loss.
+In spot trading — no (max loss = deposit). In futures with leverage — yes, if there'                                      
