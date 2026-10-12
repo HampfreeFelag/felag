@@ -12,7 +12,7 @@ category: 'forge'
 
 ## Our Journey with the Platform
 
-We first encountered Ginarea a few years ago, but returned to it more seriously in 2026. The test deposit was modest — around **$300 on a Bybit sub-account** (after [a liquidation on one of the accounts](https://t.me/hampfree_market_lab_global/21)). Later, as we scaled up the direction, we added another ~$100.
+We first encountered Ginarea a few years ago, but returned to it more seriously in 2026. The test deposit was modest — around **$300 on a sub-account of a major CEX** (after [a liquidation on one of the accounts](https://t.me/hampfree_market_lab_global/21)). Later, as we scaled up the direction, we added another ~$100.
 
 
 To refresh our skills and ease into trading on each exchange, we started with the minimum number of assets and the minimum order size. Only after calibrating the settings did we add new assets, closely monitoring the initial margin level.
@@ -21,7 +21,7 @@ To refresh our skills and ease into trading on each exchange, we started with th
 
 This is not a general recommendation — just what we started with ourselves. Before launching a bot on any asset, it's advisable to study its characteristics and review at least a year of price chart data.
 
-### Bybit
+### Major CEX
 
 | Asset | Notes |
 |-------|-------|
@@ -38,7 +38,7 @@ This is not a general recommendation — just what we started with ourselves. Be
 | **ADA/USDT** | Calm asset, good for learning |
 | **SUI/USDT** | Promising L1, interesting dynamics |
 | **XRP/USDT** | Classic, predictable behavior |
-| **SOL/USDT** | Same as the Bybit account |
+| **SOL/USDT** | Same as the other account |
 | **LTC/USDT** | Interesting to study behavior specifically in 2026 |
 
 Bot types, mechanics, and configuration details are thoroughly described in the [official Ginarea documentation](https://ginareas-organization.gitbook.io/ginarea.org/nastroiki-botov) — we recommend studying it before launching. Below is our experience and observations on Dynamic, which is currently running.
