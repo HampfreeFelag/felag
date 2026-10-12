@@ -1,7 +1,7 @@
 ---
 draft: true
 title: 'How We Survive Drawdown: A Live Account Diary'
-description: "When Bitcoin drops and the account shrinks: our survival plan, why we don't average down blindly, and how to get through a drawdown without breaking the system. Live account, real drawdown."
+description: 'How we survive crypto drawdown on a live account: survival plan, avoiding blind averaging, and staying disciplined. Real drawdown, real lessons.'
 pubDate: '2026-02-05'
 category: 'compass'
 ---
@@ -18,9 +18,9 @@ The market doesn’t owe you growth. When Bitcoin and altcoins fall, the account
 
 ## Our situation: what's happening with the accounts
 
-We're not trying to "paint a pretty story after the fact" — this is a live snapshot. On our Bybit account, drawdown is already noticeable, but it remains within our risk parameters: the limits on maximum acceptable capital decline haven't been hit, and the system doesn't require emergency unwinding. Recently a stop-loss triggered on one asset — it didn't "save" us from overall account drawdown, but it limited the damage locally and showed that risk-management discipline works in a falling market too.
+We're not trying to "paint a pretty story after the fact" — this is a live snapshot. On one of our subaccounts, drawdown is already noticeable, but it remains within our risk parameters: the limits on maximum acceptable capital decline haven't been hit, and the system doesn't require emergency unwinding. Recently a stop-loss triggered on one asset — it didn't "save" us from overall account drawdown, but it limited the damage locally and showed that risk-management discipline works in a falling market too.
 
-The main factor keeping us afloat so far is diversification: some strategies don't overlap by assets and timeframes, some run on other exchanges and with different leverage. An extra cushion comes from our BingX account, which we scaled into relatively recently: the [ORACLE 1.1](https://felag.online/en/library/oracle-strategy/) strategy runs there — effectively a separate module with its own drawdown profile and recovery periods. The aim of this article is to show honestly: yes, there is drawdown; yes, it's unpleasant; but it's part of the scenario we planned for, not a black swan.
+The main factor keeping us afloat so far is diversification: some strategies don't overlap by assets and timeframes, some run on other exchanges and with different leverage. An extra cushion comes from another exchange account, which we scaled into relatively recently: the [ORACLE 1.1](https://felag.online/en/library/oracle-strategy/) strategy runs there — effectively a separate module with its own drawdown profile and recovery periods. The aim of this article is to show honestly: yes, there is drawdown; yes, it's unpleasant; but it's part of the scenario we planned for, not a black swan.
 
 ## Our survival plan
 
@@ -31,7 +31,7 @@ In short, what we do when the account is in drawdown:
 - **We don't shut everything down on emotion** — if a strategy is designed for drawdown (e.g. grid in a range or diversification across assets), a panic stop can lock in the worst moment.
 - **We look at overall portfolio risk** — how drawdown across different assets and strategies adds up. For capital allocation and risk, see [risk management with bots](https://felag.online/en/library/risk-management-crypto-trading-bots/) and the [Diversification and trading system setup](https://felag.online/en/library/diversification-trading-system-part-1/) series.
 
-**Transparency:** we maintain a [public trading journal on TMM](https://tradermake.money/ru/trader/Felag/?ref=Jx9LLm) — you can see our real stats there: number of trades, win rate, equity curve. It's an openness experiment: we show not only wins but also drawdowns.
+**Transparency:** we maintain a [public trading journal on TMM](https://tradermake.money/ru/trader/Felag/) — you can see our real stats there: number of trades, win rate, equity curve. It's an openness experiment: we show not only wins but also drawdowns.
 
 ## Drawdown we don’t want to “average away”
 
