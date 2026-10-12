@@ -1,7 +1,7 @@
 ---
 draft: false
 title: 'Risk Management for Crypto Trading Bots'
-description: 'How to manage risk in automated crypto trading: position sizing, stop-loss rules, drawdown limits, diversification, and safe bot configuration.'
+description: 'Complete guide to risk management for crypto trading bots: position sizing, stop-loss rules, drawdown limits, diversification strategies, and safe bot configuration.'
 pubDate: '2026-02-05'
 category: 'compass'
 ---
@@ -32,7 +32,7 @@ All these measures form the basis of money management rules and allow even a beg
 
 One effective tool for risk management control is keeping a trading journal. Trade tracking helps analyze mistakes, monitor progress, and maintain discipline.
 
-There are specialized platforms for trade tracking, such as [TraderMake.Money](https://tradermake.money/ru/trader/Felag/?ref=Jx9LLm). At Market Lab, we use TMM in test mode to analyze our own trading on one of our Bybit subaccounts (public data since 14.02.2026).
+There are specialized platforms for trade tracking, such as [TraderMake.Money](https://tradermake.money/ru/trader/Felag/). At Market Lab, we use TMM in test mode to analyze our own trading on one of our subaccounts (public data since 14.02.2026).
 
 More on keeping a trading journal in the separate article [Trading Journal](https://felag.online/en/library/trading-journal-guide/).
 
@@ -141,7 +141,16 @@ Exchange reliability is an important element of risk management. When choosing a
 
 ## Summary
 
-Briefly: the key points are above; use them as a practical checklist and combine with risk management.
+**Key takeaways:**
+1. Risk management is the foundation of successful crypto trading
+2. Never risk more than 1-2.5% of capital per trade
+3. Always use stop-losses to limit potential losses
+4. Diversify across assets, strategies, and exchanges
+5. Keep a trading journal to track performance
+6. Test strategies with backtests before going live
+7. Maintain discipline and avoid emotional decisions
+
+**Next step:** [Diversification and Trading System Setup](https://felag.online/en/library/diversification-trading-system-part-1/) — how to build a robust trading system.
 
 ## FAQ
 
