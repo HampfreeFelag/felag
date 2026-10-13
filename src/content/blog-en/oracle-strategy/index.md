@@ -48,9 +48,9 @@ Below are the results of annual backtests (commissions — BingX at the time of 
 
 ## BingX test results
 
-This trading strategy has recently started testing on a BingX copy-master account. Public stats and results (profitability, total P/L, distribution by pair) are available on the BingX copy-master page. BingX is one of the exchanges where strategies are tested; details on the [About](/en/about/) page.
+This trading strategy has recently started testing on a copy-master account. Public stats and results (profitability, total P/L, distribution by pair) are available on the copy-master page. One of the exchanges where strategies are tested; details on the [About](/en/about/) page.
 
-![ORACLE 1.1 strategy profitability and total P/L on BingX: 7-day chart and top pairs by contribution](./assets/oracle-bingx-pnl.png)
+![ORACLE 1.1 strategy profitability and total P/L: 7-day chart and top pairs by contribution](./assets/oracle-bingx-pnl.png)
 
 ## Link to diversification and risk
 

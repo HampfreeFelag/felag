@@ -6,9 +6,9 @@ pubDate: '2026-02-05'
 category: 'forge'
 ---
 
-Automating trading on Bybit lets you trade 24/7 without constantly watching the market. Register at Bybit (referral link) if you don’t have an account yet.
+Automating trading lets you trade 24/7 without constantly watching the market.
 
-This guide is for connecting **external** bot platforms or services to Bybit via API; Bybit's built-in tools on the exchange do not require API keys. You can use Bybit's built-in bots or connect bots from other automation platforms — for example Veles (referral link: signing up via it benefits both you and us). If you connect an external platform and need help, reach out; contacts are on the [About](/en/about/) page.
+This guide is for connecting **external** bot platforms or services to an exchange via API; built-in tools on the exchange do not require API keys. You can use the exchange's built-in bots or connect bots from other automation platforms — for example Veles. If you connect an external platform and need help, reach out; contacts are on the [About](/en/about/) page.
 
 Walkthrough: what you need, how to create API keys, how to connect them to your bot platform, and which mistakes to avoid.
 
@@ -119,9 +119,6 @@ Yes, but with limitations. For full access to exchange features, it is recommend
 
 Setting up a trading bot on Bybit is the first step towards automating trading. A correctly configured bot and well-tuned risk management allow you to trade efficiently 24/7. Before launching a bot, it is recommended to test the strategy on [backtests](https://felag.online/en/library/what-are-backtests/).
 
-You can start trading on proven exchanges:
-- **Bybit** — excellent for trading bots
-- **Bitget** — user-friendly interface and bonuses
-- **BingX** — social trading and copy trading
+You can start trading on proven exchanges with API access for bot automation.
 
 

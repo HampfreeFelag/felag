@@ -4,7 +4,6 @@ description: 'Что такое стейкинг криптовалют прос
 pubDate: '2026-07-06'
 updatedDate: '2026-08-09'
 category: 'route'
-tags: ['стейкинг', 'пассивный доход', 'Proof-of-Stake']
 draft: false
 ---
 
@@ -13,7 +12,7 @@ draft: false
 **Связанные статьи:**
 - [Что такое стейкинг](https://felag.online/ru/library/what-is-staking/) — базовое определение
 - [DCA-стратегия](https://felag.online/ru/library/dca-strategy-crypto/) — как покупать криптовалюту частями
-- [Bybit: торговые боты](https://felag.online/ru/library/bybit-trading-bot-setup/) — автоматизация торговли
+- [Торговые боты](https://felag.online/ru/library/bybit-trading-bot-setup/) — автоматизация торговли
 
 В 2026 году стейкинг остаётся одним из самых популярных способов заработка в крипте. В этом руководстве — всё, что нужно знать новичку: от выбора монет до расчёта доходности и оценки рисков.
 

@@ -100,9 +100,9 @@ CMO is a powerful tool for determining trend strength and points of exhaustion. 
 
 Start trading on proven exchanges:
 
-- **Bybit** — an excellent choice for working with [trading bots](https://felag.online/en/library/bybit-trading-bot-setup/)
-- **Bitget** — user-friendly interface and bonuses
-- **BingX** — social trading and copy trading
+- Large CEX with API access for [trading bots](https://felag.online/en/library/bybit-trading-bot-setup/)
+- Platforms with user-friendly interfaces and bonuses
+- Social trading and copy trading platforms
 
 ---
 
