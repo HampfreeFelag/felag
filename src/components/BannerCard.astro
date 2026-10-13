@@ -25,7 +25,7 @@ const finalLink = banner.link.startsWith('/')
 
 const isAd = !banner.internal;
 const adMark = isAd && banner.erid
-  ? `Реклама · ${banner.advertiser?.name || ''} · erid: ${banner.erid}`
+  ? `Реклама · ${banner.advertiser?.name || ''}${banner.cblicense ? '. ' + banner.cblicense : ''} · erid: ${banner.erid}`
   : '';
 ---
 

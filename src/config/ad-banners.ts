@@ -8,6 +8,12 @@
 // 3. Криптобиржи и офшорные крипто-сервисы — ЗАПРЕЩЕНЫ (382-ФЗ), список —
 //    в REFERRAL_LINKS_GUIDE (private). Pre-commit (проверка 7) блокирует их попадание сюда.
 // 4. internal: true — собственная перелинковка (не реклама, erid не нужен).
+//
+// 📝 ФОРМУЛИРОВКИ «Middle Ground» (editorial tone):
+// - ❌ Запрещено: «я использую», «мой выбор», «рекомендую вам», «попробуйте»
+// - ✅ Разрешено: фокус на задаче читателя, безличные конструкции
+// - Пример: «Для решения задачи...», «Среди доступных решений...», «Инфраструктура для...»
+// - См. BANNER_WORKFLOW.md раздел «Middle Ground формулировки»
 
 export type AdBanner = {
   id: string;
@@ -19,6 +25,8 @@ export type AdBanner = {
   erid: string;
   /** Рекламодатель для пометки «Реклама» (38-ФЗ) */
   advertiser?: { name: string; inn: string; site: string };
+  /** Лицензия ЦБ РФ (для финансовых услуг). Например: "Генеральная лицензия Банка России № 2673" */
+  cblicense?: string;
   /** Категории статей (frontmatter): route/forge/helm/treasury/compass/logbook/crew */
   categories?: string[];
   languages?: ('ru' | 'en')[];
@@ -36,13 +44,15 @@ export type AdBanner = {
 };
 
 // Партнёрские ссылки (белые схемы — VPS/хостинг, РФ-юрлица)
+// ✅ ВСЕ платформы имеют российское юрлицо и/или лицензию ЦБ РФ
+// ❌ Veles (оффшор, Сейшелы), Altyn (крипто-кошелёк без лицензии ЦБ), криптобиржи —
+//    ИСКЛЮЧЕНЫ из активной партнёрки (13.10.2026). Возврат только при изменении юр.статуса.
+//    См. REFERRAL_LINKS_GUIDE v3.
 export const REFERRAL_LINKS = {
-  // ✅ готова (REFERRAL_LINKS_GUIDE v2)
   kvmka: 'https://kvmka.ru/?from=23600',
-  // ✅ партнёрский код из гайда (rlink); формат проверить при активации
   regru: 'https://www.reg.ru/?rlink=2sf6wowehp',
-  // ⚠️ Altyn — инструмент для отслежения портфеля, не призыв к регистрации
-  altyn: 'https://altyn.in?altyn=sRPIp55',
+  // 🔜 Т-Банк: получить реф-ссылки в https://partners.tbank.ru/
+  tint: 'https://www.tbank.ru/invest/',
 } as const;
 
 export function getReferralLink(platform: keyof typeof REFERRAL_LINKS): string {
@@ -50,17 +60,17 @@ export function getReferralLink(platform: keyof typeof REFERRAL_LINKS): string {
 }
 
 const ALL_BANNERS: AdBanner[] = [
-  // ── kvmka — VPS для ботов (статьи forge: боты, n8n, автоматизация) ──
-  // Скрыт до получения erid: спросить у kvmka готовый токен либо
-  // зарегистрировать креатив в ОРД (Яндекс ОРД — пока бесплатный).
+  // ── kvmka.ru — серверные решения для автоматизации (статьи forge) ──
+  // Middle Ground формулировка: фокус на технической потребности (аптайм, пинг).
+  // Скрыт до получения erid: зарегистрировать креатив в Яндекс ОРД.
   {
     id: 'kvmka-vps',
-    title: 'kvmka: VPS для ботов',
-    subtitle: 'Серверы для торговых ботов и автоматизации',
-    cta: 'Выбрать сервер →',
+    title: 'Серверные решения для автоматизации',
+    subtitle: 'VPS-конфигурации для круглосуточной работы торговых алгоритмов и Telegram-ботов.',
+    cta: 'Посмотреть тарифы kvmka.ru',
     link: REFERRAL_LINKS.kvmka,
     erid: '',
-    advertiser: { name: 'kvmka.ru', inn: '', site: 'kvmka.ru' }, // ИНН уточнить при активации
+    advertiser: { name: 'kvmka.ru', inn: '', site: 'kvmka.ru' }, // ИНН уточнить из оферты
     categories: ['forge'],
     languages: ['ru'],
     priority: 10,
@@ -74,18 +84,46 @@ const ALL_BANNERS: AdBanner[] = [
     },
   },
 
-  // ── Reg.ru — домены/хостинг (статьи forge) ──
+  // ── Reg.ru — инфраструктура для веб-проектов (статьи forge) ──
+  // Middle Ground формулировка: акцент на задаче читателя (запуск IT-проекта).
+  // Скрыт до получения erid: зарегистрировать креатив в Яндекс ОРД.
   {
     id: 'regru-hosting',
-    title: 'Reg.ru: домены и хостинг',
-    subtitle: 'Промокод mzpvbkdfyf — скидка 5% на первый заказ',
-    cta: 'Перейти →',
+    title: 'Инфраструктура для веб-проектов',
+    subtitle: 'Регистрация доменов в зоне .RU и хостинг на защищённых серверах.',
+    cta: 'Перейти на Reg.ru',
     link: REFERRAL_LINKS.regru,
     erid: '',
     advertiser: { name: 'ООО «РЕГ.РУ»', inn: '7710655749', site: 'reg.ru' },
     categories: ['forge'],
     languages: ['ru'],
     priority: 5,
+    colors: {
+      bgStart: '#1E3A5F',
+      bgEnd: '#14283F',
+      text: '#E5E5E5',
+      ctaBg: '#A97B2C',
+      ctaText: '#FFFFFF',
+      border: '#2C4E77',
+    },
+  },
+
+  // ── Т-Банк — финансовые инструменты (статьи treasury, route) ──
+  // Middle Ground формулировка: деловой тон, без личных отсылок.
+  // 🔜 Получить реф-ссылки в https://partners.tbank.ru/, зарегистрировать креатив в ОРД.
+  // ⚠️ Для финансовых услуг обязательно указание лицензии ЦБ РФ.
+  {
+    id: 'tinkov-finance',
+    title: 'Финансовые инструменты для бизнеса и личных задач',
+    subtitle: 'Дебетовые карты с программами лояльности и расчётные счета для самозанятых.',
+    cta: 'Изучить продукты Т-Банка',
+    link: REFERRAL_LINKS.tint,
+    erid: '',
+    advertiser: { name: 'АО «Т-Банк»', inn: '7706188893', site: 'tbank.ru' },
+    cblicense: 'Генеральная лицензия Банка России № 2673',
+    categories: ['treasury', 'route'],
+    languages: ['ru'],
+    priority: 8,
     colors: {
       bgStart: '#1E3A5F',
       bgEnd: '#14283F',
@@ -112,30 +150,6 @@ const ALL_BANNERS: AdBanner[] = [
       ctaBg: '#A97B2C',
       ctaText: '#FFFFFF',
       border: '#2C4E77',
-    },
-  },
-
-  // ── Altyn — инструмент для отслеживания портфеля (информационный) ──
-  // Без призывов к действию. Дисклеймер: «Удобный инструмент, которым пользуюсь.
-  // Ссылка может быть партнёрской. Не является рекламой или офертой.»
-  {
-    id: 'altyn-tracker',
-    title: 'Altyn: трекер портфеля',
-    subtitle: 'Отслеживание крипты и акций в одном месте',
-    cta: 'Посмотреть →',
-    link: REFERRAL_LINKS.altyn,
-    erid: '',
-    advertiser: { name: 'Altyn', inn: '', site: 'altyn.in' },
-    categories: ['compass', 'helm'],
-    languages: ['ru', 'en'],
-    priority: 3,
-    colors: {
-      bgStart: '#2D5A3D',
-      bgEnd: '#1A3A25',
-      text: '#E5E5E5',
-      ctaBg: '#A97B2C',
-      ctaText: '#FFFFFF',
-      border: '#3D7A52',
     },
   },
 ];
