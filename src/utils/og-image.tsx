@@ -44,18 +44,6 @@ const CATEGORY_COLORS: Record<string, string> = {
 	'general': COLORS.deepBlue, // Default
 };
 
-// Rune symbols for each category (Elder Futhark)
-const CATEGORY_RUNES: Record<string, string> = {
-	'route': 'ᚱ',      // Raido — путь, путешествие
-	'forge': 'ᚠ',      // Fehu — ремесло, созидание
-	'helm': 'ᚺ',       // Hagalaz — управление, руль
-	'treasury': 'ᛇ',    // Eihwaz — сокровище, защита
-	'compass': 'ᚲ',     // Kaunan — маяк, факел, руководство
-	'logbook': 'ᚨ',     // Ansuz — знание, запись
-	'crew': 'ᛗ',       // Mannaz — общность, люди
-	'general': 'ᚠ',    // Fehu — по умолчанию
-};
-
 // Background patterns (simplified gradients for Satori)
 const getBackgroundPattern = (category: string = 'general'): string => {
 	const patterns: Record<string, string> = {
@@ -81,7 +69,6 @@ interface OGImageProps {
 export function OGImageComponent({ title, subtitle, category = 'general', rubric }: OGImageProps) {
 	const bgPattern = getBackgroundPattern(category);
 	const categoryColor = CATEGORY_COLORS[category] || CATEGORY_COLORS['general'];
-	const rune = CATEGORY_RUNES[category] || CATEGORY_RUNES['general'];
 	const displayRubric = rubric || category.toUpperCase();
 
 	return (
@@ -98,7 +85,7 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 				overflow: 'hidden',
 			}}
 		>
-			{/* Scanline overlay effect - subtle Nordic style */}
+			{/* Geometric grid pattern - engineering/finTech style */}
 			<div
 				style={{
 					position: 'absolute',
@@ -106,64 +93,65 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 					left: 0,
 					width: '100%',
 					height: '100%',
-					background: `repeating-linear-gradient(
-						0deg,
-						rgba(0, 0, 0, 0.03),
-						rgba(0, 0, 0, 0.03) 1px,
-						transparent 1px,
-						transparent 4px
-					)`,
-					pointerEvents: 'none',
-					zIndex: 1,
-				}}
-			/>
-
-			{/* Category decorative pattern */}
-			{category !== 'general' && (
-				<div
-					style={{
-						position: 'absolute',
-						top: 0,
-						left: 0,
-						width: '100%',
-						height: '100%',
-						background: `repeating-linear-gradient(
+					background: `
+						repeating-linear-gradient(
 							0deg,
 							transparent,
-							transparent 15px,
-							${COLORS.textTertiary}20 15px,
-							${COLORS.textTertiary}20 16px
+							transparent 29px,
+							${COLORS.textTertiary}15 29px,
+							${COLORS.textTertiary}15 30px
 						),
 						repeating-linear-gradient(
 							90deg,
 							transparent,
-							transparent 15px,
-							${COLORS.textTertiary}20 15px,
-							${COLORS.textTertiary}20 16px
-						)`,
-						pointerEvents: 'none',
-						zIndex: 1,
+							transparent 29px,
+							${COLORS.textTertiary}15 29px,
+							${COLORS.textTertiary}15 30px
+						)
+					`,
+					pointerEvents: 'none',
+				}}
+			/>
+
+			{/* Category accent line */}
+			{category !== 'general' && (
+				<div
+					style={{
+						position: 'absolute',
+						top: '60px',
+						left: '60px',
+						width: '60px',
+						height: '4px',
+						background: categoryColor,
 					}}
 				/>
 			)}
 
-			{/* Decorative rune watermark */}
+			{/* Category watermark - geometric square instead of rune */}
 			<div
 				style={{
 					position: 'absolute',
-					right: '40px',
+					right: '80px',
 					top: '50%',
 					transform: 'translateY(-50%)',
-					fontSize: '200px',
-					fontWeight: '900',
-					color: `${categoryColor}08`,
+					width: '120px',
+					height: '120px',
+					border: `2px solid ${categoryColor}15`,
 					pointerEvents: 'none',
-					zIndex: 1,
-					fontFamily: 'serif',
-					lineHeight: 1,
 				}}
 			>
-				{rune}
+				{/* Inner rotated square for depth */}
+				<div
+					style={{
+						position: 'absolute',
+						top: '50%',
+						left: '50%',
+						transform: 'translate(-50%, -50%) rotate(45deg)',
+						width: '80px',
+						height: '80px',
+						border: `1px solid ${categoryColor}10`,
+					}}
+				/>
 			</div>
 
 			{/* Content */}
@@ -172,7 +160,6 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 					display: 'flex',
 					flexDirection: 'column',
 					justifyContent: 'flex-start',
-					zIndex: 2,
 					flex: 1,
 				}}
 			>
@@ -219,7 +206,6 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 					marginTop: '40px',
 					paddingTop: '30px',
 					borderTop: `1px solid ${COLORS.textTertiary}30`,
-					zIndex: 2,
 				}}
 			>
 				{/* Category tag */}
@@ -238,7 +224,7 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 						whiteSpace: 'nowrap',
 					}}
 				>
-					{rune} [{displayRubric}]
+					[{displayRubric}]
 				</span>
 
 				{/* Watermark */}

@@ -90,7 +90,7 @@ export const ui = {
     'header.open_menu': 'Open menu',
     'header.close_menu': 'Close menu',
     'home.hero_title': 'FÉLAG',
-    'home.hero_description': 'Blog about trading, cryptocurrency and trading automation',
+    'home.hero_description': 'The logbook of a trading community. Documenting market reality, strategy logic, and risk management without illusions or return promises.',
     'home.hero_cta': 'Read articles',
     'home.categories_label': 'CATEGORIES',
     'home.latest_label': 'LATEST MATERIALS',
