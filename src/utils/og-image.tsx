@@ -32,16 +32,16 @@ const COLORS = {
 	info: '#2196F3',           // Blue
 };
 
-// Category background patterns (simplified for Satori)
+// Category colors — muted but distinct per category
 const CATEGORY_COLORS: Record<string, string> = {
-	'route': COLORS.deepBlue,
-	'forge': COLORS.amber,
-	'helm': '#4A7BA7',
-	'treasury': COLORS.amberDark,
-	'compass': COLORS.mossGreen,
-	'logbook': '#5B8DB8',
-	'crew': '#B85450',
-	'general': COLORS.deepBlue, // Default
+	'route': '#3A5F7F',       // muted blue — Trading/Strategies
+	'forge': '#A97B2C',       // muted amber — Tools/Development
+	'helm': '#8A6423',        // muted terracotta — Risk/Capital
+	'treasury': '#5E7355',    // muted green — Finance/Taxes
+	'compass': '#4E7DA3',     // muted teal — Analytics/Indicators
+	'logbook': '#6B5B77',     // muted purple — News/Events
+	'crew': '#A54E4B',        // muted red — About/Team
+	'general': '#7A8B9C',     // muted gray — Default
 };
 
 // Background patterns (simplified gradients for Satori)
@@ -208,24 +208,43 @@ export function OGImageComponent({ title, subtitle, category = 'general', rubric
 					borderTop: `1px solid ${COLORS.textTertiary}30`,
 				}}
 			>
-				{/* Category tag */}
-				<span
+				{/* Category tag with color accent */}
+				<div
 					style={{
-						fontSize: '24px',
-						fontWeight: '600',
+						display: 'flex',
+						alignItems: 'center',
+						gap: '10px',
 						padding: '12px 24px',
 						backgroundColor: COLORS.bgSecondary,
-						color: COLORS.deepBlue,
 						border: `1px solid ${COLORS.textTertiary}30`,
 						borderRadius: '8px',
-						textTransform: 'uppercase',
-						letterSpacing: '0.05em',
-						fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-						whiteSpace: 'nowrap',
 					}}
 				>
-					[{displayRubric}]
-				</span>
+					{/* Color accent square */}
+					<span
+						style={{
+							display: 'block',
+							width: '12px',
+							height: '12px',
+							backgroundColor: categoryColor,
+							borderRadius: '2px',
+							flexShrink: 0,
+						}}
+					/>
+					<span
+						style={{
+							fontSize: '24px',
+							fontWeight: '600',
+							color: COLORS.deepBlue,
+							textTransform: 'uppercase',
+							letterSpacing: '0.05em',
+							fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+							whiteSpace: 'nowrap',
+						}}
+					>
+						{displayRubric}
+					</span>
+				</div>
 
 				{/* Watermark */}
 				<span
