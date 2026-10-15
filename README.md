@@ -2,11 +2,24 @@
 
 **Образовательный блог о трейдинге, криптовалюте и ремесле**
 
-**Последнее обновление:** 12 октября 2026 г.
+**Последнее обновление:** 15 октября 2026 г.
 **Статус:** ✅ Все опубликованные статьи прошли аудит (HealthScore >= 70), QualityScore анализ завершён
 
-**Сайт:** [Felag.online](https://felag.online)
-**Приватный репо:** [hampfreeblog-private](https://github.com/HampfreeFelag/hampfreeblog-private)
+[![Astro](https://img.shields.io/badge/Astro-4C1D95?logo=astro&logoColor=fff&style=flat)](https://astro.build)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=flat)](https://www.typescriptlang.org)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-6A5ACD?style=flat)](LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/HampfreeFelag/felag?style=flat)](https://github.com/HampfreeFelag/felag/commits/main)
+[![Build passing](https://img.shields.io/badge/build-passing-brightgreen?style=flat)](https://felag.online)
+
+[![VK](https://img.shields.io/badge/VK-Haven-0077FF?logo=vk&logoColor=fff&style=flat)](https://vk.com/felaghaven)
+[![Telegram](https://img.shields.io/badge/Telegram-Logbook-26A5E4?logo=telegram&logoColor=fff&style=flat)](https://t.me/felaglogbook)
+[![MAX](https://img.shields.io/badge/MAX-Logbook-FF6B35?style=flat)](https://max.ru/felaglogbook)
+[![Hashnode](https://img.shields.io/badge/Hashnode-Haven-F07844?logo=hashnode&logoColor=fff&style=flat)](https://felag.hashnode.dev)
+[![Dev.to](https://img.shields.io/badge/Dev.to-Cases-0A0A0A?logo=dev.to&logoColor=fff&style=flat)](https://dev.to/felag)
+
+---
+
+**Сайт:** [Felag.online](https://felag.online) → **Приватный репо:** [hampfreeblog-private](https://github.com/HampfreeFelag/hampfreeblog-private)
 
 **Лицензия:** [CC BY-NC-SA 4.0](LICENSE) — некоммерческое использование с указанием авторства
 
