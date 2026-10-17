@@ -49,15 +49,6 @@ jobs:
         env:
           PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.PUBLIC_GA_MEASUREMENT_ID }}
 
-      - name: Validate OG script syntax
-        run: node --check scripts/generate-og-images.mjs
-
-      - name: Generate OG Images
-        run: node scripts/generate-og-images.mjs
-        env:
-          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
-        continue-on-error: false
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
