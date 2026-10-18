@@ -17,3 +17,38 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Build output
+dist/
+.astro/
+.vite/
+
+# Dev
+.dev-server.log
+.dev-server.err.log
+.screens/
+
+# Dependencies
+node_modules/
+
+# Scripts/audits (не для публичного репо)
+scripts/audit-content.js
+scripts/audit-v2.js
+scripts/content-audit.cjs
+scripts/fix-referral-links-batch.cjs
+scripts/legal-audit.cjs
+scripts/migrate-categories.mjs
+scripts/remove-bitmex.cjs
+scripts/remove-bitmex.ps1
+scripts/remove-bitmex.py
+scripts/replace-domain-final.cjs
+scripts/replace-domain-v2.cjs
+scripts/replace-domain.cjs
+scripts/reports/
+
+# Docs (не для публичного репо)
+docs/README.md
+docs/VISUALS_CHECKLIST.md
+
+# AI rules (приватный)
+.ai-rules-blog
