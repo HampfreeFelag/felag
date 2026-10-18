@@ -45,12 +45,14 @@ export type AdBanner = {
 
 // Партнёрские ссылки (белые схемы — VPS/хостинг, РФ-юрлица)
 // ✅ ВСЕ платформы имеют российское юрлицо и/или лицензию ЦБ РФ
-// ❌ Veles (оффшор, Сейшелы), Altyn (крипто-кошелёк без лицензии ЦБ), криптобиржи —
+// ❌ Altyn (крипто-кошелёк без лицензии ЦБ), криптобиржи —
 //    ИСКЛЮЧЕНЫ из активной партнёрки (13.10.2026). Возврат только при изменении юр.статуса.
-//    См. REFERRAL_LINKS_GUIDE v3.
+//    Veles reinstate 18.10.2026 как IT-партнёр (ООО "ВЕЛЕС.ФИНАНС", ИНН 9725074398, ОКВЭД 62.01).
+//    См. REFERRAL_LINKS_GUIDE v3.3.
 export const REFERRAL_LINKS = {
   kvmka: 'https://kvmka.ru/?from=23600',
   regru: 'https://www.reg.ru/?rlink=2sf6wowehp',
+  veles: 'https://veles.finance/invite/washmallay?code=705077',
   // 🔜 Т-Банк: получить реф-ссылки в https://partners.tbank.ru/
   tint: 'https://www.tbank.ru/invest/',
 } as const;
@@ -124,6 +126,28 @@ const ALL_BANNERS: AdBanner[] = [
     categories: ['treasury', 'route'],
     languages: ['ru'],
     priority: 8,
+    colors: {
+      bgStart: '#1E3A5F',
+      bgEnd: '#14283F',
+      text: '#E5E5E5',
+      ctaBg: '#A97B2C',
+      ctaText: '#FFFFFF',
+      border: '#2C4E77',
+    },
+  },
+
+  // ── Veles — IT-партнёр (ООО "ВЕЛЕС.ФИНАНС", ИНН 9725074398, ОКВЭД 62.01) ──
+  {
+    id: 'veles-software',
+    title: 'FÉLAG | Logbook',
+    subtitle: 'Образовательный материал о выборе ПО для автоматизации и аналитики.',
+    cta: 'Изучить возможности →',
+    link: REFERRAL_LINKS.veles,
+    erid: '',
+    advertiser: { name: 'ООО «ВЕЛЕС.ФИНАНС»', inn: '9725074398', site: 'veles.finance' },
+    categories: ['forge', 'compass'],
+    languages: ['ru'],
+    priority: 7,
     colors: {
       bgStart: '#1E3A5F',
       bgEnd: '#14283F',
