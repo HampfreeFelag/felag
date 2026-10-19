@@ -126,6 +126,42 @@ const t = useTranslations(lang);
 		window.addEventListener('resize', handleResize);
 	};
 
+	// Theme toggle handler
+	const initThemeToggle = () => {
+		const btn = document.getElementById('theme-toggle-mobile');
+		if (!btn) return;
+
+		const updateIcon = (theme: string) => {
+			const icon = btn.querySelector<SVGElement>('.theme-icon-mobile');
+			if (!icon) return;
+			if (theme === 'dark') {
+				// Sun icon
+				icon.innerHTML = '<circle cx="8" cy="8" r="3"/><rect x="6" y="0" width="4" height="2"/><rect x="6" y="14" width="4" height="2"/><rect x="0" y="6" width="2" height="4"/><rect x="14" y="6" width="2" height="4"/>';
+			} else {
+				// Moon icon (stars)
+				icon.innerHTML = '<rect x="6" y="0" width="4" height="2"/><rect x="6" y="14" width="4" height="2"/><rect x="0" y="6" width="2" height="4"/><rect x="14" y="6" width="2" height="4"/><rect x="4" y="4" width="8" height="8"/>';
+			}
+		};
+
+		const toggleTheme = () => {
+			const html = document.documentElement;
+			const current = html.getAttribute('data-theme');
+			const next = current === 'dark' ? 'light' : 'dark';
+			html.setAttribute('data-theme', next);
+			try { localStorage.setItem('felag_theme', next); } catch(e) {}
+			updateIcon(next);
+		};
+
+		// Initialize icon on load
+		const saved = document.documentElement.getAttribute('data-theme');
+		updateIcon(saved || 'light');
+
+		btn.addEventListener('click', toggleTheme);
+	};
+
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initThemeToggle);
+	else initThemeToggle();
+
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initHamburgerMenu);
 	else initHamburgerMenu();
 </script>

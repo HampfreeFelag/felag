@@ -75,6 +75,30 @@
 }
 
 /* ═══════════════════════════════════════════════════════
+   DARK THEME — [data-theme="dark"]
+   ═══════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  --color-bg: #14130F;
+  --color-bg-subtle: #1F1D18;
+  --color-surface: #1F1D18;
+  --color-surface-hover: #26241E;
+
+  --color-text: #F2F0EA;
+  --color-text-secondary: #B9B4A8;
+  --color-text-tertiary: #857F73;
+
+  --color-accent: #7FA6D4;
+  --color-accent-hover: #9BBBDD;
+  --color-accent-light: #26313F;
+
+  --color-amber: #D8A64A;
+  --color-amber-light: #33280F;
+
+  --color-border: #2E2B24;
+  --color-border-light: #26241E;
+}
+
+/* ═══════════════════════════════════════════════════════
    2. RESET & BASE
    ═══════════════════════════════════════════════════════ */
 *, *::before, *::after {
@@ -145,6 +169,20 @@ a {
 }
 
 a:hover {
+  color: var(--color-accent-hover);
+}
+
+a:visited {
+  color: var(--color-accent);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+a:active {
   color: var(--color-accent-hover);
 }
 

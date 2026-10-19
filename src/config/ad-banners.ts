@@ -27,6 +27,8 @@ export type AdBanner = {
   advertiser?: { name: string; inn: string; site: string };
   /** Лицензия ЦБ РФ (для финансовых услуг). Например: "Генеральная лицензия Банка России № 2673" */
   cblicense?: string;
+  /** Приглушённый бренд-акцент для CTA и рамки (light/dark). Опционально — если нет, используется универсальный янтарь */
+  accent?: { light: string; dark: string };
   /** Категории статей (frontmatter): route/forge/helm/treasury/compass/logbook/crew */
   categories?: string[];
   languages?: ('ru' | 'en')[];
@@ -118,6 +120,7 @@ const ALL_BANNERS: AdBanner[] = [
     categories: ['treasury'],
     languages: ['ru'],
     priority: 8,
+    accent: { light: '#C5A028', dark: '#D4B045' },
     colors: {
       bgStart: '#1E3A5F',
       bgEnd: '#14283F',

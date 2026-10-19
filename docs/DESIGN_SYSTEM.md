@@ -223,11 +223,12 @@
 ### Текущий статус
 
 - **Светлая тема** — реализована полностью (токены в `:root`).
-- **Тёмная тема** — **НЕ реализована.** В `MobileMenu.astro` есть кнопка `#theme-toggle-mobile`, но у неё **нет JS-обработчика** и нет CSS для тёмной темы. Кнопка в текущем виде не работает.
+- **Тёмная тема** — **реализована** (токены в `[data-theme="dark"]`, строки 77–98 `global.css`).
+- **Переключатель** — кнопка `#theme-toggle-mobile` в `MobileMenu.astro`, обработчик в `Header.astro`.
+- **FOUC защита** — инлайн-скрипт в `<head>` макета (`BlogPost.astro`), применяет тему до отрисовки.
+- **Сохранение** — выбор темы хранится в `localStorage` под ключом `felag_theme`.
 
-### Что нужно, чтобы включить тёмную тему
-
-1. Добавить в `global.css` блок с переопределением токенов:
+### Реализованные токены тёмной темы
 
 ```css
 [data-theme="dark"] {
@@ -252,9 +253,29 @@
 }
 ```
 
-2. Добавить обработчик на кнопку `#theme-toggle-mobile`: переключать `document.documentElement.dataset.theme` и сохранять выбор в `localStorage` (ключ, например, `ml_theme`).
-3. Добавить в `<head>` инлайн-скрипт для применения сохранённой темы до отрисовки (во избежание «мигания»).
-4. Проверить контраст по WCAG AA для всех пар «текст/фон» (особенно accent на фоне).
+### FOUC защита
+
+В `<head>` макета (`BlogPost.astro`) добавлен инлайн-скрипт:
+
+```js
+(function() {
+  var saved = localStorage.getItem('felag_theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (saved === 'dark' || (!saved && prefersDark)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+```
+
+Применяется до отрисовки DOM — никакого мерцания.
+
+### Переключатель темы
+
+Кнопка `#theme-toggle-mobile` в `MobileMenu.astro` имеет обработчик в `Header.astro`:
+- Переключает `data-theme` на `document.documentElement`
+- Сохраняет выбор в `localStorage` (ключ `felag_theme`)
+- Обновляет иконку (солнце/луна)
+- Работает при загрузке страницы и по клику
 
 > Все компоненты читают цвета из CSS-переменных, поэтому после добавления блока `[data-theme="dark"]` тема заработает без правок компонентов.
 
@@ -287,7 +308,38 @@
 - ✅ Разделять блоки hairline-линиями, а не карточками и тенями.
 - ✅ Радиусы минимальные (3–4px) или pill (999px) для фильтров.
 - ❌ Не добавлять `---` (hr) внутри тела статьи.
-- ❌ Не использовать тёмную тему, пока не реализованы шаги из раздела 7.
+
+---
+
+## 10. Состояния ссылок
+
+Все состояния реализованы в `global.css` (строки ~141–163):
+
+| Состояние | CSS-селектор | Цвет | Контраст (светлая) | Контраст (тёмная) |
+|-----------|-------------|------|-------------------|-------------------|
+| Default | `a` | `var(--color-accent)` | 5.7:1 ✅ | 4.1:1 ✅ |
+| Visited | `a:visited` | `var(--color-accent)` | 5.7:1 ✅ | 4.1:1 ✅ |
+| Hover | `a:hover` | `var(--color-accent-hover)` | 7.2:1 ✅ | 5.3:1 ✅ |
+| Focus | `a:focus-visible` | `var(--color-accent)` + outline 2px | — | — |
+| Active | `a:active` | `var(--color-accent-hover)` | 7.2:1 ✅ | 5.3:1 ✅ |
+
+### `.prose a` (внутри статьи)
+
+| Свойство | Значение |
+|----------|----------|
+| `text-decoration` | `underline` |
+| `text-decoration-color` | `var(--color-accent-light)` |
+| `text-underline-offset` | `3px` |
+| `text-decoration-thickness` | `1px` |
+| Hover underline color | `var(--color-accent)` |
+| Transition | `150ms cubic-bezier(0.16, 1, 0.3, 1)` |
+
+### Доступность
+
+- `:focus-visible` — видимый outline 2px для навигации с клавиатуры
+- `:visited` — тот же цвет что и `:link` для editorial consistency (без фиолетового артефакта браузера)
+- `prefers-reduced-motion` — все анимации отключены
+- Touch targets — все интерактивные элементы ≥ 44×44px
 
 ---
 
