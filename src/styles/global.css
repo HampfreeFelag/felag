@@ -132,7 +132,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 1;
   pointer-events: none;
   opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -519,7 +519,7 @@ a[href^="#"] {
 }
 
 /* RESPONSIVE HEADER */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .desktop-nav, .header-right {
     display: none !important;
   }
@@ -1220,6 +1220,7 @@ a[href^="#"] {
 .prose img {
   max-width: 100%;
   height: auto;
+  min-height: 100px;
   border-radius: var(--radius-md);
   margin: var(--space-xl) 0;
 }
@@ -1323,7 +1324,8 @@ a[href^="#"] {
    ═══════════════════════════════════════════════════════ */
 .toc-sticky {
   position: sticky;
-  top: 104px;
+  top: calc(72px + 32px);
+  z-index: 10;
   align-self: start;
   max-width: 220px;
   padding-top: var(--space-xl);
