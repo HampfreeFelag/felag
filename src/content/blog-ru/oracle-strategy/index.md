@@ -55,7 +55,7 @@ ORACLE версии 1.1 — набор настроек стратегии, в �
 
 ## Связь с диверсификацией и рисками
 
-Настройки одного бота — часть общей системы. Как не концентрировать весь объём в одной стратегии, распределять капитал по активам и площадкам и снижать рисковую нагрузку — в серии [Диверсификация и настройка торговой системы](https://felag.online/ru/library/diversification-trading-system-part-1/). Подключение к бирже по API и базовые шаги — в [настройке бота](https://felag.online/ru/library/bybit-trading-bot-setup/); принципы [управления рисками](https://felag.online/ru/library/risk-management-crypto-trading-bots/) применимы и к ORACLE 1.1.
+Настройки одного бота — часть общей системы. Как не концентрировать весь объём в одной стратегии, распределять капитал по активам и площадкам и снижать рисковую нагрузку — в серии [Диверсификация и настройка торговой системы](https://felag.online/ru/library/diversification-trading-system-part-1/). Подключение к бирже по API и базовые шаги — в [настройке бота](https://felag.online/ru/library/api-trading-bot-setup/); принципы [управления рисками](https://felag.online/ru/library/risk-management-crypto-trading-bots/) применимы и к ORACLE 1.1.
 
 ## Кратко
 

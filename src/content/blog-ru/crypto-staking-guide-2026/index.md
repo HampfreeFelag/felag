@@ -12,7 +12,7 @@ draft: false
 **Связанные статьи:**
 - [Что такое стейкинг](https://felag.online/ru/library/what-is-staking/) — базовое определение
 - [DCA-стратегия](https://felag.online/ru/library/dca-strategy-crypto/) — как покупать криптовалюту частями
-- [Торговые боты](https://felag.online/ru/library/bybit-trading-bot-setup/) — автоматизация торговли
+- [Торговые боты](https://felag.online/ru/library/api-trading-bot-setup/) — автоматизация торговли
 
 В 2026 году стейкинг остаётся одним из самых популярных способов заработка в крипте. В этом руководстве — всё, что нужно знать новичку: от выбора монет до расчёта доходности и оценки рисков.
 
