@@ -48,13 +48,12 @@ export type AdBanner = {
 // ❌ Altyn (крипто-кошелёк без лицензии ЦБ), криптобиржи —
 //    ИСКЛЮЧЕНЫ из активной партнёрки (13.10.2026). Возврат только при изменении юр.статуса.
 //    Veles reinstate 18.10.2026 как IT-партнёр (ООО "ВЕЛЕС.ФИНАНС", ИНН 9725074398, ОКВЭД 62.01).
-//    См. REFERRAL_LINKS_GUIDE v3.3.
+//    ERID токены получены 19.10.2026. См. REFERRAL_LINKS_GUIDE v3.4.
 export const REFERRAL_LINKS = {
   kvmka: 'https://kvmka.ru/?from=23600',
-  regru: 'https://www.reg.ru/?rlink=2sf6wowehp',
-  veles: 'https://veles.finance/invite/washmallay?code=705077',
-  // 🔜 Т-Банк: получить реф-ссылки в https://partners.tbank.ru/
-  tint: 'https://www.tbank.ru/invest/',
+  regru: 'https://www.reg.ru/?rlink=reflink-32593309',
+  veles: 'https://veles.finance/invite/washmallay',
+  tint: 'https://tbank-online.com/baf/2z9xz0ZejZr',
 } as const;
 
 export function getReferralLink(platform: keyof typeof REFERRAL_LINKS): string {
@@ -63,16 +62,14 @@ export function getReferralLink(platform: keyof typeof REFERRAL_LINKS): string {
 
 const ALL_BANNERS: AdBanner[] = [
   // ── kvmka.ru — серверные решения для автоматизации (статьи forge) ──
-  // Middle Ground формулировка: фокус на технической потребности (аптайм, пинг).
-  // Скрыт до получения erid: зарегистрировать креатив в Яндекс ОРД.
   {
     id: 'kvmka-vps',
-    title: 'Серверные решения для автоматизации',
-    subtitle: 'VPS-конфигурации для круглосуточной работы торговых алгоритмов и Telegram-ботов.',
-    cta: 'Посмотреть тарифы kvmka.ru',
+    title: 'Серверные решения',
+    subtitle: 'Вычислительные ресурсы для веб-проектов и задач автоматизации.',
+    cta: 'Посмотреть конфигурации',
     link: REFERRAL_LINKS.kvmka,
-    erid: '',
-    advertiser: { name: 'kvmka.ru', inn: '', site: 'kvmka.ru' }, // ИНН уточнить из оферты
+    erid: 'CQH36pWzJqVKznERMApgkbu1yZRi4eK158Cu3G65GNbqPF',
+    advertiser: { name: 'kvmka.ru', inn: '', site: 'kvmka.ru' },
     categories: ['forge'],
     languages: ['ru'],
     priority: 10,
@@ -86,18 +83,16 @@ const ALL_BANNERS: AdBanner[] = [
     },
   },
 
-  // ── Reg.ru — инфраструктура для веб-проектов (статьи forge) ──
-  // Middle Ground формулировка: акцент на задаче читателя (запуск IT-проекта).
-  // Скрыт до получения erid: зарегистрировать креатив в Яндекс ОРД.
+  // ── Reg.ru — инфраструктура для веб-проектов (статьи route, forge) ──
   {
     id: 'regru-hosting',
     title: 'Инфраструктура для веб-проектов',
-    subtitle: 'Регистрация доменов в зоне .RU и хостинг на защищённых серверах.',
-    cta: 'Перейти на Reg.ru',
+    subtitle: 'Инструменты для регистрации доменов и размещения сайтов.',
+    cta: 'Перейти к сервисам',
     link: REFERRAL_LINKS.regru,
-    erid: '',
+    erid: 'CQH36pWzJqVKznERH83R6V9PGJk6Nw97r3FepZSpTSSnud',
     advertiser: { name: 'ООО «РЕГ.РУ»', inn: '7710655749', site: 'reg.ru' },
-    categories: ['forge'],
+    categories: ['route', 'forge'],
     languages: ['ru'],
     priority: 5,
     colors: {
@@ -110,20 +105,17 @@ const ALL_BANNERS: AdBanner[] = [
     },
   },
 
-  // ── Т-Банк — финансовые инструменты (статьи treasury, route) ──
-  // Middle Ground формулировка: деловой тон, без личных отсылок.
-  // 🔜 Получить реф-ссылки в https://partners.tbank.ru/, зарегистрировать креатив в ОРД.
-  // ⚠️ Для финансовых услуг обязательно указание лицензии ЦБ РФ.
+  // ── Т-Банк — финансовые инструменты (статьи treasury) ──
   {
     id: 'tinkov-finance',
-    title: 'Финансовые инструменты для бизнеса и личных задач',
-    subtitle: 'Дебетовые карты с программами лояльности и расчётные счета для самозанятых.',
-    cta: 'Изучить продукты Т-Банка',
+    title: 'Финансы для бизнеса и личных задач',
+    subtitle: 'Расчётные счета для самозанятых и дебетовые карты с программами лояльности.',
+    cta: 'Изучить предложения',
     link: REFERRAL_LINKS.tint,
-    erid: '',
+    erid: 'CQH36pWzJqVKznERQSL5xgCvKRJzmsR2PAxxaFmiaN1y77',
     advertiser: { name: 'АО «Т-Банк»', inn: '7706188893', site: 'tbank.ru' },
     cblicense: 'Генеральная лицензия Банка России № 2673',
-    categories: ['treasury', 'route'],
+    categories: ['treasury'],
     languages: ['ru'],
     priority: 8,
     colors: {
@@ -139,14 +131,14 @@ const ALL_BANNERS: AdBanner[] = [
   // ── Veles — IT-партнёр (ООО "ВЕЛЕС.ФИНАНС", ИНН 9725074398, ОКВЭД 62.01) ──
   {
     id: 'veles-software',
-    title: 'FÉLAG | Logbook',
-    subtitle: 'Образовательный материал о выборе ПО для автоматизации и аналитики.',
-    cta: 'Изучить возможности →',
+    title: 'ПО для анализа данных',
+    subtitle: 'Программное обеспечение для автоматизации рабочих процессов и проектирования систем.',
+    cta: 'Ознакомиться с платформой',
     link: REFERRAL_LINKS.veles,
-    erid: '',
+    erid: 'CQH36pWzJqVKznERGZtWRYzjm6yPFbxFKEnry3zcBHeD37',
     advertiser: { name: 'ООО «ВЕЛЕС.ФИНАНС»', inn: '9725074398', site: 'veles.finance' },
     categories: ['forge', 'compass'],
-    languages: ['ru'],
+    languages: ['ru', 'en'],
     priority: 7,
     colors: {
       bgStart: '#1E3A5F',
