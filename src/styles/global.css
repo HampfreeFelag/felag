@@ -110,7 +110,7 @@
 html {
   font-size: 16px;
   background-color: var(--color-bg);
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -184,6 +184,11 @@ a:focus-visible {
 
 a:active {
   color: var(--color-accent-hover);
+}
+
+/* Smooth scroll for anchor links only (not global) */
+a[href^="#"] {
+  scroll-behavior: smooth;
 }
 
 /* Underline only inside article content */
@@ -1537,13 +1542,13 @@ a, button, input, select, textarea {
   }
 }
 
-@media (min-width: 901px) {
+@media (min-width: 769px) {
   .posts-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 769px) {
   .desktop-nav, .header-right {
     display: flex !important;
   }
@@ -1599,4 +1604,4 @@ a, button, input, select, textarea {
   .hero-content > * {
     animation-delay: 0ms !important;
   }
-}
+  
