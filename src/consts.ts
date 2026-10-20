@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = 'FÉLAG | Блог о трейдинге, криптовалюте и ремесле';
 export const SITE_DESCRIPTION = 'Блог о трейдинге, криптовалюте и автоматизации. Практические руководства, индикаторы, управление рисками. Без магии — только ремесло и честный курс.';
-export const SITE_VERSION = '2026-10-11'; // для cache-busting
+export const SITE_VERSION = '2026-10-20'; // для cache-busting
