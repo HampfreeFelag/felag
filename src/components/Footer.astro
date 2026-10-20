@@ -1,5 +1,5 @@
 ---
-// Footer — minimal, clean
+// Footer — minimal, clean with partner links and support
 import ConsentBanner from './ConsentBanner.astro';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
@@ -7,13 +7,240 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const today = new Date();
+
+// ERID tokens from ad-banners.ts (priority order)
+// RU: all 4 partners | EN: only Veles (Russian IT company)
+const PARTNERS = lang === 'en'
+  ? [
+      {
+        id: 'veles',
+        name: t('footer.veles'),
+        href: 'https://veles.finance/invite/washmallay',
+        erid: 'CQH36pWzJqVKznERGZtWRYzjm6yPFbxFKEnry3zcBHeD37',
+        advertiser: 'OOO "VELES.FINANCE"',
+        inn: '9725074398',
+      },
+    ]
+  : [
+      {
+        id: 'veles',
+        name: t('footer.veles'),
+        href: 'https://veles.finance/invite/washmallay',
+        erid: 'CQH36pWzJqVKznERGZtWRYzjm6yPFbxFKEnry3zcBHeD37',
+        advertiser: 'ООО «ВЕЛЕС.ФИНАНС»',
+        inn: '9725074398',
+      },
+      {
+        id: 'kvmka',
+        name: t('footer.kvmka'),
+        href: 'https://kvmka.ru/?from=23600',
+        erid: 'CQH36pWzJqVKznERMApgkbu1yZRi4eK158Cu3G65GNbqPF',
+        advertiser: 'ООО «Алекс Групп»',
+        inn: '5040109853',
+      },
+      {
+        id: 'tbank',
+        name: t('footer.tbank'),
+        href: 'https://tbank-online.com/baf/2z9xz0ZejZr',
+        erid: 'CQH36pWzJqVKznERQSL5xgCvKRJzmsR2PAxxaFmiaN1y77',
+        advertiser: 'АО «Т-Банк»',
+        inn: '7706188893',
+      },
+      {
+        id: 'regru',
+        name: t('footer.reg_ru'),
+        href: 'https://www.reg.ru/?rlink=reflink-32593309',
+        erid: 'CQH36pWzJqVKznERH83R6V9PGJk6Nw97r3FepZSpTSSnud',
+        advertiser: 'ООО «РЕГ.РУ»',
+        inn: '7710655749',
+      },
+    ];
+
+const CLOUDTIPS = {
+  name: t('footer.cloudtips'),
+  desc: t('footer.cloudtips_desc'),
+  href: 'https://pay.cloudtips.ru/p/e1100774',
+};
 ---
 
 <footer class="main-footer">
 	<div class="container">
-		<div class="footer-container">
+		<!-- Partner links + Support in two columns -->
+		<div class="footer-grid">
+			<!-- Column 1: Tools -->
+			<div class="footer-column">
+				<h3 class="footer-column-title">{t('footer.tools_title')}</h3>
+				<ul class="footer-partner-list">
+					{PARTNERS.map(p => (
+						<li class="footer-partner-item">
+							<a href={p.href} target="_blank" rel="noopener noreferrer sponsored nofollow" class="footer-partner-link">
+								<span class="partner-name">{p.name}</span>
+							</a>
+							<span class="partner-erid">
+								{t('footer.ad_marking')}. {p.advertiser}, ИНН {p.inn}. erid: {p.erid}
+							</span>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<!-- Column 2: Support -->
+			<div class="footer-column footer-column-support">
+				<h3 class="footer-column-title">{t('footer.support_title')}</h3>
+				<ul class="footer-support-list">
+					<li class="footer-support-item">
+						<a href={CLOUDTIPS.href} target="_blank" rel="noopener noreferrer" class="footer-support-link">
+							<span class="support-name">{CLOUDTIPS.name}</span>
+							<span class="support-desc">{CLOUDTIPS.desc}</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Copyright -->
+		<div class="footer-bottom">
 			<p class="footer-copy">&copy; {today.getFullYear()} FÉLAG. {t('footer.rights')} · <a href={translatePath('privacy')}>{t('nav.privacy')}</a></p>
 		</div>
 	</div>
 </footer>
+
+<style>
+	/* ── Footer Grid ── */
+	.footer-grid {
+		max-width: var(--max-width);
+		margin: 0 auto var(--space-xl);
+		padding: 0 var(--page-padding);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-2xl) var(--space-3xl);
+	}
+
+	.footer-column-title {
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--color-text-tertiary);
+		margin: 0 0 var(--space-lg) 0;
+	}
+
+	/* ── Partner List ── */
+	.footer-partner-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+	}
+
+	.footer-partner-item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.footer-partner-link {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		text-decoration: none;
+		transition: opacity var(--duration-fast) var(--ease-out);
+	}
+
+	.footer-partner-link:hover {
+		opacity: 0.8;
+	}
+
+	.partner-name {
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: var(--color-text);
+	}
+
+	.partner-erid {
+		font-size: 0.65rem;
+		color: var(--color-text-tertiary);
+		line-height: 1.3;
+	}
+
+	/* ── Support Column ── */
+	.footer-column-support {
+		border-left: 1px solid var(--color-border-light);
+		padding-left: var(--space-xl);
+	}
+
+	.footer-support-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.footer-support-item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.footer-support-link {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		text-decoration: none;
+		transition: opacity var(--duration-fast) var(--ease-out);
+	}
+
+	.footer-support-link:hover {
+		opacity: 0.8;
+	}
+
+	.support-name {
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: var(--color-accent);
+	}
+
+	.support-desc {
+		font-size: 0.8rem;
+		color: var(--color-text-secondary);
+	}
+
+	/* ── Bottom (copyright) ── */
+	.footer-bottom {
+		border-top: 1px solid var(--color-border-light);
+		padding-top: var(--space-lg);
+	}
+
+	.footer-copy {
+		font-size: 0.8rem;
+		color: var(--color-text-tertiary);
+		margin: 0;
+		text-align: center;
+	}
+
+	.footer-copy a {
+		color: var(--color-text-secondary);
+	}
+
+	.footer-copy a:hover {
+		color: var(--color-text);
+	}
+
+	/* ── Mobile ── */
+	@media (max-width: 768px) {
+		.footer-grid {
+			grid-template-columns: 1fr;
+			gap: var(--space-xl);
+		}
+
+		.footer-column-support {
+			border-left: none;
+			border-top: 1px solid var(--color-border-light);
+			padding-left: 0;
+			padding-top: var(--space-lg);
+		}
+	}
+</style>
+
 <ConsentBanner />

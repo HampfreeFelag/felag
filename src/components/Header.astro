@@ -18,8 +18,17 @@ const t = useTranslations(lang);
 			<Navigation />
 		</div>
 
-		<!-- RIGHT: Utilities (Languages only) -->
+		<!-- RIGHT: Utilities (Languages + Theme) -->
 		<div class="header-right">
+			<button id="theme-toggle-desktop" class="theme-toggle-desktop" aria-label="Сменить тему">
+				<svg class="theme-icon-desktop" viewBox="0 0 16 16" fill="currentColor" width="18" height="18">
+					<rect x="6" y="0" width="4" height="2"/>
+					<rect x="6" y="14" width="4" height="2"/>
+					<rect x="0" y="6" width="2" height="4"/>
+					<rect x="14" y="6" width="2" height="4"/>
+					<rect x="4" y="4" width="8" height="8"/>
+				</svg>
+			</button>
 			<LanguageSwitcher />
 		</div>
 
@@ -128,11 +137,7 @@ const t = useTranslations(lang);
 
 	// Theme toggle handler
 	const initThemeToggle = () => {
-		const btn = document.getElementById('theme-toggle-mobile');
-		if (!btn) return;
-
-		const updateIcon = (theme: string) => {
-			const icon = btn.querySelector<SVGElement>('.theme-icon-mobile');
+		const updateIcon = (icon: SVGElement, theme: string) => {
 			if (!icon) return;
 			if (theme === 'dark') {
 				// Sun icon
@@ -149,14 +154,23 @@ const t = useTranslations(lang);
 			const next = current === 'dark' ? 'light' : 'dark';
 			html.setAttribute('data-theme', next);
 			try { localStorage.setItem('felag_theme', next); } catch(e) {}
-			updateIcon(next);
+			// Update all theme icons
+			document.querySelectorAll('.theme-icon-desktop, .theme-icon-mobile').forEach(icon => {
+				updateIcon(icon as SVGElement, next);
+			});
 		};
 
-		// Initialize icon on load
+		// Initialize icons on load
 		const saved = document.documentElement.getAttribute('data-theme');
-		updateIcon(saved || 'light');
+		document.querySelectorAll('.theme-icon-desktop, .theme-icon-mobile').forEach(icon => {
+			updateIcon(icon as SVGElement, saved || 'light');
+		});
 
-		btn.addEventListener('click', toggleTheme);
+		// Bind to both desktop and mobile buttons
+		const desktopBtn = document.getElementById('theme-toggle-desktop');
+		const mobileBtn = document.getElementById('theme-toggle-mobile');
+		if (desktopBtn) desktopBtn.addEventListener('click', toggleTheme);
+		if (mobileBtn) mobileBtn.addEventListener('click', toggleTheme);
 	};
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initThemeToggle);

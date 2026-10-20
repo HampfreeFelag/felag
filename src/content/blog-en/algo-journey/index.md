@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: 'Why Algorithms: The Path from Manual to Systematic Trading'
 description: 'Transition to algorithmic trading. Analysis of limitations, discipline, and system architecture. Practical lessons and a systematic approach to the market.'
 pubDate: '2026-10-20'

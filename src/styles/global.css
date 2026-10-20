@@ -406,6 +406,29 @@ a[href^="#"] {
   color: var(--color-border);
 }
 
+/* DESKTOP THEME TOGGLE */
+.theme-toggle-desktop {
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 0.375rem;
+  transition: color var(--duration-fast) var(--ease-out);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-desktop:hover {
+  color: var(--color-accent);
+}
+
+.theme-icon-desktop {
+  width: 18px;
+  height: 18px;
+}
+
 /* HAMBURGER (mobile only) */
 .hamburger {
   display: none;
