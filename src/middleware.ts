@@ -3,7 +3,7 @@ import { defineMiddleware } from 'astro:middleware';
 // SET TO true TO ENABLE MAINTENANCE MODE GLOBALLY
 // 2026-09-15: редизайн завершён локально, но НЕ выкатан — держим maintenance,
 // пока не будет ревью на dev-сервере (npm run dev → localhost:4321).
-const MAINTENANCE_MODE = true;
+const MAINTENANCE_MODE = false;
 
 export const onRequest = defineMiddleware(async (context, next) => {
   // В dev-режиме (npm run dev) maintenance не блокирует — иначе нельзя ревьюить локально.
