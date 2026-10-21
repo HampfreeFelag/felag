@@ -1,6 +1,7 @@
 # Temporary files
 *.jpg
 *.png
+!public/**/*.png
 *.mp4
 *.tmp
 *.swp
