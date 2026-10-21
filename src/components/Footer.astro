@@ -84,18 +84,20 @@ const CLOUDTIPS = {
 				</ul>
 			</div>
 
-			<!-- Column 2: Support -->
-			<div class="footer-column footer-column-support">
-				<h3 class="footer-column-title">{t('footer.support_title')}</h3>
-				<ul class="footer-support-list">
-					<li class="footer-support-item">
-						<a href={CLOUDTIPS.href} target="_blank" rel="noopener noreferrer" class="footer-support-link">
-							<span class="support-name">{CLOUDTIPS.name}</span>
-							<span class="support-desc">{CLOUDTIPS.desc}</span>
-						</a>
-					</li>
-				</ul>
-			</div>
+			<!-- Column 2: Support (RU only — CloudTips is a Russian service) -->
+			{lang === 'ru' && (
+				<div class="footer-column footer-column-support">
+					<h3 class="footer-column-title">{t('footer.support_title')}</h3>
+					<ul class="footer-support-list">
+						<li class="footer-support-item">
+							<a href={CLOUDTIPS.href} target="_blank" rel="noopener noreferrer" class="footer-support-link">
+								<span class="support-name">{CLOUDTIPS.name}</span>
+								<span class="support-desc">{CLOUDTIPS.desc}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			)}
 		</div>
 
 		<!-- Copyright -->
