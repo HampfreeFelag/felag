@@ -69,18 +69,6 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 
 <html lang={lang} data-astro-transition="slide">
 	<head>
-		{/* FOUC prevention — apply saved theme before render */}
-		<script is:inline>
-			(function() {
-				try {
-					var saved = localStorage.getItem('felag_theme');
-					var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-					if (saved === 'dark' || (!saved && prefersDark)) {
-						document.documentElement.setAttribute('data-theme', 'dark');
-					}
-				} catch(e) {}
-			})();
-		</script>
 		
 		<BaseHead title={title} description={description} metaOgTitle={metaOgTitle} image={displayImage} />
 		

@@ -94,12 +94,26 @@ if (imageProp) {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="astro-view-transitions-enabled" content="true" />
 
+<!-- Theme: prevent FOUC — runs before any paint -->
+<script is:inline>
+	(function() {
+		try {
+			var saved = localStorage.getItem('felag_theme');
+			var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (saved === 'dark' || (!saved && prefersDark)) {
+				document.documentElement.setAttribute('data-theme', 'dark');
+			}
+		} catch(e) {}
+	})();
+</script>
+
 <!-- Google Fonts: Cormorant Garamond (headings) + Inter (body) + JetBrains Mono (code) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-<!-- Favicon: PNG-логотип (SVG не поддерживает внешние изображения в фавиконках) -->
+<!-- Favicon: SVG (embedded PNG) + PNG fallback + dark mode -->
+<link rel="icon" type="image/svg+xml" href={`${new URL("/favicon.svg", Astro.site).href}?v=${SITE_VERSION}`} />
 <link rel="icon" type="image/png" href={`${new URL("/felag-logo.png", Astro.site).href}?v=${SITE_VERSION}`} />
 <link rel="apple-touch-icon" href={`${new URL("/felag-logo.png", Astro.site).href}?v=${SITE_VERSION}`} />
 <link rel="manifest" href={`${new URL("/site.webmanifest", Astro.site).href}?v=${SITE_VERSION}`} />
