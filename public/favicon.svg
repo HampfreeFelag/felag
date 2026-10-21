@@ -4,5 +4,5 @@
       image { filter: brightness(0) invert(1); }
     }
   </style>
-  <image width="400" height="400" xlink:href="felag-logo.png" />
+  <image width="400" height="400" xlink:href="/felag-logo.png" />
 </svg>
