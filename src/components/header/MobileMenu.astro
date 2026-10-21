@@ -4,7 +4,6 @@
   Includes navigation links, language switcher and theme toggle for mobile view.
 */
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
-import { languages } from '../../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -14,11 +13,12 @@ const currentPath = Astro.url.pathname;
 const isLibrary = currentPath.includes('/library');
 const isAbout = currentPath.includes('/about');
 
+// Determine the OTHER language to switch to
+const targetLang = lang === 'ru' ? 'en' : 'ru';
+
 // Utility to switch language in current URL
 const getSwitchPath = (targetLang: string) => {
 	const pathParts = currentPath.split('/').filter(Boolean);
-	// URL format: /[lang]/...
-	// index 0: "[lang]", index 1: "library" or "about", etc.
 	const langIndex = 0;
 	
 	if (pathParts.length > 0 && ['ru', 'en'].includes(pathParts[langIndex])) {
@@ -38,20 +38,21 @@ const getSwitchPath = (targetLang: string) => {
 		<a href={translatePath('about')} class={isAbout ? 'active' : ''} aria-current={isAbout ? 'page' : undefined}>[{t('nav.about')}]</a>
 	</nav>
 	
-	<!-- Mobile: Languages -->
+	<!-- Mobile: Languages — single globe toggle -->
 	<div class="mobile-lang-switcher">
 		<span class="mobile-menu-label">{t('mobile.lang_label')}</span>
-		<div class="mobile-lang-buttons">
-			{Object.keys(languages).map((l) => (
-				<a 
-					href={getSwitchPath(l) + '?menu=open'}
-					class={`lang-btn-mobile ${lang === l ? 'active' : ''}`} 
-					data-lang={l}
-				>
-					{l.toUpperCase()}
-				</a>
-			))}
-		</div>
+		<a 
+			href={getSwitchPath(targetLang) + '?menu=open'}
+			class="mobile-lang-btn"
+			aria-label={`Switch to ${targetLang === 'ru' ? 'Russian' : 'English'}`}
+		>
+			<svg class="mobile-lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+				<circle cx="12" cy="12" r="10"/>
+				<line x1="2" y1="12" x2="22" y2="12"/>
+				<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+			</svg>
+			<span>{targetLang.toUpperCase()}</span>
+		</a>
 	</div>
 	
 	<!-- Mobile: Theme -->
@@ -68,6 +69,48 @@ const getSwitchPath = (targetLang: string) => {
 	.mobile-nav-links {
 		display: flex;
 		flex-direction: column;
-		gap: 8px; /* ✅ Issue #52: Исправлено на кратно 8px (было 0.75rem = 12px) */
+		gap: 8px;
+	}
+
+	.mobile-lang-switcher {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		padding: 0;
+		align-items: flex-start;
+	}
+
+	.mobile-menu-label {
+		font-family: var(--font-mono);
+		font-weight: 400;
+		font-size: 0.7rem;
+		color: var(--color-text-tertiary);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.mobile-lang-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		background: transparent;
+		border: none;
+		color: var(--color-text-secondary);
+		cursor: pointer;
+		padding: 0.5rem 0;
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		font-weight: 500;
+		text-decoration: none;
+		transition: color var(--duration-fast) var(--ease-out);
+		min-height: 44px;
+	}
+
+	.mobile-lang-btn:hover {
+		color: var(--color-accent);
+	}
+
+	.mobile-lang-icon {
+		flex-shrink: 0;
 	}
 </style>

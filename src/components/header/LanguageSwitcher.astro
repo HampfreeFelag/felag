@@ -1,20 +1,21 @@
 ---
 /*
   LanguageSwitcher Component
-  Handles switching between RU, EN via URL path.
-  Redesigned: minimalist globe icon + text, matching theme toggle aesthetic.
+  Single globe icon + current language abbreviation.
+  Matches theme toggle aesthetic: same size, colors, hover animation.
 */
-import { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+// Determine the OTHER language to switch to
+const targetLang = lang === 'ru' ? 'en' : 'ru';
+
 // Utility to switch language in current URL
 const getSwitchPath = (targetLang: string) => {
 	const currentPath = Astro.url.pathname;
 	const pathParts = currentPath.split('/').filter(Boolean);
-	// URL format: /[lang]/...
 	const langIndex = 0;
 	
 	if (pathParts.length > 0 && ['ru', 'en'].includes(pathParts[langIndex])) {
@@ -25,59 +26,46 @@ const getSwitchPath = (targetLang: string) => {
 	}
 	return `/${targetLang}/`;
 };
+
+const switchPath = getSwitchPath(targetLang);
+const currentLangUpper = lang.toUpperCase();
 ---
 
-<div class="lang-switcher" aria-label={t('mobile.lang_label')}>
-	{Object.keys(languages).map((l, index) => (
-		<>
-			<a 
-				href={getSwitchPath(l)}
-				class={`lang-btn ${lang === l ? 'active' : ''}`} 
-				data-lang={l}
-			>
-				<svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
-					<circle cx="12" cy="12" r="10"/>
-					<line x1="2" y1="12" x2="22" y2="12"/>
-					<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-				</svg>
-				<span class="lang-text">{l.toUpperCase()}</span>
-			</a>
-			{index < Object.keys(languages).length - 1 && <span class="lang-divider">|</span>}
-		</>
-	))}
-</div>
+<a 
+	href={switchPath}
+	class="lang-switcher-btn"
+	aria-label={`Switch to ${targetLang === 'ru' ? 'Russian' : 'English'}`}
+>
+	<svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+		<circle cx="12" cy="12" r="10"/>
+		<line x1="2" y1="12" x2="22" y2="12"/>
+		<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+	</svg>
+	<span class="lang-text">{currentLangUpper}</span>
+</a>
 
 <style>
-	.lang-switcher {
-		display: flex;
+	.lang-switcher-btn {
+		display: inline-flex;
 		align-items: center;
-		gap: 4px;
-		font-family: var(--font-sans);
-		font-size: 0.8rem;
-		font-weight: 500;
-	}
-	.lang-btn {
+		gap: 6px;
 		background: transparent;
 		border: none;
 		color: var(--lang-switcher-color);
 		cursor: pointer;
 		padding: 4px 8px;
 		min-height: 44px;
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-		transition: color var(--duration-fast) var(--ease-out);
 		text-decoration: none;
 		border-radius: var(--radius-sm);
+		transition: color var(--duration-fast) var(--ease-out);
+		font-family: var(--font-sans);
+		font-size: 0.8rem;
+		font-weight: 500;
 	}
-	.lang-btn:hover {
+	.lang-switcher-btn:hover {
 		color: var(--lang-switcher-hover);
 		transform: rotate(-8deg);
 		transition: color var(--duration-fast) var(--ease-out), transform var(--duration-normal) var(--ease-out);
-	}
-	.lang-btn.active {
-		color: var(--lang-switcher-active);
-		font-weight: 600;
 	}
 	.lang-icon {
 		flex-shrink: 0;
@@ -85,10 +73,5 @@ const getSwitchPath = (targetLang: string) => {
 	}
 	.lang-text {
 		line-height: 1;
-	}
-	.lang-divider {
-		color: var(--color-border);
-		opacity: 0.5;
-		user-select: none;
 	}
 </style>
