@@ -162,6 +162,34 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 						className="hero-img"
 					/>
 
+					<!-- Mobile TOC toggle button (hidden on desktop) -->
+					<button class="mobile-toc-toggle" aria-expanded="false" aria-controls="mobile-toc-accordion">
+						<span class="toc-icon">📖</span>
+						<span class="toc-label">{tocTitle}</span>
+						<span class="toc-chevron">▾</span>
+					</button>
+
+					<!-- Mobile TOC accordion (hidden on desktop) -->
+					<div class="mobile-toc-accordion" id="mobile-toc-accordion">
+						<div class="toc-inner">
+							<p class="toc-title">{tocTitle}</p>
+							<ul class="toc-list">
+								{headings?.map((heading) => {
+									const paddingLeft =
+										heading.depth === 2 ? '0' :
+										heading.depth === 3 ? 'var(--space-md)' :
+										heading.depth === 4 ? 'var(--space-lg)' :
+										`calc(var(--space-md) * ${Math.max(1, heading.depth - 2)})`;
+									return (
+										<li class="toc-item" style={`padding-left: ${paddingLeft}`}>
+											<a href={`#${heading.slug}`}>{heading.text}</a>
+										</li>
+									);
+								})}
+							</ul>
+						</div>
+					</div>
+
 					<div class="prose">
 						<slot />
 					</div>
@@ -178,12 +206,11 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 					</div>
 				</article>
 
+				<!-- Desktop TOC (hidden on mobile) -->
 				<aside class="toc-sticky">
 					<p class="toc-title">{tocTitle}</p>
 					<ul class="toc-list">
 						{headings?.map((heading) => {
-							// Отступ слева для оглавления:
-							// depth=2: 0, depth=3: 16px (--space-md), depth=4: 24px
 							const paddingLeft =
 								heading.depth === 2 ? '0' :
 								heading.depth === 3 ? 'var(--space-md)' :
@@ -205,6 +232,17 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 		<Footer />
 
 		<script is:inline>
+			// Mobile TOC accordion toggle
+			const mobileToggle = document.querySelector('.mobile-toc-toggle');
+			const mobileAccordion = document.querySelector('.mobile-toc-accordion');
+			if (mobileToggle && mobileAccordion) {
+				mobileToggle.addEventListener('click', () => {
+					const isOpen = mobileAccordion.classList.toggle('open');
+					mobileToggle.classList.toggle('open', isOpen);
+					mobileToggle.setAttribute('aria-expanded', String(isOpen));
+				});
+			}
+
 			// Track banner clicks (GA4)
 			function trackBannerClick(element) {
 				if (typeof gtag === 'undefined') return;

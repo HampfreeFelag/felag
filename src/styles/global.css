@@ -1138,33 +1138,16 @@ a[href^="#"] {
    ═══════════════════════════════════════════════════════ */
 .layout-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
+  grid-template-columns: 1fr 280px;
   gap: var(--space-3xl);
   align-items: start;
   padding-top: var(--space-xl);
 }
 
-.post-header {
-  max-width: var(--content-max);
-  margin-bottom: var(--space-xl);
-}
-
-.post-header .post-meta {
-  margin-bottom: var(--space-md);
-}
-
-.post-title-full {
-  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
-  letter-spacing: -0.02em;
-  line-height: 1.12;
-  margin-bottom: var(--space-lg);
-}
-
-.post-lead {
-  font-size: 1.12rem;
-  line-height: 1.65;
-  color: var(--color-text-secondary);
-  margin-bottom: 0;
+/* Hairline separator between prose and TOC */
+.layout-grid > article {
+  border-right: 1px solid var(--color-border-light);
+  padding-right: var(--space-2xl);
 }
 
 /* PROSE (blog post content) */
@@ -1350,7 +1333,7 @@ a[href^="#"] {
   top: calc(72px + 32px);
   z-index: 10;
   align-self: start;
-  max-width: 220px;
+  max-width: 280px;
   padding-top: var(--space-xl);
 }
 
@@ -1628,5 +1611,140 @@ a, button, input, select, textarea {
 
   .hero-content > * {
     animation-delay: 0ms !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE: BLOG POST LAYOUT
+   ═══════════════════════════════════════════════════════ */
+
+/* Tablet: 768px – 1023px */
+@media (max-width: 1023px) {
+  .layout-grid {
+    grid-template-columns: 1fr 240px;
+    gap: var(--space-xl);
+  }
+
+  .layout-grid > article {
+    padding-right: var(--space-lg);
+  }
+
+  .toc-sticky {
+    max-width: 240px;
+  }
+}
+
+/* Mobile: < 768px */
+@media (max-width: 767px) {
+  .layout-grid {
+    display: block;
+  }
+
+  .layout-grid > article {
+    border-right: none;
+    padding-right: 0;
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .prose {
+    max-width: 100%;
+  }
+
+  /* Hide desktop TOC */
+  .toc-sticky {
+    display: none;
+  }
+
+  /* Mobile TOC toggle button */
+  .mobile-toc-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 16px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out);
+  }
+
+  .mobile-toc-toggle:hover {
+    background: var(--color-bg-subtle);
+  }
+
+  .mobile-toc-toggle .toc-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .mobile-toc-toggle .toc-label {
+    flex: 1;
+    text-align: left;
+  }
+
+  .mobile-toc-toggle .toc-chevron {
+    transition: transform var(--duration-fast) var(--ease-out);
+    color: var(--color-text-tertiary);
+  }
+
+  .mobile-toc-toggle.open .toc-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Mobile TOC accordion */
+  .mobile-toc-accordion {
+    display: none;
+    padding: 0 16px 16px;
+  }
+
+  .mobile-toc-accordion.open {
+    display: block;
+  }
+
+  .mobile-toc-accordion .toc-inner {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+  }
+
+  .mobile-toc-accordion .toc-title {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-amber);
+    margin-bottom: var(--space-md);
+  }
+
+  .mobile-toc-accordion .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-toc-accordion .toc-item {
+    margin-bottom: var(--space-xs);
+  }
+
+  .mobile-toc-accordion .toc-item a {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-text-tertiary);
+    text-decoration: none;
+    padding: 3px 0 3px var(--space-md);
+    border-left: 1px solid var(--color-border);
+    transition: all var(--duration-fast) var(--ease-out);
+  }
+
+  .mobile-toc-accordion .toc-item a:hover,
+  .mobile-toc-accordion .toc-item a.active {
+    color: var(--color-text);
+    border-left-color: var(--color-accent);
   }
 }
