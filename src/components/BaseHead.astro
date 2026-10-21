@@ -112,6 +112,9 @@ if (imageProp) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
+<!-- Preload critical fonts to reduce FOIT -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" />
+
 <!-- Favicon: PNG logo (browser scales automatically) -->
 <link rel="icon" type="image/png" href={`${new URL("/felag-logo.png", Astro.site).href}?v=${SITE_VERSION}`} sizes="any" />
 <link rel="apple-touch-icon" href={`${new URL("/felag-logo.png", Astro.site).href}?v=${SITE_VERSION}`} />

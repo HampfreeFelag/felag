@@ -1,7 +1,8 @@
 ---
 /*
   LanguageSwitcher Component
-  Handles switching between RU, EN, ES via URL path.
+  Handles switching between RU, EN via URL path.
+  Redesigned: minimalist globe icon + text, matching theme toggle aesthetic.
 */
 import { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
@@ -14,7 +15,6 @@ const getSwitchPath = (targetLang: string) => {
 	const currentPath = Astro.url.pathname;
 	const pathParts = currentPath.split('/').filter(Boolean);
 	// URL format: /[lang]/...
-	// index 0: "[lang]", index 1: "library" or "about", etc.
 	const langIndex = 0;
 	
 	if (pathParts.length > 0 && ['ru', 'en'].includes(pathParts[langIndex])) {
@@ -35,7 +35,12 @@ const getSwitchPath = (targetLang: string) => {
 				class={`lang-btn ${lang === l ? 'active' : ''}`} 
 				data-lang={l}
 			>
-				{l.toUpperCase()}
+				<svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+					<circle cx="12" cy="12" r="10"/>
+					<line x1="2" y1="12" x2="22" y2="12"/>
+					<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+				</svg>
+				<span class="lang-text">{l.toUpperCase()}</span>
 			</a>
 			{index < Object.keys(languages).length - 1 && <span class="lang-divider">|</span>}
 		</>
@@ -54,24 +59,36 @@ const getSwitchPath = (targetLang: string) => {
 	.lang-btn {
 		background: transparent;
 		border: none;
-		color: var(--color-text-secondary);
+		color: var(--lang-switcher-color);
 		cursor: pointer;
 		padding: 4px 8px;
 		min-height: 44px;
 		display: inline-flex;
 		align-items: center;
+		gap: 6px;
 		transition: color var(--duration-fast) var(--ease-out);
 		text-decoration: none;
+		border-radius: var(--radius-sm);
 	}
 	.lang-btn:hover {
-		color: var(--color-accent);
+		color: var(--lang-switcher-hover);
+		transform: rotate(-8deg);
+		transition: color var(--duration-fast) var(--ease-out), transform var(--duration-normal) var(--ease-out);
 	}
 	.lang-btn.active {
-		color: var(--color-accent);
+		color: var(--lang-switcher-active);
 		font-weight: 600;
+	}
+	.lang-icon {
+		flex-shrink: 0;
+		transition: transform var(--duration-normal) var(--ease-out);
+	}
+	.lang-text {
+		line-height: 1;
 	}
 	.lang-divider {
 		color: var(--color-border);
 		opacity: 0.5;
+		user-select: none;
 	}
 </style>

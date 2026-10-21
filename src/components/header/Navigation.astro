@@ -27,7 +27,8 @@ const categories = [
 	<!-- CATEGORIES DROPDOWN -->
 	<div class="nav-dropdown">
 		<button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-			{t('home.categories_label')} ▾
+			<span class="dropdown-label">{t('home.categories_label')}</span>
+			<span class="dropdown-chevron" aria-hidden="true">▾</span>
 		</button>
 		<div class="nav-dropdown-menu" role="menu">
 			{categories.map(cat => {

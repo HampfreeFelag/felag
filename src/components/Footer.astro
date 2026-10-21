@@ -76,9 +76,6 @@ const CLOUDTIPS = {
 							<a href={p.href} target="_blank" rel="noopener noreferrer sponsored nofollow" class="footer-partner-link">
 								<span class="partner-name">{p.name}</span>
 							</a>
-							<span class="partner-erid">
-								{t('footer.ad_marking')}. {p.advertiser}, ИНН {p.inn}. erid: {p.erid}
-							</span>
 						</li>
 					))}
 				</ul>
@@ -103,6 +100,15 @@ const CLOUDTIPS = {
 		<!-- Copyright -->
 		<div class="footer-bottom">
 			<p class="footer-copy">&copy; {today.getFullYear()} FÉLAG. {t('footer.rights')} · <a href={translatePath('privacy')}>{t('nav.privacy')}</a></p>
+		</div>
+
+		<!-- Legal info (ERID markings) -->
+		<div class="footer-legal">
+			{PARTNERS.map(p => (
+				<p class="footer-legal-item">
+					{t('footer.ad_marking')}. {p.advertiser}, ИНН {p.inn}. erid: {p.erid}
+				</p>
+			))}
 		</div>
 	</div>
 </footer>
@@ -165,6 +171,23 @@ const CLOUDTIPS = {
 		font-size: 0.65rem;
 		color: var(--color-text-tertiary);
 		line-height: 1.3;
+	}
+
+	/* ── Legal info (consolidated ERID) ── */
+	.footer-legal {
+		border-top: 1px solid var(--color-border-light);
+		padding-top: var(--space-md);
+		margin-top: var(--space-xl);
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+
+	.footer-legal-item {
+		font-size: 0.6rem;
+		color: #9B968B;
+		line-height: 1.3;
+		margin: 0;
 	}
 
 	/* ── Support Column ── */
