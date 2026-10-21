@@ -1298,34 +1298,6 @@ a[href^="#"] {
 }
 
 /* ═══════════════════════════════════════════════════════
-   16. BREADCRUMBS
-   ═══════════════════════════════════════════════════════ */
-.breadcrumbs {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--color-text-tertiary);
-  margin-bottom: var(--space-xl);
-  flex-wrap: wrap;
-}
-
-.breadcrumbs a {
-  color: var(--color-text-tertiary);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-out);
-}
-
-.breadcrumbs a:hover {
-  color: var(--color-text);
-}
-
-.breadcrumbs .separator {
-  color: var(--color-border);
-}
-
-/* ═══════════════════════════════════════════════════════
    17. TABLE OF CONTENTS
    ═══════════════════════════════════════════════════════ */
 .toc-sticky {
