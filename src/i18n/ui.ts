@@ -176,5 +176,6 @@ export const ui = {
 	'consent.message': 'We use cookies and Google Analytics for analytics. No email, phone numbers or logins shared. See ',
     'consent.accept': 'Accept',
     'consent.reject': 'Reject',
+    'consent.privacy': 'privacy policy.',
   },
 } as const;

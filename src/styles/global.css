@@ -18,7 +18,7 @@
 
   --color-text: #1B1A17;
   --color-text-secondary: #67635B;
-  --color-text-tertiary: #9B968B;
+  --color-text-tertiary: #7A756B;
 
   --color-accent: #1E3A5F;
   --color-accent-hover: #14283F;
@@ -316,7 +316,7 @@ a[href^="#"] {
 .nav-dropdown-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: 0;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -325,11 +325,30 @@ a[href^="#"] {
   min-width: 300px;
   padding: 0.5rem 0;
   z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+}
+
+/* Невидимый мостик между триггером и меню — убирает gap */
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: transparent;
+  pointer-events: auto;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown-trigger:focus + .nav-dropdown-menu {
   display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .nav-dropdown-item {
@@ -422,6 +441,8 @@ a[href^="#"] {
 
 .theme-toggle-desktop:hover {
   color: var(--color-accent);
+  transform: rotate(15deg);
+  transition: color var(--duration-fast) var(--ease-out), transform var(--duration-normal) var(--ease-out);
 }
 
 .theme-icon-desktop {
@@ -1499,6 +1520,26 @@ a, button, input, select, textarea {
 .lang-btn-mobile {
   padding: 0.5rem 0;
   min-height: 44px;
+}
+
+/* Mobile theme toggle */
+.theme-btn-mobile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 0.5rem 0;
+  font-family: inherit;
+  font-size: inherit;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+.theme-btn-mobile:hover {
+  color: var(--color-accent);
+  transform: rotate(15deg);
+  transition: color var(--duration-fast) var(--ease-out), transform var(--duration-normal) var(--ease-out);
 }
 
 /* Fix search input touch target */
