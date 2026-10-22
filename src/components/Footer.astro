@@ -180,7 +180,9 @@ const CLOUDTIPS = {
 	.footer-legal {
 		border-top: 1px solid var(--color-border-light);
 		padding-top: var(--space-md);
-		margin-top: var(--space-xl);
+		padding-bottom: var(--space-xl);
+		margin-top: var(--space-lg);
+		margin-bottom: var(--space-md);
 		display: flex;
 		flex-direction: column;
 		gap: 0.15rem;
@@ -238,6 +240,7 @@ const CLOUDTIPS = {
 	.footer-bottom {
 		border-top: 1px solid var(--color-border-light);
 		padding-top: var(--space-lg);
+		padding-bottom: var(--space-xl);
 	}
 
 	.footer-copy {
@@ -256,7 +259,7 @@ const CLOUDTIPS = {
 	}
 
 	/* ── Mobile ── */
-	@media (max-width: 768px) {
+	@media (max-width: 767px) {
 		.footer-grid {
 			grid-template-columns: 1fr;
 			gap: var(--space-xl);
@@ -267,6 +270,25 @@ const CLOUDTIPS = {
 			border-top: 1px solid var(--color-border-light);
 			padding-left: 0;
 			padding-top: var(--space-lg);
+		}
+
+		.footer-legal {
+			padding-bottom: var(--space-lg);
+		}
+
+		.footer-bottom {
+			padding-bottom: var(--space-xl);
+		}
+	}
+
+	/* ── Large screens ── */
+	@media (min-width: 1440px) {
+		.footer-legal {
+			padding-bottom: var(--space-2xl);
+		}
+
+		.footer-bottom {
+			padding-bottom: var(--space-3xl);
 		}
 	}
 </style>
