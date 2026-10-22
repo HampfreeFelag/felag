@@ -1212,36 +1212,54 @@ a[href^="#"] {
   padding-top: var(--space-xl);
 }
 
+/* Mobile TOC toggle — скрыт на десктопе */
+.mobile-toc-toggle {
+  display: none;
+}
+
 .toc-title {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--color-amber);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-tertiary);
   margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .toc-list {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .toc-item {
-  margin-bottom: var(--space-xs);
+  margin-bottom: 2px;
 }
 
 .toc-item a {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
   color: var(--color-text-tertiary);
   text-decoration: none;
-  padding: 3px 0 3px var(--space-md);
-  border-left: 1px solid var(--color-border);
-  transition: all var(--duration-fast) var(--ease-out);
+  padding: 4px 0 4px 12px;
+  border-left: 2px solid transparent;
+  transition: all 150ms ease;
+  font-family: var(--font-sans, sans-serif);
 }
 
-.toc-item a:hover,
+.toc-item a:hover {
+  color: var(--color-text-secondary);
+  border-left-color: var(--color-text-tertiary);
+}
+
 .toc-item a.active {
   color: var(--color-text);
   border-left-color: var(--color-accent);
+  font-weight: 500;
 }
 
 /* ═══════════════════════════════════════════════════════

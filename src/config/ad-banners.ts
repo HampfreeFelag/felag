@@ -156,10 +156,10 @@ const ALL_BANNERS: AdBanner[] = [
   // ── FÉLAG — внутренняя перелинковка (не реклама, всегда виден) ──
   {
     id: 'default-felag',
-    title: 'FÉLAG',
-    subtitle: 'Трейдинг, крипта, автоматизация',
-    cta: 'Библиотека →',
-    link: '/{lang}/saga/',
+    title: 'Связаться с автором',
+    subtitle: 'Telegram, email, вопросы по проекту',
+    cta: 'Написать →',
+    link: 'https://t.me/hampfree',
     erid: '',
     internal: true,
     colors: {

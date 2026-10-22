@@ -45,9 +45,9 @@ const translatePath = useTranslatedPath(lang);
 
 // Содержание на разных языках
 const tocTitle = {
-	ru: 'Содержание',
-	en: 'Table of Contents'
-}[lang] || 'Содержание';
+	ru: 'В этой статье',
+	en: 'In this article'
+}[lang] || 'В этой статье';
 
 const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrumbs || (() => {
 	const items: Array<{ label: string; href?: string }> = [
