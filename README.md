@@ -1,6 +1,6 @@
 # FÉLAG
 
-**Образовательный блог о трейдинге, криптовалюте и ремесле**
+**Бортовой журнал торгового товарищества. Без иллюзий. Только ремесло.**
 
 [![Astro](https://img.shields.io/badge/Astro-4C1D95?logo=astro&logoColor=fff&style=flat)](https://astro.build)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=flat)](https://www.typescriptlang.org)
@@ -8,10 +8,10 @@
 
 ---
 
-**Последнее обновление:** 17 октября 2026 г.
+**Последнее обновление:** 22 октября 2026 г.  
 **Статус:** Стабильно, CI passing, GitHub Pages deployed
 
-**Сайт:** [Felag.online](https://felag.online)
+**Сайт:** [felag.online](https://felag.online)  
 **Приватный репо:** [hampfreeblog-private](https://github.com/HampfreeFelag/hampfreeblog-private)
 
 **Лицензия:** [CC BY-NC-SA 4.0](LICENSE) — некоммерческое использование с указанием авторства
@@ -51,15 +51,15 @@ npm run preview
 ## Структура проекта
 
 ```
-├── public/              # Статические файлы
+├── public/              # Статические файлы, OG-изображения, шрифты
 ├── src/
-│   ├── components/      # Astro компоненты
-│   ├── content/         # Контент блога (Markdown)
-│   ├── layouts/         # Layout компоненты
-│   ├── pages/           # Страницы сайта
-│   ├── styles/          # CSS стили (global.css)
+│   ├── components/      # Astro компоненты (Header, Footer, Breadcrumb...)
+│   ├── content/         # Контент блога (Markdown: blog-ru, blog-en)
+│   ├── layouts/         # Layout компоненты (BlogPost, TerminalLayout)
+│   ├── pages/           # Страницы сайта ([lang]/saga/, [lang]/about...)
+│   ├── styles/          # CSS стили (global.css — design tokens)
 │   └── i18n/            # Интернационализация (RU, EN)
-├── astro.config.mjs     # Конфигурация Astro
+├── astro.config.mjs     # Конфигурация Astro 5.x
 └── package.json         # Зависимости
 ```
 
@@ -67,26 +67,24 @@ npm run preview
 
 ## Дизайн-система
 
-### Félag Editorial Minimal (с 15.09.2026)
+### Félag Editorial Minimal
 
 - **Философия:** типографика-first — hairline-линии вместо карточек, воздух, editorial-минимализм
 - **Шрифты:** Cormorant Garamond (заголовки), Inter (текст), JetBrains Mono (кикеры, мета, рубрики)
-- **Референсы:** satnaing.dev, lekoarts.de, astro-micro
+- **Концепция:** «Судовой журнал варяжского торгового товарищества. Без магии. Только ремесло и честный курс.»
 
 **Цвета:**
 - **Фон:** `#FAF9F6` — тёплая бумага
-- **Текст:** `#1B1A17` (основной), `#67635B` (вторичный), `#9B968B` (третичный)
+- **Текст:** `#1B1A17` (основной), `#67635B` (вторичный), `#7A756B` (третичный)
 - **Акцент:** `#1E3A5F` — фьорд-синий (ссылки, активные элементы)
 - **Кикеры:** `#A97B2C` — янтарь (рубрики, секции, TOC)
 - **Линии:** `#E4E1DA` / `#EDEAE4` — hairline-разделители
-
-**Концепция:** «Без магии. Только ремесло и честный курс.» Судовой журнал варяжского торгового товарищества.
 
 ### Деплой
 
 **Пуш в `main` автоматически деплоит на felag.online** (`.github/workflows/deploy.yml`).
 
-### Категории
+### Рубрики
 
 | Slug | Название | Содержание |
 |------|----------|------------|
@@ -106,8 +104,6 @@ npm run preview
 - Русский (RU)
 - English (EN)
 
-**Испанский (ES) удалён** (коммит #619).
-
 Статьи пишутся в Markdown формате в `src/content/blog-[lang]/[slug]/index.md`.
 Структура: одна папка = одна статья; внутри `index.md` и при необходимости `assets/` для картинок.
 
@@ -117,17 +113,10 @@ npm run preview
 title: "Заголовок"       # До 100 символов
 description: "SEO-описание (150-160 символов)"
 pubDate: '2026-01-15'   # YYYY-MM-DD
-category: 'route'       # Одна из 7 категорий
+category: 'route'       # Одна из 7 рубрик
 draft: true             # true = скрыта, false = видна
 ---
 ```
-
----
-
-## Аудит контента
-
-Автоматическая проверка статей по критериям качества и соответствия editorial guidelines.
-Полная документация — в приватном репозитории [hampfreeblog-private](https://github.com/HampfreeFelag/hampfreeblog-private).
 
 ---
 
@@ -138,6 +127,7 @@ draft: true             # true = скрыта, false = видна
 - **CSS** — design tokens (полная спецификация — [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md))
 - **Markdown/MDX** — контент блога
 - **GitHub Actions** — автоматический деплой на GitHub Pages
+- **OG Images** — автоматическая генерация превью для соцсетей (Satori + Resvg)
 
 ---
 
@@ -162,31 +152,19 @@ draft: true             # true = скрыта, false = видна
 
 ---
 
-## Деплой
-
-Блог автоматически деплоится на GitHub Pages через GitHub Actions при пуше в ветку `main`.
-
-### OG изображения
-
-OG изображения генерируются автоматически при сборке.
-
----
-
 ## Статус проекта
 
-**Текущая версия:** 7 категорий, 2 языка
+**Текущая версия:** 7 рубрик, 2 языка, Astro 5.x + TypeScript
 
 **Что готово:**
 - Félag Editorial Minimal дизайн-система (см. [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md))
-- 7 категорий: Route, Forge, Helm, Treasury, Compass, Logbook, Crew
+- 7 рубрик: Route, Forge, Helm, Treasury, Compass, Logbook, Crew
 - 2 языка: RU + EN
 - Адаптивный дизайн (mobile-first)
 - Анимации и плавные переходы
 - Автоматический деплой на GitHub Pages
+- OG-изображения для соцсетей (автоматическая генерация)
 - ~132 файлов статей (66 RU + 66 EN)
-
-**Что делать:**
-- Добавить контент для Helm, Treasury, Logbook, Crew
 
 ---
 

@@ -6,7 +6,7 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 const currentPath = Astro.url.pathname;
-const isLibrary = currentPath.includes('/library');
+const isSaga = currentPath.includes('/saga');
 const isAbout = currentPath.includes('/about');
 const isCategory = currentPath.match(/\/(route|forge|helm|treasury|compass|logbook|crew)$/);
 
@@ -22,7 +22,7 @@ const categories = [
 ---
 
 <nav class="desktop-nav" aria-label={t('nav.aria_label')}>
-	<a href={translatePath('library')} class:list={['nav-link', { active: isLibrary }]} aria-current={isLibrary ? 'page' : undefined}>{t('nav.library')}</a>
+	<a href={translatePath('saga')} class:list={['nav-link', { active: isSaga }]} aria-current={isSaga ? 'page' : undefined}>{t('nav.saga')}</a>
 	
 	<!-- CATEGORIES DROPDOWN -->
 	<div class="nav-dropdown">

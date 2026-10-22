@@ -10,7 +10,7 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 const currentPath = Astro.url.pathname;
-const isLibrary = currentPath.includes('/library');
+const isSaga = currentPath.includes('/saga');
 const isAbout = currentPath.includes('/about');
 
 // Determine the OTHER language to switch to
@@ -34,8 +34,8 @@ const getSwitchPath = (targetLang: string) => {
 <!-- MOBILE MENU -->
 <div id="mobile-menu" class="mobile-menu" aria-label={t('mobile.menu_aria_label')}>
 	<nav class="mobile-nav-links">
-		<a href={translatePath('library')} class={isLibrary ? 'active' : ''} aria-current={isLibrary ? 'page' : undefined}>[{t('nav.library')}]</a>
-		<a href={translatePath('about')} class={isAbout ? 'active' : ''} aria-current={isAbout ? 'page' : undefined}>[{t('nav.about')}]</a>
+		<a href={translatePath('saga')} class={isSaga ? 'active' : ''} aria-current={isSaga ? 'page' : undefined}>{t('nav.saga')}</a>
+		<a href={translatePath('about')} class={isAbout ? 'active' : ''} aria-current={isAbout ? 'page' : undefined}>{t('nav.about')}</a>
 	</nav>
 	
 	<!-- Mobile: Languages — single globe toggle -->
@@ -111,6 +111,34 @@ const getSwitchPath = (targetLang: string) => {
 	}
 
 	.mobile-lang-icon {
+		flex-shrink: 0;
+	}
+
+	/* Mobile theme button — clean icon only, no box */
+	.theme-btn-mobile {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		background: transparent;
+		border: none;
+		color: var(--color-text-secondary);
+		cursor: pointer;
+		padding: 0.5rem 0;
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		font-weight: 500;
+		text-decoration: none;
+		transition: color var(--duration-fast) var(--ease-out);
+		min-height: 44px;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.theme-btn-mobile:hover {
+		color: var(--color-accent);
+	}
+
+	.theme-icon-mobile {
 		flex-shrink: 0;
 	}
 </style>

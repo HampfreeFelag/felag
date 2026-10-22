@@ -91,31 +91,31 @@ const categories = [
 ];
 
 const breadcrumbItems = [
-	{ label: t('nav.library') }
+	{ label: t('nav.saga') }
 ];
 ---
 
 <!doctype html>
 <html lang={lang}>
 	<head>
-		<BaseHead title={`${SITE_TITLE} - ${t('nav.library')}`} description={t('home.hero_description')} />
+		<BaseHead title={`${SITE_TITLE} - ${t('nav.saga')}`} description={t('home.hero_description')} />
 	</head>
 	<body>
 		<Header />
 		<main class="container page-top-padding">
-			<div class="library-header">
+			<div class="saga-header">
 				<Breadcrumb items={breadcrumbItems} />
-				<h1 class="page-title">{t('library.title')}</h1>
+				<h1 class="page-title">{t('saga.title')}</h1>
 			</div>
 			
 			<section class="posts-grid fade-in" id="postsGrid">
 				<div class="search-and-filter">
 					<div class="search-bar">
-						<input type="text" placeholder={t('library.search')} id="searchInput" />
+						<input type="text" placeholder={t('saga.search')} id="searchInput" />
 					</div>
 
 					<div class="categories-filter">
-						<div class="section-label">{t('library.filter')}</div>
+						<div class="section-label">{t('saga.filter')}</div>
 						<div class="categories-container categories-container-with-margin" role="group">
 							{categories.map(cat => (
 								<button 
@@ -135,7 +135,7 @@ const breadcrumbItems = [
 				<div id="postsList" class="posts-list">
 					{sortedPosts.map((post) => (
 						<a 
-							href={`/${lang}/library/${post.id}/`} 
+							href={`/${lang}/saga/${post.id}/`} 
 							class="post-card" 
 							data-title={post.data.title.toLowerCase()}
 							data-description={post.data.description.toLowerCase()}
@@ -151,13 +151,13 @@ const breadcrumbItems = [
 							<div class="post-meta">
 								<span class="banner-date"><FormattedDate date={post.data.pubDate} /></span>
 							</div>
-							<div class="read-more-link" aria-hidden="true">{t('library.read_more')}</div>
+							<div class="read-more-link" aria-hidden="true">{t('saga.read_more')}</div>
 						</a>
 					))}
 				</div>
 			) : (
 				<div class="no-posts" style="padding: var(--space-2xl); text-align: center; color: var(--color-text-secondary);">
-					<p>{t('library.no_articles_debug')}</p>
+					<p>{t('saga.no_articles_debug')}</p>
 				</div>
 			)}
 			</section>
@@ -167,7 +167,7 @@ const breadcrumbItems = [
 			</div>
 			
 			<div id="noResults" class="no-results">
-				{t('library.no_results')}
+				{t('saga.no_results')}
 			</div>
 			<ScrollTop />
 		</main>

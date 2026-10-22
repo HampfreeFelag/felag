@@ -159,7 +159,7 @@ const ALL_BANNERS: AdBanner[] = [
     title: 'FÉLAG',
     subtitle: 'Трейдинг, крипта, автоматизация',
     cta: 'Библиотека →',
-    link: '/{lang}/library/',
+    link: '/{lang}/saga/',
     erid: '',
     internal: true,
     colors: {

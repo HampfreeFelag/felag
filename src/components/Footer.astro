@@ -1,5 +1,5 @@
 ---
-// Footer — minimal, clean with partner links and support
+// Footer — minimal for service pages, full (with partners + ERID) for article pages
 import ConsentBanner from './ConsentBanner.astro';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
@@ -7,9 +7,13 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const today = new Date();
+const pathname = Astro.url.pathname;
 
-// ERID tokens from ad-banners.ts (priority order)
-// RU: all 4 partners | EN: only Veles (Russian IT company)
+// Article pages get partners + ERID; service pages get minimal footer only
+const isArticlePage = pathname.includes('/saga/') && !pathname.includes('/saga/index');
+
+// ERID tokens (38-ФЗ marking)
+// RU: all 4 partners | EN: only Veles
 const PARTNERS = lang === 'en'
   ? [
       {
@@ -65,50 +69,55 @@ const CLOUDTIPS = {
 
 <footer class="main-footer">
 	<div class="container">
-		<!-- Partner links + Support in two columns -->
-		<div class="footer-grid">
-			<!-- Column 1: Tools -->
-			<div class="footer-column">
-				<h3 class="footer-column-title">{t('footer.tools_title')}</h3>
-				<ul class="footer-partner-list">
-					{PARTNERS.map(p => (
-						<li class="footer-partner-item">
-							<a href={p.href} target="_blank" rel="noopener noreferrer sponsored nofollow" class="footer-partner-link">
-								<span class="partner-name">{p.name}</span>
-							</a>
-						</li>
-					))}
-				</ul>
-			</div>
+		<!-- FULL FOOTER: only on article pages -->
+		{isArticlePage && (
+			<>
+				<!-- Partner links + Support in two columns -->
+				<div class="footer-grid">
+					<!-- Column 1: Tools -->
+					<div class="footer-column">
+						<h3 class="footer-column-title">{t('footer.tools_title')}</h3>
+						<ul class="footer-partner-list">
+							{PARTNERS.map(p => (
+								<li class="footer-partner-item">
+									<a href={p.href} target="_blank" rel="noopener noreferrer sponsored nofollow" class="footer-partner-link">
+										<span class="partner-name">{p.name}</span>
+									</a>
+								</li>
+							))}
+						</ul>
+					</div>
 
-			<!-- Column 2: Support (RU only — CloudTips is a Russian service) -->
-			{lang === 'ru' && (
-				<div class="footer-column footer-column-support">
-					<h3 class="footer-column-title">{t('footer.support_title')}</h3>
-					<ul class="footer-support-list">
-						<li class="footer-support-item">
-							<a href={CLOUDTIPS.href} target="_blank" rel="noopener noreferrer" class="footer-support-link">
-								<span class="support-name">{CLOUDTIPS.name}</span>
-								<span class="support-desc">{CLOUDTIPS.desc}</span>
-							</a>
-						</li>
-					</ul>
+					<!-- Column 2: Support (RU only — CloudTips is a Russian service) -->
+					{lang === 'ru' && (
+						<div class="footer-column footer-column-support">
+							<h3 class="footer-column-title">{t('footer.support_title')}</h3>
+							<ul class="footer-support-list">
+								<li class="footer-support-item">
+									<a href={CLOUDTIPS.href} target="_blank" rel="noopener noreferrer" class="footer-support-link">
+										<span class="support-name">{CLOUDTIPS.name}</span>
+										<span class="support-desc">{CLOUDTIPS.desc}</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					)}
 				</div>
-			)}
-		</div>
 
-		<!-- Copyright -->
+				<!-- Legal info (ERID markings) -->
+				<div class="footer-legal">
+					{PARTNERS.map(p => (
+						<p class="footer-legal-item">
+							{t('footer.ad_marking')}. {p.advertiser}, ИНН {p.inn}. erid: {p.erid}
+						</p>
+					))}
+				</div>
+			</>
+		)}
+
+		<!-- Copyright (always shown) -->
 		<div class="footer-bottom">
 			<p class="footer-copy">&copy; {today.getFullYear()} FÉLAG. {t('footer.rights')} · <a href={translatePath('privacy')}>{t('nav.privacy')}</a></p>
-		</div>
-
-		<!-- Legal info (ERID markings) -->
-		<div class="footer-legal">
-			{PARTNERS.map(p => (
-				<p class="footer-legal-item">
-					{t('footer.ad_marking')}. {p.advertiser}, ИНН {p.inn}. erid: {p.erid}
-				</p>
-			))}
 		</div>
 	</div>
 </footer>
@@ -165,12 +174,6 @@ const CLOUDTIPS = {
 		font-size: 0.9rem;
 		font-weight: 500;
 		color: var(--color-text);
-	}
-
-	.partner-erid {
-		font-size: 0.65rem;
-		color: var(--color-text-tertiary);
-		line-height: 1.3;
 	}
 
 	/* ── Legal info (consolidated ERID) ── */

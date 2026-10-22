@@ -700,6 +700,14 @@ a[href^="#"] {
 /* ═══════════════════════════════════════════════════════
    SEARCH BAR — Library page
    ═══════════════════════════════════════════════════════ */
+/* ── Saga/Former Library page styles ── */
+.saga-header {
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	color: var(--color-text-tertiary);
+	margin-bottom: var(--space-xl);
+}
+
 .search-bar {
   margin-bottom: var(--space-lg);
   max-width: 420px;
@@ -743,6 +751,26 @@ a[href^="#"] {
   grid-template-columns: repeat(2, 1fr);
   column-gap: var(--space-3xl);
   margin-bottom: var(--space-2xl);
+}
+
+/* Mobile: single column, smaller fonts */
+@media (max-width: 767px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .post-title {
+    font-size: 1.2rem;
+  }
+
+  .post-desc {
+    font-size: 0.88rem;
+  }
+
+  .post-meta {
+    font-size: 0.68rem;
+  }
 }
 
 .posts-list {

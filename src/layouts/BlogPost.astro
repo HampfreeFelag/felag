@@ -51,14 +51,14 @@ const tocTitle = {
 
 const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrumbs || (() => {
 	const items: Array<{ label: string; href?: string }> = [
-		{ label: t('nav.library'), href: translatePath('library') }
+		{ label: t('nav.saga'), href: translatePath('saga') }
 	];
 	
 	// Добавляем категорию в хлебные крошки, если она указана
 	if (category) {
 		const catLabel = t(`cat.${category}` as any);
 		if (catLabel) {
-			items.push({ label: catLabel, href: `${translatePath('library')}?cat=${category}` });
+			items.push({ label: catLabel, href: `${translatePath('saga')}?cat=${category}` });
 		}
 	}
 	
@@ -537,7 +537,7 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				const bannerContainer = document.createElement('div');
 				bannerContainer.className = 'in-article-ad-container';
 				bannerContainer.setAttribute('role', 'banner');
-				bannerContainer.setAttribute('aria-label', isInternal ? 'Félag library' : 'Advertisement');
+				bannerContainer.setAttribute('aria-label', isInternal ? 'Félag saga' : 'Advertisement');
 
 				bannerContainer.innerHTML = `
 					<a

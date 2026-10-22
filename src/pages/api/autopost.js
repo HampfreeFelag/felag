@@ -40,7 +40,7 @@ export async function POST({ request }) {
     const postData = {
       title: latestPost.data.title,
       description: latestPost.data.description,
-      link: `/${lang}/library/${latestPost.id}/`,
+      link: `/${lang}/saga/${latestPost.id}/`,
       pubDate: latestPost.data.pubDate,
       content: latestPost.body
     };

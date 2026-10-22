@@ -65,12 +65,12 @@ if (imageProp) {
 	const pathParts = pathname.split('/').filter(Boolean);
 	const langPrefix = pathParts.length > 0 && SUPPORTED_LANGS.includes(pathParts[0] as any) ? pathParts[0] : 'ru';
 
-	// Проверяем, это статья (library/[lang]/[...slug]) или главная
-	if (pathname.includes('/library/')) {
-		const libraryIndex = pathParts.indexOf('library');
-		if (libraryIndex >= 0) {
-			const lang = pathParts[libraryIndex - 1] || langPrefix;
-			const slugParts = pathParts.slice(libraryIndex + 1);
+	// Проверяем, это статья (saga/[lang]/[...slug]) или главная
+	if (pathname.includes('/saga/')) {
+		const sagaIndex = pathParts.indexOf('saga');
+		if (sagaIndex >= 0) {
+			const lang = pathParts[sagaIndex - 1] || langPrefix;
+			const slugParts = pathParts.slice(sagaIndex + 1);
 			const slug = slugParts.length > 0 ? slugParts.join('-') : 'homepage';
 			ogImageUrl = new URL(`/og/${lang}-${slug}.png`, Astro.site);
 		} else {
@@ -184,7 +184,7 @@ if (imageProp) {
 		"inLanguage": ["ru", "en"],
 		"potentialAction": {
 			"@type": "SearchAction",
-			"target": "{siteUrl.href}{lang}/library/?q={search_term_string}",
+			"target": "{siteUrl.href}{lang}/saga/?q={search_term_string}",
 			"query-input": "required name=search_term_string"
 		}
 	};
