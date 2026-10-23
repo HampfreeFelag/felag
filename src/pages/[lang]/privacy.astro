@@ -3,9 +3,11 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import ExternalLink from '../../components/icons/ExternalLink.astro';
 import { SITE_TITLE } from '../../consts';
 import { ui } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
+import { getLinkAttrs } from '../../utils/link-utils';
 
 export async function getStaticPaths() {
   return [
@@ -77,7 +79,15 @@ const c = content[lang as keyof typeof content] || content.en;
 					<h2>{c.rightsTitle}</h2>
 					<p>{c.rightsBody}</p>
 					<h2>{c.contactTitle}</h2>
-					<p>{c.contactText}<a href={c.contactLink} target="_blank" rel="noopener noreferrer" class="privacy-contact-link">{c.contactLabel}</a></p>
+					<p>{c.contactText}{(() => {
+						const attrs = getLinkAttrs(c.contactLink);
+						return (
+							<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="privacy-contact-link external-link">
+								{c.contactLabel}
+								<ExternalLink />
+							</a>
+						);
+					})()}</p>
 				</section>
 			</article>
 		</main>

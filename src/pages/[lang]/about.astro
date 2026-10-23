@@ -3,9 +3,11 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import ExternalLink from '../../components/icons/ExternalLink.astro';
 import { SITE_TITLE } from '../../consts';
 import { ui } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
+import { getLinkAttrs } from '../../utils/link-utils';
 
 export async function getStaticPaths() {
   return [
@@ -67,7 +69,15 @@ const breadcrumbItems = [
 							<li><strong>Партнёрские ссылки.</strong> В футере блога размещены ссылки на инструменты, которыми мы пользуемся сами (хостинг, VPS, инфраструктура). Если они окажутся вам полезны, мы получаем небольшое вознаграждение от сервиса.</li>
 							<li>
 								<strong>Прямая поддержка.</strong>
-								Вы можете оставить донат через <a href="https://pay.cloudtips.ru/p/e1100774" target="_blank" rel="noopener noreferrer">CloudTips</a>, если материалы блога помогли вам избежать ошибок, сэкономить время или найти верное архитектурное решение.
+								{(() => {
+									const attrs = getLinkAttrs('https://pay.cloudtips.ru/p/e1100774', true);
+									return (
+										<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="external-link">
+											CloudTips
+											<ExternalLink />
+										</a>
+									);
+								})()}
 							</li>
 						</ul>
 
@@ -80,7 +90,91 @@ const breadcrumbItems = [
 
 						<h2 id="contact-ru">Связаться</h2>
 						<p>
-							Партнёрства и предложения: <a href="https://t.me/Hampfree" target="_blank" rel="noopener noreferrer">Hampfree</a> (Telegram)
+							Партнёрства и предложения: {(() => {
+								const attrs = getLinkAttrs('https://t.me/Hampfree');
+								return (
+									<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="external-link">
+										Hampfree
+										<ExternalLink />
+									</a>
+								);
+							})()} (Telegram)
+						</p>
+
+						<p class="about-final">
+							FÉLAG — это живой организм. Мы не даём готовых ответов на все вопросы, но предоставляем инструменты и данные, чтобы вы могли уверенно идти своим путём.
+						</p>
+
+						<p class="about-disclaimer">
+							Материалы носят исключительно образовательный характер и не являются индивидуальной инвестиционной рекомендацией.
+						</p>
+					</>
+				) : (
+					<>
+						<p class="post-lead">
+							<strong>FÉLAG</strong> — the logbook of a trading community.
+						</p>
+						<p>
+							We do not sell illusions or promise guaranteed returns. We document reality: how markets work, how strategies perform, and the mistakes behind every loss. There are no gurus here. Only data, proven approaches, and a willingness to share experience without sugarcoating.
+						</p>
+
+						<h2 id="principles-en">Our Principles</h2>
+						<ul>
+							<li><strong>Honesty.</strong> We show not only profitable trades but also drawdowns. A mistake is part of the system.</li>
+							<li><strong>Mutual Aid.</strong> The community is built on sharing experience and analytics, not empty speculation.</li>
+							<li><strong>Mindfulness.</strong> Every decision is backed by risk management and logic, not emotions.</li>
+							<li><strong>Long-term focus.</strong> We build a foundation and a system, rather than chasing one-off hype opportunities.</li>
+						</ul>
+
+						<h2 id="support-en">Supporting the Project</h2>
+						<p>
+							FÉLAG is an independent platform that develops through direct interactions and partnerships.
+						</p>
+						<ul>
+							<li>
+								<strong>Partner Links:</strong>
+								The blog footer contains links to tools we use ourselves (hosting, VPS, infrastructure). If you find them useful, we receive a small commission from the service.
+							</li>
+							<li>
+								<strong>Direct Support:</strong>
+								{(() => {
+									const attrs = getLinkAttrs('https://pay.cloudtips.ru/p/e1100774', true);
+									return (
+										<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="external-link">
+											CloudTips
+											<ExternalLink />
+										</a>
+									);
+								})()}
+							</li>
+						</ul>
+
+						<h2 id="resources-en">Our Resources</h2>
+						<ul>
+							<li><strong>Felag | Haven (Hashnode)</strong> — longreads, tax guides, architectural schemes, and discussions.</li>
+							<li><strong>Felag | Logbook (Telegram)</strong> — signals, alerts, bot logs, and short field notes.</li>
+							<li><strong>Dev.to</strong> — engineering cases and technical articles.</li>
+						</ul>
+
+						<h2 id="contact-en">Contact</h2>
+						<p>
+							Partnerships and proposals: {(() => {
+								const attrs = getLinkAttrs('https://t.me/Hampfree');
+								return (
+									<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="external-link">
+										Hampfree
+										<ExternalLink />
+									</a>
+								);
+							})()} (Telegram)
+						</p>
+
+						<p class="about-final">
+							FÉLAG is a living organism. We do not provide ready-made answers to all questions, but we supply the tools and data so you can confidently walk your own path.
+						</p>
+
+						<p class="about-disclaimer">
+							All materials are for educational purposes only and do not constitute individual investment advice.
 						</p>
 
 						<p class="about-final">

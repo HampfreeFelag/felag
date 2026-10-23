@@ -395,9 +395,7 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				const isInternal = !!bannerData.internal;
 				const finalLink = isInternal
 					? bannerData.link
-					: (bannerData.link.includes('?')
-						? `${bannerData.link}&utm_source=felag-blog&utm_medium=referral-banner&utm_campaign=${bannerData.id}&utm_content=${slug}&utm_term=${category}`
-						: `${bannerData.link}?utm_source=felag-blog&utm_medium=referral-banner&utm_campaign=${bannerData.id}&utm_content=${slug}&utm_term=${category}`);
+					: `${bannerData.link}${bannerData.link.includes('?') ? '&' : '?'}utm_source=felag&utm_medium=referral&utm_campaign=${bannerData.id}`;
 
 				// 38-ФЗ: реклама = слово «Реклама» + рекламодатель + erid
 				const adMark = isInternal ? '' : `
