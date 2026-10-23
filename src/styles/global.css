@@ -1624,6 +1624,14 @@ h2, h3, h4, h5, h6 {
   color: var(--color-accent);
 }
 
+@media (max-width: 767px) {
+  .external-link .external-icon {
+    width: 10px;
+    height: 10px;
+    gap: 3px;
+  }
+}
+
 /* Screen reader only — visible only to assistive tech */
 .sr-only {
   position: absolute;
