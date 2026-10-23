@@ -57,14 +57,14 @@ const faqSchema = {
 		margin-left: 0;
 		margin-right: 0;
 		padding: 0;
-		color: var(--nes-accent-green);
-		font-family: 'Press Start 2P', monospace;
-		font-size: 24px; /* 24px — как .prose h2 */
-		font-weight: 400; /* Press Start 2P не имеет bold */
-		text-transform: none; /* Как .prose h2 — без uppercase для лучшей читаемости */
-		border-bottom: 4px solid var(--nes-bg-secondary);
-		padding-bottom: 0.5rem; /* Как .prose h2 */
-		position: relative; /* Как .prose h2 */
+		color: var(--color-accent);
+		font-family: var(--font-mono);
+		font-size: 1.4rem;
+		font-weight: 600;
+		text-transform: none;
+		border-bottom: 1px solid var(--color-border-light);
+		padding-bottom: 0.5rem;
+		position: relative;
 	}
 
 	.faq-list {
@@ -74,21 +74,21 @@ const faqSchema = {
 	}
 
 	.faq-question {
-		color: var(--nes-text-primary);
-		font-family: 'JetBrains Mono', monospace;
+		color: var(--color-text);
+		font-family: var(--font-mono);
 		font-size: 1rem;
-		font-weight: 700;
+		font-weight: 600;
 		margin-bottom: 0;
 		line-height: 1.6;
 	}
 
 	.faq-answer {
-		color: var(--color-text-primary);
-		font-family: 'JetBrains Mono', monospace;
-		font-weight: normal;
+		color: var(--color-text-secondary);
+		font-family: var(--font-mono);
+		font-weight: 400;
 		line-height: 1.8;
 		font-size: 0.95rem;
-		margin-top: 1em; /* 1 строка от вопроса */
-		padding-left: var(--space-2);
+		margin-top: 1em;
+		padding-left: var(--space-md);
 	}
 </style>
