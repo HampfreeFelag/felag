@@ -8,6 +8,7 @@ import { SITE_TITLE } from '../../consts';
 import { ui } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
 import { getLinkAttrs } from '../../utils/link-utils';
+import { getPartnerClickHandler } from '../../utils/analytics';
 
 export async function getStaticPaths() {
   return [
@@ -26,7 +27,9 @@ const breadcrumbItems = [
 
 // Link attributes (computed once, used in both languages)
 const cloudtipsAttrs = getLinkAttrs('https://pay.cloudtips.ru/p/e1100774', true);
+const cloudtipsOnlick = getPartnerClickHandler('cloudtips', 'https://pay.cloudtips.ru/p/e1100774');
 const telegramAttrs = getLinkAttrs('https://t.me/Hampfree');
+const telegramOnlick = getPartnerClickHandler('telegram', 'https://t.me/Hampfree');
 ---
 
 <!doctype html>
@@ -73,7 +76,7 @@ const telegramAttrs = getLinkAttrs('https://t.me/Hampfree');
 							<li><strong>Партнёрские ссылки.</strong> В футере блога размещены ссылки на инструменты, которыми мы пользуемся сами (хостинг, VPS, инфраструктура). Если они окажутся вам полезны, мы получаем небольшое вознаграждение от сервиса.</li>
 							<li>
 								<strong>Прямая поддержка.</strong>
-								<a href={cloudtipsAttrs.href} target={cloudtipsAttrs.target} rel={cloudtipsAttrs.rel} aria-label={cloudtipsAttrs.ariaLabel} class="external-link">
+								<a href={cloudtipsAttrs.href} target={cloudtipsAttrs.target} rel={cloudtipsAttrs.rel} aria-label={cloudtipsAttrs.ariaLabel} class="external-link" onclick={cloudtipsOnlick}>
 									CloudTips
 									<ExternalLink />
 								</a>
@@ -90,7 +93,7 @@ const telegramAttrs = getLinkAttrs('https://t.me/Hampfree');
 
 						<h2 id="contact-ru">Связаться</h2>
 						<p>
-							Партнёрства и предложения: <a href={telegramAttrs.href} target={telegramAttrs.target} rel={telegramAttrs.rel} aria-label={telegramAttrs.ariaLabel} class="external-link">
+							Партнёрства и предложения: <a href={telegramAttrs.href} target={telegramAttrs.target} rel={telegramAttrs.rel} aria-label={telegramAttrs.ariaLabel} class="external-link" onclick={telegramOnlick}>
 								Hampfree
 								<ExternalLink />
 							</a> (Telegram)
@@ -137,7 +140,7 @@ const telegramAttrs = getLinkAttrs('https://t.me/Hampfree');
 							</li>
 							<li>
 								<strong>Direct Support:</strong>
-								You can leave a tip via <a href={cloudtipsAttrs.href} target={cloudtipsAttrs.target} rel={cloudtipsAttrs.rel} aria-label={cloudtipsAttrs.ariaLabel} class="external-link">
+								You can leave a tip via <a href={cloudtipsAttrs.href} target={cloudtipsAttrs.target} rel={cloudtipsAttrs.rel} aria-label={cloudtipsAttrs.ariaLabel} class="external-link" onclick={cloudtipsOnlick}>
 									CloudTips
 									<ExternalLink />
 								</a> if the blog's materials helped you avoid mistakes, save time, or find the right architectural solution.
@@ -153,7 +156,7 @@ const telegramAttrs = getLinkAttrs('https://t.me/Hampfree');
 
 						<h2 id="contact-en">Contact</h2>
 						<p>
-							Partnerships and proposals: <a href={telegramAttrs.href} target={telegramAttrs.target} rel={telegramAttrs.rel} aria-label={telegramAttrs.ariaLabel} class="external-link">
+							Partnerships and proposals: <a href={telegramAttrs.href} target={telegramAttrs.target} rel={telegramAttrs.rel} aria-label={telegramAttrs.ariaLabel} class="external-link" onclick={telegramOnlick}>
 								Hampfree
 								<ExternalLink />
 							</a> (Telegram)

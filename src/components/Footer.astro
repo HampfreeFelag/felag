@@ -4,6 +4,7 @@ import ConsentBanner from './ConsentBanner.astro';
 import ExternalLink from './icons/ExternalLink.astro';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 import { getLinkAttrs } from '../utils/link-utils';
+import { getPartnerClickHandler } from '../utils/analytics';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -82,9 +83,10 @@ const CLOUDTIPS = {
 						<ul class="footer-partner-list">
 							{PARTNERS.map(p => {
 								const attrs = getLinkAttrs(p.href, true);
+								const onclick = getPartnerClickHandler(p.id, p.href);
 								return (
 									<li class="footer-partner-item">
-										<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="footer-partner-link external-link">
+										<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="footer-partner-link external-link" onclick={onclick}>
 											<span class="partner-name">{p.name}</span>
 											<ExternalLink />
 										</a>
@@ -102,8 +104,9 @@ const CLOUDTIPS = {
 								<li class="footer-support-item">
 									{(() => {
 										const attrs = getLinkAttrs(CLOUDTIPS.href, true);
+										const onclick = getPartnerClickHandler('cloudtips', CLOUDTIPS.href);
 										return (
-											<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="footer-support-link external-link">
+											<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="footer-support-link external-link" onclick={onclick}>
 												<span class="support-name">{CLOUDTIPS.name}</span>
 												<span class="support-desc">{CLOUDTIPS.desc}</span>
 												<ExternalLink />
