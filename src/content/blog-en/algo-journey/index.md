@@ -87,17 +87,23 @@ After a month of accumulated data, the journal revealed patterns that remained u
 
 ## Current Architecture
 
-| Component | Tool | Purpose |
-|-----------|------|---------|
-| Testing | Python + pandas | Logic verification on historical data |
-| Signals | TA-Lib | Technical analysis |
-| Execution | Exchange API | Automated trading |
-| Monitoring | Telegram bot | Trade notifications |
-| Journal | Google Sheets | Results analysis |
+The system is built as an ecosystem of interconnected components, each performing its role in the overall process.
 
-Several initial developments and articles describing mechanics are publicly available in this blog. The system operates 24/7. An example of test developments on one of the sub-accounts is available in the diary:
+**1. Central hub** — this blog (FÉLAG). The public entry point where mechanics breakdowns, risk management architecture, and technical aspects are published. This is where content is born before being distributed to other platforms.
 
-🐦‍⬛ [Hampfree | Felag](https://tradermake.money/trader/Felag)
+**2. Content automation system** — workflow automation for synchronizing materials across platforms, generating previews, and managing publication schedules. Enables consistency without manual management.
+
+**3. Trading algorithms** — a bot system operating on formalized rules. Includes historical testing, signal generation, automated execution, and continuous monitoring. Operates in 24/7 mode.
+
+**4. Helper bots** — Telegram bots for notifications, trade monitoring, and data collection. Serve as the interface between algorithms and the user, enabling real-time information access.
+
+**5. Financial tracking system** — a trade journal recording entry/exit points, position size, market context, and manual interventions. Reveals patterns invisible during manual observation.
+
+**6. Internal documentation** — a system for maintaining notes, architectural diagrams, and technical details. Serves as a knowledge base for ecosystem development.
+
+All components operate within a unified cycle: hypothesis → testing → automation → monitoring → analysis. Several initial developments and articles describing mechanics are publicly available in this blog. An example of test developments on one of the sub-accounts is available in the diary:
+
+🐦‍⬛ [Hampfree | Felag](https://tradermake.money/trader/Felag?utm_source=felag&utm_medium=blog&utm_campaign=tradermake)
 
 Test results show drawdowns within acceptable risk parameters.
 
@@ -140,6 +146,6 @@ Yes. Many traders use bots for core strategies and manual trading for situationa
 
 **What tools are used for algorithmic trading?**
 
-A typical architecture includes: specialized platforms, Python, TA-Lib for technical analysis, major CEX APIs for execution, Telegram bots for monitoring, spreadsheets, and workflow automation.
+A typical architecture includes: specialized platforms for testing, technical analysis tools, exchange APIs for execution, Telegram bots for monitoring, trade tracking systems, and workflow automation.
 
 > 💡 **Disclaimer:** All materials published in this blog are for informational and educational purposes only. The information does not constitute individual investment advice. Trading in financial markets involves high risk. All responsibility for trading decisions and capital preservation lies solely with the operator.
