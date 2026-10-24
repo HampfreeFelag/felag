@@ -222,6 +222,25 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				});
 			}
 
+			// Smooth scroll for TOC links (desktop + mobile)
+			document.addEventListener('click', (e) => {
+				const link = e.target.closest('.toc-item a');
+				if (!link) return;
+				const href = link.getAttribute('href');
+				if (!href || !href.startsWith('#')) return;
+				const target = document.getElementById(href.slice(1));
+				if (target) {
+					e.preventDefault();
+					target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					// Close mobile accordion after navigation
+					if (mobileToggle && mobileAccordion) {
+						mobileAccordion.classList.remove('open');
+						mobileToggle.classList.remove('open');
+						mobileToggle.setAttribute('aria-expanded', 'false');
+					}
+				}
+			});
+
 			// Track banner clicks (GA4)
 			function trackBannerClick(element) {
 				if (typeof gtag === 'undefined') return;
@@ -253,10 +272,11 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				});
 			}
 
-			// Interactive TOC Highlighting - оптимизировано для предотвращения дёргания
+			// Interactive TOC Highlighting — обновляет активный пункт при скролле
+			// rootMargin: заголовок активен, когда он в верхних 30% viewport
 			const observerOptions = {
 				root: null,
-				rootMargin: '0px 0px -80% 0px',
+				rootMargin: '-20% 0px -60% 0px',
 				threshold: 0
 			};
 
@@ -269,7 +289,8 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				}
 				
 				rafId = requestAnimationFrame(() => {
-					const activeLink = document.querySelector(`.toc-item a[href="#${id}"]`);
+					// Ищем в десктопном TOC
+					const activeLink = document.querySelector(`.toc-sticky .toc-item a[href="#${id}"]`);
 					
 					// Обновляем только если активная ссылка изменилась
 					if (activeLink && activeLink !== currentActiveLink) {

@@ -182,6 +182,9 @@ export const AD_BANNERS: AdBanner[] = ALL_BANNERS.filter(
 );
 
 // Данные для клиентской автовставки (BlogPost.astro читает window.BANNER_DATA)
+// ⚠️ internal баннеры (default-felag) НЕ включаются — они предназначены только
+// для серверной вставки (BannerCard на страницах категорий/главной), а не для
+// авто-вставки в статьи.
 export const BANNER_TRANSLATIONS: Record<
   string,
   {
@@ -197,7 +200,7 @@ export const BANNER_TRANSLATIONS: Record<
     languages?: ('ru' | 'en')[];
   }
 > = Object.fromEntries(
-  AD_BANNERS.map((b) => [
+  AD_BANNERS.filter((b) => !b.internal).map((b) => [
     b.id,
     {
       title: { ru: b.title, en: b.title },

@@ -1169,7 +1169,8 @@ a[href^="#"] {
 /* Disclaimer после статьи */
 .post-disclaimer {
   max-width: var(--content-max);
-  margin-top: var(--space-xl);
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-xl);
   padding: var(--space-lg);
   border-left: 2px solid var(--color-amber);
   background: var(--color-bg-subtle);
@@ -1459,7 +1460,7 @@ body, p, h1, h2, h3, h4, h5, h6, a, span, li, td, th {
   }
 
   .toc-sticky {
-    max-width: 240px;
+    max-width: 180px;
   }
 }
 

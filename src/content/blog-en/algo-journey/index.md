@@ -148,4 +148,3 @@ Yes. Many traders use bots for core strategies and manual trading for situationa
 
 A typical architecture includes: specialized platforms for testing, technical analysis tools, exchange APIs for execution, Telegram bots for monitoring, trade tracking systems, and workflow automation.
 
-> 💡 **Disclaimer:** All materials published in this blog are for informational and educational purposes only. The information does not constitute individual investment advice. Trading in financial markets involves high risk. All responsibility for trading decisions and capital preservation lies solely with the operator.
