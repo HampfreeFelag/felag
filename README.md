@@ -168,4 +168,15 @@ draft: true             # true = скрыта, false = видна
 
 ---
 
+## Для разработчиков / контрибьюторов
+
+Этот репозиторий — публичная часть экосистемы FÉLAG (блог). Полная архитектура проекта, боты, аналитика и workflow описаны в:
+
+- **[SYSTEM_ARCHITECTURE.md](https://github.com/HampfreeFelag/HampfreeBlog-Private/blob/main/SYSTEM_ARCHITECTURE.md)** — единый источник правды (SSOT)
+- **[CROSS_POSTING_UTM_MATRIX.md](https://github.com/HampfreeFelag/HampfreeBlog-Private/blob/main/CROSS_POSTING_UTM_MATRIX.md)** — правила UTM и CTA для кросс-постинга
+
+Для доступа к приватным репозиториям (секреты, внутренняя документация) обратитесь к владельцу.
+
+---
+
 **FÉLAG — Без магии. Только ремесло и честный курс.**
