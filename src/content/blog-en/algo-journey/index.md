@@ -6,8 +6,6 @@ pubDate: '2026-10-20'
 category: 'crew'
 ---
 
-# Why Algorithms: The Path from Manual to Systematic Trading
-
 Manual trading requires continuous cognitive presence. The market is perceived through intuition, but statistical patterns remain hidden behind the noise. The algorithmic approach transforms intuitive guesses into formalized rules, but does not eliminate the need to understand market mechanics.
 
 This blog is not about ready-made strategies or code. It is about transformation: from intuitive decisions to a systematic approach, from initial errors to a structured trading architecture.
