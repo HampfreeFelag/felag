@@ -1,6 +1,7 @@
 /**
- * Отслеживание кликов по внешним ссылкам для GA4
+ * Отслеживание кликов по внешним ссылкам
  * 
+ * ⚠️ НЕ инициализирует GA4 — основная инициализация в Analytics.astro
  * Использование:
  * import { initOutboundTracking } from '../utils/outbound-tracking';
  * initOutboundTracking();

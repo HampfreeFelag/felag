@@ -222,22 +222,16 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				});
 			}
 
-			// Smooth scroll for TOC links (desktop + mobile)
+			// Close mobile accordion after TOC navigation
 			document.addEventListener('click', (e) => {
 				const link = e.target.closest('.toc-item a');
 				if (!link) return;
-				const href = link.getAttribute('href');
-				if (!href || !href.startsWith('#')) return;
-				const target = document.getElementById(href.slice(1));
-				if (target) {
-					e.preventDefault();
-					target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-					// Close mobile accordion after navigation
-					if (mobileToggle && mobileAccordion) {
-						mobileAccordion.classList.remove('open');
-						mobileToggle.classList.remove('open');
-						mobileToggle.setAttribute('aria-expanded', 'false');
-					}
+				// Native anchor scrolling respects scroll-margin-top from CSS
+				// No need for JS scrollIntoView — browser handles offset automatically
+				if (mobileToggle && mobileAccordion) {
+					mobileAccordion.classList.remove('open');
+					mobileToggle.classList.remove('open');
+					mobileToggle.setAttribute('aria-expanded', 'false');
 				}
 			});
 
@@ -463,8 +457,4 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 			});
 		</script>
 
-		{/* Отслеживание кликов по внешним ссылкам (GA4) — Issue #91 */}
-		<script>
-			import { initOutboundTracking } from '../utils/outbound-tracking';
-			initOutboundTracking();
-		</script>
+		{/* GA4 tracking is initialized in Analytics.astro (imported via BaseHead) */}
