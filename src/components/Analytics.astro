@@ -3,100 +3,105 @@
 // ID из PUBLIC_GA_MEASUREMENT_ID (GitHub Secrets / .env)
 // ⚠️ ВАЖНО: Перед деплоем убедитесь что PUBLIC_GA_MEASUREMENT_ID=G-NN0MN1TD2R установлена
 // Проверить: .env (локально) или GitHub Secrets (production)
+// Используем process.env для SSR-совместимости (import.meta.env не сериализуется в Astro 5 SSR)
 ---
 
-{GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX' && (
-	<>
-		<script
-			async
-			src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-		></script>
-		<script is:inline define:vars={{ gaId: GA_MEASUREMENT_ID }}>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() { dataLayer.push(arguments); }
-			gtag('js', new Date());
+{(() => {
+  const GA_MEASUREMENT_ID = process.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
+  if (GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') return null;
+  return (
+    <>
+      <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      ></script>
+      <script is:inline define:vars={{ gaId: GA_MEASUREMENT_ID }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-			// Consent Mode v2: по умолчанию — отказ (GDPR)
-			gtag('consent', 'default', {
-				analytics_storage: 'denied',
-				ad_storage: 'denied',
-				ad_user_data: 'denied',
-				ad_personalization: 'denied',
-			});
+        // Consent Mode v2: по умолчанию — отказ (GDPR)
+        gtag('consent', 'default', {
+          analytics_storage: 'denied',
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+        });
 
-			gtag('config', gaId, {
-				anonymize_ip: true,
-				cookie_flags: 'SameSite=Lax;Secure',
-			});
+        gtag('config', gaId, {
+          anonymize_ip: true,
+          cookie_flags: 'SameSite=Lax;Secure',
+        });
 
-			// Восстановить consent из localStorage (если пользователь уже выбрал)
-			(function () {
-				try {
-					var saved = localStorage.getItem('ga_consent');
-					if (saved === 'granted') {
-						gtag('consent', 'update', { analytics_storage: 'granted' });
-					}
-				} catch (e) {}
-			})();
+        // Восстановить consent из localStorage (если пользователь уже выбрал)
+        (function () {
+          try {
+            var saved = localStorage.getItem('ga_consent');
+            if (saved === 'granted') {
+              gtag('consent', 'update', { analytics_storage: 'granted' });
+            }
+          } catch (e) {}
+        })();
 
-			// Глобально для баннера согласия
-			window.updateGAConsent = function (granted) {
-				gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
-			};
+        // Глобально для баннера согласия
+        window.updateGAConsent = function (granted) {
+          gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
+        };
 
-			// Клики по ссылкам — без PII: pathname (внутр.) или hostname (внеш.)
-			document.addEventListener('click', function (e) {
-				var link = e.target.closest('a');
-				if (!link || !link.href) return;
-				var label;
-				try {
-					var u = new URL(link.href);
-					if (u.origin === location.origin) {
-						label = u.pathname;
-					} else {
-						label = 'external:' + u.hostname;
-					}
-				} catch (err) {
-					label = 'link';
-				}
-				gtag('event', 'click', {
-					event_category: 'link',
-					event_label: label,
-					transport_type: 'beacon',
-				});
-			});
+        // Клики по ссылкам — без PII: pathname (внутр.) или hostname (внеш.)
+        document.addEventListener('click', function (e) {
+          var link = e.target.closest('a');
+          if (!link || !link.href) return;
+          var label;
+          try {
+            var u = new URL(link.href);
+            if (u.origin === location.origin) {
+              label = u.pathname;
+            } else {
+              label = 'external:' + u.hostname;
+            }
+          } catch (err) {
+            label = 'link';
+          }
+          gtag('event', 'click', {
+            event_category: 'link',
+            event_label: label,
+            transport_type: 'beacon',
+          });
+        });
 
-			// Время на странице
-			var startTime = Date.now();
-			window.addEventListener('beforeunload', function () {
-				var timeOnPage = Math.round((Date.now() - startTime) / 1000);
-				if (timeOnPage > 0) {
-					gtag('event', 'time_on_page', {
-						event_category: 'engagement',
-						event_label: window.location.pathname,
-						value: timeOnPage,
-						transport_type: 'beacon',
-					});
-				}
-			});
+        // Время на странице
+        var startTime = Date.now();
+        window.addEventListener('beforeunload', function () {
+          var timeOnPage = Math.round((Date.now() - startTime) / 1000);
+          if (timeOnPage > 0) {
+            gtag('event', 'time_on_page', {
+              event_category: 'engagement',
+              event_label: window.location.pathname,
+              value: timeOnPage,
+              transport_type: 'beacon',
+            });
+          }
+        });
 
-			// Скролл 25/50/75/100%
-			var scrollTracked = { 25: false, 50: false, 75: false, 100: false };
-			window.addEventListener('scroll', function () {
-				var pct = Math.round(
-					((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight) * 100
-				);
-				[25, 50, 75, 100].forEach(function (t) {
-					if (pct >= t && !scrollTracked[t]) {
-						scrollTracked[t] = true;
-						gtag('event', 'scroll', {
-							event_category: 'engagement',
-							event_label: t + '%',
-							value: t,
-						});
-					}
-				});
-			});
-		</script>
-	</>
-)}
+        // Скролл 25/50/75/100%
+        var scrollTracked = { 25: false, 50: false, 75: false, 100: false };
+        window.addEventListener('scroll', function () {
+          var pct = Math.round(
+            ((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight) * 100
+          );
+          [25, 50, 75, 100].forEach(function (t) {
+            if (pct >= t && !scrollTracked[t]) {
+              scrollTracked[t] = true;
+              gtag('event', 'scroll', {
+                event_category: 'engagement',
+                event_label: t + '%',
+                value: t,
+              });
+            }
+          });
+        });
+      </script>
+    </>
+  );
+})()}
