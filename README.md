@@ -8,7 +8,7 @@
 
 ---
 
-**Последнее обновление:** 22 октября 2026 г.  
+**Последнее обновление:** 27 октября 2026 г.  
 **Статус:** Стабильно, CI passing, GitHub Pages deployed
 
 **Сайт:** [felag.online](https://felag.online)  
@@ -174,6 +174,7 @@ draft: true             # true = скрыта, false = видна
 
 - **[SYSTEM_ARCHITECTURE.md](https://github.com/HampfreeFelag/HampfreeBlog-Private/blob/main/SYSTEM_ARCHITECTURE.md)** — единый источник правды (SSOT)
 - **[CROSS_POSTING_UTM_MATRIX.md](https://github.com/HampfreeFelag/HampfreeBlog-Private/blob/main/CROSS_POSTING_UTM_MATRIX.md)** — правила UTM и CTA для кросс-постинга
+- **[DEVELOPMENT_GUIDELINES.md](src/docs/01-architecture/DEVELOPMENT_GUIDELINES.md)** — правила разработки, архитектурные решения, GA4, баннеры
 
 Для доступа к приватным репозиториям (секреты, внутренняя документация) обратитесь к владельцу.
 
