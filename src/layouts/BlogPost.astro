@@ -267,10 +267,10 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 			}
 
 			// Interactive TOC Highlighting — обновляет активный пункт при скролле
-			// rootMargin: заголовок активен, когда он в верхних 30% viewport
+			// rootMargin: учитывает высоту header (72px) + scroll-margin-top (120px)
 			const observerOptions = {
 				root: null,
-				rootMargin: '-20% 0px -60% 0px',
+				rootMargin: '-120px 0px -50% 0px',
 				threshold: 0
 			};
 
