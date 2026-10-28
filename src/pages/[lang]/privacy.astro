@@ -29,11 +29,13 @@ const content = {
     title: 'Политика конфиденциальности',
     intro: 'FÉLAG уважает вашу конфиденциальность. Ниже — что мы собираем, зачем и какие у вас права.',
     ga4Title: 'Google Analytics 4 и cookies',
-    ga4Body: 'Мы используем Google Analytics 4 (GA4) для понимания посещаемости и поведения на сайте. Данные обезличены: мы не передаём в GA email, телефоны, логины или иные персональные данные. Включена анонимизация IP. Срок хранения данных в GA4 — 2 месяца (настраивается в админке GA4). Используются cookies, необходимые для работы аналитики. Вы можете отказаться от cookies через баннер согласия на сайте («Отклонить»).',
+    ga4Body: 'Мы используем Google Analytics 4 (GA4) для понимания посещаемости и поведения на сайте. Данные обезличены: мы не передаём в GA email, телефоны, логины или иные персональные данные. Включена анонимизация IP. Срок хранения данных в GA4 настраивается в админке (по умолчанию 2 месяца). Для аналитики используются cookies Google Analytics (обезличенные, без персональных данных). Вы можете отказаться от них через баннер согласия на сайте («Отклонить»).',
     dataTitle: 'Какие данные мы собираем',
     dataBody: 'Агрегированные данные о просмотрах страниц, переходах по ссылкам, времени на сайте и скролле. Никаких форм с email/телефонами мы не отправляем в GA. UTM-метки в ссылках используются только для анализа источников трафика, без персональных данных.',
     rightsTitle: 'Ваши права (GDPR)',
     rightsBody: 'Вы имеете право на доступ к своим данным, исправление, удаление и ограничение обработки. При возникновении вопросов или жалоб — свяжитесь с нами (например, через Telegram) или обратитесь в надзорный орган по защите данных.',
+    crossBorderTitle: 'Трансграничная передача данных',
+    crossBorderBody: 'Данные обрабатываются с использованием Google Analytics 4, серверы которого могут находиться за пределами вашей страны. Google обеспечивает защиту данных в соответствии со Стандартными договорными клаузулами ЕС.',
     contactTitle: 'Контакты',
     contactText: 'По вопросам конфиденциальности — Telegram: ',
     contactLink: 'https://t.me/Hampfree',
@@ -43,11 +45,13 @@ const content = {
     title: 'Privacy Policy',
     intro: 'FÉLAG respects your privacy. Below is what we collect, why, and your rights.',
     ga4Title: 'Google Analytics 4 and cookies',
-    ga4Body: 'We use Google Analytics 4 (GA4) to understand site traffic and behaviour. Data is anonymised: we do not send email, phone numbers, logins or other personal data to GA. IP anonymisation is enabled. Data retention in GA4 is set to 2 months (configurable in GA4 Admin). We use cookies necessary for analytics. You can opt out via the consent banner on the site (“Reject”).',
+    ga4Body: 'We use Google Analytics 4 (GA4) to understand site traffic and behavior. Data is anonymised: we do not send email, phone numbers, logins or other personal data to GA. IP anonymisation is enabled. Data retention in GA4 is configurable in GA4 Admin (default: 2 months). Google Analytics uses cookies for analytics (anonymised, no personal data). You can opt out via the consent banner on the site ("Reject").',
     dataTitle: 'What data we collect',
     dataBody: 'Aggregated data on page views, link clicks, time on site and scroll. We do not send any form data (email, phone) to GA. UTM parameters in links are used only to analyse traffic sources, without personal data.',
     rightsTitle: 'Your rights (GDPR)',
     rightsBody: 'You have the right to access, rectify, erase and restrict processing of your data. For questions or complaints, contact us (e.g. via Telegram) or your data protection supervisory authority.',
+    crossBorderTitle: 'Cross-border data transfer',
+    crossBorderBody: 'Data is processed using Google Analytics 4, whose servers may be located outside your country. Google ensures data protection in accordance with the EU Standard Contractual Clauses.',
     contactTitle: 'Contact',
     contactText: 'Privacy enquiries — Telegram: ',
     contactLink: 'https://t.me/Hampfree',
@@ -78,6 +82,8 @@ const c = content[lang as keyof typeof content] || content.en;
 					<p>{c.dataBody}</p>
 					<h2>{c.rightsTitle}</h2>
 					<p>{c.rightsBody}</p>
+					<h2>{c.crossBorderTitle}</h2>
+					<p>{c.crossBorderBody}</p>
 					<h2>{c.contactTitle}</h2>
 					<p>{c.contactText}{(() => {
 						const attrs = getLinkAttrs(c.contactLink);
