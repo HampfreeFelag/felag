@@ -58,7 +58,7 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 	if (category) {
 		const catLabel = t(`cat.${category}` as any);
 		if (catLabel) {
-			items.push({ label: catLabel, href: `${translatePath('saga')}?cat=${category}` });
+			items.push({ label: catLabel, href: `${translatePath('saga')}?categories=${category}` });
 		}
 	}
 	

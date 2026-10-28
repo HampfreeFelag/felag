@@ -1,0 +1,132 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE_TITLE } from '../../../consts';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import ScrollTop from '../../../components/ScrollTop.astro';
+import Banner from '../../../components/Banner.astro';
+import SubscribeForm from '../../../components/SubscribeForm.astro';
+import { ui } from '../../../i18n/ui';
+import { useTranslations, useTranslatedPath } from '../../../i18n/utils';
+import { isTempArticle } from '../../../utils/blog';
+
+export async function getStaticPaths() {
+  const categories = ['route', 'forge', 'helm', 'treasury', 'compass', 'logbook', 'crew'];
+  const langs = ['ru', 'en'];
+  
+  const paths = [];
+  for (const lang of langs) {
+    for (const cat of categories) {
+      paths.push({ params: { lang, category: cat } });
+    }
+  }
+  return paths;
+}
+
+const { lang, category } = Astro.params;
+const t = useTranslations(lang as keyof typeof ui);
+const translatePath = useTranslatedPath(lang as keyof typeof ui);
+
+// Fetch only posts for current language
+const collectionName = `blog-${lang}` as 'blog-ru' | 'blog-en';
+const posts = await getCollection(collectionName).catch((err) => {
+	console.error(`Error loading posts for ${collectionName}:`, err);
+	return [];
+});
+
+// Filter by category and exclude temp/draft
+const normalizePostId = (id: string) => id.replace(/\/index$/, '').replace(/\/+$/, '');
+const excludeTemp = (post: { id: string; data: { draft?: boolean } }) => 
+	!isTempArticle(post.id) && !post.data.draft;
+
+const seenIds = new Set<string>();
+const seenTitleCategory = new Set<string>();
+const uniquePosts = posts
+	.filter(excludeTemp)
+	.filter(post => {
+		const normalizedId = normalizePostId(post.id);
+		const titleCategoryKey = `${post.data.title}|${post.data.category || ''}`;
+		
+		if (seenIds.has(normalizedId)) return false;
+		if (seenTitleCategory.has(titleCategoryKey)) return false;
+		
+		seenIds.add(normalizedId);
+		seenTitleCategory.add(titleCategoryKey);
+		Object.assign(post, { id: normalizedId });
+		return true;
+	})
+	.filter(post => post.data.category === category);
+
+// Sort: pinned first, then by pubDate
+const sortedPosts = uniquePosts.sort((a, b) => {
+	if (a.data.pinned && !b.data.pinned) return -1;
+	if (!a.data.pinned && b.data.pinned) return 1;
+	const byDate = b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+	if (byDate !== 0) return byDate;
+	return (a.id ?? '').localeCompare(b.id ?? '');
+});
+
+const breadcrumbItems = [
+	{ label: t('nav.saga'), href: translatePath('saga') },
+	{ label: t(`cat.${category}` as any) }
+];
+
+const catFull = t(`cat.${category}.full` as any) || t(`cat.${category}` as any);
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<BaseHead title={`${SITE_TITLE} - ${catFull}`} description={t('home.hero_description')} />
+	</head>
+	<body>
+		<Header />
+		<main class="container page-top-padding">
+			<div class="saga-header">
+				<Breadcrumb items={breadcrumbItems} />
+				<h1 class="page-title">{catFull}</h1>
+			</div>
+			
+			<section class="posts-grid fade-in" id="postsGrid">
+			{sortedPosts.length > 0 ? (
+				<div id="postsList" class="posts-list">
+					{sortedPosts.map((post) => (
+						<a 
+							href={`/${lang}/saga/${post.id}/`} 
+							class="post-card" 
+							data-title={post.data.title.toLowerCase()}
+							data-description={post.data.description.toLowerCase()}
+							data-category={post.data.category || ''}
+							data-tags={post.data.tags?.join(',').toLowerCase() || ''}
+						>
+							<Banner 
+								title={post.data.title} 
+								subtitle={post.data.description}
+								category={post.data.category} 
+								type="preview" 
+							/>
+							<div class="post-meta">
+								<span class="banner-date"><FormattedDate date={post.data.pubDate} /></span>
+							</div>
+							<div class="read-more-link" aria-hidden="true">{t('saga.read_more')}</div>
+						</a>
+					))}
+				</div>
+			) : (
+				<div class="no-posts" style="padding: var(--space-2xl); text-align: center; color: var(--color-text-secondary);">
+					<p>{t('saga.no_articles_debug')}</p>
+				</div>
+			)}
+			</section>
+			
+			<div id="noResults" class="no-results" style="display: none;">
+				{t('saga.no_results')}
+			</div>
+			<ScrollTop />
+		</main>
+		<Footer />
+	</body>
+</html>
