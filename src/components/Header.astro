@@ -175,4 +175,18 @@ const t = useTranslations(lang);
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initHamburgerMenu);
 	else initHamburgerMenu();
+
+	// Restore scroll position after language switch
+	const restoreScrollPosition = () => {
+		try {
+			const savedScroll = localStorage.getItem('scrollY');
+			if (savedScroll) {
+				window.scrollTo(0, parseInt(savedScroll, 10));
+				localStorage.removeItem('scrollY');
+			}
+		} catch(e) {}
+	};
+
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restoreScrollPosition);
+	else restoreScrollPosition();
 </script>

@@ -45,6 +45,11 @@ const getSwitchPath = (targetLang: string) => {
 			href={getSwitchPath(targetLang) + '?menu=open'}
 			class="mobile-lang-btn"
 			aria-label={`Switch to ${targetLang === 'ru' ? 'Russian' : 'English'}`}
+			onclick={(e) => {
+				e.preventDefault();
+				localStorage.setItem('scrollY', String(window.scrollY));
+				window.location.href = getSwitchPath(targetLang) + '?menu=open';
+			}}
 		>
 			<svg class="mobile-lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
 				<circle cx="12" cy="12" r="10"/>
