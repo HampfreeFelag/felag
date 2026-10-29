@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+import { CATEGORIES } from '../../config/categories';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -10,15 +11,13 @@ const isSaga = currentPath.includes('/saga');
 const isAbout = currentPath.includes('/about');
 const isCategory = currentPath.match(/\/(route|forge|helm|treasury|compass|logbook|crew)$/);
 
-const categories = [
-	{ id: 'route', label: t('cat.route'), full: t('cat.route.full'), display: t('cat.route.display'), href: `/${lang}/route/` },
-	{ id: 'forge', label: t('cat.forge'), full: t('cat.forge.full'), display: t('cat.forge.display'), href: `/${lang}/forge/` },
-	{ id: 'helm', label: t('cat.helm'), full: t('cat.helm.full'), display: t('cat.helm.display'), href: `/${lang}/helm/` },
-	{ id: 'treasury', label: t('cat.treasury'), full: t('cat.treasury.full'), display: t('cat.treasury.display'), href: `/${lang}/treasury/` },
-	{ id: 'compass', label: t('cat.compass'), full: t('cat.compass.full'), display: t('cat.compass.display'), href: `/${lang}/compass/` },
-	{ id: 'logbook', label: t('cat.logbook'), full: t('cat.logbook.full'), display: t('cat.logbook.display'), href: `/${lang}/logbook/` },
-	{ id: 'crew', label: t('cat.crew'), full: t('cat.crew.full'), display: t('cat.crew.display'), href: `/${lang}/crew/` },
-];
+const categories = CATEGORIES.map((cat) => ({
+	...cat,
+	label: t(`cat.${cat.id}`),
+	full: t(`cat.${cat.id}.full`),
+	display: t(`cat.${cat.id}.display`),
+	href: `/${lang}/saga/?categories=${cat.id}`,
+}));
 ---
 
 <nav class="desktop-nav" aria-label={t('nav.aria_label')}>

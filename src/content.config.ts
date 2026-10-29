@@ -11,6 +11,7 @@ const blogSchema = ({ image }) =>
 		bannerImage: z.string().optional(),
 		previewImage: z.string().optional(),
 		category: z.string().optional(),
+		categories: z.array(z.string()).optional(),
 		tags: z.array(z.string()).optional(),
 		pinned: z.boolean().optional(),
 		draft: z.boolean().optional(),
