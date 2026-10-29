@@ -1604,18 +1604,18 @@ body, p, h1, h2, h3, h4, h5, h6, a, span, li, td, th {
    SCROLL MARGIN — anchor links must clear the sticky header
    ═══════════════════════════════════════════════════════ */
 h2, h3, h4, h5, h6 {
-  scroll-margin-top: 110px;
+  scroll-margin-top: 90px;
 }
 
 @media (min-width: 768px) {
   h2, h3, h4, h5, h6 {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 100px;
   }
 }
 
 @media (min-width: 1440px) {
   h2, h3, h4, h5, h6 {
-    scroll-margin-top: 130px;
+    scroll-margin-top: 110px;
   }
 }
 

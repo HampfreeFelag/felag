@@ -44,7 +44,12 @@ const readMoreText = {
 	<section class="related-posts" aria-labelledby="related-posts-title">
 		<div class="related-posts-grid">
 			{relatedPosts.map((post) => {
-				// We stay within the same language for related posts
+				// Extract first category from categories[] or category string
+				const postCats = (post.data as any).categories;
+				const postCat = Array.isArray(postCats) && postCats.length > 0
+					? postCats[0]
+					: (post.data as any).category || '';
+				
 				return (
 					<a 
 						href={`${baseUrl}${lang}/saga/${post.id}/`} 
@@ -54,12 +59,12 @@ const readMoreText = {
 						<Banner 
 							title={post.data.title} 
 							subtitle={post.data.description}
-							category={(post.data as any).category} 
+							category={postCat} 
 							type="preview" 
 						/>
 						<div class="related-post-meta">
-							{('category' in post.data && (post.data as any).category) && (
-								<span class="related-post-category">[{t(`cat.${(post.data as any).category}` as any) || (post.data as any).category.toUpperCase()}]</span>
+							{postCat && (
+								<span class="related-post-category">[{t(`cat.${postCat}` as any) || postCat.toUpperCase()}]</span>
 							)}
 						</div>
 					</a>

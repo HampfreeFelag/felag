@@ -110,7 +110,6 @@ export async function getRelatedPosts(
 	limit: number = 3,
 	lang?: 'ru' | 'en'
 ): Promise<CollectionEntry<'blog-ru' | 'blog-en'>[]> {
-	// Получаем посты только для текущего языка
 	const collectionName = lang ? `blog-${lang}` as 'blog-ru' | 'blog-en' : null;
 	if (!collectionName) {
 		console.warn('getRelatedPosts: lang not provided, returning empty array');
@@ -119,14 +118,32 @@ export async function getRelatedPosts(
 	
 	const posts = await getCollection(collectionName);
 	
+	// Нормализуем ID для сравнения
+	const normalizeId = (id: string) => id.replace(/\/index$/, '').replace(/\/+$/, '');
+	const normalizedCurrentId = normalizeId(currentPostId);
+	
 	// Исключаем текущую статью, временные article-* и draft статьи
 	const filteredPosts = posts.filter(
-		post => post.id !== currentPostId && !isTempArticle(post.id) && !post.data.draft
+		post => {
+			const normalizedPostId = normalizeId(post.id);
+			return normalizedPostId !== normalizedCurrentId && !isTempArticle(post.id) && !post.data.draft;
+		}
 	);
+	
+	// Поддержка как category (строка), так и categories (массив)
+	function getPostCategories(post: CollectionEntry<'blog-ru' | 'blog-en'>): string[] {
+		const cats = (post.data as any).categories;
+		if (Array.isArray(cats) && cats.length > 0) return cats;
+		if (post.data.category) return [post.data.category];
+		return [];
+	}
 	
 	// Если есть категория, пытаемся найти статьи из той же категории
 	if (category) {
-		const sameCategoryPosts = filteredPosts.filter(post => post.data.category === category);
+		const sameCategoryPosts = filteredPosts.filter(post => {
+			const postCats = getPostCategories(post);
+			return postCats.includes(category);
+		});
 		if (sameCategoryPosts.length > 0) {
 			return sameCategoryPosts.slice(0, limit);
 		}
