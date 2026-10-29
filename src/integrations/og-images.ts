@@ -2,9 +2,9 @@ import type { AstroIntegration } from 'astro';
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises';
 import { existsSync, readFileSync } from 'fs';
 import path from 'path';
+import React from 'react';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
-import { OGImageComponent } from '../utils/og-image.tsx';
 import { ui } from '../i18n/ui';
 
 interface OGImageData {
@@ -106,28 +106,64 @@ async function loadFonts() {
 // Generate OG image from data
 async function generateOGImage(data: OGImageData, fonts: any[], outputPath: string) {
 	try {
-		// Get rubric translation
+		// Get rubric translation — handle null/undefined safely
 		const rubric = data.rubric || (() => {
 			const catKey = (data.category || 'general').toLowerCase().trim();
-			const translations = (ui as any)[data.lang];
-			if (translations?.cat?.[catKey]) {
-				return translations.cat[catKey];
-			}
+			const langData = (ui as Record<string, Record<string, any>>)[data.lang] ?? null;
+			const catObj = langData && typeof langData === 'object' ? (langData as any).cat ?? {} : {};
+			if (catObj[catKey]) return catObj[catKey];
 			return data.category?.toUpperCase() || 'GENERAL';
 		})();
 
-		// Generate SVG using Satori
+		// Generate SVG using Satori with inline JSX (Satori can't render React function components)
+		const category = data.category || 'general';
+		const categoryColors: Record<string, string> = {
+			route: '#3A5F7F', forge: '#A97B2C', helm: '#8A6423',
+			treasury: '#5E7355', compass: '#4E7DA3', logbook: '#6B5B77',
+			crew: '#A54E4B', general: '#7A8B9C',
+		};
+		const catColor = categoryColors[category] || categoryColors.general;
+
 		const svg = await satori(
-			OGImageComponent({
-				title: data.title,
-				subtitle: data.subtitle,
-				category: data.category || 'general',
-				rubric,
-			}),
+			React.createElement('div', {
+				style: {
+					width: '100%', height: '100%', display: 'flex', flexDirection: 'column',
+					justifyContent: 'space-between', padding: '60px', position: 'relative',
+					background: '#F5F0EB',
+				}
+			},
+				React.createElement('div', {
+					style: { display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flex: 1 }
+				},
+					React.createElement('h1', {
+						style: { fontSize: '72px', fontWeight: '700', color: '#2C3E4A', margin: '0 0 20px 0', lineHeight: 1.4, fontFamily: 'Inter, sans-serif' }
+					}, data.title),
+					data.subtitle ? React.createElement('p', {
+						style: { fontSize: '32px', fontWeight: '500', color: '#5A6B7C', margin: 0, opacity: 0.9, lineHeight: 1.6, fontFamily: 'Inter, sans-serif', maxWidth: '900px' }
+					}, data.subtitle) : null
+				),
+				React.createElement('div', {
+					style: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginTop: '40px', paddingTop: '30px', borderTop: '1px solid #7A8B9C30' }
+				},
+					React.createElement('div', {
+						style: { display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 24px', backgroundColor: '#E8E0D5', border: '1px solid #7A8B9C30', borderRadius: '8px' }
+					},
+						React.createElement('span', {
+							style: { display: 'block', width: '12px', height: '12px', backgroundColor: catColor, borderRadius: '2px', flexShrink: 0 }
+						}),
+						React.createElement('span', {
+							style: { fontSize: '24px', fontWeight: '600', color: '#3A5F7F', textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: 'Inter, sans-serif', whiteSpace: 'nowrap' }
+						}, rubric)
+					),
+					React.createElement('span', {
+						style: { fontSize: '20px', color: '#7A8B9C', opacity: 0.8, fontFamily: 'Inter, sans-serif', fontWeight: 500, whiteSpace: 'nowrap' }
+					}, 'FÉLAG')
+				)
+			),
 			{
 				width: 1200,
 				height: 630,
-				fonts: fonts.length > 0 ? fonts : [],
+				fonts: (fonts && fonts.length > 0) ? fonts : [],
 			}
 		);
 
@@ -205,7 +241,7 @@ export function ogImagesIntegration(): AstroIntegration {
 				const allPosts = [...postsRu, ...postsEn];
 
 				// Generate OG images for each post
-				const ogDir = path.join(dir.pathname, 'og');
+				const ogDir = path.resolve(dir.pathname.replace(/^\/[a-zA-Z]:/, ''), 'og');
 				let successCount = 0;
 				let failCount = 0;
 
