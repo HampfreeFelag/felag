@@ -406,7 +406,6 @@ const breadcrumbItems = [
 				const categoriesParam = urlParams.get('categories');
 				const searchParam = urlParams.get('search');
 
-				let activeCategories: string[] = [];
 				if (categoriesParam) {
 					activeCategories = categoriesParam.split(',').filter(c => c.trim());
 					activeCategories.forEach(cat => {
