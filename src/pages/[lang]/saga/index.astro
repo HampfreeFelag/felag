@@ -119,9 +119,6 @@ const breadcrumbItems = [
 					<div class="categories-filter">
 						<div class="filter-header">
 							<div class="section-label">{t('saga.filter')}</div>
-							<button class="reset-btn" id="resetFilters" style="display: none;" type="button" title={t('saga.reset')}>
-								✕ {t('saga.reset')}
-							</button>
 						</div>
 						<div class="categories-container categories-container-with-margin" role="group">
 							{categories.map(cat => (
@@ -136,6 +133,9 @@ const breadcrumbItems = [
 								</button>
 							))}
 						</div>
+						<button class="reset-btn" id="resetFilters" style="display: none;" type="button" title={t('saga.reset')}>
+							✕ {t('saga.reset')}
+						</button>
 					</div>
 				</div>
 			{sortedPosts.length > 0 ? (
@@ -428,41 +428,46 @@ const breadcrumbItems = [
 					if (searchInput) searchInput.value = searchParam;
 				}
 
+				// Event delegation on the categories container
+				const categoriesContainer = document.querySelector('.categories-container');
+				categoriesContainer?.addEventListener('click', (e) => {
+					const target = e.target as HTMLElement;
+					const btn = target.closest('.tag-btn[data-cat]');
+					if (!btn) return;
+					
+					const cat = btn.getAttribute('data-cat');
+					if (!cat) return;
+					
+					const idx = activeCategories.indexOf(cat);
+					if (idx >= 0) {
+						// Remove
+						activeCategories.splice(idx, 1);
+						btn.classList.remove('active');
+					} else {
+						// Add
+						activeCategories.push(cat);
+						btn.classList.add('active');
+					}
+					
+					// Update URL without reload
+					const newParams = new URLSearchParams(window.location.search);
+					if (activeCategories.length > 0) {
+						newParams.set('categories', activeCategories.join(','));
+					} else {
+						newParams.delete('categories');
+					}
+					const newUrl = newParams.toString() ? `${window.location.pathname}?${newParams.toString()}` : window.location.pathname;
+					window.history.replaceState({}, '', newUrl);
+					
+					currentPage = 1;
+					updateDisplay();
+					updateResetButton();
+				});
+
 				if (categoriesParam || searchParam) {
 					updateDisplay();
 					updateResetButton();
 				}
-
-				categoryButtons.forEach(btn => {
-					btn.addEventListener('click', () => {
-						const cat = btn.getAttribute('data-cat');
-						if (!cat) return;
-						
-						const idx = activeCategories.indexOf(cat);
-						if (idx >= 0) {
-							// Remove
-							activeCategories.splice(idx, 1);
-							btn.classList.remove('active');
-						} else {
-							// Add
-							activeCategories.push(cat);
-							btn.classList.add('active');
-						}
-						
-						// Update URL without reload
-						const newParams = new URLSearchParams(window.location.search);
-						if (activeCategories.length > 0) {
-							newParams.set('categories', activeCategories.join(','));
-						} else {
-							newParams.delete('categories');
-						}
-						const newUrl = `${window.location.pathname}?${newParams.toString()}`;
-						window.history.replaceState({}, '', newParams.toString() ? newUrl : window.location.pathname);
-						
-						currentPage = 1;
-						updateDisplay();
-					});
-				});
 
 				// Reset button handler
 				const resetBtn = document.getElementById('resetFilters');
@@ -495,24 +500,23 @@ const breadcrumbItems = [
 	}
 
 	.filter-header {
-		display: flex;
-		align-items: center;
-		gap: 12px;
 		margin-bottom: 8px;
 	}
 
 	.reset-btn {
 		display: none;
 		align-items: center;
+		justify-content: center;
 		gap: 4px;
-		padding: 4px 12px;
+		width: 100%;
+		padding: 8px 16px;
+		margin-top: 8px;
 		border: 1px solid var(--color-border);
 		border-radius: var(--radius-sm);
 		background: transparent;
 		color: var(--color-text-secondary);
 		cursor: pointer;
 		font-size: 0.85rem;
-		white-space: nowrap;
 		transition: all 0.2s ease;
 	}
 
@@ -521,14 +525,12 @@ const breadcrumbItems = [
 		color: var(--color-text-primary);
 	}
 
-	@media (max-width: 768px) {
-		.filter-header {
-			flex-wrap: wrap;
-		}
+	@media (min-width: 769px) {
 		.reset-btn {
-			width: 100%;
-			justify-content: center;
-			margin-top: 4px;
+			width: auto;
+			margin-top: 0;
+			margin-left: 12px;
+			padding: 4px 12px;
 		}
 	}
 </style>
