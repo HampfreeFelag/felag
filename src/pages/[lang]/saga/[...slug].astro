@@ -5,12 +5,13 @@ import { estimateReadTime, isTempArticle } from '../../../utils/blog';
 
 export async function getStaticPaths() {
 	function normalizeSlug(id: string) {
-		// Убираем /index.md или /index в конце
+		// post.id из Astro = "saga/crew/article-name/index.md" → "crew/article-name"
 		return id
 			.replace(/\/index\.md$/, '')
 			.replace(/\/index$/, '')
 			.replace(/\.md$/, '')
-			.replace(/\/+$/, '');
+			.replace(/\/+$/, '')
+			.replace(/^saga\//, '');
 	}
 	const langs = ['ru', 'en'];
 	const paths = [];

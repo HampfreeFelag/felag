@@ -33,7 +33,11 @@ const posts = await getCollection(collectionName).catch((err) => {
 });
 
 // 🔒 УБИРАЕМ ДУБЛИКАТЫ: нормализуем post.id и убираем дубликаты
-const normalizePostId = (id: string) => id.replace(/\/index$/, '').replace(/\/+$/, '');
+// post.id из Astro = "saga/crew/article-name/index.md" → "crew/article-name"
+const normalizePostId = (id: string) => id
+	.replace(/\/index$/, '')
+	.replace(/\/+$/, '')
+	.replace(/^saga\//, '');
 
 // Временные папки article-1, article-2, … — не в прод и не в списке
 // Draft статьи также исключаются
