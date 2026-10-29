@@ -117,7 +117,12 @@ const breadcrumbItems = [
 					</div>
 
 					<div class="categories-filter">
-						<div class="section-label">{t('saga.filter')}</div>
+						<div class="filter-header">
+							<div class="section-label">{t('saga.filter')}</div>
+							<button class="reset-btn" id="resetFilters" style="display: none;" type="button" title={t('saga.reset')}>
+								✕ {t('saga.reset')}
+							</button>
+						</div>
 						<div class="categories-container categories-container-with-margin" role="group">
 							{categories.map(cat => (
 								<button 
@@ -425,6 +430,7 @@ const breadcrumbItems = [
 
 				if (categoriesParam || searchParam) {
 					updateDisplay();
+					updateResetButton();
 				}
 
 				categoryButtons.forEach(btn => {
@@ -458,14 +464,72 @@ const breadcrumbItems = [
 					});
 				});
 
+				// Reset button handler
+				const resetBtn = document.getElementById('resetFilters');
+				function updateResetButton() {
+					if (resetBtn) {
+						resetBtn.style.display = activeCategories.length > 0 ? 'inline-flex' : 'none';
+					}
+				}
+				resetBtn?.addEventListener('click', () => {
+					activeCategories = [];
+					categoryButtons.forEach(btn => btn.classList.remove('active'));
+					const newParams = new URLSearchParams(window.location.search);
+					newParams.delete('categories');
+					const newUrl = newParams.toString() ? `${window.location.pathname}?${newParams.toString()}` : window.location.pathname;
+					window.history.replaceState({}, '', newUrl);
+					currentPage = 1;
+					updateDisplay();
+					updateResetButton();
+				});
+
 				// Initial run to ensure correct state
 				updateDisplay();
+				updateResetButton();
 			});
 		</script>
 <style>
 	.page-title {
 		word-break: break-word;
 		line-height: 1.15;
+	}
+
+	.filter-header {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-bottom: 8px;
+	}
+
+	.reset-btn {
+		display: none;
+		align-items: center;
+		gap: 4px;
+		padding: 4px 12px;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-sm);
+		background: transparent;
+		color: var(--color-text-secondary);
+		cursor: pointer;
+		font-size: 0.85rem;
+		white-space: nowrap;
+		transition: all 0.2s ease;
+	}
+
+	.reset-btn:hover {
+		border-color: var(--color-text-primary);
+		color: var(--color-text-primary);
+	}
+
+	@media (max-width: 768px) {
+		.filter-header {
+			flex-wrap: wrap;
+		}
+		.reset-btn {
+			width: 100%;
+			justify-content: center;
+			margin-top: 4px;
+		}
 	}
 </style>
 	</body>
