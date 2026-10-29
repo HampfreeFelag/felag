@@ -5,7 +5,7 @@ import { estimateReadTime, isTempArticle } from '../../../utils/blog';
 
 export async function getStaticPaths() {
 	function normalizeSlug(id: string) {
-		// post.id из Astro = "saga/crew/article-name/index.md" → "crew/article-name"
+		// post.id из Astro = "saga/article-name/index.md" → "article-name"
 		return id
 			.replace(/\/index\.md$/, '')
 			.replace(/\/index$/, '')

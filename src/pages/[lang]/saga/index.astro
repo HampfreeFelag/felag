@@ -33,7 +33,7 @@ const posts = await getCollection(collectionName).catch((err) => {
 });
 
 // 🔒 УБИРАЕМ ДУБЛИКАТЫ: нормализуем post.id и убираем дубликаты
-// post.id из Astro = "saga/crew/article-name/index.md" → "crew/article-name"
+// post.id из Astro = "saga/article-name/index.md" → "article-name"
 const normalizePostId = (id: string) => id
 	.replace(/\/index$/, '')
 	.replace(/\/+$/, '')
@@ -140,27 +140,30 @@ const breadcrumbItems = [
 				</div>
 			{sortedPosts.length > 0 ? (
 				<div id="postsList" class="posts-list">
-					{sortedPosts.map((post) => (
-						<a 
-							href={`/${lang}/saga/${post.id}/`} 
-							class="post-card" 
-							data-title={post.data.title.toLowerCase()}
-							data-description={post.data.description.toLowerCase()}
-							data-category={post.data.category || ''}
-							data-tags={post.data.tags?.join(',').toLowerCase() || ''}
-						>
-							<Banner 
-								title={post.data.title} 
-								subtitle={post.data.description}
-								category={post.data.category} 
-								type="preview" 
-							/>
-							<div class="post-meta">
-								<span class="banner-date"><FormattedDate date={post.data.pubDate} /></span>
-							</div>
-							<div class="read-more-link" aria-hidden="true">{t('saga.read_more')}</div>
-						</a>
-					))}
+					{sortedPosts.map((post) => {
+						const postCats = post.data.categories || (post.data.category ? [post.data.category] : []);
+						return (
+							<a 
+								href={`/${lang}/saga/${post.id}/`} 
+								class="post-card" 
+								data-title={post.data.title.toLowerCase()}
+								data-description={post.data.description.toLowerCase()}
+								data-categories={postCats.join(',')}
+								data-tags={post.data.tags?.join(',').toLowerCase() || ''}
+							>
+								<Banner 
+									title={post.data.title} 
+									subtitle={post.data.description}
+									category={post.data.category} 
+									type="preview" 
+								/>
+								<div class="post-meta">
+									<span class="banner-date"><FormattedDate date={post.data.pubDate} /></span>
+								</div>
+								<div class="read-more-link" aria-hidden="true">{t('saga.read_more')}</div>
+							</a>
+						);
+					})}
 				</div>
 			) : (
 				<div class="no-posts" style="padding: var(--space-2xl); text-align: center; color: var(--color-text-secondary);">
@@ -200,11 +203,12 @@ const breadcrumbItems = [
 					const title = (card.getAttribute('data-title') || '').toLowerCase().trim();
 					const description = (card.getAttribute('data-description') || '').toLowerCase().trim();
 					const tags = (card.getAttribute('data-tags') || '').toLowerCase().trim();
+					const categories = (card.getAttribute('data-categories') || '').toLowerCase().trim();
 					return {
 						id: card.getAttribute('href'),
 						title: title,
 						description: description,
-						category: card.getAttribute('data-category') || '',
+						category: categories,
 						tags: tags,
 						element: card
 					};
@@ -257,8 +261,13 @@ const breadcrumbItems = [
 
 					if (activeCategories.length > 0) {
 						// AND-логика: статья должна содержать ВСЕ выбранные категории
+						// Поддержка как category (строка), так и categories (массив)
 						filtered = filtered.filter(p => {
-							const postCats = p.category ? [p.category] : [];
+							const postCats = p.categories
+								? [...p.categories]
+								: p.category
+								? [p.category]
+								: [];
 							return activeCategories.every(cat => postCats.includes(cat));
 						});
 					}

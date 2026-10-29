@@ -123,11 +123,17 @@ gtag('event', 'click', {
 
 ## Content Structure
 
-### Формат статьи
+### Физическая структура (плоская)
 
 ```
-src/content/blog-[lang]/[slug]/index.md
+src/content/blog-[lang]/saga/[slug]/index.md
 ```
+
+Примеры:
+- `src/content/blog-ru/saga/algo-journey/index.md`
+- `src/content/blog-en/saga/information-harbor-architecture/index.md`
+
+Категории задаются **исключительно** через frontmatter — физическая вложенность не используется.
 
 ### Frontmatter
 
@@ -137,7 +143,8 @@ draft: false           # true = скрыта, false = видна
 title: 'Заголовок'     # До 100 символов
 description: 'Описание' # SEO + подзаголовок в баннере
 pubDate: '2026-10-27'  # YYYY-MM-DD
-category: 'crew'       # route|forge|helm|treasury|compass|logbook|crew
+categories: ['crew']   # массив: route|forge|helm|treasury|compass|logbook|crew
+                       # может быть несколько: ['crew','forge']
 ---
 
 ## Введение
@@ -150,6 +157,7 @@ category: 'crew'       # route|forge|helm|treasury|compass|logbook|crew
 1. **Заголовок в body:** Не дублируйте `title` из frontmatter в виде `<h1>` — баннер уже рендерит `<h1>{title}</h1>`.
 2. **Первый раздел:** Используйте `## Введение` (или `## Introduction` для EN) как первый заголовок — он попадёт в TOC.
 3. **Якорные ссылки:** Astro автоматически генерирует `id` из slug заголовков.
+4. **Категории:** Физический путь статьи — всегда `saga/[slug]`. Категории определяются через массив `categories` в frontmatter. Фильтрация на странице `/ru/saga/` работает через query params: `?categories=crew,forge` (логика AND — пересечение).
 
 ---
 
