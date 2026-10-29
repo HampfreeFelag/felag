@@ -786,6 +786,21 @@ a[href^="#"] {
   color: inherit;
   padding: var(--space-lg) 0;
   border-bottom: 1px solid var(--color-border-light);
+  min-height: 180px;
+}
+
+.post-card .banner-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card .banner-subtitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .posts-list .post-card:first-child,
@@ -1589,18 +1604,18 @@ body, p, h1, h2, h3, h4, h5, h6, a, span, li, td, th {
    SCROLL MARGIN — anchor links must clear the sticky header
    ═══════════════════════════════════════════════════════ */
 h2, h3, h4, h5, h6 {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 110px;
 }
 
 @media (min-width: 768px) {
   h2, h3, h4, h5, h6 {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 120px;
   }
 }
 
 @media (min-width: 1440px) {
   h2, h3, h4, h5, h6 {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 130px;
   }
 }
 

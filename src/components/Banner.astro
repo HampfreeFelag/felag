@@ -12,7 +12,7 @@ interface Props {
 const { 
 	title, 
 	subtitle = '', 
-	category = 'general', 
+	category = '',
 	type = 'preview',
 	className = '' 
 } = Astro.props;
@@ -22,22 +22,21 @@ const t = useTranslations(lang);
 
 const cleanSubtitle = subtitle?.endsWith('.') ? subtitle.slice(0, -1) : subtitle;
 
-const rawCat = category || 'general';
-const catKey = rawCat.toLowerCase().trim();
-const rubric = t(`cat.${catKey}` as any) || rawCat;
+const rawCat = category?.toLowerCase().trim();
+const rubric = rawCat ? (t(`cat.${rawCat}` as any) || rawCat) : '';
 
 // На полной странице статьи заголовок — h1 (единственный на странице),
 // в превью/списках — h2, чтобы не ломать иерархию заголовков
 const TitleTag = type === 'full' ? 'h1' : 'h2';
 
 // Category color class
-const catClass = category === 'route' ? 'cat-route' :
-                 category === 'forge' ? 'cat-forge' :
-                 category === 'helm' ? 'cat-helm' :
-                 category === 'treasury' ? 'cat-treasury' :
-                 category === 'compass' ? 'cat-compass' :
-                 category === 'logbook' ? 'cat-logbook' :
-                 category === 'crew' ? 'cat-crew' : '';
+const catClass = rawCat === 'route' ? 'cat-route' :
+                 rawCat === 'forge' ? 'cat-forge' :
+                 rawCat === 'helm' ? 'cat-helm' :
+                 rawCat === 'treasury' ? 'cat-treasury' :
+                 rawCat === 'compass' ? 'cat-compass' :
+                 rawCat === 'logbook' ? 'cat-logbook' :
+                 rawCat === 'crew' ? 'cat-crew' : '';
 ---
 
 <div class={`banner banner--${type} ${className}`}>
