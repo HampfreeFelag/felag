@@ -101,16 +101,16 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = [];
 			<section aria-label={t('home.categories_label')} class="marquee-section">
 				<div class="marquee-container">
 					<div class="marquee-track">
-						{categories.map(cat => (
-							<a href={translatePath(cat.id + '/')} class="marquee-item">
-								{cat.full}
-							</a>
-						))}
-						{categories.map(cat => (
-							<a href={translatePath(cat.id + '/')} class="marquee-item">
-								{cat.full}
-							</a>
-						))}
+					{categories.map(cat => (
+						<a href={translatePath(`saga/?categories=${cat.id}`)} class="marquee-item">
+							{cat.full}
+						</a>
+					))}
+					{categories.map(cat => (
+						<a href={translatePath(`saga/?categories=${cat.id}`)} class="marquee-item">
+							{cat.full}
+						</a>
+					))}
 					</div>
 				</div>
 			</section>
