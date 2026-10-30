@@ -826,6 +826,24 @@ a[href^="#"] {
   flex-wrap: wrap;
 }
 
+/* ═══════════════════════════════════════════════════════
+    BANNER PREVIEW — выравнивание рубрики по верху
+    ═══════════════════════════════════════════════════════ */
+.banner--preview .banner-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.banner--preview .banner-rubric {
+  flex-shrink: 0;
+}
+
+.banner--preview .banner-title {
+  margin: 0;
+}
+
 /* Заголовок поста */
 .post-title {
   font-family: var(--font-serif);
