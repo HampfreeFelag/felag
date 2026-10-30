@@ -8,6 +8,7 @@
 import { getRelatedPosts } from '../utils/blog';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import Banner from './Banner.astro';
+import FormattedDate from './FormattedDate.astro';
 
 interface Props {
 	currentPostId: string;
@@ -63,9 +64,9 @@ const readMoreText = {
 							type="preview" 
 						/>
 						<div class="related-post-meta">
-							{postCat && (
-								<span class="related-post-category">[{t(`cat.${postCat}` as any) || postCat.toUpperCase()}]</span>
-							)}
+							<span class="related-post-date">
+								<FormattedDate date={post.data.pubDate} />
+							</span>
 						</div>
 					</a>
 				);

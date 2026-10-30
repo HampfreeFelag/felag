@@ -801,6 +801,7 @@ a[href^="#"] {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-sm);
+  flex: 1;
 }
 
 .post-card .banner-rubric {
@@ -822,7 +823,7 @@ a[href^="#"] {
 
 .post-card .post-meta {
   flex-shrink: 0;
-  margin-top: auto;
+  margin-top: var(--space-md);
 }
 
 .post-card .read-more-link {
