@@ -1,7 +1,6 @@
 ---
-// Import the global.css file here so that it is included on all pages.
-import '../styles/global.css';
-
+// Global CSS must be imported as is:global to avoid Astro scoping.
+// See: https://docs.astro.dev/en/reference/directives-reference/#style-isglobal
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_VERSION } from '../consts';
@@ -198,3 +197,7 @@ if (imageProp) {
 
 <!-- Analytics -->
 <Analytics />
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
