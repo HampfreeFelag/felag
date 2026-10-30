@@ -792,6 +792,12 @@ a[href^="#"] {
   align-items: flex-start;
 }
 
+.post-card .banner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .post-card .banner-inner {
   width: 100%;
 }
@@ -801,7 +807,6 @@ a[href^="#"] {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-sm);
-  flex: 1;
 }
 
 .post-card .banner-rubric {
