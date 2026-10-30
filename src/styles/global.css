@@ -751,6 +751,7 @@ a[href^="#"] {
   grid-template-columns: repeat(2, 1fr);
   column-gap: var(--space-3xl);
   row-gap: 0;
+  align-items: stretch;
   margin-bottom: var(--space-2xl);
 }
 
@@ -777,6 +778,7 @@ a[href^="#"] {
 .posts-list {
   display: grid;
   grid-template-columns: 1fr;
+  align-items: stretch;
   margin-bottom: var(--space-2xl);
 }
 
@@ -787,8 +789,6 @@ a[href^="#"] {
   color: inherit;
   padding: var(--space-lg) 0;
   border-bottom: 1px solid var(--color-border-light);
-  height: 100%;
-  min-height: 0;
   align-items: flex-start;
 }
 
@@ -801,7 +801,6 @@ a[href^="#"] {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-sm);
-  flex-shrink: 0;
 }
 
 .post-card .banner-rubric {
@@ -823,12 +822,12 @@ a[href^="#"] {
 
 .post-card .post-meta {
   flex-shrink: 0;
-  margin-top: var(--space-md);
+  margin-top: auto;
 }
 
 .post-card .read-more-link {
-  margin-top: auto;
   flex-shrink: 0;
+  margin-top: var(--space-sm);
 }
 
 .posts-list .post-card:first-child,
