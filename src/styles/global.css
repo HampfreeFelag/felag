@@ -787,6 +787,8 @@ a[href^="#"] {
   color: inherit;
   padding: var(--space-lg) 0;
   border-bottom: 1px solid var(--color-border-light);
+  height: 100%;
+  min-height: 0;
   align-items: flex-start;
 }
 
