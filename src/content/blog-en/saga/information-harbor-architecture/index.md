@@ -55,7 +55,7 @@ It is a routing system that separates content by language (RU/EN) and the functi
 No. Publishing forecasts, trading signals, or individual investment recommendations contradicts the project's architecture. Any mentions of assets are strictly analytical and historical in nature.
 
 **4. How can I report a text error or a broken link?**  
-Via the contacts listed on the "About the Project" page: [felag.online/ru/about/](https://felag.online/ru/about/).
+Via the contacts listed on the [About the Project](/en/about/) page.
 
 **5. Will an analysis of this distribution matrix's effectiveness be published?**  
 Yes. Given sustained interest in this approach, a separate material will be prepared detailing the analytics and efficiency metrics of the chosen content distribution strategy.
