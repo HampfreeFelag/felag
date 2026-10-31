@@ -116,7 +116,7 @@
 html {
   font-size: 16px;
   background-color: var(--color-bg);
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -1804,4 +1804,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Screen reader only — visible only to assistive tech */
 .sr-only {
   position: absolute;
-  width: 1p                                                                                                                                          
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
