@@ -1750,19 +1750,19 @@ body, p, h1, h2, h3, h4, h5, h6, a, span, li, td, th {
 /* ═══════════════════════════════════════════════════════
    SCROLL MARGIN — anchor links must clear the sticky header
    ═══════════════════════════════════════════════════════ */
-h2, h3, h4, h5, h6 {
-  scroll-margin-top: 90px;
+h1, h2, h3, h4, h5, h6 {
+  scroll-margin-top: calc(72px + 24px); /* header + 24px on mobile */
 }
 
 @media (min-width: 768px) {
-  h2, h3, h4, h5, h6 {
-    scroll-margin-top: 100px;
+  h1, h2, h3, h4, h5, h6 {
+    scroll-margin-top: calc(72px + 32px); /* header + 32px on tablet */
   }
 }
 
 @media (min-width: 1440px) {
-  h2, h3, h4, h5, h6 {
-    scroll-margin-top: 110px;
+  h1, h2, h3, h4, h5, h6 {
+    scroll-margin-top: calc(72px + 40px); /* header + 40px on desktop */
   }
 }
 
@@ -1804,12 +1804,4 @@ h2, h3, h4, h5, h6 {
 /* Screen reader only — visible only to assistive tech */
 .sr-only {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
+  width: 1p                                                                                                                                          

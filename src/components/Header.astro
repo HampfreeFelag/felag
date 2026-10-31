@@ -176,6 +176,20 @@ const t = useTranslations(lang);
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initHamburgerMenu);
 	else initHamburgerMenu();
 
+	// Restore marquee animation after browser back/forward navigation
+	const initMarqueeRestore = () => {
+		window.addEventListener('popstate', () => {
+			const track = document.querySelector('.marquee-track');
+			if (!track) return;
+			track.style.animation = 'none';
+			void track.offsetHeight;
+			track.style.animation = '';
+		});
+	};
+
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMarqueeRestore);
+	else initMarqueeRestore();
+
 	// Restore scroll position after language switch
 	const restoreScrollPosition = () => {
 		try {
