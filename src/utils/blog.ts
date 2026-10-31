@@ -119,7 +119,8 @@ export async function getRelatedPosts(
 	const posts = await getCollection(collectionName);
 	
 	// Нормализуем ID для сравнения
-	const normalizeId = (id: string) => id.replace(/\/index$/, '').replace(/\/+$/, '');
+	const normalizeId = (id: string) => 
+		id.replace(/^saga\//, '').replace(/\/index$/, '').replace(/\/+$/, '');
 	const normalizedCurrentId = normalizeId(currentPostId);
 	
 	// Исключаем текущую статью, временные article-* и draft статьи

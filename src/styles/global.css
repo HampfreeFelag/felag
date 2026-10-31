@@ -880,7 +880,7 @@ a[href^="#"] {
 
 .post-card .post-meta {
   flex-shrink: 0;
-  margin-top: var(--space-md);
+  margin-top: auto;
 }
 
 .post-card .read-more-link {
