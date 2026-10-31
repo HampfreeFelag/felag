@@ -414,9 +414,13 @@ const breadcrumbItems = [
 				}
 
 				searchInput?.addEventListener('input', (e) => {
-					searchTerm = (e.target as HTMLInputElement).value;
-					currentPage = 1;
-					updateDisplay();
+					const value = (e.target as HTMLInputElement).value;
+					clearTimeout(searchDebounceTimer);
+					searchDebounceTimer = setTimeout(() => {
+						searchTerm = value;
+						currentPage = 1;
+						updateDisplay();
+					}, 300);
 				});
 
 				// Handle search/category filter from URL (checkbox logic)

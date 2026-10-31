@@ -29,13 +29,13 @@ Based on metrics analysis, a symmetrical matrix has been established, eliminatin
 * **FÉLAG | Profi (Dev.to):** A platform for publishing architectural solutions and code snippets.
 * **FÉLAG | Logbook (Telegram):** An operational journal for the international audience.
 
-The primary hub for storing structured knowledge remains unchanged: [felag.online](https://felag.online).
+The primary hub for storing structured knowledge remains unchanged: [felag.online](/en/).
 
 ## Calibration Mechanism and Anomaly Handling
 
 The project's infrastructure is actively evolving. As in any complex system, technical errors or inaccuracies in the materials are possible.
 
-If any discrepancies are found in the texts or profile descriptions on external platforms, feedback can be submitted via the contacts listed on the [About the Project](https://felag.online/ru/about/) page. Constructive criticism is viewed as a necessary resource for the iterative improvement of the system. The development of the architecture and the efficiency metrics of the distribution matrix will be documented in real time.
+If any discrepancies are found in the texts or profile descriptions on external platforms, feedback can be submitted via the contacts listed on the [About the Project](/en/about/) page. Constructive criticism is viewed as a necessary resource for the iterative improvement of the system. The development of the architecture and the efficiency metrics of the distribution matrix will be documented in real time.
 
 ## Summary
 
