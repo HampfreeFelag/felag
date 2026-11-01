@@ -166,7 +166,7 @@ const breadcrumbItems = [
 					})}
 				</div>
 			) : (
-				<div class="no-posts" style="padding: var(--space-2xl); text-align: center; color: var(--color-text-secondary);">
+				<div class="no-posts" style="min-height: 40vh; display: flex; align-items: center; justify-content: center; padding: var(--space-2xl); text-align: center; color: var(--color-text-secondary);">
 					<p>{t('saga.no_articles_debug')}</p>
 				</div>
 			)}
@@ -547,6 +547,14 @@ const breadcrumbItems = [
 			margin-left: 12px;
 			padding: 4px 12px;
 		}
+	}
+
+	.no-posts {
+		margin-bottom: var(--space-2xl);
+	}
+
+	.no-results {
+		display: none;
 	}
 </style>
 	</body>
