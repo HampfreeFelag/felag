@@ -198,6 +198,8 @@ const breadcrumbItems = [
 					return;
 				}
 
+				let searchDebounceTimer: ReturnType<typeof setTimeout>;
+
 				// Нормализуем данные для поиска (все в нижнем регистре, убираем лишние пробелы)
 				const postsDataRaw = Array.from(postCards).map(card => {
 					const title = (card.getAttribute('data-title') || '').toLowerCase().trim();
