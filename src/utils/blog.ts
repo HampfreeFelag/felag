@@ -17,6 +17,10 @@ import type { CollectionEntry } from 'astro:content';
 export const TEMP_ARTICLE_SLUG = /^article-\d+$/;
 export const isTempArticle = (id: string) => TEMP_ARTICLE_SLUG.test(id);
 
+/** Нормализовать ID поста: убрать префикс saga/, суффикс /index, trailing слэши */
+export const normalizePostId = (id: string): string =>
+	id.replace(/^saga\//, '').replace(/\/index$/, '').replace(/\/+$/, '');
+
 // Helper: получить коллекцию по языку
 function getCollectionByLang(lang: 'ru' | 'en'): 'blog-ru' | 'blog-en' {
 	return `blog-${lang}` as 'blog-ru' | 'blog-en';

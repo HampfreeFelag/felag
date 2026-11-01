@@ -1,6 +1,7 @@
 import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { normalizePostId } from '../utils/blog';
 
 export async function GET(context) {
 	// Get posts from all language collections
@@ -24,7 +25,7 @@ export async function GET(context) {
 			            post.collection === 'blog-en' ? 'en' : 'es';
 			return {
 				...post.data,
-				link: `/${lang}/saga/${post.id}/`,
+				link: `/${lang}/saga/${normalizePostId(post.id)}/`,
 			};
 		}),
 	});
