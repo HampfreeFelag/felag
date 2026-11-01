@@ -20,12 +20,16 @@ export function useTranslatedPath(lang: keyof typeof ui) {
       ? import.meta.env.BASE_URL 
       : import.meta.env.BASE_URL + '/';
     
-    // remove leading slash if any
     let cleanPath = path.startsWith('/') ? path.slice(1) : path;
     
-    // Ensure it ends with a slash for Astro consistency, but only if not empty
-    const suffix = cleanPath && !cleanPath.endsWith('/') ? '/' : '';
+    // Разделяем путь и query-параметры — слэш добавляем ТОЛЬКО к пути
+    const queryIndex = cleanPath.indexOf('?');
+    const pathPart = queryIndex >= 0 ? cleanPath.slice(0, queryIndex) : cleanPath;
+    const queryPart = queryIndex >= 0 ? cleanPath.slice(queryIndex) : '';
     
-    return `${base}${l}/${cleanPath}${suffix}`;
+    // Добавляем слэш только к pathPart, если он не пустой и не заканчивается на /
+    const suffix = pathPart && !pathPart.endsWith('/') ? '/' : '';
+    
+    return `${base}${l}/${pathPart}${suffix}${queryPart}`;
   }
 }
