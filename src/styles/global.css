@@ -113,10 +113,15 @@
   box-sizing: border-box;
 }
 
+/* Smooth scroll for anchor links only (not global) */
+a[href^="#"] {
+  scroll-behavior: smooth;
+}
+
 html {
   font-size: 16px;
   background-color: var(--color-bg);
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -192,16 +197,11 @@ a:active {
   color: var(--color-accent-hover);
 }
 
-/* Smooth scroll for anchor links only (not global) */
-a[href^="#"] {
-  scroll-behavior: smooth;
-}
-
-/* Links inside article content — subtle underline, more visible on hover */
+/* Links inside article content — visible underline, more visible on hover */
 .prose a {
   color: var(--color-accent);
   text-decoration: underline;
-  text-decoration-color: transparent;
+  text-decoration-color: var(--color-accent);
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
   transition: color var(--duration-fast) var(--ease-out), text-decoration-color var(--duration-fast) var(--ease-out);
@@ -209,21 +209,12 @@ a[href^="#"] {
 
 .prose a:hover {
   color: var(--color-accent-hover);
-  text-decoration-color: var(--color-accent);
-  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--color-accent-hover);
+  text-decoration-thickness: 2px;
 }
 
 .prose a:visited {
   color: var(--color-accent);
-}
-
-/* External links inside prose: no underline (only hover) */
-.prose a.external-link {
-  text-decoration: none;
-}
-
-.prose a.external-link:hover {
-  text-decoration: underline;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -802,7 +793,7 @@ a[href^="#"] {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: var(--space-3xl);
-  row-gap: var(--space-xl);
+  row-gap: var(--space-lg);
   align-items: stretch;
   margin-bottom: var(--space-2xl);
 }
@@ -834,6 +825,10 @@ a[href^="#"] {
   margin-bottom: var(--space-2xl);
 }
 
+.saga-library {
+  display: block;
+}
+
 .post-card {
   display: flex;
   flex-direction: column;
@@ -841,13 +836,21 @@ a[href^="#"] {
   color: inherit;
   padding: var(--space-lg) 0;
   border-bottom: 1px solid var(--color-border-light);
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .post-card .banner {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 1 auto;
+  margin-bottom: 0;
+}
+
+.post-card .banner-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 }
 
 .post-card .banner-inner {
@@ -880,7 +883,8 @@ a[href^="#"] {
 
 .post-card .post-meta {
   flex-shrink: 0;
-  margin-top: auto;
+  margin-top: var(--space-md);
+  margin-bottom: 0;
 }
 
 .post-card .read-more-link {
@@ -888,8 +892,7 @@ a[href^="#"] {
   margin-top: var(--space-sm);
 }
 
-.posts-list .post-card:first-child,
-.posts-grid .post-card:first-child {
+.posts-list .post-card:first-child {
   padding-top: 0;
 }
 
@@ -1466,14 +1469,24 @@ a[href^="#"] {
 .hero-content > *:nth-child(4) { animation-delay: 240ms; }
 
 /* Post cards staggered */
-.posts-grid .post-card {
+.posts-grid .post-card,
+.posts-list .post-card,
+.saga-library .post-card {
   animation: fade-up var(--duration-slow) var(--ease-out) both;
 }
 
-.posts-grid .post-card:nth-child(1) { animation-delay: 0ms; }
-.posts-grid .post-card:nth-child(2) { animation-delay: 80ms; }
-.posts-grid .post-card:nth-child(3) { animation-delay: 160ms; }
-.posts-grid .post-card:nth-child(4) { animation-delay: 240ms; }
+.posts-grid .post-card:nth-child(1),
+.posts-list .post-card:nth-child(1),
+.saga-library .post-card:nth-child(1) { animation-delay: 0ms; }
+.posts-grid .post-card:nth-child(2),
+.posts-list .post-card:nth-child(2),
+.saga-library .post-card:nth-child(2) { animation-delay: 80ms; }
+.posts-grid .post-card:nth-child(3),
+.posts-list .post-card:nth-child(3),
+.saga-library .post-card:nth-child(3) { animation-delay: 160ms; }
+.posts-grid .post-card:nth-child(4),
+.posts-list .post-card:nth-child(4),
+.saga-library .post-card:nth-child(4) { animation-delay: 240ms; }
 
 /* View transitions for page navigation */
 [data-astro-transition-scope] {
@@ -1799,6 +1812,24 @@ h1, h2, h3, h4, h5, h6 {
     height: 10px;
     gap: 3px;
   }
+}
+
+/* External links inside .prose — inline with visible underline + icon */
+.prose a.external-link {
+  display: inline;
+  text-decoration: underline;
+}
+
+.prose a.external-link .external-icon {
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: 0.25em;
+  vertical-align: -0.08em;
+  color: var(--color-text-tertiary);
+}
+
+.prose a.external-link:hover .external-icon {
+  color: var(--color-accent-hover);
 }
 
 /* Screen reader only — visible only to assistive tech */

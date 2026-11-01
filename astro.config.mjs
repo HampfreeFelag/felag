@@ -4,6 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import { ogImagesIntegration } from './src/integrations/og-images';
+import { rehypeExternalLinks } from './src/plugins/rehype-external-links.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,6 +16,9 @@ export default defineConfig({
 		service: {
 			entrypoint: 'astro/assets/services/noop',
 		},
+	},
+	markdown: {
+		rehypePlugins: [rehypeExternalLinks],
 	},
 	vite: {
 		// Для Windows - кэш node_modules в отдельной директории
