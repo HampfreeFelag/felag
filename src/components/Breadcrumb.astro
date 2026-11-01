@@ -35,9 +35,7 @@ const breadcrumbList = {
 ---
 
 <!-- BreadcrumbList JSON-LD Schema -->
-<script type="application/ld+json">
-{JSON.stringify(breadcrumbList, null, 0)}
-</script>
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbList, null, 0)} />
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
 	<ol>

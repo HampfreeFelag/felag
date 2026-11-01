@@ -88,7 +88,11 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				"publisher": {
 					"@type": "Organization",
 					"name": "FÉLAG",
-					"url": Astro.site?.href || "https://felag.online"
+					"url": Astro.site?.href || "https://felag.online",
+					"logo": {
+						"@type": "ImageObject",
+						"url": new URL("/logo.svg", Astro.site || "https://felag.online").href
+					}
 				},
 				"mainEntityOfPage": {
 					"@type": "WebPage",
