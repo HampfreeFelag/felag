@@ -7,8 +7,7 @@ const contentRoot = path.join(repoRoot, 'src', 'content');
 
 const langDirs = [
   { lang: 'ru', dir: path.join(contentRoot, 'blog-ru') },
-  { lang: 'en', dir: path.join(contentRoot, 'blog-en') },
-  { lang: 'es', dir: path.join(contentRoot, 'blog-es') }
+  { lang: 'en', dir: path.join(contentRoot, 'blog-en') }
 ];
 
 function walk(dir) {
@@ -38,7 +37,7 @@ const slugsByLang = Object.fromEntries(
   langDirs.map(({ lang, dir }) => [lang, collectSlugs(dir)])
 );
 
-const linkRe = /\]\(\/(ru|en|es)\/library\/([a-z0-9-]+)(?:\/)?(?:#[^)]+)?\)/gi;
+const linkRe = /\]\(\/(ru|en)\/saga\/([a-z0-9-]+)(?:\/)?(?:#[^)]+)?\)/gi;
 
 const missing = [];
 
@@ -62,11 +61,11 @@ if (missing.length === 0) {
   process.exit(0);
 }
 
-console.error(`❌ Found ${missing.length} missing internal library link(s):`);
+console.error(`❌ Found ${missing.length} missing internal saga link(s):`);
 for (const item of missing) {
   console.error(`- from: ${item.from}`);
   console.error(`  link: ${item.link}`);
-  console.error(`  missing: /${item.targetLang}/library/${item.targetSlug}/`);
+  console.error(`  missing: /${item.targetLang}/saga/${item.targetSlug}/`);
 }
 process.exit(1);
 

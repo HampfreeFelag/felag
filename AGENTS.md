@@ -2,27 +2,37 @@
 
 ## BUILD VERIFICATION RULE (MANDATORY)
 
-**Before executing `git commit` and `git push`, the agent MUST run the project build command (`npm run build`).**
+**Before executing `git commit` and `git push`, the agent MUST run the full verification suite (`npm run verify`).**
 
-If the build fails with errors, the agent MUST:
+If verification fails with errors, the agent MUST:
 1. Analyze the error log
 2. Fix the code
-3. Re-run the build until it succeeds
+3. Re-run `npm run verify` until all checks pass
 
-A commit is only allowed after a successful local build.
+A commit is only allowed after successful verification.
 
-### Build command
+### Verification command
 ```bash
-npm run build
+npm run verify
 ```
 
+### What it checks
+1. **Build** — `astro build` succeeds with "Complete!"
+2. **JSON-LD** — no raw `JSON.stringify` in `dist/` HTML/XML
+3. **404 paths** — no `saga/saga` duplicate paths in `dist/`
+4. **NUL bytes** — no null bytes in any `.md` files under `src/content`
+5. **Internal links** — no broken saga links in markdown content
+
 ### Expected output
-- All pages built successfully
-- No `[ERROR]` lines in the output
-- Final line: `✓ Complete!`
+All 5 checks pass with green "OK" messages, ending with:
+```
+=== ВСЕ ПРОВЕРКИ ПРОЙДЕНЫ УСПЕШНО ===
+```
 
 ### Common failure patterns to watch for
 - CSS syntax errors (unclosed blocks, corrupted files)
 - Import resolution errors (wrong relative paths)
 - TypeScript type errors
 - Missing dependencies
+- NUL bytes in markdown files
+- Duplicate `saga/saga` paths in RelatedPosts or RSS
