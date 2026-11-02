@@ -193,18 +193,25 @@ const t = useTranslations(lang);
 	// Restore scroll position across language switches (cross-URL navigation)
 	// Astro only preserves scroll within the same URL — language switch changes path (/ru/ → /en/)
 	const initScrollRestore = () => {
+		// Disable browser's native scroll restoration — we handle it manually
+		if ('scrollRestoration' in history) {
+			history.scrollRestoration = 'manual';
+		}
+
 		// Save scroll position before Astro swaps the document
 		window.addEventListener('astro:before-swap', () => {
-			document.documentElement.dataset.scrollY = String(window.scrollY);
+			try { localStorage.setItem('felag_scrollY', String(window.scrollY)); } catch(e) {}
 		});
 
 		// Restore scroll position after Astro swaps the document
 		window.addEventListener('astro:after-swap', () => {
 			try {
-				const saved = document.documentElement.dataset.scrollY;
+				const saved = localStorage.getItem('felag_scrollY');
 				if (saved) {
-					window.scrollTo(0, parseInt(saved, 10));
-					delete document.documentElement.dataset.scrollY;
+					requestAnimationFrame(() => {
+						window.scrollTo(0, parseInt(saved, 10));
+						localStorage.removeItem('felag_scrollY');
+					});
 				}
 			} catch(e) {}
 		});
