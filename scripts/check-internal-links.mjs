@@ -22,12 +22,16 @@ function walk(dir) {
 
 function collectSlugs(langDir) {
   const slugs = new Set();
-  for (const entry of fs.readdirSync(langDir, { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
-    const indexPath = path.join(langDir, entry.name, 'index.md');
-    const indexMdxPath = path.join(langDir, entry.name, 'index.mdx');
-    if (fs.existsSync(indexPath) || fs.existsSync(indexMdxPath)) {
-      slugs.add(entry.name);
+  // Articles live in blog-{lang}/saga/*/index.md (recursive)
+  const sagaDir = path.join(langDir, 'saga');
+  if (!fs.existsSync(sagaDir)) return slugs;
+  const files = walk(langDir);
+  for (const f of files) {
+    // Extract slug: blog-{lang}/saga/<slug>/index.md
+    const rel = path.relative(langDir, f);
+    const parts = rel.split(path.sep);
+    if (parts[0] === 'saga' && parts.length >= 2) {
+      slugs.add(parts[1]);
     }
   }
   return slugs;
