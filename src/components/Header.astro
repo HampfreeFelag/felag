@@ -190,5 +190,26 @@ const t = useTranslations(lang);
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMarqueeRestore);
 	else initMarqueeRestore();
 
+	// Restore scroll position across language switches (cross-URL navigation)
+	// Astro only preserves scroll within the same URL — language switch changes path (/ru/ → /en/)
+	const initScrollRestore = () => {
+		// Save scroll position before Astro swaps the document
+		window.addEventListener('astro:before-swap', () => {
+			document.documentElement.dataset.scrollY = String(window.scrollY);
+		});
 
+		// Restore scroll position after Astro swaps the document
+		window.addEventListener('astro:after-swap', () => {
+			try {
+				const saved = document.documentElement.dataset.scrollY;
+				if (saved) {
+					window.scrollTo(0, parseInt(saved, 10));
+					delete document.documentElement.dataset.scrollY;
+				}
+			} catch(e) {}
+		});
+	};
+
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initScrollRestore);
+	else initScrollRestore();
 </script>
