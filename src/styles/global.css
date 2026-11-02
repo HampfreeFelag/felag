@@ -965,8 +965,12 @@ a:active {
   margin-top: var(--space-sm);
 }
 
-.posts-list .post-card:first-child {
-  padding-top: 0;
+/* Single-column only: at >=769px .posts-list becomes a 2-column grid, and this
+   exception lifted the first card's rubric var(--space-lg) above its row neighbour. */
+@media (max-width: 768px) {
+  .posts-list .post-card:first-child {
+    padding-top: 0;
+  }
 }
 
 /* Мета-строка: рубрика + дата */

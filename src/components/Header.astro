@@ -190,42 +190,42 @@ const t = useTranslations(lang);
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMarqueeRestore);
 	else initMarqueeRestore();
 
-	// Restore scroll position across language switches (cross-URL navigation)
-	// Astro only preserves scroll within the same URL — language switch changes path (/ru/ → /en/)
-	const initScrollRestore = () => {
-		// Disable browser's native scroll restoration — we handle it manually
-		if ('scrollRestoration' in history) {
-			history.scrollRestoration = 'manual';
-		}
+	// Preserve scroll across language switches.
+	// The switcher is a plain <a href="/en/..."> and no client-side router is mounted
+	// (there is no <ClientRouter /> / <ViewTransitions /> in the document), so the
+	// navigation is a full page load and astro:before-swap / astro:after-swap never fire.
+	const SCROLL_KEY = 'felag_scrollY';
 
-		// Save scroll position before Astro swaps the document
-		window.addEventListener('astro:before-swap', () => {
-			try { localStorage.setItem('felag_scrollY', String(window.scrollY)); } catch(e) {}
-		});
-
-		// Restore scroll position after Astro swaps the document
-		window.addEventListener('astro:after-swap', () => {
-			try {
-				const saved = localStorage.getItem('felag_scrollY');
-				if (saved) {
-					requestAnimationFrame(() => {
-						window.scrollTo(0, parseInt(saved, 10));
-						localStorage.removeItem('felag_scrollY');
-					});
-				}
-			} catch(e) {}
-		});
-
-		// Fallback: restore scroll on initial page load if localStorage has a saved value
-		// This handles cases where astro:after-swap didn't fire or there was a race condition
-		try {
-			const saved = localStorage.getItem('felag_scrollY');
-			if (saved) {
-				window.scrollTo(0, parseInt(saved, 10));
-				localStorage.removeItem('felag_scrollY');
-			}
-		} catch(e) {}
+	const saveScroll = () => {
+		try { sessionStorage.setItem(SCROLL_KEY, String(window.scrollY)); } catch(e) {}
 	};
+
+	const restoreScroll = () => {
+		let saved: string | null = null;
+		try { saved = sessionStorage.getItem(SCROLL_KEY); } catch(e) { return; }
+		if (!saved) return;
+		// Consumed once, so back/forward and reloads fall back to native restoration.
+		try { sessionStorage.removeItem(SCROLL_KEY); } catch(e) {}
+		const y = parseInt(saved, 10);
+		if (!y) return;
+		// Two frames: the list script (pagination/filter display) and webfonts settle
+		// the final page height, otherwise scrollTo() clamps against a too short page.
+		requestAnimationFrame(() => requestAnimationFrame(() => {
+			window.scrollTo(0, y);
+		}));
+	};
+
+	// Capture phase: runs before the browser unloads the document.
+	document.addEventListener('click', (event) => {
+		const target = event.target as Element | null;
+		if (target?.closest?.('.lang-switcher-btn, .mobile-lang-btn')) saveScroll();
+	}, true);
+
+	// Kept for the case a client router is mounted later; harmless today.
+	window.addEventListener('astro:before-swap', saveScroll);
+	window.addEventListener('astro:after-swap', restoreScroll);
+
+	const initScrollRestore = () => restoreScroll();
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initScrollRestore);
 	else initScrollRestore();
