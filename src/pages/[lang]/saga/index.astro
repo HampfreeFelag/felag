@@ -111,65 +111,111 @@ const breadcrumbItems = [
 			</div>
 			
 			<section class="saga-library fade-in" id="postsGrid">
-				<div class="search-and-filter">
-					<div class="search-bar">
-						<input type="text" placeholder={t('saga.search')} id="searchInput" />
-					</div>
+				<div class="saga-layout">
+					<aside class="saga-sidebar">
+						<div class="search-and-filter">
+							<div class="search-bar">
+								<input type="text" placeholder={t('saga.search')} id="searchInput" />
+							</div>
 
-					<div class="categories-filter">
-						<div class="filter-header">
-							<div class="section-label">{t('saga.filter')}</div>
-						</div>
-						<div class="categories-container categories-container-with-margin" role="group">
-							{categories.map(cat => (
-								<button 
-									class="tag-btn" 
-									data-cat={cat.id} 
-									aria-pressed="false"
-									title={cat.full}
-									type="button"
-								>
-									{cat.display}
+							<div class="categories-filter">
+								<div class="filter-header">
+									<div class="section-label">{t('saga.filter')}</div>
+								</div>
+								<div class="categories-container categories-container-with-margin" role="group">
+									{categories.map(cat => (
+										<button 
+											class="tag-btn" 
+											data-cat={cat.id} 
+											aria-pressed="false"
+											title={cat.full}
+											type="button"
+										>
+											{cat.display}
+										</button>
+									))}
+								</div>
+								<button class="reset-btn" id="resetFilters" style="display: none;" type="button" title={t('saga.reset')}>
+									✕ {t('saga.reset')}
 								</button>
-							))}
+							</div>
 						</div>
-						<button class="reset-btn" id="resetFilters" style="display: none;" type="button" title={t('saga.reset')}>
-							✕ {t('saga.reset')}
+					</aside>
+
+					<div class="saga-main">
+						<!-- Mobile filter toggle -->
+						<button class="filter-drawer-toggle" id="filterDrawerToggle" type="button">
+							<span>⚙ {t('saga.filter')}</span>
+							<span class="chevron">▼</span>
 						</button>
+
+						<!-- Mobile filter drawer -->
+						<div class="filter-drawer-overlay" id="filterDrawerOverlay"></div>
+						<div class="filter-drawer" id="filterDrawer">
+							<div class="filter-drawer-content">
+								<div class="filter-drawer-close">
+									<button type="button" id="filterDrawerClose">✕ {t('saga.reset')}</button>
+								</div>
+								<div class="search-and-filter">
+									<div class="search-bar">
+										<input type="text" placeholder={t('saga.search')} id="searchInputMobile" />
+									</div>
+									<div class="categories-filter">
+										<div class="filter-header">
+											<div class="section-label">{t('saga.filter')}</div>
+										</div>
+										<div class="categories-container" role="group">
+											{categories.map(cat => (
+												<button 
+													class="tag-btn" 
+													data-cat={cat.id} 
+													aria-pressed="false"
+													title={cat.full}
+													type="button"
+												>
+													{cat.display}
+												</button>
+											))}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						{sortedPosts.length > 0 ? (
+							<div id="postsList" class="posts-list">
+								{sortedPosts.map((post) => {
+									const postCats = post.data.categories || (post.data.category ? [post.data.category] : []);
+									return (
+										<a 
+											href={`/${lang}/saga/${post.id}/`} 
+											class="post-card" 
+											data-title={post.data.title.toLowerCase()}
+											data-description={post.data.description.toLowerCase()}
+											data-categories={postCats.join(',')}
+											data-tags={post.data.tags?.join(',').toLowerCase() || ''}
+										>
+											<Banner 
+												title={post.data.title} 
+												subtitle={post.data.description}
+												category={postCats[0] || ''} 
+												type="preview" 
+											/>
+											<div class="post-meta">
+												<span class="banner-date"><FormattedDate date={post.data.pubDate} /></span>
+											</div>
+											<div class="read-more-link" aria-hidden="true">{t('saga.read_more')}</div>
+										</a>
+									);
+								})}
+							</div>
+						) : (
+							<div class="no-posts" style="min-height: 40vh; display: flex; align-items: center; justify-content: center; padding: var(--space-2xl); text-align: center; color: var(--color-text-secondary);">
+								<p>{t('saga.no_articles_debug')}</p>
+							</div>
+						)}
 					</div>
 				</div>
-			{sortedPosts.length > 0 ? (
-				<div id="postsList" class="posts-list">
-					{sortedPosts.map((post) => {
-						const postCats = post.data.categories || (post.data.category ? [post.data.category] : []);
-						return (
-							<a 
-								href={`/${lang}/saga/${post.id}/`} 
-								class="post-card" 
-								data-title={post.data.title.toLowerCase()}
-								data-description={post.data.description.toLowerCase()}
-								data-categories={postCats.join(',')}
-								data-tags={post.data.tags?.join(',').toLowerCase() || ''}
-							>
-								<Banner 
-									title={post.data.title} 
-									subtitle={post.data.description}
-									category={postCats[0] || ''} 
-									type="preview" 
-								/>
-								<div class="post-meta">
-									<span class="banner-date"><FormattedDate date={post.data.pubDate} /></span>
-								</div>
-								<div class="read-more-link" aria-hidden="true">{t('saga.read_more')}</div>
-							</a>
-						);
-					})}
-				</div>
-			) : (
-				<div class="no-posts" style="min-height: 40vh; display: flex; align-items: center; justify-content: center; padding: var(--space-2xl); text-align: center; color: var(--color-text-secondary);">
-					<p>{t('saga.no_articles_debug')}</p>
-				</div>
-			)}
 			</section>
 
 			<div class="pagination-container" id="pagination">
@@ -501,6 +547,51 @@ const breadcrumbItems = [
 					currentPage = 1;
 					updateDisplay();
 					updateResetButton();
+				});
+
+				// ── Mobile Filter Drawer ──
+				const drawerToggle = document.getElementById('filterDrawerToggle');
+				const drawer = document.getElementById('filterDrawer');
+				const drawerOverlay = document.getElementById('filterDrawerOverlay');
+				const drawerClose = document.getElementById('filterDrawerClose');
+
+				function openDrawer() {
+					drawer?.classList.add('open');
+					drawerOverlay?.classList.add('open');
+					drawerToggle?.classList.add('open');
+					document.body.style.overflow = 'hidden';
+				}
+
+				function closeDrawer() {
+					drawer?.classList.remove('open');
+					drawerOverlay?.classList.remove('open');
+					drawerToggle?.classList.remove('open');
+					document.body.style.overflow = '';
+				}
+
+				drawerToggle?.addEventListener('click', openDrawer);
+				drawerClose?.addEventListener('click', closeDrawer);
+				drawerOverlay?.addEventListener('click', closeDrawer);
+
+				// Закрытие по Escape
+				document.addEventListener('keydown', (e) => {
+					if (e.key === 'Escape') closeDrawer();
+				});
+
+				// ── Sync dual search inputs (desktop + mobile drawer) ──
+				const searchInputs = document.querySelectorAll<HTMLInputElement>('#searchInput, #searchInputMobile');
+				searchInputs.forEach(input => {
+					input?.addEventListener('input', (e) => {
+						const value = (e.target as HTMLInputElement).value;
+						searchTerm = value;
+						// Синхронизировать оба инпута
+						searchInputs.forEach(i => { if (i !== e.target) i.value = searchTerm; });
+						clearTimeout(searchDebounceTimer);
+						searchDebounceTimer = setTimeout(() => {
+							currentPage = 1;
+							updateDisplay();
+						}, 300);
+					});
 				});
 
 				// Initial run to ensure correct state
