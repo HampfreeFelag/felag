@@ -91,6 +91,9 @@ export const ui = {
     'consent.accept': 'Принять',
     'consent.reject': 'Отклонить',
     'consent.privacy': 'политика конфиденциальности.',
+    'library.no_articles': "В этом разделе пока нет записей",
+    'saga.no_articles': 'В этой саге пока нет записей',
+    'saga.no_articles_debug': 'В этой саге пока нет записей',
   },
   en: {
     'nav.home': 'Home',
