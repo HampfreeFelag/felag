@@ -4,7 +4,7 @@ import BaseHead from '../../../components/BaseHead.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
-import { SITE_TITLE } from '../../../consts';
+import { SITE_TITLE, SITE_TITLE_EN } from '../../../consts';
 import FormattedDate from '../../../components/FormattedDate.astro';
 import ScrollTop from '../../../components/ScrollTop.astro';
 import Banner from '../../../components/Banner.astro';
@@ -100,7 +100,7 @@ const breadcrumbItems = [
 <!doctype html>
 <html lang={lang}>
 	<head>
-		<BaseHead title={`${SITE_TITLE} - ${t('nav.saga')}`} description={t('home.hero_description')} />
+		<BaseHead title={`${lang === 'en' ? SITE_TITLE_EN : SITE_TITLE} - ${t('nav.saga')}`} description={t('home.hero_description')} />
 	</head>
 	<body>
 		<Header />
@@ -222,7 +222,9 @@ const breadcrumbItems = [
 				<!-- Buttons will be injected by script -->
 			</div>
 			
-			<div id="noResults" class="no-results">
+			<div id="noResults" class="no-results"
+				data-empty={t('saga.no_results')}
+				data-no-category-results={t('saga.no_articles_for_categories')}>
 				{t('saga.no_results')}
 			</div>
 			<ScrollTop />
@@ -390,11 +392,12 @@ const breadcrumbItems = [
 
 					if (noResults) {
 						if (filtered.length === 0) {
-							if (activeCategories.length > 0) {
-								noResults.textContent = t('saga.no_articles_for_categories');
-							} else {
-								noResults.textContent = t('saga.no_results');
-							}
+							// The translation helper is frontmatter-only and unavailable inside this
+							// bundled module script; localized messages come from data attributes.
+							const emptyMsg = noResults.dataset.empty || noResults.textContent || '';
+							noResults.textContent = activeCategories.length > 0
+								? (noResults.dataset.noCategoryResults || emptyMsg)
+								: emptyMsg;
 							noResults.style.display = 'block';
 						} else {
 							noResults.style.display = 'none';

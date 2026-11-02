@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ExternalLink from '../../components/icons/ExternalLink.astro';
-import { SITE_TITLE } from '../../consts';
+import { SITE_TITLE, SITE_TITLE_EN } from '../../consts';
 import { ui } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
 import { getLinkAttrs } from '../../utils/link-utils';
@@ -35,7 +35,7 @@ const telegramOnlick = getPartnerClickHandler('telegram', 'https://t.me/Hampfree
 <!doctype html>
 <html lang={lang}>
 	<head>
-		<BaseHead title={`${SITE_TITLE} - ${t('nav.about')}`} description={t('home.hero_description')} />
+		<BaseHead title={`${lang === 'en' ? SITE_TITLE_EN : SITE_TITLE} - ${t('nav.about')}`} description={t('home.hero_description')} />
 	</head>
 	<body>
 		<Header />

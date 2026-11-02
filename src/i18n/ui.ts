@@ -186,5 +186,11 @@ export const ui = {
     'consent.accept': 'Accept',
     'consent.reject': 'Reject',
     'consent.privacy': 'privacy policy.',
+    'library.no_articles': 'There are no entries in this section yet',
   },
 } as const;
+
+// Parity guard: useTranslations() silently falls back to Russian (defaultLang) for any
+// key missing in a locale, so every ru key must exist in en at compile time.
+type LocaleParity = Record<keyof (typeof ui)['ru'], string>;
+const _enParity: LocaleParity = ui.en;

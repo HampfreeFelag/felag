@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ExternalLink from '../../components/icons/ExternalLink.astro';
-import { SITE_TITLE } from '../../consts';
+import { SITE_TITLE, SITE_TITLE_EN } from '../../consts';
 import { ui } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
 import { getLinkAttrs } from '../../utils/link-utils';
@@ -64,7 +64,7 @@ const c = content[lang as keyof typeof content] || content.en;
 <!doctype html>
 <html lang={lang}>
 	<head>
-		<BaseHead title={`${SITE_TITLE} - ${c.title}`} description={c.intro} />
+		<BaseHead title={`${lang === 'en' ? SITE_TITLE_EN : SITE_TITLE} - ${c.title}`} description={c.intro} />
 	</head>
 	<body>
 		<Header />
