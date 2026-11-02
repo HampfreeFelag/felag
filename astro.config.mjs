@@ -10,6 +10,7 @@ import { rehypeExternalLinks } from './src/plugins/rehype-external-links.mjs';
 export default defineConfig({
 	site: 'https://felag.online',
 	base: '/',
+	viewTransitions: true,
 	integrations: [mdx(), sitemap(), ogImagesIntegration()],
 	image: {
 		// Используем встроенные сервисы изображений для PNG
