@@ -215,6 +215,16 @@ const t = useTranslations(lang);
 				}
 			} catch(e) {}
 		});
+
+		// Fallback: restore scroll on initial page load if localStorage has a saved value
+		// This handles cases where astro:after-swap didn't fire or there was a race condition
+		try {
+			const saved = localStorage.getItem('felag_scrollY');
+			if (saved) {
+				window.scrollTo(0, parseInt(saved, 10));
+				localStorage.removeItem('felag_scrollY');
+			}
+		} catch(e) {}
 	};
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initScrollRestore);

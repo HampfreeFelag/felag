@@ -930,10 +930,6 @@ a:active {
   min-height: 0;
 }
 
-.post-card .banner-inner {
-  width: 100%;
-}
-
 .post-card .banner-top {
   display: flex;
   flex-direction: column;
