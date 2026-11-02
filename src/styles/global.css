@@ -176,7 +176,7 @@ p {
   line-height: 1.75;
 }
 
-/* Базовые ссылки, исключая логотип */
+/* Базовые ссылки — без visited state */
 a:not(.logo-link) {
   color: var(--color-accent);
   text-decoration: none;
@@ -186,10 +186,6 @@ a:not(.logo-link) {
 
 a:not(.logo-link):hover {
   color: var(--color-accent-hover);
-}
-
-a:not(.logo-link):visited {
-  color: #7B6B8A;
 }
 
 a:not(.logo-link):focus-visible {
@@ -213,7 +209,7 @@ a:not(.logo-link):active {
   color: var(--color-text);
 }
 
-/* Links inside article content — same as global, no underline */
+/* Ссылки в тексте статей — с visited state */
 .prose a {
   color: var(--color-accent);
   text-decoration: none;
@@ -1239,10 +1235,6 @@ a:not(.logo-link):active {
   color: var(--color-text);
 }
 
-.footer-copy a:visited {
-  color: #9B968B;
-}
-
 .footer-links {
   display: flex;
   gap: var(--space-lg);
@@ -1259,10 +1251,6 @@ a:not(.logo-link):active {
 
 .footer-links a:hover {
   color: var(--color-text);
-}
-
-.footer-links a:visited {
-  color: #9B968B;
 }
 
 /* ═══════════════════════════════════════════════════════
