@@ -78,11 +78,16 @@ const breadcrumbList = {
 	.breadcrumbs a {
 		color: var(--color-text-tertiary);
 		text-decoration: none;
+		cursor: pointer;
 		transition: color var(--duration-fast) var(--ease-out);
 	}
 
 	.breadcrumbs a:hover {
 		color: var(--color-text);
+	}
+
+	.breadcrumbs a:visited {
+		color: #9B968B;
 	}
 
 	.breadcrumbs .separator {

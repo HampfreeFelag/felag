@@ -179,6 +179,7 @@ p {
 a {
   color: var(--color-accent);
   text-decoration: none;
+  cursor: pointer;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
@@ -187,7 +188,7 @@ a:hover {
 }
 
 a:visited {
-  color: var(--color-accent);
+  color: #7B6B8A;
 }
 
 a:focus-visible {
@@ -200,24 +201,20 @@ a:active {
   color: var(--color-accent-hover);
 }
 
-/* Links inside article content — visible underline, more visible on hover */
+/* Links inside article content — same as global, no underline */
 .prose a {
   color: var(--color-accent);
-  text-decoration: underline;
-  text-decoration-color: var(--color-accent);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-  transition: color var(--duration-fast) var(--ease-out), text-decoration-color var(--duration-fast) var(--ease-out);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .prose a:hover {
   color: var(--color-accent-hover);
-  text-decoration-color: var(--color-accent-hover);
-  text-decoration-thickness: 2px;
 }
 
 .prose a:visited {
-  color: var(--color-accent);
+  color: #7B6B8A;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1221,10 +1218,17 @@ a:active {
 
 .footer-copy a {
   color: var(--color-text-secondary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .footer-copy a:hover {
   color: var(--color-text);
+}
+
+.footer-copy a:visited {
+  color: #9B968B;
 }
 
 .footer-links {
@@ -1237,11 +1241,16 @@ a:active {
   font-size: 0.8rem;
   color: var(--color-text-secondary);
   text-decoration: none;
+  cursor: pointer;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
 .footer-links a:hover {
   color: var(--color-text);
+}
+
+.footer-links a:visited {
+  color: #9B968B;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1858,11 +1867,12 @@ h5, h6 { scroll-margin-top: calc(var(--header-height) + var(--space-md)); }
   align-items: center;
   gap: 4px;
   text-decoration: none;
+  cursor: pointer;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
 .external-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .external-link .external-icon {
