@@ -176,29 +176,41 @@ p {
   line-height: 1.75;
 }
 
-a {
+/* Базовые ссылки, исключая логотип */
+a:not(.logo-link) {
   color: var(--color-accent);
   text-decoration: none;
   cursor: pointer;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-a:hover {
+a:not(.logo-link):hover {
   color: var(--color-accent-hover);
 }
 
-a:visited {
+a:not(.logo-link):visited {
   color: #7B6B8A;
 }
 
-a:focus-visible {
+a:not(.logo-link):focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
-a:active {
+a:not(.logo-link):active {
   color: var(--color-accent-hover);
+}
+
+/* Логотип: цвет не меняется никогда */
+.logo-link {
+  color: var(--color-text);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo-link:hover {
+  color: var(--color-text);
 }
 
 /* Links inside article content — same as global, no underline */
