@@ -121,17 +121,20 @@ a[href^="#"] {
 html {
   font-size: 16px;
   background-color: var(--color-bg);
+  color: var(--color-text);
   scroll-behavior: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  transition: background-color var(--duration-normal) var(--ease-out),
+              color var(--duration-normal) var(--ease-out);
 }
 
 body {
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--color-text);
+  color: inherit;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
