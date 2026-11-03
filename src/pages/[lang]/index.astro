@@ -51,7 +51,7 @@ const uniquePosts = posts.filter(post => {
 	}
 	
 	seenIds.add(normalizedId);
-	seenTitleCategory.has(titleCategoryKey);
+	seenTitleCategory.add(titleCategoryKey);
 	Object.assign(post, { id: normalizedId });
 	return true;
 });

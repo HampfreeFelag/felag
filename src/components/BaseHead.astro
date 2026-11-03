@@ -73,7 +73,7 @@ if (imageProp) {
 			const slug = slugParts.length > 0 ? slugParts.join('-') : 'homepage';
 			ogImageUrl = new URL(`/og/${lang}-${slug}.png`, Astro.site);
 		} else {
-			ogImageUrl = new URL(FallbackImage.src, Astro.site);
+			ogImageUrl = new URL("/felag-logo.png", Astro.site);
 		}
 	} else if (pathname === '/' || pathname === '/ru/' || pathname === '/en/') {
 		// Главная страница (мультиязычная)
