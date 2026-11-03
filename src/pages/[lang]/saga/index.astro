@@ -234,8 +234,7 @@ const breadcrumbItems = [
 		<script>
 			import Fuse from 'fuse.js';
 
-			// Ждём загрузки DOM
-			document.addEventListener('DOMContentLoaded', () => {
+			(() => {
 				const searchInput = document.getElementById('searchInput') as HTMLInputElement;
 				const postCards = document.querySelectorAll('.post-card') as NodeListOf<HTMLElement>;
 				const noResults = document.getElementById('noResults');
@@ -464,16 +463,6 @@ const breadcrumbItems = [
 					});
 				}
 
-				searchInput?.addEventListener('input', (e) => {
-					const value = (e.target as HTMLInputElement).value;
-					clearTimeout(searchDebounceTimer);
-					searchDebounceTimer = setTimeout(() => {
-						searchTerm = value;
-						currentPage = 1;
-						updateDisplay();
-					}, 300);
-				});
-
 				// Handle search/category filter from URL (checkbox logic)
 				const urlParams = new URLSearchParams(window.location.search);
 				const categoriesParam = urlParams.get('categories');
@@ -600,7 +589,7 @@ const breadcrumbItems = [
 				// Initial run to ensure correct state
 				updateDisplay();
 				updateResetButton();
-			});
+			})();
 		</script>
 <style>
 	.page-title {

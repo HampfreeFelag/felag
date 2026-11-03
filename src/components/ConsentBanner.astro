@@ -14,10 +14,10 @@ const privacyHref = translatePath('privacy');
 			<a href={privacyHref} class="consent-link">{t('consent.privacy')}</a>
 		</p>
 		<div class="consent-actions">
-			<button type="button" class="consent-btn consent-accept" data-action="accept">
+			<button type="button" class="consent-btn consent-accept" data-action="accept" aria-label={t('consent.accept')}>
 				{t('consent.accept')}
 			</button>
-			<button type="button" class="consent-btn consent-reject" data-action="reject">
+			<button type="button" class="consent-btn consent-reject" data-action="reject" aria-label={t('consent.reject')}>
 				{t('consent.reject')}
 			</button>
 		</div>

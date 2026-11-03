@@ -21,9 +21,11 @@ const formTitle = title || t('home.newsletter_title');
 	<form id="newsletter-form-component" class="subscribe-form">
 		<input 
 			type="email" 
+			id="newsletter-email"
 			placeholder={t('home.newsletter_placeholder')} 
 			required 
 			name="email"
+			aria-label={t('home.newsletter_placeholder')}
 		/>
 		<button type="submit" class="btn-submit">
 			{t('home.newsletter_button')}

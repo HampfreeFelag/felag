@@ -21,8 +21,7 @@ export async function GET(context) {
 		site: context.site,
 		items: allPosts.map((post) => {
 			// Determine language from collection name
-			const lang = post.collection === 'blog-ru' ? 'ru' : 
-			            post.collection === 'blog-en' ? 'en' : 'es';
+			const lang = post.collection === 'blog-ru' ? 'ru' : 'en';
 			return {
 				...post.data,
 				link: `/${lang}/saga/${normalizePostId(post.id)}/`,

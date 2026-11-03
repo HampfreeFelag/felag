@@ -221,10 +221,6 @@ const t = useTranslations(lang);
 		if (target?.closest?.('.lang-switcher-btn, .mobile-lang-btn')) saveScroll();
 	}, true);
 
-	// Kept for the case a client router is mounted later; harmless today.
-	window.addEventListener('astro:before-swap', saveScroll);
-	window.addEventListener('astro:after-swap', restoreScroll);
-
 	const initScrollRestore = () => restoreScroll();
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initScrollRestore);
