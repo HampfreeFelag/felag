@@ -106,7 +106,7 @@ const CLOUDTIPS = {
 										const attrs = getLinkAttrs(CLOUDTIPS.href, true);
 										const onclick = getPartnerClickHandler('cloudtips', CLOUDTIPS.href);
 										return (
-											<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="footer-support-link" onclick={onclick}>
+											<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="footer-support-link external-link" onclick={onclick}>
 												<span class="support-name">{CLOUDTIPS.name}</span>
 												<span class="support-desc">{CLOUDTIPS.desc}</span>
 												<ExternalLink />
