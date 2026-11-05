@@ -68,13 +68,13 @@ if (imageProp) {
 	const pathParts = pathname.split('/').filter(Boolean);
 	const langPrefix = pathParts.length > 0 && SUPPORTED_LANGS.includes(pathParts[0] as any) ? pathParts[0] : 'ru';
 
-	// Проверяем, это статья (saga/[lang]/[...slug]) или главная
+	// Проверяем, это статья (saga/[...slug]) или каталог (saga/)
 	if (pathname.includes('/saga/')) {
 		const sagaIndex = pathParts.indexOf('saga');
 		if (sagaIndex >= 0) {
 			const lang = pathParts[sagaIndex - 1] || langPrefix;
 			const slugParts = pathParts.slice(sagaIndex + 1);
-			const slug = slugParts.length > 0 ? slugParts.join('-') : 'homepage';
+			const slug = slugParts.length > 0 ? slugParts.join('-') : 'saga-index';
 			ogImageUrl = new URL(`/og/${lang}-${slug}.png`, Astro.site);
 		} else {
 			ogImageUrl = new URL("/felag-logo.png", Astro.site);
@@ -85,6 +85,9 @@ if (imageProp) {
 	} else if (pathname.includes('/about/')) {
 		// Страница "О проекте" (мультиязычная)
 		ogImageUrl = new URL(`/og/${langPrefix}-about.png`, Astro.site);
+	} else if (pathname.includes('/privacy/')) {
+		// Страница "Политика конфиденциальности" (мультиязычная)
+		ogImageUrl = new URL(`/og/${langPrefix}-privacy.png`, Astro.site);
 	} else {
 		// Fallback для других страниц — используем логотип
 		ogImageUrl = new URL("/felag-logo.png", Astro.site);

@@ -351,7 +351,7 @@ export function ogImagesIntegration(): AstroIntegration {
 					else failCount++;
 				}
 
-				// Homepage + About
+				// Homepage, About, Privacy, Saga catalog (per language)
 				for (const lang of ['ru', 'en']) {
 					const homepageData: OGImageData = {
 						title: 'FÉLAG',
@@ -367,13 +367,35 @@ export function ogImagesIntegration(): AstroIntegration {
 					const aboutData: OGImageData = {
 						title: lang === 'ru' ? 'О ПРОЕКТЕ' : 'ABOUT',
 						subtitle: lang === 'ru'
-							? 'FÉLAG — образовательная лаборатория о трейдинге'
-							: 'FÉLAG — an educational laboratory about trading',
+							? 'FÉLAG — бортовой журнал торгового сообщества'
+							: 'FÉLAG — the logbook of a trading community',
 						category: 'general',
 						lang,
 						slug: 'about',
 					};
 					await generateOGImage(aboutData, fonts, path.join(ogDir, `${lang}-about.png`));
+
+					const privacyData: OGImageData = {
+						title: lang === 'ru' ? 'Политика конфиденциальности' : 'Privacy Policy',
+						subtitle: lang === 'ru'
+							? 'FÉLAG уважает вашу конфиденциальность. Ниже — что мы собираем, зачем и какие у вас права.'
+							: 'FÉLAG respects your privacy. Below is what we collect, why, and your rights.',
+						category: 'general',
+						lang,
+						slug: 'privacy',
+					};
+					await generateOGImage(privacyData, fonts, path.join(ogDir, `${lang}-privacy.png`));
+
+					const sagaIndexData: OGImageData = {
+						title: lang === 'ru' ? 'Сага' : 'Saga',
+						subtitle: lang === 'ru'
+							? 'Стратегии, инструменты и архитектура системного трейдинга'
+							: 'Strategies, tools and architecture of systematic trading',
+						category: 'general',
+						lang,
+						slug: 'saga-index',
+					};
+					await generateOGImage(sagaIndexData, fonts, path.join(ogDir, `${lang}-saga-index.png`));
 				}
 
 				console.log(`[OG Images] Generated ${successCount} images successfully, ${failCount} failed`);
