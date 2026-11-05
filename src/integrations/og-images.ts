@@ -41,10 +41,9 @@ function parseFrontmatter(content: string): Record<string, any> {
 	}
 
 	// Handle `categories: ['compass']` (array) — extract first element
+	// After parsing, data.categories is a string 'compass' (extracted by arrMatch above)
 	if (!data.category && data.categories) {
-		if (Array.isArray(data.categories) && data.categories.length > 0) {
-			data.category = data.categories[0];
-		}
+		data.category = data.categories;
 	}
 
 	return data;
@@ -79,41 +78,61 @@ const CATEGORY_COLORS: Record<string, string> = {
 // ─── Font loader ─────────────────────────────────────────────────────
 async function loadFonts(): Promise<any[]> {
 	const fonts: any[] = [];
+	const fontsDir = path.resolve(process.cwd(), 'src', 'assets', 'fonts');
 
-	// Cormorant Garamond 600 (bold) — for titles
-	try {
-		const cssUrl = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap';
-		const cssResponse = await fetch(cssUrl);
-		if (cssResponse.ok) {
-			const css = await cssResponse.text();
-			const urlRegex = /url\(([^)]+)\)/g;
-			let match;
-			while ((match = urlRegex.exec(css)) !== null) {
-				const url = match[1];
-				try {
-					const fontResponse = await fetch(url);
-					if (fontResponse.ok) {
-						const fontData = await fontResponse.arrayBuffer();
-						const buf = Buffer.from(fontData);
-						if (url.includes('Cormorant')) {
-							fonts.push({ name: 'Cormorant Garamond', data: buf, weight: 600, style: 'normal' });
-						} else if (url.includes('Inter')) {
-							fonts.push({ name: 'Inter', data: buf, weight: 400, style: 'normal' });
-						} else if (url.includes('JetBrains')) {
-							fonts.push({ name: 'JetBrains Mono', data: buf, weight: 500, style: 'normal' });
-						}
-					}
-				} catch { /* skip individual font failures */ }
-			}
+	// Load local TTF fonts (downloaded from Google Fonts, cached in repo)
+	const localFonts = [
+		{ file: 'CormorantGaramond-600.ttf', name: 'Cormorant Garamond', weight: 600, style: 'normal' },
+		{ file: 'Inter-400.ttf', name: 'Inter', weight: 400, style: 'normal' },
+		{ file: 'Inter-500.ttf', name: 'Inter', weight: 500, style: 'normal' },
+		{ file: 'JetBrainsMono-500.ttf', name: 'JetBrains Mono', weight: 500, style: 'normal' },
+	];
+
+	for (const ff of localFonts) {
+		const ttfPath = path.join(fontsDir, ff.file);
+		if (existsSync(ttfPath)) {
+			fonts.push({ ...ff, data: readFileSync(ttfPath) });
 		}
-	} catch { /* skip */ }
+	}
 
-	// Fallback: system fonts
+	// Fallback: try Google Fonts if local fonts missing
+	if (fonts.length === 0) {
+		try {
+			const cssUrl = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap';
+			const cssResponse = await fetch(cssUrl);
+			if (cssResponse.ok) {
+				const css = await cssResponse.text();
+				const urlRegex = /url\(([^)]+)\)/g;
+				let match;
+				while ((match = urlRegex.exec(css)) !== null) {
+					const url = match[1];
+					try {
+						const fontResponse = await fetch(url);
+						if (fontResponse.ok) {
+							const fontData = await fontResponse.arrayBuffer();
+							const buf = Buffer.from(fontData);
+							if (url.includes('Cormorant')) {
+								fonts.push({ name: 'Cormorant Garamond', data: buf, weight: 600, style: 'normal' });
+							} else if (url.includes('Inter')) {
+								const is500 = url.includes('wght@500');
+								fonts.push({ name: 'Inter', data: buf, weight: is500 ? 500 : 400, style: 'normal' });
+							} else if (url.includes('JetBrains')) {
+								fonts.push({ name: 'JetBrains Mono', data: buf, weight: 500, style: 'normal' });
+							}
+						}
+					} catch { /* skip */ }
+				}
+			}
+		} catch { /* skip */ }
+	}
+
+	// Last resort: system Arial
 	if (fonts.length === 0) {
 		try {
 			const arialPath = 'C:/Windows/Fonts/arial.ttf';
 			if (existsSync(arialPath)) {
 				fonts.push({ name: 'Arial', data: readFileSync(arialPath), weight: 400, style: 'normal' });
+				console.log('[OG Images] Using system Arial as last resort');
 			}
 		} catch { /* skip */ }
 	}
