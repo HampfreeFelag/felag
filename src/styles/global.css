@@ -209,7 +209,7 @@ a:not(.logo-link):active {
   color: var(--color-text);
 }
 
-/* Ссылки в тексте статей — с visited state */
+/* Ссылки в тексте статей — без фиолетового артефакта браузера */
 .prose a {
   color: var(--color-accent);
   text-decoration: none;

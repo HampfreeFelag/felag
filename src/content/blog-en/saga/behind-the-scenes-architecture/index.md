@@ -42,4 +42,4 @@ Transparency builds trust. Real engineering solutions are valued higher than abs
 Contact details are on the ["About"](/en/about/) page. Constructive criticism is treated as a resource for improvement.
 
 **Do you publish ready-made trading strategies for copying?**
-We do not publish trading signals or individual investment advice. Content is strictly educational: it shows how rules are formalized, hypotheses tested, and risk management structured on specific platforms.
+Trading signals and individual investment advice are not published. However, materials regularly break down the mechanics, architecture, and logic of trading systems: how rules are formalized, hypotheses tested, and risk management structured on specific platforms.
