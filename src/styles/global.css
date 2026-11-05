@@ -1337,6 +1337,11 @@ a:not(.logo-link):active {
   font-weight: 600;
 }
 
+/* Ссылки внутри prose — strong наследует цвет ссылки, а не prose strong */
+.prose a strong {
+  color: inherit;
+}
+
 .prose ul, .prose ol {
   margin-bottom: var(--space-lg);
   padding-left: var(--space-xl);
