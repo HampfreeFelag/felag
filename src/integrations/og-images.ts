@@ -59,6 +59,7 @@ function translateRubric(catKey: string, lang: string): string {
 		compass: { ru: 'Компас', en: 'Compass' },
 		logbook: { ru: 'Бортжурнал', en: 'Logbook' },
 		crew: { ru: 'Команда', en: 'Crew' },
+		general: { ru: 'Общее', en: 'General' },
 	};
 	return catMap[catKey]?.[lang] ?? catKey.toUpperCase();
 }
