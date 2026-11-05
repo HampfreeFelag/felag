@@ -151,6 +151,10 @@ async function generateOGImage(data: OGImageData, fonts: any[], outputPath: stri
 		const catColor = CATEGORY_COLORS[category] || CATEGORY_COLORS.general;
 		const rubric = data.rubric || translateRubric(category, data.lang);
 
+		// Adaptive title size based on length
+		const title = data.title || '';
+		const titleFontSize = title.length > 60 ? 56 : title.length > 40 ? 64 : 72;
+
 		const svg = await satori(
 			React.createElement('div', {
 				style: {
@@ -161,68 +165,34 @@ async function generateOGImage(data: OGImageData, fonts: any[], outputPath: stri
 					justifyContent: 'space-between',
 					padding: '72px',
 					position: 'relative',
-					background: '#FAF9F6',
+					background: 'linear-gradient(135deg, #1E3A5F 0%, #14283F 100%)',
 				},
 			},
-				// Top bar
-				React.createElement('div', {
-					style: {
-						display: 'flex',
-						justifyContent: 'space-between',
-						alignItems: 'center',
-						marginBottom: '48px',
-						paddingBottom: '18px',
-						borderBottom: '1px solid #E4E1DA',
-					},
-				},
-					React.createElement('span', {
-						style: {
-							fontFamily: "'Cormorant Garamond', Georgia, serif",
-							fontSize: '26px',
-							fontWeight: 700,
-							color: '#1E3A5F',
-							letterSpacing: '0.08em',
-						},
-					}, 'FÉLAG'),
-					React.createElement('span', {
-						style: {
-							fontFamily: "'JetBrains Mono', monospace",
-							fontSize: '12px',
-							fontWeight: 500,
-							color: catColor,
-							letterSpacing: '0.06em',
-							padding: '5px 12px',
-							border: `1px solid ${catColor}`,
-							borderRadius: '2px',
-						},
-					}, rubric)
-				),
-
-				// Content
+				// Content (centered vertically)
 				React.createElement('div', {
 					style: { flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' },
 				},
 					React.createElement('h1', {
 						style: {
 							fontFamily: "'Cormorant Garamond', Georgia, serif",
-							fontSize: '56px',
+							fontSize: `${titleFontSize}px`,
 							fontWeight: 600,
-							color: '#1B1A17',
-							lineHeight: 1.25,
-							margin: '0 0 20px 0',
-							maxWidth: '960px',
+							color: '#FAF9F6',
+							lineHeight: 1.2,
+							margin: '0 0 24px 0',
+							maxWidth: '1000px',
 							letterSpacing: '-0.01em',
 						},
-					}, data.title),
+					}, title),
 					data.subtitle ? React.createElement('p', {
 						style: {
 							fontFamily: "'Inter', sans-serif",
-							fontSize: '22px',
+							fontSize: '24px',
 							fontWeight: 400,
-							color: '#67635B',
+							color: '#B8C4D0',
 							lineHeight: 1.5,
 							margin: 0,
-							maxWidth: '900px',
+							maxWidth: '960px',
 						},
 					}, data.subtitle) : null
 				),
@@ -234,28 +204,68 @@ async function generateOGImage(data: OGImageData, fonts: any[], outputPath: stri
 						justifyContent: 'space-between',
 						alignItems: 'center',
 						marginTop: 'auto',
-						paddingTop: '20px',
-						borderTop: '1px solid #E4E1DA',
+						paddingTop: '24px',
+						borderTop: '1px solid rgba(255,255,255,0.12)',
 					},
 				},
 					React.createElement('span', {
 						style: {
 							fontFamily: "'JetBrains Mono', monospace",
-							fontSize: '13px',
-							color: '#9B968B',
+							fontSize: '14px',
+							color: '#A97B2C',
 							letterSpacing: '0.02em',
 						},
-					}, 'felag.online'),
+					}, `${rubric} · felag.online`),
 					React.createElement('span', {
 						style: {
 							fontFamily: "'Cormorant Garamond', Georgia, serif",
 							fontSize: '16px',
 							fontWeight: 600,
-							color: '#1E3A5F',
+							color: '#A97B2C',
 							letterSpacing: '0.1em',
 							textTransform: 'uppercase',
 						},
 					}, 'FÉLAG')
+				),
+
+				// Geometric accent: 3 dots in bottom-right corner
+				React.createElement('div', {
+					style: {
+						position: 'absolute',
+						top: '72px',
+						right: '72px',
+						display: 'flex',
+						gap: '8px',
+						alignItems: 'center',
+					},
+				},
+					React.createElement('div', {
+						style: {
+							width: '6px',
+							height: '6px',
+							borderRadius: '50%',
+							background: '#A97B2C',
+							opacity: 0.3,
+						},
+					}),
+					React.createElement('div', {
+						style: {
+							width: '6px',
+							height: '6px',
+							borderRadius: '50%',
+							background: '#A97B2C',
+							opacity: 0.5,
+						},
+					}),
+					React.createElement('div', {
+						style: {
+							width: '6px',
+							height: '6px',
+							borderRadius: '50%',
+							background: '#A97B2C',
+							opacity: 0.7,
+						},
+					})
 				)
 			),
 			{
