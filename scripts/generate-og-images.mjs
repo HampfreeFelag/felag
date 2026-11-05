@@ -181,7 +181,7 @@ async function getBlogPosts() {
 	const contentDir = path.join(rootDir, 'src', 'content');
 
 	for (const lang of langs) {
-		const langDir = path.join(contentDir, `blog-${lang}`);
+		const langDir = path.join(contentDir, `blog-${lang}`, 'saga');
 		if (!existsSync(langDir)) continue;
 
 		const entries = await readdir(langDir, { withFileTypes: true });
@@ -272,7 +272,7 @@ async function main() {
 		console.log(`[OG Images] Found ${posts.length} blog posts to process`);
 		
 		for (const post of posts) {
-			const contentPath = path.join(rootDir, 'src', 'content', `blog-${post.lang}`, post.slug, 'index.md');
+			const contentPath = path.join(rootDir, 'src', 'content', `blog-${post.lang}`, 'saga', post.slug, 'index.md');
 			const outputPath = path.join(ogDir, `${post.lang}-${post.slug}.png`);
 			const imageMetaPath = `${outputPath}.meta`;
 			

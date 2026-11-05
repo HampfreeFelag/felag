@@ -31,6 +31,10 @@ const buildLangPath = (lang: (typeof SUPPORTED_LANGS)[number]) => {
 
 const { title, description: descriptionProp, metaOgTitle, image: imageProp } = Astro.props;
 
+// Determine language from URL path
+const urlPathParts = Astro.url.pathname.split('/').filter(Boolean);
+const lang = urlPathParts.length > 0 && SUPPORTED_LANGS.includes(urlPathParts[0] as any) ? urlPathParts[0] : 'ru';
+
 // Автоматическая генерация description, если не указан
 const description = descriptionProp || SITE_DESCRIPTION;
 
@@ -137,6 +141,7 @@ if (imageProp) {
 <meta property="og:title" content={ogTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageUrl} />
+<meta property="og:locale" content={lang === 'ru' ? 'ru_RU' : 'en_US'} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />

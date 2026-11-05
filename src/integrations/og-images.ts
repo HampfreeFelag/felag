@@ -234,8 +234,8 @@ export function ogImagesIntegration(): AstroIntegration {
 				// Read posts from filesystem
 				const contentBase = path.resolve(process.cwd(), 'src/content');
 				const [postsRu, postsEn] = await Promise.all([
-					getPublishedPosts(path.join(contentBase, 'blog-ru'), 'ru'),
-					getPublishedPosts(path.join(contentBase, 'blog-en'), 'en'),
+					getPublishedPosts(path.join(contentBase, 'blog-ru', 'saga'), 'ru'),
+					getPublishedPosts(path.join(contentBase, 'blog-en', 'saga'), 'en'),
 				]);
 
 				const allPosts = [...postsRu, ...postsEn];
