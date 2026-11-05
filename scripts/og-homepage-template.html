@@ -2,9 +2,9 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>OG Homepage</title>
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 	<style>
 		* {
 			margin: 0;
@@ -13,11 +13,12 @@
 		}
 
 		:root {
-			--nes-bg-primary: #050608;
-			--nes-text-primary: #E5E5E5;
-			--nes-text-secondary: #B0B0B0;
-			--nes-accent-green: #00D800;
-			--nes-accent-blue: #3CBCFC;
+			--bg: #FAF9F6;
+			--text: #1B1A17;
+			--text-secondary: #67635B;
+			--accent: #1E3A5F;
+			--accent-light: #E7EBF1;
+			--border: #E4E1DA;
 		}
 
 		body {
@@ -25,15 +26,15 @@
 			height: 630px;
 			margin: 0;
 			padding: 0;
-			font-family: 'Press Start 2P', monospace;
-			background: var(--nes-bg-primary);
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+			background: var(--bg);
 			overflow: hidden;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 		}
 
-		.homepage-banner {
+		.og-homepage {
 			width: 100%;
 			height: 100%;
 			position: relative;
@@ -41,164 +42,121 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			background: 
-				repeating-linear-gradient(
-					0deg,
-					transparent,
-					transparent 2px,
-					rgba(0, 216, 0, 0.03) 2px,
-					rgba(0, 216, 0, 0.03) 4px
-				),
-				linear-gradient(
-					135deg,
-					var(--nes-bg-primary) 0%,
-					rgba(0, 216, 0, 0.08) 50%,
-					var(--nes-bg-primary) 100%
-				);
+			padding: 80px;
+			background: var(--bg);
 		}
 
-		.logo-container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 48px;
-			text-align: center;
+		.og-homepage::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 4px;
+			background: var(--accent);
 		}
 
-		.logo-text {
-			font-family: 'Press Start 2P', monospace;
-			font-size: 3.5rem;
-			color: var(--nes-accent-green);
+		.og-logo-text {
+			font-family: 'Cormorant Garamond', Georgia, serif;
+			font-size: 64px;
+			font-weight: 700;
+			color: var(--accent);
+			letter-spacing: 0.12em;
 			text-transform: uppercase;
-			letter-spacing: 4px;
-			text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
-			line-height: 1.3;
+			margin-bottom: 24px;
 		}
 
-		.tagline {
-			font-family: 'JetBrains Mono', monospace;
-			font-size: 1.4rem;
-			color: var(--nes-text-secondary);
-			max-width: 800px;
-			line-height: 1.6;
+		.og-tagline {
+			font-family: 'Inter', sans-serif;
+			font-size: 22px;
+			font-weight: 400;
+			color: var(--text-secondary);
+			line-height: 1.5;
 			text-align: center;
+			max-width: 700px;
+			margin-bottom: 48px;
 		}
 
-		.features {
+		.og-features {
 			display: flex;
-			gap: 32px;
-			margin-top: 32px;
+			gap: 28px;
 			flex-wrap: wrap;
 			justify-content: center;
 		}
 
-		.feature-item {
+		.og-feature-item {
 			display: flex;
 			align-items: center;
-			gap: 12px;
+			gap: 10px;
 			font-family: 'JetBrains Mono', monospace;
-			font-size: 1rem;
-			color: var(--nes-accent-blue);
-			padding: 12px 20px;
-			border: 2px solid rgba(60, 188, 252, 0.3);
-			background: rgba(0, 0, 0, 0.3);
+			font-size: 14px;
+			font-weight: 500;
+			color: var(--accent);
+			padding: 10px 18px;
+			border: 1px solid var(--border);
+			background: var(--bg);
+			border-radius: 2px;
 		}
 
-		.feature-icon {
-			width: 20px;
-			height: 20px;
-			background: var(--nes-accent-green);
-			display: inline-block;
+		.og-feature-icon {
+			width: 8px;
+			height: 8px;
+			background: var(--accent);
+			border-radius: 1px;
 		}
 
-		/* Pixel art decoration - corners */
-		.corner {
+		.og-bottom {
 			position: absolute;
-			width: 60px;
-			height: 60px;
-			border: 4px solid rgba(0, 216, 0, 0.2);
+			bottom: 48px;
+			left: 80px;
+			right: 80px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding-top: 16px;
+			border-top: 1px solid var(--border);
 		}
 
-		.corner-tl {
-			top: 40px;
-			left: 40px;
-			border-right: none;
-			border-bottom: none;
+		.og-url {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 13px;
+			color: var(--text-tertiary);
+			letter-spacing: 0.02em;
 		}
 
-		.corner-tr {
-			top: 40px;
-			right: 40px;
-			border-left: none;
-			border-bottom: none;
-		}
-
-		.corner-bl {
-			bottom: 40px;
-			left: 40px;
-			border-right: none;
-			border-top: none;
-		}
-
-		.corner-br {
-			bottom: 40px;
-			right: 40px;
-			border-left: none;
-			border-top: none;
-		}
-
-		/* Scanline effect */
-		.homepage-banner::after {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: repeating-linear-gradient(
-				rgba(0, 0, 0, 0.08),
-				rgba(0, 0, 0, 0.08) 1px,
-				transparent 1px,
-				transparent 4px
-			);
-			pointer-events: none;
-			z-index: 1;
-		}
-
-		.content-wrapper {
-			position: relative;
-			z-index: 2;
+		.og-brand-small {
+			font-family: 'Cormorant Garamond', Georgia, serif;
+			font-size: 16px;
+			font-weight: 600;
+			color: var(--accent);
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
 		}
 	</style>
 </head>
 <body>
-	<div class="homepage-banner">
-		<!-- Corner decorations -->
-		<div class="corner corner-tl"></div>
-		<div class="corner corner-tr"></div>
-		<div class="corner corner-bl"></div>
-		<div class="corner corner-br"></div>
-
-		<div class="content-wrapper">
-			<div class="logo-container">
-				<h1 class="logo-text">{{TITLE}}</h1>
-				<p class="tagline">{{SUBTITLE}}</p>
-				
-				<div class="features">
-					<div class="feature-item">
-						<span class="feature-icon"></span>
-						<span>{{FEATURE1}}</span>
-					</div>
-					<div class="feature-item">
-						<span class="feature-icon"></span>
-						<span>{{FEATURE2}}</span>
-					</div>
-					<div class="feature-item">
-						<span class="feature-icon"></span>
-						<span>{{FEATURE3}}</span>
-					</div>
-				</div>
+	<div class="og-homepage">
+		<h1 class="og-logo-text">FÉLAG</h1>
+		<p class="og-tagline">{{SUBTITLE}}</p>
+		
+		<div class="og-features">
+			<div class="og-feature-item">
+				<span class="og-feature-icon"></span>
+				<span>{{FEATURE1}}</span>
 			</div>
+			<div class="og-feature-item">
+				<span class="og-feature-icon"></span>
+				<span>{{FEATURE2}}</span>
+			</div>
+			<div class="og-feature-item">
+				<span class="og-feature-icon"></span>
+				<span>{{FEATURE3}}</span>
+			</div>
+		</div>
+
+		<div class="og-bottom">
+			<span class="og-url">felag.online</span>
+			<span class="og-brand-small">FÉLAG</span>
 		</div>
 	</div>
 </body>

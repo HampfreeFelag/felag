@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>OG Banner</title>
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 	<style>
 		* {
 			margin: 0;
@@ -13,21 +13,13 @@
 		}
 
 		:root {
-			--nes-bg-primary: #050608;
-			--nes-bg-secondary: #0F1012;
-			--nes-text-primary: #E5E5E5;
-			--nes-text-secondary: #B0B0B0;
-			--nes-text-tertiary: #808080;
-			--nes-accent-green: #00D800;
-			--nes-accent-blue: #3CBCFC;
-			--nes-accent-yellow: #F8E800;
-			--nes-border-primary: #404040;
-			--space-1: 8px;
-			--space-2: 16px;
-			--space-3: 24px;
-			--space-4: 32px;
-			--space-5: 40px;
-			--space-6: 48px;
+			--bg: #FAF9F6;
+			--text: #1B1A17;
+			--text-secondary: #67635B;
+			--text-tertiary: #7A756B;
+			--accent: #1E3A5F;
+			--border: #E4E1DA;
+			--rubric-color: {{RUBRIC_COLOR}};
 		}
 
 		body {
@@ -35,144 +27,124 @@
 			height: 630px;
 			margin: 0;
 			padding: 0;
-			font-family: 'Press Start 2P', monospace;
-			background: var(--nes-bg-primary);
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+			background: var(--bg);
 			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 
-		.code-banner {
+		.og-banner {
 			width: 100%;
 			height: 100%;
 			position: relative;
-			overflow: hidden;
 			display: flex;
 			flex-direction: column;
-			background-color: var(--nes-bg-primary);
-			image-rendering: pixelated;
+			padding: 64px 72px;
+			background: var(--bg);
+			border-left: 6px solid var(--rubric-color);
 		}
 
-		.banner-inner {
+		/* Top bar */
+		.og-top {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 40px;
+			padding-bottom: 18px;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.og-brand {
+			font-family: 'Cormorant Garamond', Georgia, serif;
+			font-size: 26px;
+			font-weight: 700;
+			color: var(--accent);
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+		}
+
+		.og-rubric {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 12px;
+			font-weight: 500;
+			color: var(--rubric-color);
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			padding: 5px 12px;
+			border: 1px solid var(--rubric-color);
+			border-radius: 2px;
+		}
+
+		/* Content */
+		.og-content {
 			flex: 1;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-between;
-			padding: var(--space-5);
-			padding-bottom: var(--space-6);
-			padding-right: var(--space-6);
-			position: relative;
-			z-index: 2;
+			justify-content: center;
 		}
 
-		.banner-top {
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-start;
+		.og-title {
+			font-family: 'Cormorant Garamond', Georgia, serif;
+			font-size: 48px;
+			font-weight: 700;
+			color: var(--text);
+			line-height: 1.25;
+			margin-bottom: 18px;
+			max-width: 960px;
+			letter-spacing: -0.01em;
 		}
 
-		.banner-title {
-			font-family: 'Press Start 2P', monospace;
-			font-size: 2.5rem;
-			color: var(--nes-accent-green);
-			margin: 0 0 var(--space-1) 0;
-			line-height: 1.4;
-			text-transform: uppercase;
-			word-break: break-word;
-		}
-
-		.banner-subtitle {
-			font-family: 'JetBrains Mono', monospace;
-			font-size: 1.2rem;
-			font-weight: bold;
-			color: var(--nes-accent-blue);
-			margin: 0;
-			opacity: 0.9;
+		.og-subtitle {
+			font-family: 'Inter', sans-serif;
+			font-size: 20px;
+			font-weight: 400;
+			color: var(--text-secondary);
 			line-height: 1.5;
 			max-width: 900px;
 		}
 
-		.banner-bottom {
+		/* Bottom bar */
+		.og-bottom {
 			display: flex;
 			justify-content: space-between;
-			align-items: flex-start;
-			gap: var(--space-4);
-			padding-top: var(--space-3);
-			margin-top: var(--space-2);
-			border-top: 2px solid rgba(255, 255, 255, 0.05);
-			width: 100%;
+			align-items: center;
+			margin-top: auto;
+			padding-top: 20px;
+			border-top: 1px solid var(--border);
 		}
 
-		.banner-rubric {
-			font-family: 'Press Start 2P', monospace;
-			font-size: 1rem;
-			padding: var(--space-1) var(--space-2);
-			background-color: var(--rubric-color, var(--nes-accent-green));
-			color: var(--nes-bg-primary);
-			border: 2px solid var(--nes-bg-primary);
-			box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
-			text-transform: uppercase;
-			display: inline-block;
-			white-space: nowrap;
-		}
-
-		.banner-watermark {
-			color: var(--nes-text-tertiary);
+		.og-url {
 			font-family: 'JetBrains Mono', monospace;
-			font-size: 0.9rem;
-			opacity: 0.9;
+			font-size: 13px;
+			color: var(--text-tertiary);
+			letter-spacing: 0.02em;
+		}
+
+		.og-logo {
+			font-family: 'Cormorant Garamond', Georgia, serif;
+			font-size: 16px;
 			font-weight: 600;
-			white-space: nowrap;
-		}
-
-		/* Background Patterns */
-		.bg-pattern-grid {
-			background: 
-				repeating-linear-gradient(0deg, transparent, transparent 15px, rgba(0, 216, 0, 0.02) 15px, rgba(0, 216, 0, 0.02) 16px),
-				repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(0, 216, 0, 0.02) 15px, rgba(0, 216, 0, 0.02) 16px),
-				var(--nes-bg-primary);
-		}
-
-		.bg-pattern-gradient-electric {
-			background: linear-gradient(135deg, var(--nes-bg-primary) 0%, rgba(60, 188, 252, 0.05) 50%, var(--nes-bg-primary) 100%);
-		}
-
-		.bg-pattern-gradient-analysis {
-			background: linear-gradient(135deg, var(--nes-bg-primary) 0%, rgba(0, 216, 0, 0.05) 50%, var(--nes-bg-primary) 100%);
-		}
-
-		.bg-pattern-solid-dark {
-			background-color: var(--nes-bg-primary);
-		}
-
-		/* Scanline effect */
-		.code-banner::after {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: repeating-linear-gradient(
-				rgba(0, 0, 0, 0.05),
-				rgba(0, 0, 0, 0.05) 1px,
-				transparent 1px,
-				transparent 4px
-			);
-			pointer-events: none;
-			z-index: 1;
+			color: var(--accent);
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
 		}
 	</style>
 </head>
 <body>
-	<div class="code-banner bg-pattern-{{PATTERN}}" id="banner">
-		<div class="banner-inner">
-			<div class="banner-top">
-				<h2 class="banner-title">{{TITLE}}</h2>
-				<p class="banner-subtitle">{{SUBTITLE}}</p>
-			</div>
-			<div class="banner-bottom">
-				<span class="banner-rubric">[{{RUBRIC}}]</span>
-				<span class="banner-watermark">MARKETLAB ACADEMY</span>
-			</div>
+	<div class="og-banner">
+		<div class="og-top">
+			<span class="og-brand">FÉLAG</span>
+			<span class="og-rubric">{{RUBRIC}}</span>
+		</div>
+		<div class="og-content">
+			<h1 class="og-title">{{TITLE}}</h1>
+			<p class="og-subtitle">{{SUBTITLE}}</p>
+		</div>
+		<div class="og-bottom">
+			<span class="og-url">felag.online</span>
+			<span class="og-logo">FÉLAG</span>
 		</div>
 	</div>
 </body>

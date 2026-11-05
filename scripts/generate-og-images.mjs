@@ -21,13 +21,6 @@ const categoryTranslations = {
 		'fundamental-analysis': 'FUNDAMENTAL',
 		'general': 'GENERAL',
 	},
-	es: {
-		'technical-analysis': 'TÉCNICO',
-		'crypto': 'CRIPTO',
-		'algo-trading': 'ALGO',
-		'fundamental-analysis': 'FUNDAMENTAL',
-		'general': 'GENERAL',
-	},
 };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -97,16 +90,13 @@ async function generateOGImage(data, browser, outputPath, contentPath, imageMeta
 		let html = await readFile(templatePath, 'utf-8');
 
 		const category = data.category || 'general';
-		const pattern = bgPatterns[category] || 'solid-dark';
 		const rubricColor = rubricColors[category] || '#00D800';
 
 		html = html
 			.replace(/\{\{TITLE\}\}/g, data.title || '')
 			.replace(/\{\{SUBTITLE\}\}/g, data.subtitle || '')
 			.replace(/\{\{RUBRIC\}\}/g, rubric)
-			.replace(/\{\{PATTERN\}\}/g, pattern);
-
-		html = html.replace('<style>', `<style>\n\t:root { --rubric-color: ${rubricColor}; }\n`);
+			.replace(/\{\{RUBRIC_COLOR\}\}/g, rubricColor);
 
 		const page = await browser.newPage();
 		await page.setViewport({ width: 1200, height: 630 });
@@ -144,7 +134,6 @@ async function generateHomepageOGImage(data, browser, outputPath) {
 		const featureTranslations = {
 			ru: { f1: 'Трейдинг', f2: 'Криптовалюты', f3: 'Алготрейдинг' },
 			en: { f1: 'Trading', f2: 'Cryptocurrency', f3: 'Algo Trading' },
-			es: { f1: 'Trading', f2: 'Criptomonedas', f3: 'Algo Trading' }
 		};
 
 		const features = featureTranslations[data.lang] || featureTranslations.ru;
@@ -289,7 +278,6 @@ async function main() {
 		const homeConfigs = [
 			{ lang: 'ru', title: 'FÉLAG', subtitle: 'Блог о трейдинге, криптовалюте и ремесле' },
 			{ lang: 'en', title: 'FÉLAG', subtitle: 'Blog about trading, cryptocurrency and craftsmanship' },
-			{ lang: 'es', title: 'FÉLAG', subtitle: 'Blog sobre trading, criptomonedas y artesanía' }
 		];
 
 		for (const config of homeConfigs) {
@@ -305,7 +293,6 @@ async function main() {
 		const aboutConfigs = [
 			{ lang: 'ru', title: 'О проекте', subtitle: 'FÉLAG — блог о трейдинге, где главное — люди и их опыт.' },
 			{ lang: 'en', title: 'About Project', subtitle: 'FÉLAG — a trading blog where people and their experience come first.' },
-			{ lang: 'es', title: 'Sobre el proyecto', subtitle: 'FÉLAG — un blog de trading donde las personas y su experiencia son lo primero.' }
 		];
 
 		for (const config of aboutConfigs) {
