@@ -16,84 +16,106 @@ interface OGImageData {
 	slug: string;
 }
 
-// Read frontmatter from markdown file
+// ─── Frontmatter parser ───────────────────────────────────────────────
 function parseFrontmatter(content: string): Record<string, any> {
 	const match = content.match(/^---\n([\s\S]*?)\n---/);
 	if (!match) return {};
 	const yaml = match[1];
 	const data: Record<string, any> = {};
+
 	for (const line of yaml.split('\n')) {
 		const kv = line.match(/^(\w+):\s*(.+)$/);
 		if (kv) {
 			let val: any = kv[2].trim();
-			// Remove quotes
-			if (val.startsWith("'") && val.endsWith("'")) val = val.slice(1, -1);
-			if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
-			// Parse booleans
+			if (typeof val === 'string') {
+				if (val.startsWith("'") && val.endsWith("'")) val = val.slice(1, -1);
+				if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
+				// Handle inline arrays: ['compass'] → 'compass'
+				const arrMatch = val.match(/^\['([^']+)'\]$/);
+				if (arrMatch) val = arrMatch[1];
+			}
 			if (val === 'true') val = true;
 			if (val === 'false') val = false;
 			data[kv[1]] = val;
 		}
 	}
+
+	// Handle `categories: ['compass']` (array) — extract first element
+	if (!data.category && data.categories) {
+		if (Array.isArray(data.categories) && data.categories.length > 0) {
+			data.category = data.categories[0];
+		}
+	}
+
 	return data;
 }
 
-// Load fonts (TTF format required for Satori)
-async function loadFonts() {
-	const fonts = [];
+// ─── Category → rubric translation (from ui.ts) ──────────────────────
+function translateRubric(catKey: string, lang: string): string {
+	const catMap: Record<string, Record<string, string>> = {
+		route: { ru: 'Маршрут', en: 'Route' },
+		forge: { ru: 'Кузница', en: 'Forge' },
+		helm: { ru: 'Штурвал', en: 'Helm' },
+		treasury: { ru: 'Казна', en: 'Treasury' },
+		compass: { ru: 'Компас', en: 'Compass' },
+		logbook: { ru: 'Бортжурнал', en: 'Logbook' },
+		crew: { ru: 'Команда', en: 'Crew' },
+	};
+	return catMap[catKey]?.[lang] ?? catKey.toUpperCase();
+}
 
-	// Try to load Inter from Google Fonts (TTF format)
+// ─── Category → color (synced with global.css) ───────────────────────
+const CATEGORY_COLORS: Record<string, string> = {
+	route: '#1E3A5F',
+	forge: '#A97B2C',
+	helm: '#3E6E96',
+	treasury: '#8A6423',
+	compass: '#5E7355',
+	logbook: '#4E7DA3',
+	crew: '#A54E4B',
+	general: '#7A8B9C',
+};
+
+// ─── Font loader ─────────────────────────────────────────────────────
+async function loadFonts(): Promise<any[]> {
+	const fonts: any[] = [];
+
+	// Cormorant Garamond 600 (bold) — for titles
 	try {
-		// Use Google Fonts CSS API to get actual TTF URLs
-		const cssUrl = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap';
+		const cssUrl = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap';
 		const cssResponse = await fetch(cssUrl);
 		if (cssResponse.ok) {
 			const css = await cssResponse.text();
-			// Extract font URLs from CSS
 			const urlRegex = /url\(([^)]+)\)/g;
 			let match;
-			const urls: string[] = [];
 			while ((match = urlRegex.exec(css)) !== null) {
-				urls.push(match[1]);
-			}
-			for (const url of urls) {
+				const url = match[1];
 				try {
 					const fontResponse = await fetch(url);
 					if (fontResponse.ok) {
 						const fontData = await fontResponse.arrayBuffer();
-						fonts.push({
-							name: 'Inter',
-							data: Buffer.from(fontData),
-							weight: url.includes('wght@400') ? 400 : 700,
-							style: 'normal',
-						});
+						const buf = Buffer.from(fontData);
+						if (url.includes('Cormorant')) {
+							fonts.push({ name: 'Cormorant Garamond', data: buf, weight: 600, style: 'normal' });
+						} else if (url.includes('Inter')) {
+							fonts.push({ name: 'Inter', data: buf, weight: 400, style: 'normal' });
+						} else if (url.includes('JetBrains')) {
+							fonts.push({ name: 'JetBrains Mono', data: buf, weight: 500, style: 'normal' });
+						}
 					}
-				} catch (e) {
-					console.warn(`[OG Images] Failed to load font from ${url}`);
-				}
+				} catch { /* skip individual font failures */ }
 			}
 		}
-	} catch (error) {
-		console.warn('[OG Images] Error loading Inter from Google Fonts:', error);
-	}
+	} catch { /* skip */ }
 
-	// Fallback: use system Arial font
+	// Fallback: system fonts
 	if (fonts.length === 0) {
 		try {
 			const arialPath = 'C:/Windows/Fonts/arial.ttf';
 			if (existsSync(arialPath)) {
-				const fontData = readFileSync(arialPath);
-				fonts.push({
-					name: 'Arial',
-					data: fontData,
-					weight: 400,
-					style: 'normal',
-				});
-				console.log('[OG Images] Using system Arial font as fallback');
+				fonts.push({ name: 'Arial', data: readFileSync(arialPath), weight: 400, style: 'normal' });
 			}
-		} catch (e) {
-			console.warn('[OG Images] Failed to load system font:', e);
-		}
+		} catch { /* skip */ }
 	}
 
 	if (fonts.length === 0) {
@@ -103,90 +125,139 @@ async function loadFonts() {
 	return fonts;
 }
 
-// Generate OG image from data
+// ─── OG image generator ──────────────────────────────────────────────
 async function generateOGImage(data: OGImageData, fonts: any[], outputPath: string) {
 	try {
-		// Get rubric translation — handle null/undefined safely
-		const rubric = data.rubric || (() => {
-			const catKey = (data.category || 'general').toLowerCase().trim();
-			const langData = (ui as Record<string, Record<string, any>>)[data.lang] ?? null;
-			const catObj = langData && typeof langData === 'object' ? (langData as any).cat ?? {} : {};
-			if (catObj[catKey]) return catObj[catKey];
-			return data.category?.toUpperCase() || 'GENERAL';
-		})();
-
-		// Generate SVG using Satori with inline JSX (Satori can't render React function components)
 		const category = data.category || 'general';
-		const categoryColors: Record<string, string> = {
-			route: '#3A5F7F', forge: '#A97B2C', helm: '#8A6423',
-			treasury: '#5E7355', compass: '#4E7DA3', logbook: '#6B5B77',
-			crew: '#A54E4B', general: '#7A8B9C',
-		};
-		const catColor = categoryColors[category] || categoryColors.general;
+		const catColor = CATEGORY_COLORS[category] || CATEGORY_COLORS.general;
+		const rubric = data.rubric || translateRubric(category, data.lang);
 
 		const svg = await satori(
 			React.createElement('div', {
 				style: {
-					width: '100%', height: '100%', display: 'flex', flexDirection: 'column',
-					justifyContent: 'space-between', padding: '60px', position: 'relative',
-					background: '#F5F0EB',
-				}
+					width: '100%',
+					height: '100%',
+					display: 'flex',
+					flexDirection: 'column',
+					justifyContent: 'space-between',
+					padding: '72px',
+					position: 'relative',
+					background: '#FAF9F6',
+				},
 			},
+				// Top bar
 				React.createElement('div', {
-					style: { display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', flex: 1 }
+					style: {
+						display: 'flex',
+						justifyContent: 'space-between',
+						alignItems: 'center',
+						marginBottom: '48px',
+						paddingBottom: '18px',
+						borderBottom: '1px solid #E4E1DA',
+					},
+				},
+					React.createElement('span', {
+						style: {
+							fontFamily: "'Cormorant Garamond', Georgia, serif",
+							fontSize: '26px',
+							fontWeight: 700,
+							color: '#1E3A5F',
+							letterSpacing: '0.08em',
+						},
+					}, 'FÉLAG'),
+					React.createElement('span', {
+						style: {
+							fontFamily: "'JetBrains Mono', monospace",
+							fontSize: '12px',
+							fontWeight: 500,
+							color: catColor,
+							letterSpacing: '0.06em',
+							padding: '5px 12px',
+							border: `1px solid ${catColor}`,
+							borderRadius: '2px',
+						},
+					}, rubric)
+				),
+
+				// Content
+				React.createElement('div', {
+					style: { flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' },
 				},
 					React.createElement('h1', {
-						style: { fontSize: '72px', fontWeight: '700', color: '#2C3E4A', margin: '0 0 20px 0', lineHeight: 1.4, fontFamily: 'Inter, sans-serif' }
+						style: {
+							fontFamily: "'Cormorant Garamond', Georgia, serif",
+							fontSize: '56px',
+							fontWeight: 600,
+							color: '#1B1A17',
+							lineHeight: 1.25,
+							margin: '0 0 20px 0',
+							maxWidth: '960px',
+							letterSpacing: '-0.01em',
+						},
 					}, data.title),
 					data.subtitle ? React.createElement('p', {
-						style: { fontSize: '32px', fontWeight: '500', color: '#5A6B7C', margin: 0, opacity: 0.9, lineHeight: 1.6, fontFamily: 'Inter, sans-serif', maxWidth: '900px' }
+						style: {
+							fontFamily: "'Inter', sans-serif",
+							fontSize: '22px',
+							fontWeight: 400,
+							color: '#67635B',
+							lineHeight: 1.5,
+							margin: 0,
+							maxWidth: '900px',
+						},
 					}, data.subtitle) : null
 				),
+
+				// Bottom bar
 				React.createElement('div', {
-					style: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginTop: '40px', paddingTop: '30px', borderTop: '1px solid #7A8B9C30' }
-				},
-					React.createElement('div', {
-						style: { display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 24px', backgroundColor: '#E8E0D5', border: '1px solid #7A8B9C30', borderRadius: '8px' }
+					style: {
+						display: 'flex',
+						justifyContent: 'space-between',
+						alignItems: 'center',
+						marginTop: 'auto',
+						paddingTop: '20px',
+						borderTop: '1px solid #E4E1DA',
 					},
-						React.createElement('span', {
-							style: { display: 'block', width: '12px', height: '12px', backgroundColor: catColor, borderRadius: '2px', flexShrink: 0 }
-						}),
-						React.createElement('span', {
-							style: { fontSize: '24px', fontWeight: '600', color: '#3A5F7F', textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: 'Inter, sans-serif', whiteSpace: 'nowrap' }
-						}, rubric)
-					),
+				},
 					React.createElement('span', {
-						style: { fontSize: '20px', color: '#7A8B9C', opacity: 0.8, fontFamily: 'Inter, sans-serif', fontWeight: 500, whiteSpace: 'nowrap' }
+						style: {
+							fontFamily: "'JetBrains Mono', monospace",
+							fontSize: '13px',
+							color: '#9B968B',
+							letterSpacing: '0.02em',
+						},
+					}, 'felag.online'),
+					React.createElement('span', {
+						style: {
+							fontFamily: "'Cormorant Garamond', Georgia, serif",
+							fontSize: '16px',
+							fontWeight: 600,
+							color: '#1E3A5F',
+							letterSpacing: '0.1em',
+							textTransform: 'uppercase',
+						},
 					}, 'FÉLAG')
 				)
 			),
 			{
 				width: 1200,
 				height: 630,
-				fonts: (fonts && fonts.length > 0) ? fonts : [],
+				fonts,
 			}
 		);
 
-		// Convert SVG to PNG using Resvg
 		const resvg = new Resvg(svg, {
-			fitTo: {
-				mode: 'width',
-				value: 1200,
-			},
+			fitTo: { mode: 'width', value: 1200 },
 		});
 
-		const pngData = resvg.render();
-		const pngBuffer = pngData.asPng();
+		const pngBuffer = resvg.render().asPng();
 
-		// Ensure directory exists
 		const dir = path.dirname(outputPath);
 		if (!existsSync(dir)) {
 			await mkdir(dir, { recursive: true });
 		}
 
-		// Write PNG file
 		await writeFile(outputPath, pngBuffer);
-
 		return true;
 	} catch (error) {
 		console.error(`[OG Images] Error generating image for ${data.slug}:`, (error as Error).message);
@@ -194,7 +265,7 @@ async function generateOGImage(data: OGImageData, fonts: any[], outputPath: stri
 	}
 }
 
-// Get published posts from filesystem
+// ─── Get published posts ─────────────────────────────────────────────
 async function getPublishedPosts(baseDir: string, lang: string): Promise<OGImageData[]> {
 	const posts: OGImageData[] = [];
 	try {
@@ -221,6 +292,7 @@ async function getPublishedPosts(baseDir: string, lang: string): Promise<OGImage
 	return posts;
 }
 
+// ─── Integration ─────────────────────────────────────────────────────
 export function ogImagesIntegration(): AstroIntegration {
 	return {
 		name: 'og-images',
@@ -228,10 +300,8 @@ export function ogImagesIntegration(): AstroIntegration {
 			'astro:build:done': async ({ dir }) => {
 				console.log('[OG Images] Starting OG image generation...');
 
-				// Load fonts
 				const fonts = await loadFonts();
 
-				// Read posts from filesystem
 				const contentBase = path.resolve(process.cwd(), 'src/content');
 				const [postsRu, postsEn] = await Promise.all([
 					getPublishedPosts(path.join(contentBase, 'blog-ru', 'saga'), 'ru'),
@@ -240,7 +310,6 @@ export function ogImagesIntegration(): AstroIntegration {
 
 				const allPosts = [...postsRu, ...postsEn];
 
-				// Generate OG images for each post
 				const ogDir = path.resolve(dir.pathname.replace(/^\/[a-zA-Z]:/, ''), 'og');
 				let successCount = 0;
 				let failCount = 0;
@@ -248,14 +317,11 @@ export function ogImagesIntegration(): AstroIntegration {
 				for (const post of allPosts) {
 					const outputPath = path.join(ogDir, `${post.lang}-${post.slug}.png`);
 					const success = await generateOGImage(post, fonts, outputPath);
-					if (success) {
-						successCount++;
-					} else {
-						failCount++;
-					}
+					if (success) successCount++;
+					else failCount++;
 				}
 
-				// Generate OG images for homepage (per language)
+				// Homepage + About
 				for (const lang of ['ru', 'en']) {
 					const homepageData: OGImageData = {
 						title: 'FÉLAG',
@@ -266,11 +332,8 @@ export function ogImagesIntegration(): AstroIntegration {
 						lang,
 						slug: 'homepage',
 					};
+					await generateOGImage(homepageData, fonts, path.join(ogDir, `${lang}-homepage.png`));
 
-					const homepagePath = path.join(ogDir, `${lang}-homepage.png`);
-					await generateOGImage(homepageData, fonts, homepagePath);
-
-					// Generate about page OG image
 					const aboutData: OGImageData = {
 						title: lang === 'ru' ? 'О ПРОЕКТЕ' : 'ABOUT',
 						subtitle: lang === 'ru'
@@ -280,9 +343,7 @@ export function ogImagesIntegration(): AstroIntegration {
 						lang,
 						slug: 'about',
 					};
-
-					const aboutPath = path.join(ogDir, `${lang}-about.png`);
-					await generateOGImage(aboutData, fonts, aboutPath);
+					await generateOGImage(aboutData, fonts, path.join(ogDir, `${lang}-about.png`));
 				}
 
 				console.log(`[OG Images] Generated ${successCount} images successfully, ${failCount} failed`);
