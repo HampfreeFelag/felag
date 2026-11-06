@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Behind the Scenes of FÉLAG: Architecture, Automation, and Collaboration"
 description: "A look at building an analytics blog: CI/CD setup, automated checks, responsive layout. Open to professional collaborations."
 pubDate: '2026-11-02'
