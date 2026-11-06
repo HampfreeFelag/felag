@@ -82,6 +82,27 @@ const telegramOnlick = getPartnerClickHandler('telegram', 'https://t.me/Hampfree
 								</a>
 								, если материалы блога помогли вам избежать ошибок, сэкономить время или найти верное архитектурное решение.
 							</li>
+							<li>
+								<strong>Криптовалюта (Rabby Wallet, EVM-сети).</strong>
+								<div class="crypto-address-block" data-address="0xCf458A42031B904268516134A907060Cbf6e4B05" data-lang="ru">
+									<code class="crypto-address">0xCf458A42031B904268516134A907060Cbf6e4B05</code>
+									<button class="copy-btn" type="button" aria-label="Копировать адрес">
+										<svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+										<svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" hidden><polyline points="20 6 9 17 4 12"/></svg>
+									</button>
+									<span class="copy-feedback" hidden>Скопировано!</span>
+								</div>
+								<p class="crypto-networks">
+									<strong>Поддерживаемые сети:</strong> Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Avalanche и 63+ других EVM-совместимых сетей.
+								</p>
+								<p class="crypto-assets">
+									<strong>Поддерживаемые активы:</strong> ETH, USDT (ERC20/BEP20), USDC, BNB, MATIC и др.
+								</p>
+								<div class="crypto-warning">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+									<strong>Важно:</strong> Не отправляйте BTC, LTC, SOL и другие не-EVM монеты. Средства будут потеряны безвозвратно.
+								</div>
+							</li>
 						</ul>
 
 						<h2 id="resources-ru">Наши ресурсы</h2>
@@ -144,6 +165,27 @@ const telegramOnlick = getPartnerClickHandler('telegram', 'https://t.me/Hampfree
 									CloudTips
 									<ExternalLink />
 								</a> if the blog's materials helped you avoid mistakes, save time, or find the right architectural solution.
+							</li>
+							<li>
+								<strong>Cryptocurrency (Rabby Wallet, EVM networks):</strong>
+								<div class="crypto-address-block" data-address="0xCf458A42031B904268516134A907060Cbf6e4B05" data-lang="en">
+									<code class="crypto-address">0xCf458A42031B904268516134A907060Cbf6e4B05</code>
+									<button class="copy-btn" type="button" aria-label="Copy address">
+										<svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+										<svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" hidden><polyline points="20 6 9 17 4 12"/></svg>
+									</button>
+									<span class="copy-feedback" hidden>Copied!</span>
+								</div>
+								<p class="crypto-networks">
+									<strong>Supported networks:</strong> Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Avalanche and 63+ other EVM-compatible networks.
+								</p>
+								<p class="crypto-assets">
+									<strong>Supported assets:</strong> ETH, USDT (ERC20/BEP20), USDC, BNB, MATIC and more.
+								</p>
+								<div class="crypto-warning">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+									<strong>Important:</strong> Do not send BTC, LTC, SOL or other non-EVM coins. Funds will be permanently lost.
+								</div>
 							</li>
 						</ul>
 
@@ -220,6 +262,165 @@ const telegramOnlick = getPartnerClickHandler('telegram', 'https://t.me/Hampfree
 			.support-btn:hover {
 				background: var(--color-accent-hover);
 			}
+			/* Crypto address block */
+			.crypto-address-block {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: var(--space-sm) var(--space-md);
+				margin: var(--space-sm) 0;
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius-sm);
+				background: var(--color-bg-secondary);
+				transition: border-color var(--duration-fast) var(--ease-out),
+				            background var(--duration-fast) var(--ease-out);
+				cursor: pointer;
+				user-select: none;
+			}
+			.crypto-address-block:hover {
+				border-color: var(--color-accent);
+			}
+			.crypto-address-block.copied {
+				border-color: #22c55e;
+				background: rgba(34, 197, 94, 0.1);
+			}
+			.crypto-address {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.85rem;
+				color: var(--color-text-primary);
+				word-break: break-all;
+				overflow-wrap: break-word;
+				flex: 1;
+				min-width: 0;
+			}
+			.copy-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: var(--space-xs);
+				border: none;
+				background: transparent;
+				cursor: pointer;
+				color: var(--color-text-secondary);
+				transition: color var(--duration-fast) var(--ease-out);
+				flex-shrink: 0;
+			}
+			.copy-btn:hover {
+				color: var(--color-accent);
+			}
+			.copy-icon,
+			.check-icon {
+				width: 16px;
+				height: 16px;
+				flex-shrink: 0;
+			}
+			.copy-feedback {
+				font-size: 0.8rem;
+				color: #22c55e;
+				white-space: nowrap;
+				flex-shrink: 0;
+			}
+			.crypto-networks,
+			.crypto-assets {
+				font-size: 0.85rem;
+				color: var(--color-text-secondary);
+				margin: var(--space-xs) 0;
+			}
+			.crypto-networks strong,
+			.crypto-assets strong {
+				color: var(--color-text-primary);
+			}
+			.crypto-warning {
+				display: flex;
+				align-items: flex-start;
+				gap: 0.5rem;
+				padding: var(--space-sm);
+				margin: var(--space-sm) 0;
+				border: 1px solid #f59e0b;
+				border-radius: var(--radius-sm);
+				background: rgba(245, 158, 11, 0.08);
+				font-size: 0.85rem;
+				color: var(--color-text-primary);
+				line-height: 1.5;
+			}
+			.crypto-warning svg {
+				flex-shrink: 0;
+				margin-top: 2px;
+				color: #f59e0b;
+			}
+			.crypto-warning strong {
+				color: #f59e0b;
+			}
+			@media (max-width: 768px) {
+				.crypto-address {
+					font-size: 0.75rem;
+				}
+			}
 		</style>
+		<script>
+			if (typeof window !== 'undefined') {
+				document.querySelectorAll('.crypto-address-block').forEach(block => {
+					const address = block.dataset.address;
+					const copyBtn = block.querySelector('.copy-btn');
+					const copyIcon = block.querySelector('.copy-icon');
+					const checkIcon = block.querySelector('.check-icon');
+					const feedback = block.querySelector('.copy-feedback');
+					const isEn = block.dataset.lang === 'en';
+					const feedbackText = isEn ? 'Copied!' : 'Скопировано!';
+					
+					block.addEventListener('click', async (e) => {
+						if (e.target.closest('.copy-btn')) return;
+						
+						try {
+							await navigator.clipboard.writeText(address);
+							block.classList.add('copied');
+							copyIcon.hidden = true;
+							checkIcon.hidden = false;
+							feedback.hidden = false;
+							
+							setTimeout(() => {
+								block.classList.remove('copied');
+								copyIcon.hidden = false;
+								checkIcon.hidden = true;
+								feedback.hidden = true;
+							}, 2000);
+						} catch {
+							feedback.textContent = isEn ? 'Failed to copy' : 'Не удалось скопировать';
+							feedback.hidden = false;
+							setTimeout(() => {
+								feedback.hidden = true;
+								feedback.textContent = feedbackText;
+							}, 2000);
+						}
+					});
+					
+					copyBtn.addEventListener('click', async (e) => {
+						e.stopPropagation();
+						
+						try {
+							await navigator.clipboard.writeText(address);
+							block.classList.add('copied');
+							copyIcon.hidden = true;
+							checkIcon.hidden = false;
+							feedback.hidden = false;
+							
+							setTimeout(() => {
+								block.classList.remove('copied');
+								copyIcon.hidden = false;
+								checkIcon.hidden = true;
+								feedback.hidden = true;
+							}, 2000);
+						} catch {
+							feedback.textContent = isEn ? 'Failed to copy' : 'Не удалось скопировать';
+							feedback.hidden = false;
+							setTimeout(() => {
+								feedback.hidden = true;
+								feedback.textContent = feedbackText;
+							}, 2000);
+						}
+					});
+				});
+			}
+		</script>
 	</body>
 </html>
