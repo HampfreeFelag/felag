@@ -1323,11 +1323,6 @@ a:not(.logo-link):active {
   border-top: none;
 }
 
-.prose h2:target {
-  border-top-color: transparent;
-  transition: border-top-color 0.3s ease;
-}
-
 .prose h3 {
   margin-top: var(--space-2xl);
   margin-bottom: var(--space-md);
