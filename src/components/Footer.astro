@@ -1,5 +1,5 @@
 ---
-// Footer — minimal for service pages, full (with partners + ERID) for article pages
+// Footer — 3-column layout with strict language segregation
 import ConsentBanner from './ConsentBanner.astro';
 import ExternalLink from './icons/ExternalLink.astro';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
@@ -65,9 +65,27 @@ const PARTNERS = lang === 'en'
 
 const CLOUDTIPS = {
   name: t('footer.cloudtips'),
-  desc: t('footer.cloudtips_desc'),
   href: 'https://pay.cloudtips.ru/p/e1100774',
 };
+
+// Resources links — sorted by name length (longest first)
+const RESOURCES_RU = [
+  { name: t('footer.telegram'), href: 'https://t.me/felag_logbook_ru' },
+  { name: t('footer.setka'), href: 'https://setka.ru/users/019d0ea4-3979-7d01-9f9b-2f985162c254' },
+  { name: t('footer.vk'), href: 'https://vk.com/felag_haven' },
+];
+
+const RESOURCES_EN = [
+  { name: t('footer.hashnode'), href: 'https://felag.hashnode.dev' },
+  { name: t('footer.telegram'), href: 'https://t.me/felag_logbook_en' },
+  { name: t('footer.devto'), href: 'https://dev.to/hampfree' },
+];
+
+// Support links — sorted by name length (longest first)
+const SUPPORT_RU = [
+  { name: t('footer.rabby'), href: '#', external: false },
+  { name: t('footer.cloudtips'), href: CLOUDTIPS.href },
+];
 ---
 
 <footer class="main-footer">
@@ -75,9 +93,41 @@ const CLOUDTIPS = {
 		<!-- FULL FOOTER: only on article pages -->
 		{isArticlePage && (
 			<>
-				<!-- Partner links + Support in two columns -->
+				<!-- 3-column grid -->
 				<div class="footer-grid">
-					<!-- Column 1: Tools -->
+					<!-- Column 1: Resources -->
+					<div class="footer-column">
+						<h3 class="footer-column-title">{t('footer.resources_title')}</h3>
+						<ul class="footer-resource-list">
+							{lang === 'ru' ? (
+								RESOURCES_RU.map(r => {
+									const attrs = getLinkAttrs(r.href, true);
+									return (
+										<li class="footer-resource-item">
+											<a href={attrs.href} target={attrs.target} rel={attrs.rel} class="footer-resource-link external-link">
+												<span>{r.name}</span>
+												<ExternalLink />
+											</a>
+										</li>
+									);
+								})
+							) : (
+								RESOURCES_EN.map(r => {
+									const attrs = getLinkAttrs(r.href, true);
+									return (
+										<li class="footer-resource-item">
+											<a href={attrs.href} target={attrs.target} rel={attrs.rel} class="footer-resource-link external-link">
+												<span>{r.name}</span>
+												<ExternalLink />
+											</a>
+										</li>
+									);
+								})
+							)}
+						</ul>
+					</div>
+
+					<!-- Column 2: Tools / Partners -->
 					<div class="footer-column">
 						<h3 class="footer-column-title">{t('footer.tools_title')}</h3>
 						<ul class="footer-partner-list">
@@ -96,11 +146,17 @@ const CLOUDTIPS = {
 						</ul>
 					</div>
 
-					<!-- Column 2: Support (RU only — CloudTips is a Russian service) -->
+					<!-- Column 3: Support (RU only — CloudTips is a Russian service) -->
 					{lang === 'ru' && (
 						<div class="footer-column footer-column-support">
 							<h3 class="footer-column-title">{t('footer.support_title')}</h3>
 							<ul class="footer-support-list">
+								<li class="footer-support-item">
+									<a href="#" class="footer-support-link external-link" target="_blank" rel="noopener noreferrer">
+										<span class="support-name">{t('footer.rabby')}</span>
+										<ExternalLink />
+									</a>
+								</li>
 								<li class="footer-support-item">
 									{(() => {
 										const attrs = getLinkAttrs(CLOUDTIPS.href, true);
@@ -108,7 +164,6 @@ const CLOUDTIPS = {
 										return (
 											<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="footer-support-link external-link" onclick={onclick}>
 												<span class="support-name">{CLOUDTIPS.name}</span>
-												<span class="support-desc">{CLOUDTIPS.desc}</span>
 												<ExternalLink />
 											</a>
 										);
@@ -138,13 +193,13 @@ const CLOUDTIPS = {
 </footer>
 
 <style>
-	/* ── Footer Grid ── */
+	/* ── Footer Grid — 3 columns ── */
 	.footer-grid {
 		max-width: var(--max-width);
 		margin: 0 auto var(--space-xl);
 		padding: 0 var(--page-padding);
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
 		gap: var(--space-2xl) var(--space-3xl);
 	}
 
@@ -157,8 +212,10 @@ const CLOUDTIPS = {
 		margin: 0 0 var(--space-lg) 0;
 	}
 
-	/* ── Partner List ── */
-	.footer-partner-list {
+	/* ── Shared list styles ── */
+	.footer-resource-list,
+	.footer-partner-list,
+	.footer-support-list {
 		list-style: none;
 		padding: 0;
 		margin: 0;
@@ -167,12 +224,33 @@ const CLOUDTIPS = {
 		gap: var(--space-md);
 	}
 
-	.footer-partner-item {
+	.footer-resource-item,
+	.footer-partner-item,
+	.footer-support-item {
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
 	}
 
+	/* ── Resource links ── */
+	.footer-resource-link {
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 0.4rem;
+		text-decoration: none;
+		cursor: pointer;
+		color: var(--color-text);
+		font-size: 0.9rem;
+		font-weight: 500;
+		transition: color var(--duration-fast) var(--ease-out);
+	}
+
+	.footer-resource-link:hover {
+		color: var(--color-accent-hover);
+	}
+
+	/* ── Partner links ── */
 	.footer-partner-link {
 		display: inline-flex;
 		flex-direction: row;
@@ -189,6 +267,35 @@ const CLOUDTIPS = {
 	}
 
 	.partner-name {
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: var(--color-accent);
+	}
+
+	/* ── Support links ── */
+	.footer-column-support {
+		border-left: 1px solid var(--color-border-light);
+		padding-left: var(--space-xl);
+	}
+
+	.footer-support-link {
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 0.4rem;
+		text-decoration: none;
+		cursor: pointer;
+		color: var(--color-accent);
+		font-size: 0.9rem;
+		font-weight: 500;
+		transition: color var(--duration-fast) var(--ease-out);
+	}
+
+	.footer-support-link:hover {
+		color: var(--color-accent-hover);
+	}
+
+	.support-name {
 		font-size: 0.9rem;
 		font-weight: 500;
 		color: var(--color-accent);
@@ -211,50 +318,6 @@ const CLOUDTIPS = {
 		color: #9B968B;
 		line-height: 1.3;
 		margin: 0;
-	}
-
-	/* ── Support Column ── */
-	.footer-column-support {
-		border-left: 1px solid var(--color-border-light);
-		padding-left: var(--space-xl);
-	}
-
-	.footer-support-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.footer-support-item {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-	}
-
-	.footer-support-link {
-		display: inline-flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 0.4rem;
-		text-decoration: none;
-		cursor: pointer;
-		color: var(--color-accent);
-		transition: color var(--duration-fast) var(--ease-out);
-	}
-
-	.footer-support-link:hover {
-		color: var(--color-accent-hover);
-	}
-
-	.support-name {
-		font-size: 0.9rem;
-		font-weight: 500;
-		color: var(--color-accent);
-	}
-
-	.support-desc {
-		font-size: 0.8rem;
-		color: var(--color-text-secondary);
 	}
 
 	/* ── Bottom (copyright) ── */
