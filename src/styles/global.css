@@ -1859,13 +1859,11 @@ body, p, h1, h2, h3, h4, h5, h6, a, span, li, td, th {
   --header-height-mobile: 56px;
 }
 
-/* Desktop: offset = header + padding scale */
+/* Desktop: offset = header height only */
 @media (min-width: 768px) {
-  h1 { scroll-margin-top: calc(var(--header-height) + var(--space-2xl)); }
-  h2 { scroll-margin-top: calc(var(--header-height) + var(--space-xl)); }
-  h3 { scroll-margin-top: calc(var(--header-height) + var(--space-lg)); }
-  h4 { scroll-margin-top: calc(var(--header-height) + var(--space-lg)); }
-  h5, h6 { scroll-margin-top: calc(var(--header-height) + var(--space-md)); }
+  h1, h2, h3, h4, h5, h6 {
+    scroll-margin-top: var(--header-height);
+  }
 }
 
 /* Mobile: offset = header only (smaller header, tighter spacing) */
