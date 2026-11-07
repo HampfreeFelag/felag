@@ -273,11 +273,6 @@ const SUPPORT_RU = [
 	}
 
 	/* ── Support links ── */
-	.footer-column-support {
-		border-left: 1px solid var(--color-border-light);
-		padding-left: var(--space-xl);
-	}
-
 	.footer-support-link {
 		display: inline-flex;
 		flex-direction: row;
@@ -342,18 +337,35 @@ const SUPPORT_RU = [
 		color: var(--color-text);
 	}
 
-	/* ── Mobile ── */
+	/* ── Column dividers — responsive ── */
+	/* Desktop: vertical dividers between all columns */
+	.footer-column:not(:last-child) {
+		border-right: 1px solid var(--color-border-light);
+		padding-right: var(--space-xl);
+	}
+
+	.footer-column:last-child {
+		border-right: none;
+		padding-right: 0;
+	}
+
+	/* Mobile: horizontal dividers between stacked columns */
 	@media (max-width: 767px) {
 		.footer-grid {
 			grid-template-columns: 1fr;
 			gap: var(--space-xl);
 		}
 
-		.footer-column-support {
-			border-left: none;
-			border-top: 1px solid var(--color-border-light);
-			padding-left: 0;
-			padding-top: var(--space-lg);
+		.footer-column:not(:last-child) {
+			border-right: none;
+			padding-right: 0;
+			border-bottom: 1px solid var(--color-border-light);
+			padding-bottom: var(--space-xl);
+		}
+
+		.footer-column:last-child {
+			border-bottom: none;
+			padding-bottom: 0;
 		}
 
 		.footer-legal {
