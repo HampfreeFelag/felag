@@ -30,14 +30,6 @@ const PARTNERS = lang === 'en'
     ]
   : [
       {
-        id: 'veles',
-        name: t('footer.veles'),
-        href: 'https://veles.finance/invite/washmallay',
-        erid: 'CQH36pWzJqVKznERGZtWRYzjm6yPFbxFKEnry3zcBHeD37',
-        advertiser: 'ООО «ВЕЛЕС.ФИНАНС»',
-        inn: '9725074398',
-      },
-      {
         id: 'kvmka',
         name: t('footer.kvmka'),
         href: 'https://kvmka.ru/?from=23600',
@@ -60,6 +52,14 @@ const PARTNERS = lang === 'en'
         erid: 'CQH36pWzJqVKznERH83R6V9PGJk6Nw97r3FepZSpTSSnud',
         advertiser: 'ООО «РЕГ.РУ»',
         inn: '7710655749',
+      },
+      {
+        id: 'veles',
+        name: t('footer.veles'),
+        href: 'https://veles.finance/invite/washmallay',
+        erid: 'CQH36pWzJqVKznERGZtWRYzjm6yPFbxFKEnry3zcBHeD37',
+        advertiser: 'ООО «ВЕЛЕС.ФИНАНС»',
+        inn: '9725074398',
       },
     ];
 
@@ -96,7 +96,7 @@ const SUPPORT_RU = [
 				<!-- 3-column grid -->
 				<div class="footer-grid">
 					<!-- Column 1: Resources -->
-					<div class="footer-column">
+					<div class="footer-column footer-resources">
 						<h3 class="footer-column-title">{t('footer.resources_title')}</h3>
 						<ul class="footer-resource-list">
 							{lang === 'ru' ? (
@@ -233,20 +233,20 @@ const SUPPORT_RU = [
 	}
 
 	/* ── Resource links ── */
-	.footer-resource-link {
+	.footer-resources .footer-resource-link {
 		display: inline-flex;
 		flex-direction: row;
 		align-items: center;
 		gap: 0.4rem;
 		text-decoration: none;
 		cursor: pointer;
-		color: var(--color-text);
+		color: var(--color-accent);
 		font-size: 0.9rem;
 		font-weight: 500;
 		transition: color var(--duration-fast) var(--ease-out);
 	}
 
-	.footer-resource-link:hover {
+	.footer-resources .footer-resource-link:hover {
 		color: var(--color-accent-hover);
 	}
 
