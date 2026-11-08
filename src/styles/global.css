@@ -260,7 +260,7 @@ a:not(.logo-link):active {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--page-padding);
-  height: 72px;
+  height: var(--header-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1309,18 +1309,26 @@ a:not(.logo-link):active {
   max-width: var(--content-max);
 }
 
-.prose h2 {
+/* Section wrapper owns the divider.
+   The heading keeps the anchor id, so `scroll-margin-top` positions the
+   heading while the hairline 48px above it slides under the sticky header. */
+.prose-section {
   margin-top: var(--space-3xl);
-  margin-bottom: var(--space-lg);
   padding-top: var(--space-2xl);
   border-top: 1px solid var(--color-border-light);
-  text-decoration: none;
 }
 
-.prose h2:first-child {
+.prose-section:first-child {
   margin-top: var(--space-xl);
   padding-top: 0;
   border-top: none;
+}
+
+.prose h2 {
+  margin: 0 0 var(--space-lg);
+  padding: 0;
+  border: 0;
+  text-decoration: none;
 }
 
 .prose h3 {
@@ -1855,22 +1863,15 @@ body, p, h1, h2, h3, h4, h5, h6, a, span, li, td, th {
    SCROLL MARGIN — anchor links must clear the sticky header
    ═══════════════════════════════════════════════════════ */
 :root {
+  /* Single source of truth for the sticky header height.
+     .header-container uses this token at every breakpoint, so anchor offsets
+     can never drift from the real header size. */
   --header-height: 72px;
-  --header-height-mobile: 56px;
 }
 
-/* Desktop: header + 24px buffer for visual symmetry */
-@media (min-width: 768px) {
-  h1, h2, h3, h4, h5, h6 {
-    scroll-margin-top: calc(var(--header-height) + var(--space-lg));
-  }
-}
-
-/* Mobile: header + 24px buffer */
-@media (max-width: 767px) {
-  h1, h2, h3, h4, h5, h6 {
-    scroll-margin-top: calc(var(--header-height-mobile) + var(--space-lg));
-  }
+/* Anchor targets must clear the sticky header + 24px visual buffer. */
+h1, h2, h3, h4, h5, h6 {
+  scroll-margin-top: calc(var(--header-height) + var(--space-lg));
 }
 
 /* ═══════════════════════════════════════════════════════
