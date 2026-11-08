@@ -113,16 +113,11 @@
   box-sizing: border-box;
 }
 
-/* Smooth scroll for anchor links only (not global) */
-a[href^="#"] {
-  scroll-behavior: smooth;
-}
-
 html {
   font-size: 16px;
   background-color: var(--color-bg);
   color: var(--color-text);
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -1857,6 +1852,11 @@ body, p, h1, h2, h3, h4, h5, h6, a, span, li, td, th {
     color: var(--color-text);
     border-left-color: var(--color-accent);
   }
+
+  /* Постоянный отступ prose от блока мобильного TOC — предотвращает прыжки контента */
+  .prose {
+    margin-top: var(--space-xl);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -2064,4 +2064,11 @@ h1, h2, h3, h4, h5, h6 {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Respect user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
