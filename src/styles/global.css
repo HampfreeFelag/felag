@@ -1853,8 +1853,8 @@ body, p, h1, h2, h3, h4, h5, h6, a, span, li, td, th {
     border-left-color: var(--color-accent);
   }
 
-  /* Постоянный отступ prose от блока мобильного TOC — предотвращает прыжки контента */
-  .prose {
+  /* Постоянный отступ мобильного TOC от текста статьи — предотвращает сливание с интро */
+  .mobile-toc-accordion {
     margin-top: var(--space-xl);
   }
 }
