@@ -13,7 +13,10 @@ const today = new Date();
 const pathname = Astro.url.pathname;
 
 // Article pages get partners + ERID; service pages get minimal footer only
-const isArticlePage = pathname.includes('/saga/') && !pathname.includes('/saga/index');
+const isArticlePage = /^\/[a-z]{2}\/saga\/[^/]+\/$/.test(pathname);
+
+// Dynamic column count for centering: 3 cols RU, 2 cols EN
+const visibleCols = lang === 'ru' ? 3 : 2;
 
 // ERID tokens (38-ФЗ marking)
 // RU: all 4 partners | EN: only Veles
@@ -93,8 +96,8 @@ const SUPPORT_RU = [
 		<!-- FULL FOOTER: only on article pages -->
 		{isArticlePage && (
 			<>
-				<!-- 3-column grid -->
-				<div class="footer-grid">
+				<!-- 3-column grid (dynamic columns for centering) -->
+				<div class={`footer-grid cols-${visibleCols}`}>
 					<!-- Column 1: Resources -->
 					<div class="footer-column footer-resources">
 						<h3 class="footer-column-title">{t('footer.resources_title')}</h3>
@@ -193,14 +196,24 @@ const SUPPORT_RU = [
 </footer>
 
 <style>
-	/* ── Footer Grid — 3 columns ── */
+	/* ── Footer Grid — dynamic columns for centering ── */
 	.footer-grid {
 		max-width: var(--max-width);
 		margin: 0 auto var(--space-xl);
 		padding: 0 var(--page-padding);
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
 		gap: var(--space-2xl) var(--space-3xl);
+	}
+
+	/* Desktop: 3 columns */
+	.footer-grid.cols-3 {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	/* Desktop: 2 columns — centered via max-width */
+	.footer-grid.cols-2 {
+		grid-template-columns: 1fr 1fr;
+		max-width: 66.666%;
 	}
 
 	.footer-column-title {
@@ -351,9 +364,10 @@ const SUPPORT_RU = [
 
 	/* Mobile: horizontal dividers between stacked columns */
 	@media (max-width: 767px) {
-		.footer-grid {
+		.footer-grid.cols-2,
+		.footer-grid.cols-3 {
 			grid-template-columns: 1fr;
-			gap: var(--space-xl);
+			max-width: 100%;
 		}
 
 		.footer-column:not(:last-child) {
