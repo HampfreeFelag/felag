@@ -8,8 +8,9 @@
 
 ---
 
-**Последнее обновление:** 27 октября 2026 г.  
-**Статус:** Стабильно, CI passing, GitHub Pages deployed
+**Последнее обновление:** 9 ноября 2026 г.  
+**Статус:** Стабильно, CI passing, GitHub Pages deployed  
+**Последний коммит:** `5f21928` fix(footer): regex for isArticlePage + dynamic cols-2/cols-3 centering
 
 **Сайт:** [felag.online](https://felag.online)  
 **Приватный репо:** [hampfreeblog-private](https://github.com/HampfreeFelag/hampfreeblog-private)
@@ -139,6 +140,45 @@ draft: true             # true = скрыта, false = видна
 | `npm run dev`   | Запустить dev-сервер (localhost:4321) |
 | `npm run build` | Собрать продакшен-версию              |
 | `npm run preview` | Превью продакшен-сборки               |
+| `npm run verify` | Полный чеклист перед коммитом (build + JSON-LD + links + NUL) |
+
+---
+
+## CI/CD Pipeline
+
+**GitHub Actions** (`.github/workflows/deploy.yml`):
+- Push в `main` → автоматический деплой на felag.online (GitHub Pages)
+- Перед коммитом ОБЯЗАТЕЛЕН `npm run verify` — 5 проверок:
+  1. `npm run build` — сборка без ошибок
+  2. JSON-LD — нет `{JSON.stringify(` в `<script type="application/ld+json">`
+  3. 404 paths — нет `saga/saga` дубликатов
+  4. NUL bytes — нет бинарных символов в .md
+  5. Internal links — нет сломанных ссылок в контенте
+
+---
+
+##rehype-плагины
+
+Для обработки Markdown-контента используются rehype-плагины:
+- **`rehype-section-wrappers.mjs`** — оборачивает top-level h2 в `<section class="prose-section">` для корректной якорной навигации со sticky-хедером
+- Внешние ссылки маркируются автоматически (в процессе интеграции)
+
+---
+
+## Интеграция с аналитикой
+
+- **GA4:** Property ID `559348241`. Morning Report через n8n (08:00 МСК) → Telegram
+- **Search Console:** SA `felag-16102026@felag-504715.iam.gserviceaccount.com` (требует настройки доступа)
+- **n8n Workflow:** `ga4-morning-report.json` — SEO-анализ, топ-контент, тренды
+
+---
+
+## Recent Changes (08.11.2026)
+
+- **CSS:** rehype-плагин `rehype-section-wrappers.mjs` — якорные ссылки работают корректно со sticky-хедером
+- **CSS:** `.header-container` теперь использует `height: var(--header-height)`
+- **Footer:** regex для `isArticlePage` + центрирование динамических cols-2/cols-3
+- **Mobile TOC:** плавная прокрутка, корректные отступы
 
 ---
 
