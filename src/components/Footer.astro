@@ -86,12 +86,12 @@ const RESOURCES_EN = [
 
 // Support links — sorted by name length (longest first)
 const SUPPORT_RU = [
-  { name: t('footer.rabby'), href: '/ru/about/#support-ru', external: true },
+  { name: t('footer.cryptoWallet'), href: '/ru/about/#support-ru', external: true },
   { name: t('footer.cloudtips'), href: CLOUDTIPS.href },
 ];
 
 const SUPPORT_EN = [
-  { name: t('footer.rabby'), href: '/en/about/#support-en', external: true },
+  { name: t('footer.cryptoWallet'), href: '/en/about/#support-en', external: true },
 ];
 ---
 
@@ -158,11 +158,11 @@ const SUPPORT_EN = [
 						<h3 class="footer-column-title">{t('footer.support_title')}</h3>
 						<ul class="footer-support-list">
 							{lang === 'ru' ? SUPPORT_RU.map((s) => {
-								const isRabby = s.name === t('footer.rabby');
-								const attrs = isRabby
+								const isCryptoWallet = s.name === t('footer.cryptoWallet');
+								const attrs = isCryptoWallet
 									? { href: s.href, target: '_blank', rel: 'noopener noreferrer' }
 									: getLinkAttrs(s.href, true);
-								const onclick = !isRabby ? getPartnerClickHandler('cloudtips', s.href) : undefined;
+								const onclick = !isCryptoWallet ? getPartnerClickHandler('cloudtips', s.href) : undefined;
 								return (
 									<li class="footer-support-item">
 										<a href={attrs.href} target={attrs.target} rel={attrs.rel} aria-label={attrs.ariaLabel} class="footer-support-link external-link" {...(onclick ? { onclick } : {})}>
