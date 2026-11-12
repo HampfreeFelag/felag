@@ -1,3 +1,12 @@
 # 301 Redirects: Library → Saga
 # SEO: preserve link equity and avoid 404s on old URLs
 /library/* /saga/ 301
+
+# 301 Redirects: Old category URLs → Saga index
+# /en/compass/ and /en/route/ were section roots before Library→Saga rebrand
+/en/compass/ /en/saga/ 301
+/en/route/ /en/saga/ 301
+
+# 301 Redirects: Removed Spanish locale → English
+# Spanish (blog-es) was removed in commit 6b4d91e (2026-07-23)
+/es/library/* /en/saga/ 301
