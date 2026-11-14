@@ -57,7 +57,7 @@ function translateRubric(catKey: string, lang: string): string {
 		helm: { ru: 'Штурвал', en: 'Helm' },
 		treasury: { ru: 'Казна', en: 'Treasury' },
 		compass: { ru: 'Компас', en: 'Compass' },
-		logbook: { ru: 'Бортжурнал', en: 'Logbook' },
+		logbook: { ru: 'Хроника', en: 'Logbook' },
 		crew: { ru: 'Команда', en: 'Crew' },
 		general: { ru: 'Общее', en: 'General' },
 	};

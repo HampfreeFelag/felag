@@ -83,7 +83,7 @@ export const ui = {
     'cat.helm.display': 'Штурвал: Управление рисками и капиталом',
     'cat.treasury.display': 'Казна: Финансы, налоги и отчётность',
     'cat.compass.display': 'Компас: Аналитика, индикаторы и обзоры',
-    'cat.logbook.display': 'Бортжурнал: Новости, события и дайджесты',
+    'cat.logbook.display': 'Хроника: Новости, события и дайджесты',
     'cat.crew.display': 'Команда: О проекте и команде',
     'theme.toggle': 'Сменить тему',
     'mobile.theme_label': 'Сменить тему',
