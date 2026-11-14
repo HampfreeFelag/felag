@@ -14,10 +14,7 @@ export default defineConfig({
 	viewTransitions: true,
 	integrations: [mdx(), sitemap(), ogImagesIntegration()],
 	image: {
-		// Используем встроенные сервисы изображений для PNG
-		service: {
-			entrypoint: 'astro/assets/services/noop',
-		},
+		// Оптимизация изображений через Sharp (дефолт Astro)
 	},
 	markdown: {
 		rehypePlugins: [rehypeExternalLinks, rehypeSectionWrappers],
