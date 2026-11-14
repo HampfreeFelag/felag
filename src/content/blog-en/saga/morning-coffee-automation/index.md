@@ -38,8 +38,6 @@ Automating the digest serves two purposes simultaneously.
 
 **SEO indexing.** Each created Issue becomes an opportunity for the blog. When a blog article is published based on an Issue, it gets indexed by search engines for top queries from the RSS source. Simultaneously, the blog gains organic indexing for relevant search terms. Content Forge works as an SEO magnet: the system identifies emerging topics, and the blog captures organic traffic.
 
-Are you already using noise-filtering methods in practice — manual curation, specialized tools, or complete disregard for the news cycle? Share feedback via the contacts on the [About](/en/about/) page.
-
 An article collected via RSS from this system — the Twenty One Capital paper vs realized profit paradox: [Paper Profit vs Operating Loss: Anatomy of PnL Architecture](/en/saga/unrealized-vs-realized-pnl/).
 
 ## Summary
