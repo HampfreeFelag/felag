@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: 'Утренний дайджест без шума: автоматизация через n8n и GitHub Issues'
 description: 'Как пайплайн n8n (RSS -> Merge -> Filter -> GitHub Issues) создаёт утренний дайджест и SEO-индексацию блога без ручного участия и информационного шума.'
 pubDate: '2026-11-14'

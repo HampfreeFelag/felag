@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: 'Paper Profit vs Operating Loss: Anatomy of PnL Architecture'
 description: 'The Twenty One Capital pattern: $1.09B unrealized profit and $4.8M loss. How separating Unrealized and Realized PnL saves trading systems.'
 pubDate: '2026-11-14'
