@@ -24,11 +24,9 @@ The problem of information noise did not arise yesterday. Three centuries ago, t
 
 ## Solution architecture: Content Forge
 
-Content Forge is an n8n-based pipeline that collects news from three RSS sources (CoinTelegraph, The Block, Decrypt), filters by keywords, and creates GitHub Issues with the two most relevant articles. A detailed breakdown of filter configuration and deduplication will follow in future publications.
+Content Forge is an n8n-based pipeline that collects news from three RSS sources (CoinTelegraph, The Block, Decrypt), filters by keywords, and creates GitHub Issues with the two most relevant articles.
 
 During automation failures, double work was necessary: manual news collection and filtering ran in parallel with bot debugging. This experience demonstrated that pipeline resilience is not a theoretical concern but a practical necessity.
-
-This article serves as an introduction. Filter tuning and deduplication details will be covered in subsequent publications.
 
 ## Dual benefit: operational efficiency and SEO
 
@@ -39,6 +37,8 @@ Automating the digest serves two purposes simultaneously.
 **SEO indexing.** Each created Issue becomes an opportunity for the blog. When a blog article is published based on an Issue, it gets indexed by search engines for top queries from the RSS source. Simultaneously, the blog gains organic indexing for relevant search terms. Content Forge works as an SEO magnet: the system identifies emerging topics, and the blog captures organic traffic.
 
 An article collected via RSS from this system — the Twenty One Capital paper vs realized profit paradox: [Paper Profit vs Operating Loss: Anatomy of PnL Architecture](/en/saga/unrealized-vs-realized-pnl/).
+
+Are you already using noise-filtering methods in practice — manual curation, specialized tools, or complete disregard for the news cycle? Share feedback via the contacts on the [About](/en/about/) page.
 
 ## Summary
 
@@ -52,7 +52,7 @@ Previously, manual news search, verification, and digest creation consumed up to
 
 **What is the procedure when an RSS source goes down?**
 
-During automation failure, double work is required: manual collection and filtering running in parallel with bot debugging. To minimize impact, RSS feed availability monitoring should be configured, and a manual collection fallback plan maintained during recovery. A detailed breakdown of monitoring and fallback plans will follow in future publications.
+During automation failure, double work is required: manual collection and filtering running in parallel with bot debugging. To minimize impact, RSS feed availability monitoring should be configured, and a manual collection fallback plan maintained during recovery.
 
 **Can the pipeline be adapted for non-crypto sources?**
 
