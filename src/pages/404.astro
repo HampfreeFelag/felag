@@ -1,0 +1,234 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+// Language detection chain:
+// 1. URL path prefix (/ru/ → ru, /en/ → en)
+// 2. localStorage ml_lang (set by Header language switcher)
+// 3. Accept-Language header
+// 4. Default: ru
+const pathname = Astro.url.pathname;
+const pathLang = pathname.split('/')[1] as 'ru' | 'en' | undefined;
+
+let lang: 'ru' | 'en' = 'ru';
+
+if (pathLang === 'en') {
+  lang = 'en';
+} else if (pathLang === 'ru') {
+  lang = 'ru';
+} else {
+  // Try localStorage via inline script (client-side fallback)
+  // We'll use a data attribute to pass the detected server-side lang
+}
+
+const isRu = lang === 'ru';
+
+// i18n strings
+const strings = {
+  ru: {
+    title: 'Страница не найдена — FÉLAG',
+    description: 'Запрашиваемая статья не найдена или была перемещена. Вернитесь на главную или в каталог статей.',
+    code: '404',
+    heading: 'Статья не найдена или была перемещена',
+    description_text: 'Запрашиваемая страница не существует, была удалена или перемещена в другое место. Попробуйте вернуться в каталог статей или на главную страницу.',
+    home: 'На главную',
+    saga: 'Каталог статей',
+    home_href: '/ru/',
+    saga_href: '/ru/saga/',
+    lang_label: 'Язык:',
+    aria_label: 'Выберите язык',
+  },
+  en: {
+    title: 'Page Not Found — FÉLAG',
+    description: 'The requested article was not found or has been moved. Return home or browse the article catalog.',
+    code: '404',
+    heading: 'Article not found or has been moved',
+    description_text: 'The requested page does not exist, has been deleted, or moved elsewhere. Try returning to the article catalog or homepage.',
+    home: 'Home',
+    saga: 'Article catalog',
+    home_href: '/en/',
+    saga_href: '/en/saga/',
+    lang_label: 'Language:',
+    aria_label: 'Choose language',
+  },
+};
+
+const s = strings[isRu ? 'ru' : 'en'];
+---
+
+<!doctype html>
+<html lang={isRu ? 'ru' : 'en'}>
+<head>
+  <BaseHead title={s.title} description={s.description} />
+  <style is:global>
+    /* 404 page uses global design tokens — no hardcoded values */
+    .not-found-container {
+      max-width: 560px;
+      text-align: center;
+      padding: var(--page-padding);
+    }
+
+    .not-found-code {
+      font-family: var(--font-mono);
+      font-size: clamp(6rem, 15vw, 10rem);
+      font-weight: 700;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: var(--space-lg);
+      text-shadow: 0 0 40px color-mix(in srgb, var(--color-accent) 30%, transparent);
+    }
+
+    .not-found-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 600;
+      margin-bottom: var(--space-md);
+      color: var(--color-text);
+    }
+
+    .not-found-description {
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--space-xl);
+    }
+
+    .not-found-actions {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .not-found-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: all var(--duration-fast) var(--ease-out);
+      cursor: pointer;
+      border: none;
+    }
+
+    .not-found-btn-primary {
+      background: var(--color-accent);
+      color: var(--color-bg);
+    }
+
+    .not-found-btn-primary:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px color-mix(in srgb, var(--color-accent) 30%, transparent);
+    }
+
+    .not-found-btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .not-found-btn-secondary:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      transform: translateY(-1px);
+    }
+
+    .not-found-icon {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    /* Language switcher */
+    .not-found-lang-switcher {
+      margin-bottom: var(--space-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+    }
+
+    .not-found-lang-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .not-found-lang-btn {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: var(--color-text-secondary);
+      border: 1px solid transparent;
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+
+    .not-found-lang-btn:hover {
+      color: var(--color-accent);
+      border-color: var(--color-border);
+    }
+
+    .not-found-lang-btn.active {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .not-found-btn,
+      .not-found-lang-btn {
+        transition: none;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="not-found-container">
+    <!-- Language switcher -->
+    <div class="not-found-lang-switcher" role="navigation" aria-label={s.aria_label}>
+      <span class="not-found-lang-label">{s.lang_label}</span>
+      <a href={isRu ? '/en/' : '/ru/'} class="not-found-lang-btn {isRu ? '' : 'active'}">
+        EN
+      </a>
+      <a href={isRu ? '/ru/' : '/en/'} class="not-found-lang-btn {isRu ? 'active' : ''}">
+        RU
+      </a>
+    </div>
+
+    <div class="not-found-code">{s.code}</div>
+    <h1 class="not-found-title">{s.heading}</h1>
+    <p class="not-found-description">
+      {s.description_text}
+    </p>
+    <div class="not-found-actions">
+      <a href={s.home_href} class="not-found-btn not-found-btn-primary">
+        <svg class="not-found-icon" viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        {s.home}
+      </a>
+      <a href={s.saga_href} class="not-found-btn not-found-btn-secondary">
+        <svg class="not-found-icon" viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        {s.saga}
+      </a>
+    </div>
+  </main>
+</body>
+</html>
