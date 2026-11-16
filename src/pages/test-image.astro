@@ -1,0 +1,38 @@
+---
+import ArticleImage from '../components/ArticleImage.astro';
+import testImg from '../assets/images/_template/test-article.png';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="ru">
+<head>
+  <BaseHead title="Тест ArticleImage" description="Тестовая страница" />
+  <style>
+    body { margin: 0; font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text); }
+    .prose { max-width: 680px; margin: 0 auto; padding: 40px 20px; }
+    h1 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1rem; }
+    p { line-height: 1.6; color: var(--color-text-secondary); margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <Header />
+  <main class="prose">
+    <h1>Тест ArticleImage</h1>
+    <p>Текст до изображения.</p>
+    
+    <ArticleImage 
+      src={testImg} 
+      alt="Тестовое изображение 1200x675" 
+      width={1200} 
+      height={675} 
+    />
+    
+    <p>Текст после изображения. Проверь DevTools (F12) → Device Toolbar → переключай разрешения.</p>
+  </main>
+  <Footer />
+  <script type="module" src="/scripts/lightbox.mjs"></script>
+</body>
+</html>
