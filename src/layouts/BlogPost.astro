@@ -207,6 +207,19 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 		<BannerDataInjector />
 		<Footer />
 
+		<!-- Article image lightbox overlay (single instance per page) -->
+		<div class="article-image-lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения" hidden>
+			<div class="lightbox-backdrop"></div>
+			<div class="lightbox-content">
+				<button class="lightbox-close" aria-label="Закрыть изображение">
+					<svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+				</button>
+				<img src="" alt="" class="lightbox-img" />
+			</div>
+		</div>
+
+		<script defer src="/scripts/lightbox.mjs"></script>
+
 		<script is:inline>
 			// Mobile TOC accordion toggle
 			const mobileToggle = document.querySelector('.mobile-toc-toggle');
