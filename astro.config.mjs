@@ -6,6 +6,7 @@ import { defineConfig } from 'astro/config';
 import { ogImagesIntegration } from './src/integrations/og-images';
 import { rehypeExternalLinks } from './src/plugins/rehype-external-links.mjs';
 import { rehypeSectionWrappers } from './src/plugins/rehype-section-wrappers.mjs';
+import { rehypeWrapArticleImages } from './src/plugins/rehype-wrap-article-images.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,7 +18,7 @@ export default defineConfig({
 		// Оптимизация изображений через Sharp (дефолт Astro)
 	},
 	markdown: {
-		rehypePlugins: [rehypeExternalLinks, rehypeSectionWrappers],
+		rehypePlugins: [rehypeExternalLinks, rehypeSectionWrappers, rehypeWrapArticleImages],
 	},
 	vite: {
 		// Для Windows - кэш node_modules в отдельной директории
