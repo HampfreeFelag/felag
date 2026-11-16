@@ -1388,9 +1388,9 @@ a:not(.logo-link):active {
 .prose img {
   max-width: 100%;
   height: auto;
-  min-height: 100px;
   border-radius: var(--radius-md);
-  margin: var(--space-xl) 0;
+  margin: clamp(16px, 4vw, 32px) auto;
+  display: block;
 }
 
 .prose table {

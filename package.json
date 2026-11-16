@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "npx astro dev",
     "build": "astro build",
-    "build": "astro build",
     "preview": "npx astro preview",
     "astro": "npx astro",
     "generate-ads": "node scripts/generate-ad-banners.mjs",
@@ -27,13 +26,17 @@
     "sharp": "^0.34.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@typescript-eslint/eslint-plugin": "^8.51.0",
     "@typescript-eslint/parser": "^8.51.0",
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.5.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
+    "lighthouse": "^13.6.0",
+    "playwright": "^1.65.1",
     "prettier": "^3.7.4",
     "puppeteer": "^24.35.0",
-    "sass": "^1.97.3"
+    "sass": "^1.97.3",
+    "sharp": "^0.35.5"
   }
 }
