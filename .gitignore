@@ -56,3 +56,13 @@ docs/VISUALS_CHECKLIST.md
 
 # Archive (legacy content, не для репо)
 archive/
+
+# Secrets and credentials
+.env
+.env.*
+*.token
+*token*
+secrets/
+.github-token
+.bot-token
+.paragraph-token
