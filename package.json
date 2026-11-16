@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "npx astro dev",
-    "build": "astro build",
+    "build": "node scripts/validate-lang.mjs && astro build",
     "preview": "npx astro preview",
     "astro": "npx astro",
     "generate-ads": "node scripts/generate-ad-banners.mjs",
