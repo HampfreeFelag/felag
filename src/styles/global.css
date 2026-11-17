@@ -1102,13 +1102,13 @@ a:not(.logo-link):active {
   font-size: 1.05rem;
 }
 
-.cat-route { color: var(--cat-route); }
-.cat-forge { color: var(--cat-forge); }
-.cat-helm { color: var(--cat-helm); }
-.cat-treasury { color: var(--cat-treasury); }
-.cat-compass { color: var(--cat-compass); }
-.cat-logbook { color: var(--cat-logbook); }
-.cat-crew { color: var(--cat-crew); }
+.cat-route { color: var(--cat-route); background: color-mix(in srgb, var(--cat-route) 12%, transparent); }
+.cat-forge { color: var(--cat-forge); background: color-mix(in srgb, var(--cat-forge) 12%, transparent); }
+.cat-helm { color: var(--cat-helm); background: color-mix(in srgb, var(--cat-helm) 12%, transparent); }
+.cat-treasury { color: var(--cat-treasury); background: color-mix(in srgb, var(--cat-treasury) 12%, transparent); }
+.cat-compass { color: var(--cat-compass); background: color-mix(in srgb, var(--cat-compass) 12%, transparent); }
+.cat-logbook { color: var(--cat-logbook); background: color-mix(in srgb, var(--cat-logbook) 12%, transparent); }
+.cat-crew { color: var(--cat-crew); background: color-mix(in srgb, var(--cat-crew) 12%, transparent); }
 
 /* ═══════════════════════════════════════════════════════
     10. SUBSCRIBE — тихий блок
