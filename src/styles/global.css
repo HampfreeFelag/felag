@@ -1102,13 +1102,13 @@ a:not(.logo-link):active {
   font-size: 1.05rem;
 }
 
-.cat-route { color: var(--cat-route); background: color-mix(in srgb, var(--cat-route) 12%, transparent); padding: 4px 8px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; white-space: nowrap; }
-.cat-forge { color: var(--cat-forge); background: color-mix(in srgb, var(--cat-forge) 12%, transparent); padding: 4px 8px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; white-space: nowrap; }
-.cat-helm { color: var(--cat-helm); background: color-mix(in srgb, var(--cat-helm) 12%, transparent); padding: 4px 8px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; white-space: nowrap; }
-.cat-treasury { color: var(--cat-treasury); background: color-mix(in srgb, var(--cat-treasury) 12%, transparent); padding: 4px 8px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; white-space: nowrap; }
-.cat-compass { color: var(--cat-compass); background: color-mix(in srgb, var(--cat-compass) 12%, transparent); padding: 4px 8px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; white-space: nowrap; }
-.cat-logbook { color: var(--cat-logbook); background: color-mix(in srgb, var(--cat-logbook) 12%, transparent); padding: 4px 8px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; white-space: nowrap; }
-.cat-crew { color: var(--cat-crew); background: color-mix(in srgb, var(--cat-crew) 12%, transparent); padding: 4px 8px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; white-space: nowrap; }
+.cat-route { color: var(--cat-route); background: color-mix(in srgb, var(--cat-route) 12%, transparent); padding: 0 8px; height: 22px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; vertical-align: middle; }
+.cat-forge { color: var(--cat-forge); background: color-mix(in srgb, var(--cat-forge) 12%, transparent); padding: 0 8px; height: 22px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; vertical-align: middle; }
+.cat-helm { color: var(--cat-helm); background: color-mix(in srgb, var(--cat-helm) 12%, transparent); padding: 0 8px; height: 22px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; vertical-align: middle; }
+.cat-treasury { color: var(--cat-treasury); background: color-mix(in srgb, var(--cat-treasury) 12%, transparent); padding: 0 8px; height: 22px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; vertical-align: middle; }
+.cat-compass { color: var(--cat-compass); background: color-mix(in srgb, var(--cat-compass) 12%, transparent); padding: 0 8px; height: 22px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; vertical-align: middle; }
+.cat-logbook { color: var(--cat-logbook); background: color-mix(in srgb, var(--cat-logbook) 12%, transparent); padding: 0 8px; height: 22px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; vertical-align: middle; }
+.cat-crew { color: var(--cat-crew); background: color-mix(in srgb, var(--cat-crew) 12%, transparent); padding: 0 8px; height: 22px; border-radius: var(--radius-sm, 4px); display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; vertical-align: middle; }
 
 /* ═══════════════════════════════════════════════════════
     10. SUBSCRIBE — тихий блок
