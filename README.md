@@ -8,9 +8,9 @@
 
 ---
 
-**Последнее обновление:** 9 ноября 2026 г.  
-**Статус:** Стабильно, CI passing, GitHub Pages deployed  
-**Последний коммит:** `5f21928` fix(footer): regex for isArticlePage + dynamic cols-2/cols-3 centering
+**Последнее обновление:** 18 ноября 2026 г.  
+**Статус:** Стабильно, CI passing, production deployed  
+**Последний коммит:** `6cc4d63` fix(ui): perfect vertical centering of category tag text (#118)
 
 **Сайт:** [felag.online](https://felag.online)  
 **Приватный репо:** [hampfreeblog-private](https://github.com/HampfreeFelag/hampfreeblog-private)
@@ -83,7 +83,7 @@ npm run preview
 
 ### Деплой
 
-**Пуш в `main` автоматически деплоит на felag.online** (`.github/workflows/deploy.yml`).
+**Пуш в `main` автоматически развёртывает на production-сервер.**
 
 ### Рубрики
 
@@ -126,8 +126,8 @@ draft: true             # true = скрыта, false = видна
 - **Astro 5.x** — статический генератор сайтов
 - **TypeScript** — типизация
 - **CSS** — design tokens (полная спецификация — [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md))
-- **Markdown/MDX** — контент блога
-- **GitHub Actions** — автоматический деплой на GitHub Pages
+- **Markdown (.md)** — контент блога (по умолчанию `.md`, `.mdx` только по запросу для JSX-компонентов)
+- **GitHub Actions** — автоматический деплой на production-сервер
 - **OG Images** — автоматическая генерация превью для соцсетей (Satori + Resvg)
 
 ---
@@ -202,9 +202,9 @@ draft: true             # true = скрыта, false = видна
 - 2 языка: RU + EN
 - Адаптивный дизайн (mobile-first)
 - Анимации и плавные переходы
-- Автоматический деплой на GitHub Pages
+- Автоматический деплой на production-сервер
 - OG-изображения для соцсетей (автоматическая генерация)
-- ~132 файлов статей (66 RU + 66 EN)
+- 13 опубликованных статей (draft: false), 104 черновика (draft: true)
 
 ---
 
