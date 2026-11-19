@@ -2,6 +2,7 @@
 *.jpg
 *.png
 !public/**/*.png
+!src/content/**/assets/*.png
 *.mp4
 *.tmp
 *.swp
