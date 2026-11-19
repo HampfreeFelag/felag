@@ -218,10 +218,58 @@ const t = useTranslations(lang);
 	// Capture phase: runs before the browser unloads the document.
 	document.addEventListener('click', (event) => {
 		const target = event.target as Element | null;
-		if (target?.closest?.('.lang-switcher-btn, .mobile-lang-btn')) saveScroll();
+		if (target?.closest?.('.lang-switcher-btn, .mobile-lang-btn')) {
+			saveScroll();
+			// Flag for smart anchor fallback on next page load
+			try { sessionStorage.setItem('lang_switched', 'true'); } catch(e) {}
+		}
 	}, true);
 
-	const initScrollRestore = () => restoreScroll();
+	// Smart anchor fallback: after language switch, scroll to nearest visible heading
+	// instead of jumping to the top or to a wrong anchor position.
+	const smartAnchorFallback = () => {
+		try {
+			const langSwitched = sessionStorage.getItem('lang_switched');
+			if (langSwitched !== 'true') return;
+			sessionStorage.removeItem('lang_switched');
+		} catch(e) { return; }
+
+		const saved = sessionStorage.getItem(SCROLL_KEY);
+		const targetScroll = saved ? parseInt(saved, 10) : 0;
+		try { sessionStorage.removeItem(SCROLL_KEY); } catch(e) {}
+
+		// Wait for fonts and layout to settle
+		requestAnimationFrame(() => requestAnimationFrame(() => {
+			const headings = document.querySelectorAll('h2, h3');
+			let bestMatch = null;
+
+			for (const h of headings) {
+				const rect = h.getBoundingClientRect();
+				if (rect.top >= -50 && rect.top <= 150) {
+					bestMatch = h;
+					break;
+				}
+			}
+
+			if (bestMatch) {
+				bestMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			} else if (targetScroll > 0) {
+				window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+			}
+		}));
+	};
+
+	const initScrollRestore = () => {
+		// If lang_switched flag is set, use smart fallback instead of raw scroll restore
+		try {
+			const langSwitched = sessionStorage.getItem('lang_switched');
+			if (langSwitched === 'true') {
+				smartAnchorFallback();
+				return;
+			}
+		} catch(e) {}
+		restoreScroll();
+	};
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initScrollRestore);
 	else initScrollRestore();

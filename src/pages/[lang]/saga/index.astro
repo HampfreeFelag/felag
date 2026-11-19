@@ -397,7 +397,7 @@ const breadcrumbItems = [
 							noResults.textContent = activeCategories.length > 0
 								? (noResults.dataset.noCategoryResults || emptyMsg)
 								: emptyMsg;
-							noResults.style.display = 'block';
+							noResults.style.display = 'flex';
 						} else {
 							noResults.style.display = 'none';
 						}
@@ -637,7 +637,14 @@ const breadcrumbItems = [
 	}
 
 	.no-results {
-		display: none;
+		display: none; /* По умолчанию скрыт, управляется JS */
+		min-height: 40vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: var(--space-2xl);
+		text-align: center;
+		color: var(--color-text-secondary);
 	}
 </style>
 	</body>
