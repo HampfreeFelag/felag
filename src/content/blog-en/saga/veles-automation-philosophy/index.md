@@ -3,7 +3,7 @@ title: "While Bots Work: Veles, Automation, and the Logic of Delegation"
 description: "The philosophy of automation in trading, a review of the Veles platform, and reasons why routine work should be delegated to systems with due regard for risks and limitations."
 pubDate: "2026-11-18"
 category: "logbook"
-draft: true
+draft: false
 ---
 
 ## Why Automation Exists at All
