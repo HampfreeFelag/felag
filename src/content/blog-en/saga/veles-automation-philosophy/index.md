@@ -104,19 +104,19 @@ While bots work, space opens up for what cannot be automated.
 
 ## FAQ
 
-### Is programming knowledge required to use Veles?
+**Is programming knowledge required to use Veles?**
 
 Basic configurations are available without deep programming knowledge. The platform provides a modular structure where the initial level is configured through the interface. As experience grows, there is an opportunity to dive deeper into customization.
 
-### Does Veles guarantee trading income?
+**Does Veles guarantee trading income?**
 
 Any trading involves the risk of partial or total capital loss. The platform helps prepare for launch: you can choose a strategy curated by experts or test your own on historical data using backtesting. This helps adjust settings and reduce risks, but does not eliminate the possibility of losses.
 
-### How to test a strategy before launching?
+**How to test a strategy before launching?**
 
 Before launching on a live account, a strategy can be tested on historical data using backtesting. It will show how the strategy could have performed under different market conditions: potential profitability, maximum drawdown, number of trades, and other metrics. Test results do not guarantee future profit.
 
-### Where to find support and community?
+**Where to find support and community?**
 
 The Veles community is actively developing on their Telegram channel. They publish analyses, configuration discussions, and experience sharing. The platform also provides an Academy, a knowledge base, and the ability to get consultations through Calendly.
 
