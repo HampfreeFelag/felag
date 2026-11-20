@@ -1,0 +1,40 @@
+# FÉLAG — Redirects for GitHub Pages
+# Generated for SEO: HTTP 301 and 410 instead of meta-refresh
+
+# --- Legacy category redirects: /library/<cat>/ → /saga/?categories=<cat> ---
+# RU categories
+/ru/library/compass/ /ru/saga/?categories=compass 301
+/ru/library/route/ /ru/saga/?categories=route 301
+/ru/library/forge/ /ru/saga/?categories=forge 301
+/ru/library/helm/ /ru/saga/?categories=helm 301
+/ru/library/treasury/ /ru/saga/?categories=treasury 301
+/ru/library/logbook/ /ru/saga/?categories=logbook 301
+/ru/library/crew/ /ru/saga/?categories=crew 301
+
+# EN categories
+/en/library/compass/ /en/saga/?categories=compass 301
+/en/library/route/ /en/saga/?categories=route 301
+/en/library/forge/ /en/saga/?categories=forge 301
+/en/library/helm/ /en/saga/?categories=helm 301
+/en/library/treasury/ /en/saga/?categories=treasury 301
+/en/library/logbook/ /en/saga/?categories=logbook 301
+/en/library/crew/ /en/saga/?categories=crew 301
+
+# --- Legacy article redirects: /library/<slug>/ → /saga/<slug>/ ---
+# RU articles
+/ru/library/algo-journey/ /ru/saga/algo-journey/ 301
+/ru/library/behind-the-scenes-architecture/ /ru/saga/behind-the-scenes-architecture/ 301
+/ru/library/information-harbor-architecture/ /ru/saga/information-harbor-architecture/ 301
+
+# EN articles
+/en/library/algo-journey/ /en/saga/algo-journey/ 301
+/en/library/behind-the-scenes-architecture/ /en/saga/behind-the-scenes-architecture/ 301
+/en/library/information-harbor-architecture/ /en/saga/information-harbor-architecture/ 301
+
+# --- Legacy section redirects (no /library/) ---
+/en/compass/ /en/saga/ 301
+/en/route/ /en/saga/ 301
+
+# --- Removed Spanish locale ---
+# 410 Gone: /es/ locale is permanently removed
+/es/library/ / 410
