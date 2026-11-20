@@ -53,8 +53,12 @@
   function openLightbox(trigger) {
     lastFocusedElement = document.activeElement;
 
-    // Set image source and alt
-    const src = trigger.getAttribute('data-src');
+    // Read src from the sibling <img> in the wrapper (browser-resolved path)
+    const wrapper = trigger.closest('.article-image-wrapper');
+    const img = wrapper ? wrapper.querySelector('img') : null;
+    const src = img ? img.src : '';
+
+    // Alt text from trigger aria-label
     const ariaLabel = trigger.getAttribute('aria-label') || '';
     const alt = ariaLabel.replace('Увеличить изображение: ', '') || '';
 
