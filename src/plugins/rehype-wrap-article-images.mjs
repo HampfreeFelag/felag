@@ -36,7 +36,6 @@ export function rehypeWrapArticleImages() {
       if (node.tagName !== 'img' || !node.properties?.src) return;
 
       const alt = node.properties.alt || '';
-      const src = node.properties.src;
       const parent = parents[parents.length - 1];
       const index = parent.children.indexOf(node);
 
@@ -52,11 +51,10 @@ export function rehypeWrapArticleImages() {
           {
             type: 'element',
             tagName: 'button',
-            properties: {
-              className: ['lightbox-trigger'],
-              'aria-label': `Увеличить изображение: ${alt}`,
-              'data-src': src,
-            },
+              properties: {
+                className: ['lightbox-trigger'],
+                'aria-label': `Увеличить изображение: ${alt}`,
+              },
             children: [LIGHTBOX_TRIGGER_SVG],
           },
         ],
