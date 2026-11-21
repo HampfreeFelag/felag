@@ -89,6 +89,7 @@ const categories = CATEGORIES.map((cat) => ({
 	...cat,
 	label: t(`cat.${cat.id}`),
 	full: t(`cat.${cat.id}.full`),
+	short: t(`cat.${cat.id}.short`),
 	display: t(`cat.${cat.id}.display`),
 }));
 
@@ -135,7 +136,8 @@ const breadcrumbItems = [
 											title={cat.full}
 											type="button"
 										>
-											{cat.display}
+											<span class="cat-short">{cat.short}</span>
+											<span class="cat-full">{cat.display}</span>
 										</button>
 									))}
 								</div>

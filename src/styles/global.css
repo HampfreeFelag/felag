@@ -890,6 +890,10 @@ a:not(.logo-link):active {
     font-size: 0.7rem;
   }
 
+  .saga-sidebar .tag-btn .cat-short {
+    display: none;
+  }
+
   .saga-main .posts-list {
     grid-template-columns: repeat(2, 1fr);
     column-gap: var(--space-3xl);
@@ -921,6 +925,10 @@ a:not(.logo-link):active {
   .saga-sidebar .categories-container {
     flex-wrap: wrap;
     gap: var(--space-sm);
+  }
+
+  .saga-sidebar .tag-btn .cat-short {
+    display: none;
   }
 
   .saga-main .posts-list {
@@ -2024,6 +2032,10 @@ h1, h2, h3, h4, h5, h6 {
   .filter-drawer {
     display: none !important;
   }
+
+  /* Mobile: show short, hide full in sidebar */
+  .saga-sidebar .categories-container .cat-short { display: inline; }
+  .saga-sidebar .categories-container .cat-full { display: none; }
 
   .saga-main .posts-list {
     grid-template-columns: 1fr;
