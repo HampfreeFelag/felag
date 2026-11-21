@@ -102,12 +102,6 @@
 
   --color-border: #2E2B24;
   --color-border-light: #26241E;
-
-  /* Category colors — brighter for dark theme contrast */
-  --cat-route: #5A7FB5;
-  --cat-forge: #D0A858;
-  --cat-treasury: #B89848;
-  --cat-crew: #D89890;
 }
 
 /* ═══════════════════════════════════════════════════════
