@@ -538,14 +538,17 @@ const breadcrumbItems = [
 				const resetBtn = document.getElementById('resetFilters');
 				function updateResetButton() {
 					if (resetBtn) {
-						resetBtn.style.display = activeCategories.length > 0 ? 'inline-flex' : 'none';
+						resetBtn.style.display = (activeCategories.length > 0 || searchTerm.trim().length > 0) ? 'inline-flex' : 'none';
 					}
 				}
 				resetBtn?.addEventListener('click', () => {
 					activeCategories = [];
+					searchTerm = '';
+					if (searchInput) searchInput.value = '';
 					categoryButtons.forEach(btn => btn.classList.remove('active'));
 					const newParams = new URLSearchParams(window.location.search);
 					newParams.delete('categories');
+					newParams.delete('search');
 					const newUrl = newParams.toString() ? `${window.location.pathname}?${newParams.toString()}` : window.location.pathname;
 					window.history.replaceState({}, '', newUrl);
 					currentPage = 1;
