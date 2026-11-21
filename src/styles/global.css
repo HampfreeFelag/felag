@@ -2037,6 +2037,19 @@ h1, h2, h3, h4, h5, h6 {
   .saga-sidebar .categories-container .cat-short { display: inline; }
   .saga-sidebar .categories-container .cat-full { display: none; }
 
+  /* Reduce vertical spacing on mobile */
+  .saga-header {
+    margin-bottom: var(--space-md);
+  }
+
+  .saga-sidebar .categories-container {
+    margin-bottom: var(--space-xl);
+  }
+
+  .saga-layout {
+    gap: var(--space-lg);
+  }
+
   .saga-main .posts-list {
     grid-template-columns: 1fr;
   }
