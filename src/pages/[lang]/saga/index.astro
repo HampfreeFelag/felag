@@ -115,6 +115,10 @@ const breadcrumbItems = [
 					<aside class="saga-sidebar">
 						<div class="search-and-filter">
 							<div class="search-bar">
+								<button type="button" class="search-trigger" id="searchTrigger" aria-label={t('saga.search')}>
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+									<span>{t('saga.search')}</span>
+								</button>
 								<input type="text" placeholder={t('saga.search')} id="searchInput" />
 							</div>
 
@@ -236,6 +240,7 @@ const breadcrumbItems = [
 
 			(() => {
 				const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+				const searchTrigger = document.getElementById('searchTrigger') as HTMLButtonElement;
 				const postCards = document.querySelectorAll('.post-card') as NodeListOf<HTMLElement>;
 				const noResults = document.getElementById('noResults');
 				const categoryButtons = document.querySelectorAll('.tag-btn[data-cat]');
@@ -244,6 +249,11 @@ const breadcrumbItems = [
 					console.warn('No post cards found');
 					return;
 				}
+
+				// Mobile search trigger — focus input on click
+				searchTrigger?.addEventListener('click', () => {
+					searchInput?.focus();
+				});
 
 				let searchDebounceTimer: ReturnType<typeof setTimeout>;
 
