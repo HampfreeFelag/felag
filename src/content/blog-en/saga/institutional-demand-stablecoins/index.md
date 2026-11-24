@@ -1,5 +1,5 @@
 ---
-title: 'Institutional demand in crypto: stablecoins as infrastructure'
+title: 'Institutional demand in digital assets: stablecoins as infrastructure'
 description: 'Stablecoins are the payment infrastructure for institutional investors. Analysis of USDT and USDC roles in DeFi liquidity and inter-exchange settlements.'
 pubDate: '2026-11-23'
 category: 'compass'
@@ -10,15 +10,15 @@ draft: true
 
 Stablecoin transaction volume exceeded $25 trillion last year. This is not a speculative bubble -- it is an infrastructure shift. Institutional investors, market makers, and funds use USDT and USDC not for speculation on volatility, but as a settlement unit in day-to-day operations.
 
-Stablecoins have stopped being "digital dollars for traders." They have become the circulatory system of the crypto market -- the channel through which capital flows between exchanges, DeFi protocols, and funds. Understanding this mechanics is important for any market participant.
+Stablecoins have stopped being "digital dollars for traders." They have become the circulatory system of the digital asset market -- the channel through which capital flows between exchanges, DeFi protocols, and funds. Understanding this mechanics is important for any market participant.
 
 ![Institutional capital flow diagram through stablecoins: fund --> issuer --> exchange --> DeFi --> retail trader](./assets/institutional-flow.png)
 
 ## Institutional demand: what changed
 
-Three years ago, institutional presence in crypto was measured by products like Bitcoin ETFs. Today, the conversation is about structural demand for infrastructure that operates 24/7 without intermediaries.
+Three years ago, institutional presence in the digital asset space was measured by products like Bitcoin ETFs. Today, the conversation is about structural demand for infrastructure that operates 24/7 without intermediaries.
 
-**The role of funds and asset managers.** Large asset management firms (Grayscale, BlackRock, Fidelity) attract capital not because crypto is "fast money." They see digital assets as portfolio diversification with low correlation to traditional asset classes. But the key insight is that capital inflows remain stable even during BTC drawdowns. This signals mature demand, not speculative frenzy.
+**The role of funds and asset managers.** Large asset management firms (Grayscale, BlackRock, Fidelity) attract capital not because digital assets are "fast money." They see digital assets as portfolio diversification with low correlation to traditional asset classes. But the key insight is that capital inflows remain stable even during BTC drawdowns. This signals mature demand, not speculative frenzy.
 
 **Inter-exchange settlements.** Previously, moving funds between exchanges took days through banking systems. Today, market makers and funds move millions via USDT and USDC in minutes. The fee is fractions of a cent, the time is seconds. This changes the economics of liquidity: capital does not "get stuck" on one platform, but circulates through the market.
 
@@ -64,7 +64,7 @@ Understanding institutional flows through stablecoins provides practical advanta
 
 ## Summary
 
-Stablecoins have evolved from a tool for crypto traders into a payment infrastructure that services institutional capital flows. Annual transaction volume of $25+ trillion is not speculation, but a functional market need for fast, cheap, and 24/7 accessible settlements.
+Stablecoins have evolved from a tool for traders in digital assets into a payment infrastructure that services institutional capital flows. Annual transaction volume of $25+ trillion is not speculation, but a functional market need for fast, cheap, and 24/7 accessible settlements.
 
 For regulators, stablecoins are a challenge: they operate without bank intermediaries, but fall under KYC/AML requirements. For traders, they present an opportunity: understanding stablecoin flows provides insights into market liquidity and sentiment.
 
