@@ -1335,6 +1335,8 @@ a:not(.logo-link):active {
 /* PROSE (blog post content) */
 .prose {
   max-width: var(--content-max);
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 /* Section wrapper owns the divider.
@@ -1494,8 +1496,8 @@ a:not(.logo-link):active {
 }
 
 /* ═══════════════════════════════════════════════════════
-   17. TABLE OF CONTENTS
-   ═══════════════════════════════════════════════════════ */
+    17. TABLE OF CONTENTS
+    ═══════════════════════════════════════════════════════ */
 .toc-sticky {
   position: sticky;
   top: calc(72px + 32px);

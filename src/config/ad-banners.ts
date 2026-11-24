@@ -27,22 +27,12 @@ export type AdBanner = {
   advertiser?: { name: string; inn: string; site: string };
   /** Лицензия ЦБ РФ (для финансовых услуг). Например: "Генеральная лицензия Банка России № 2673" */
   cblicense?: string;
-  /** Приглушённый бренд-акцент для CTA и рамки (light/dark). Опционально — если нет, используется универсальный янтарь */
-  accent?: { light: string; dark: string };
   /** Категории статей (frontmatter): route/forge/helm/treasury/compass/logbook/crew */
   categories?: string[];
   languages?: ('ru' | 'en')[];
   priority?: number;
   /** true = внутренняя ссылка Félag (не реклама, маркировка не нужна) */
   internal?: boolean;
-  colors: {
-    bgStart: string;
-    bgEnd: string;
-    text: string;
-    ctaBg: string;
-    ctaText: string;
-    border: string;
-  };
 };
 
 // Партнёрские ссылки (белые схемы — VPS/хостинг, РФ-юрлица)
@@ -75,14 +65,6 @@ const ALL_BANNERS: AdBanner[] = [
     categories: ['forge'],
     languages: ['ru'],
     priority: 10,
-    colors: {
-      bgStart: '#1E3A5F',
-      bgEnd: '#14283F',
-      text: '#E5E5E5',
-      ctaBg: '#A97B2C',
-      ctaText: '#FFFFFF',
-      border: '#2C4E77',
-    },
   },
 
   // ── Reg.ru — инфраструктура для веб-проектов (статьи route, forge) ──
@@ -97,14 +79,6 @@ const ALL_BANNERS: AdBanner[] = [
     categories: ['route', 'forge'],
     languages: ['ru'],
     priority: 5,
-    colors: {
-      bgStart: '#1E3A5F',
-      bgEnd: '#14283F',
-      text: '#E5E5E5',
-      ctaBg: '#A97B2C',
-      ctaText: '#FFFFFF',
-      border: '#2C4E77',
-    },
   },
 
   // ── Т-Банк — финансовые инструменты (статьи treasury) ──
@@ -120,15 +94,6 @@ const ALL_BANNERS: AdBanner[] = [
     categories: ['treasury'],
     languages: ['ru'],
     priority: 8,
-    accent: { light: '#C5A028', dark: '#D4B045' },
-    colors: {
-      bgStart: '#1E3A5F',
-      bgEnd: '#14283F',
-      text: '#E5E5E5',
-      ctaBg: '#A97B2C',
-      ctaText: '#FFFFFF',
-      border: '#2C4E77',
-    },
   },
 
   // ── Veles — IT-партнёр (ООО "ВЕЛЕС.ФИНАНС", ИНН 9725074398, ОКВЭД 62.01) ──
@@ -140,17 +105,9 @@ const ALL_BANNERS: AdBanner[] = [
     link: REFERRAL_LINKS.veles,
     erid: 'CQH36pWzJqVKznERGZtWRYzjm6yPFbxFKEnry3zcBHeD37',
     advertiser: { name: 'ООО «ВЕЛЕС.ФИНАНС»', inn: '9725074398', site: 'veles.finance' },
-    categories: ['forge', 'compass'],
+    categories: ['forge', 'compass'], // TODO: убрать compass после решения Василия
     languages: ['ru', 'en'],
     priority: 7,
-    colors: {
-      bgStart: '#1E3A5F',
-      bgEnd: '#14283F',
-      text: '#E5E5E5',
-      ctaBg: '#A97B2C',
-      ctaText: '#FFFFFF',
-      border: '#2C4E77',
-    },
   },
 
   // ── FÉLAG — внутренняя перелинковка (не реклама, всегда виден) ──
@@ -162,14 +119,6 @@ const ALL_BANNERS: AdBanner[] = [
     link: 'https://t.me/hampfree',
     erid: '',
     internal: true,
-    colors: {
-      bgStart: '#1E3A5F',
-      bgEnd: '#14283F',
-      text: '#E5E5E5',
-      ctaBg: '#A97B2C',
-      ctaText: '#FFFFFF',
-      border: '#2C4E77',
-    },
   },
 ];
 
@@ -191,7 +140,6 @@ export const BANNER_TRANSLATIONS: Record<
     title: { ru: string; en: string };
     subtitle: { ru: string; en: string };
     cta: { ru: string; en: string };
-    colors: AdBanner['colors'];
     link?: string | { ru: string; en: string };
     erid?: string;
     internal?: boolean;
@@ -206,7 +154,6 @@ export const BANNER_TRANSLATIONS: Record<
       title: { ru: b.title, en: b.title },
       subtitle: { ru: b.subtitle, en: b.subtitle },
       cta: { ru: b.cta, en: b.cta },
-      colors: b.colors,
       link: b.link.startsWith('/') ? { ru: b.link.replace('{lang}', 'ru'), en: b.link.replace('{lang}', 'en') } : b.link,
       erid: b.erid,
       internal: b.internal,
