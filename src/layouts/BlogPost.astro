@@ -7,17 +7,17 @@ import ScrollTop from '../components/ScrollTop.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import Banner from '../components/Banner.astro';
-import BannerDataInjector from '../components/BannerDataInjector.astro';
 import AdBanner from '../components/AdBanner.astro';
 import FAQ from '../components/FAQ.astro';
 import Disclaimer from '../components/Disclaimer.astro';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import { getBannerForArticle } from '../config/ad-banners';
 
 interface Props {
 	title: string;
 	description: string;
-	metaOgTitle?: string; // OG заголовок для соцсетей (опционально)
-	readingTime?: number; // Время чтения в минутах (вычисляется автоматически)
+	metaOgTitle?: string;
+	readingTime?: number;
 	pubDate?: Date | string;
 	updatedDate?: Date | string;
 	heroImage?: string;
@@ -30,7 +30,6 @@ interface Props {
 	customBreadcrumbs?: { label: string; href?: string }[];
 }
 
-// Helper to convert string to Date (Astro 5 collections return dates as strings)
 const toDate = (d: Date | string | undefined): Date | undefined =>
 	d ? (typeof d === 'string' ? new Date(d) : d) : undefined;
 
@@ -41,28 +40,40 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-// Содержание на разных языках
-const tocTitle = {
-	ru: 'В этой статье',
-	en: 'In this article'
-}[lang] || 'В этой статье';
+const tocTitle = { ru: 'В этой статье', en: 'In this article' }[lang] || 'В этой статье';
 
 const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrumbs || (() => {
 	const items: Array<{ label: string; href?: string }> = [
 		{ label: t('nav.saga'), href: translatePath('saga') }
 	];
-	
-	// Добавляем категорию в хлебные крошки, если она указана
 	if (category) {
 		const catLabel = t(`cat.${category}` as any);
-		if (catLabel) {
-			items.push({ label: catLabel, href: translatePath('saga') });
-		}
+		if (catLabel) items.push({ label: catLabel, href: translatePath('saga') });
 	}
-	
 	items.push({ label: title });
 	return items;
 })();
+
+// Banner selection (server-side)
+const rawBanner = getBannerForArticle(category || '', lang);
+let banner: Record<string, unknown> | null = null;
+if (rawBanner) {
+	const isInternal = !!rawBanner.internal;
+	const baseUrl = rawBanner.link;
+	const finalLink = isInternal
+		? baseUrl
+		: `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}utm_source=felag&utm_medium=in-article-banner&utm_campaign=${rawBanner.id}&utm_content=${category || ''}`;
+	banner = {
+		title: rawBanner.title,
+		subtitle: rawBanner.subtitle,
+		cta: rawBanner.cta,
+		link: finalLink,
+		erid: rawBanner.erid,
+		advertiser: rawBanner.advertiser,
+		bannerId: rawBanner.id,
+		isInternal,
+	};
+}
 ---
 
 <html lang={lang} data-astro-transition="slide">
@@ -171,10 +182,8 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 						<slot />
 					</div>
 
-					{/* SSR-rendered ad banner — moved by minimal JS after 2nd H2 */}
-					<div id="ad-banner-slot" style="display:none">
-						<AdBanner category={category || ''} lang={lang} />
-					</div>
+					<!-- SSR-rendered in-article ad banner -->
+					{banner && <AdBanner {...banner} />}
 
 					{postId && (
 						<div class="related-posts-container">
@@ -210,7 +219,6 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 
 			<ScrollTop />
 		</main>
-		<BannerDataInjector />
 		<Footer />
 
 		<!-- Article image lightbox overlay (single instance per page) -->
@@ -242,8 +250,6 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 			document.addEventListener('click', (e) => {
 				const link = e.target.closest('.toc-item a');
 				if (!link) return;
-				// Native anchor scrolling respects scroll-margin-top from CSS
-				// No need for JS scrollIntoView — browser handles offset automatically
 				if (mobileToggle && mobileAccordion) {
 					mobileAccordion.classList.remove('open');
 					mobileToggle.classList.remove('open');
@@ -251,108 +257,42 @@ const breadcrumbItems: Array<{ label: string; href?: string }> = customBreadcrum
 				}
 			});
 
-			// Track banner clicks (GA4)
-			function trackBannerClick(element) {
-				if (typeof gtag === 'undefined') return;
-
-				const bannerId = element.dataset.bannerId || 'unknown';
-				const bannerName = element.dataset.bannerName || 'Unknown';
-				const bannerLink = element.dataset.bannerLink || '';
-				const category = document.querySelector('article')?.dataset.category || '';
-				const lang = document.querySelector('html')?.lang || 'ru';
-				const pathname = window.location.pathname;
-
-				// Send event to GA4
-				gtag('event', 'referral_banner_click', {
-					event_category: 'referral',
-					event_label: bannerName,
-					banner_id: bannerId,
-					banner_link: bannerLink,
-					article_category: category,
-					article_lang: lang,
-					article_path: pathname,
-					transport_type: 'beacon',
-				});
-				
-				// Also track as outbound link
-				gtag('event', 'click', {
-					event_category: 'outbound',
-					event_label: bannerLink,
-					transport_type: 'beacon',
-				});
-			}
-
-			// Interactive TOC Highlighting — обновляет активный пункт при скролле
-			// rootMargin: учитывает высоту header (72px) + scroll-margin-top (120px)
-			const observerOptions = {
-				root: null,
-				rootMargin: '-120px 0px -50% 0px',
-				threshold: 0
-			};
-
+			// Interactive TOC Highlighting
+			const observerOptions = { root: null, rootMargin: '-120px 0px -50% 0px', threshold: 0 };
 			let currentActiveLink = null;
 			let rafId = null;
 
 			const updateActiveLink = (id) => {
-				if (rafId) {
-					cancelAnimationFrame(rafId);
-				}
-				
+				if (rafId) cancelAnimationFrame(rafId);
 				rafId = requestAnimationFrame(() => {
-					// Ищем в десктопном TOC
 					const activeLink = document.querySelector(`.toc-sticky .toc-item a[href="#${id}"]`);
-					
-					// Обновляем только если активная ссылка изменилась
 					if (activeLink && activeLink !== currentActiveLink) {
-						// Удаляем класс у предыдущей активной ссылки
-						if (currentActiveLink) {
-							currentActiveLink.classList.remove('active');
-						}
-						// Добавляем класс к новой активной ссылке
+						if (currentActiveLink) currentActiveLink.classList.remove('active');
 						activeLink.classList.add('active');
 						currentActiveLink = activeLink;
 					}
-					
 					rafId = null;
 				});
 			};
 
 			const observer = new IntersectionObserver((entries) => {
-				// Находим первый видимый заголовок (ближайший к верху viewport)
 				const visibleHeaders = entries
 					.filter(entry => entry.isIntersecting)
-					.map(entry => ({
-						element: entry.target,
-						top: entry.boundingClientRect.top
-					}))
+					.map(entry => ({ element: entry.target, top: entry.boundingClientRect.top }))
 					.sort((a, b) => a.top - b.top);
-
 				if (visibleHeaders.length > 0) {
 					const id = visibleHeaders[0].element.getAttribute('id');
-					if (id) {
-						updateActiveLink(id);
-					}
+					if (id) updateActiveLink(id);
 				}
 			}, observerOptions);
 
-			// Observe all headers inside .prose
-			document.querySelectorAll('.prose h2, .prose h3').forEach((header) => {
-				observer.observe(header);
-			});
+			document.querySelectorAll('.prose h2, .prose h3').forEach((header) => observer.observe(header));
 
-			// SSR-rendered ad banner — minimal JS to move DOM node after 2nd H2
-			const slot = document.getElementById('ad-banner-slot');
-			if (slot) {
-				const h2s = document.querySelectorAll('.prose-section h2');
-				if (h2s.length >= 2) {
-					const target = h2s[1].closest('.prose-section');
-					if (target) {
-						slot.style.display = 'block';
-						target.after(slot);
-					}
-				} else {
-					slot.style.display = 'block';
-				}
+			// Move SSR-rendered ad banner after 2nd H2
+			const adBanner = document.querySelector('.ad-banner');
+			const h2s = document.querySelectorAll('.prose h2');
+			if (adBanner && h2s.length >= 2) {
+				h2s[1].after(adBanner);
 			}
 		</script>
 

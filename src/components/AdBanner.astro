@@ -1,200 +1,95 @@
 ---
-// AdBanner.astro — рекламный баннер в статье (SSR, scoped стили)
-// Клик только по CTA-кнопке. Весь блок НЕ кликабелен.
-// Скандинавский минимализм, поддержка темной темы, адаптив через clamp().
-
-import { AD_BANNERS } from '../config/ad-banners';
+// AdBanner.astro — in-article ad banner (SSR, scoped styles)
+// Clickable CTA only. Data attributes on container, NOT on <a>.
 
 interface Props {
-  category: string;
-  lang: 'ru' | 'en';
+  title: string;
+  subtitle: string;
+  cta: string;
+  link: string;
+  erid: string;
+  advertiser?: { name: string };
+  bannerId: string;
+  isInternal: boolean;
 }
 
-const { category, lang } = Astro.props;
-
-// Выбор баннера на сервере (та же логика, что была в клиентском JS)
-const adBanner = AD_BANNERS.find(
-  (b) =>
-    !b.internal &&
-    b.erid !== '' &&
-    (!b.categories || b.categories.includes(category)) &&
-    (!b.languages || b.languages.includes(lang))
-);
-
-const chosenBanner = adBanner || AD_BANNERS.find((b) => b.id === 'default-felag');
-
-// Данные баннера (для SSR)
-let isInternal = false;
-let finalUrl = '';
-let title = '';
-let subtitle = '';
-let ctaText = '';
-let erid = '';
-let advertiser: { name: string; inn: string; site: string } | undefined;
-let dataAttrObj: Record<string, string> = {};
-
-if (chosenBanner) {
-  isInternal = !!chosenBanner.internal;
-  title = chosenBanner.title;
-  subtitle = chosenBanner.subtitle;
-  ctaText = chosenBanner.cta;
-  const link = chosenBanner.link;
-  erid = chosenBanner.erid || '';
-  advertiser = chosenBanner.advertiser;
-
-  // UTM-метки
-  finalUrl = isInternal
-    ? link
-    : `${link}${link.includes('?') ? '&' : '?'}utm_source=felag&utm_medium=in-article-banner&utm_campaign=${chosenBanner.id}&utm_content=${category}`;
-
-  // data-атрибуты для аналитики (только на корне, НЕ на <a>)
-  dataAttrObj = {
-    'data-banner-name': title.replace(/"/g, '&quot;'),
-    'data-banner-link': finalUrl,
-  };
-}
+const { title, subtitle, cta, link, erid, advertiser, bannerId, isInternal } = Astro.props;
 ---
 
-{chosenBanner && (
-  <div
-    class="ad-banner"
-    data-banner-id={chosenBanner.id}
-    {...dataAttrObj}
-    {...(isInternal ? {} : { 'aria-label': 'Advertisement' })}
-  >
-    <div class="ad-banner-row">
-      <div class="ad-banner-body">
-        <h3 class="ad-banner-title">{title}</h3>
-        <p class="ad-banner-subtitle">{subtitle}</p>
-      </div>
-      <a
-        href={finalUrl}
-        class="ad-banner-cta"
-        rel={isInternal ? '' : 'noopener noreferrer sponsored'}
-        target={isInternal ? undefined : '_blank'}
-      >
-        {ctaText.replace('→', '')}
-      </a>
+<div class="ad-banner" data-banner-id={bannerId} data-banner-name={title} data-banner-link={link}>
+  <a class="ad-banner-content" href={link}
+     rel={isInternal ? undefined : 'nofollow sponsored noopener noreferrer'}
+     target={isInternal ? undefined : '_blank'}>
+    <div class="text-block">
+      <p class="title">{title}</p>
+      <p class="subtitle">{subtitle}</p>
     </div>
-    {erid && !isInternal && (
-      <div class="ad-banner-mark">
-        Реклама · {advertiser?.name || ''} · erid: {erid}
-      </div>
-    )}
-  </div>
-)}
+    <span class="cta">{cta}</span>
+  </a>
+  {erid && !isInternal && (
+    <span class="ad-banner-mark">Реклама · {advertiser?.name || ''} · erid: {erid}</span>
+  )}
+</div>
 
 <style>
   .ad-banner {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background: var(--color-bg-subtle);
-    border-radius: var(--radius-md, 4px);
-    padding: clamp(16px, 4vw, 24px) clamp(20px, 5vw, 28px);
-    border: 1px solid var(--color-border);
+    max-width: var(--content-max, 100%);
+    margin: 2rem auto;
     width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    transition: opacity 150ms cubic-bezier(0.16, 1, 0.3, 1);
   }
-
-  .ad-banner-row {
+  .ad-banner-content {
     display: flex;
+    flex-direction: row;
+    gap: clamp(12px, 2vw, 16px);
     align-items: center;
-    justify-content: space-between;
-    gap: clamp(12px, 3vw, 24px);
-    width: 100%;
-  }
-
-  .ad-banner-body {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(4px, 1vw, 8px);
-    min-width: 0;
-    overflow: visible;
-  }
-
-  .ad-banner-title {
-    font-family: var(--font-serif, serif);
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
-    font-weight: 600;
+    text-decoration: none;
+    padding: clamp(16px, 3vw, 24px) clamp(20px, 4vw, 28px);
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
     color: var(--color-text);
-    line-height: 1.3;
-    margin: 0;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
   }
-
-  .ad-banner-subtitle {
-    font-family: var(--font-mono);
+  .text-block { flex: 1; min-width: 0; }
+  .title {
+    font-family: var(--font-serif);
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 4px;
+    color: var(--color-text);
+  }
+  .subtitle {
     font-size: clamp(0.8rem, 1.5vw, 0.9rem);
     color: var(--color-text-secondary);
     line-height: 1.5;
     margin: 0;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
   }
-
-  .ad-banner-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+  .cta {
+    flex-shrink: 1;
+    padding: clamp(0.4rem, 1vw, 0.5rem) clamp(0.8rem, 1.5vw, 1rem);
+    background: var(--color-amber);
+    color: #FFF;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
     font-family: var(--font-mono);
     font-size: clamp(0.75rem, 1.2vw, 0.85rem);
     font-weight: 500;
-    background: var(--color-amber);
-    color: #FFFFFF;
-    padding: 0.55rem 1.1rem;
-    border-radius: var(--radius-sm, 3px);
-    white-space: normal;
-    flex: 0 0 auto;
-    margin: 0;
-    text-decoration: none;
-    cursor: pointer;
-    transition: opacity 150ms cubic-bezier(0.16, 1, 0.3, 1);
-    overflow-wrap: break-word;
-    word-break: break-word;
-    min-height: 44px;
-    min-width: 44px;
+    white-space: nowrap;
   }
-
-  @media (hover: hover) {
-    .ad-banner-cta:hover {
-      opacity: 0.85;
-    }
-  }
-
-  .ad-banner-cta:focus-visible {
-    outline: 2px solid var(--color-amber);
-    outline-offset: 2px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .ad-banner,
-    .ad-banner-cta {
-      transition: none;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .ad-banner-row {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .ad-banner-cta {
-      align-self: flex-start;
-      text-align: center;
-    }
-  }
-
+  @media (hover: hover) { .cta:hover { opacity: 0.85; } }
+  .cta:focus-visible { outline: 2px solid var(--color-amber); outline-offset: 2px; }
   .ad-banner-mark {
     display: block;
-    font-size: 0.6rem;
+    width: 100%;
+    font-size: 0.65rem;
     color: var(--color-text-tertiary);
-    opacity: 0.7;
-    line-height: 1.3;
-    word-break: break-all;
+    margin-top: 8px;
+    hyphens: none;
+    word-break: normal;
+  }
+  @media (max-width: 767px) {
+    .ad-banner-content { flex-direction: column; align-items: stretch; gap: 12px; }
+    .cta { flex-shrink: 0; align-self: stretch; }
   }
 </style>

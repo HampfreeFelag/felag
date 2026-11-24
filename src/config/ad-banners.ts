@@ -130,42 +130,8 @@ export const AD_BANNERS: AdBanner[] = ALL_BANNERS.filter(
   (b) => b.internal || b.erid !== ''
 );
 
-// Данные для клиентской автовставки (BlogPost.astro читает window.BANNER_DATA)
-// ⚠️ internal баннеры (default-felag) НЕ включаются — они предназначены только
-// для серверной вставки (BannerCard на страницах категорий/главной), а не для
-// авто-вставки в статьи.
-export const BANNER_TRANSLATIONS: Record<
-  string,
-  {
-    title: { ru: string; en: string };
-    subtitle: { ru: string; en: string };
-    cta: { ru: string; en: string };
-    link?: string | { ru: string; en: string };
-    erid?: string;
-    internal?: boolean;
-    advertiser?: { name: string; inn: string; site: string };
-    categories?: string[];
-    languages?: ('ru' | 'en')[];
-  }
-> = Object.fromEntries(
-  AD_BANNERS.filter((b) => !b.internal).map((b) => [
-    b.id,
-    {
-      title: { ru: b.title, en: b.title },
-      subtitle: { ru: b.subtitle, en: b.subtitle },
-      cta: { ru: b.cta, en: b.cta },
-      link: b.link.startsWith('/') ? { ru: b.link.replace('{lang}', 'ru'), en: b.link.replace('{lang}', 'en') } : b.link,
-      erid: b.erid,
-      internal: b.internal,
-      advertiser: b.advertiser,
-      categories: b.categories,
-      languages: b.languages,
-    },
-  ])
-);
-
 /**
- * Выбор баннера для статьи (серверная версия, для BannerCard).
+ * Выбор баннера для статьи (серверная версия, для BannerCard и BlogPost).
  * Реклама — только с erid и совпадением категории/языка; иначе внутренний fallback.
  */
 export function getBannerForArticle(category: string, lang: string): AdBanner | null {
