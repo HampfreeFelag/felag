@@ -3,7 +3,7 @@ title: 'Institutional demand in digital assets: stablecoins as infrastructure'
 description: 'Stablecoins are the payment infrastructure for institutional investors. Analysis of USDT and USDC roles in DeFi liquidity and inter-exchange settlements.'
 pubDate: '2026-11-23'
 category: 'compass'
-draft: true
+draft: false
 ---
 
 ## Introduction
