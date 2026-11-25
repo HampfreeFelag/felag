@@ -3,7 +3,7 @@ title: "Technical analysis in algo trading: a language of description, not a cry
 description: "Why algo traders need technical analysis, what indicator classes exist, and how to combine them with fundamental context without overfitting to history."
 pubDate: '2026-11-25'
 category: 'compass'
-draft: true
+draft: false
 ---
 
 ## Introduction
