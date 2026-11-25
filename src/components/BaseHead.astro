@@ -118,9 +118,10 @@ if (imageProp) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-<!-- Favicon: PNG logo (browser scales automatically) -->
-<link rel="icon" type="image/png" href={`${new URL("/felag-logo.png", Astro.site).href}?v=${SITE_VERSION}`} sizes="any" />
-<link rel="apple-touch-icon" href={`${new URL("/felag-logo.png", Astro.site).href}?v=${SITE_VERSION}`} />
+<!-- Favicon: proper sizes (Google requires multiples of 48px) -->
+<link rel="icon" href={`${new URL("/favicon.ico", Astro.site).href}?v=${SITE_VERSION}`} sizes="48x48" />
+<link rel="icon" type="image/png" href={`${new URL("/favicon-96x96.png", Astro.site).href}?v=${SITE_VERSION}`} sizes="96x96" />
+<link rel="apple-touch-icon" href={`${new URL("/apple-touch-icon.png", Astro.site).href}?v=${SITE_VERSION}`} />
 <link rel="manifest" href={`${new URL("/site.webmanifest", Astro.site).href}?v=${SITE_VERSION}`} />
 
 <meta name="generator" content={Astro.generator} />
