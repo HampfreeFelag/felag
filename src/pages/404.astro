@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
 
 // Language detection chain:
 // 1. URL path prefix (/ru/ → ru, /en/ → en)
@@ -64,7 +65,8 @@ const s = strings[isRu ? 'ru' : 'en'];
     .not-found-container {
       max-width: 560px;
       text-align: center;
-      padding: var(--page-padding);
+      padding: calc(var(--page-padding) * 2) var(--space-lg) var(--page-padding);
+      margin: 0 auto;
     }
 
     .not-found-code {
@@ -116,7 +118,7 @@ const s = strings[isRu ? 'ru' : 'en'];
 
     .not-found-btn-primary {
       background: var(--color-accent);
-      color: var(--color-bg);
+      color: #fff;
     }
 
     .not-found-btn-primary:hover {
@@ -196,6 +198,7 @@ const s = strings[isRu ? 'ru' : 'en'];
   </style>
 </head>
 <body>
+  <Header />
   <main class="not-found-container">
     <!-- Language switcher -->
     <div class="not-found-lang-switcher" role="navigation" aria-label={s.aria_label}>
