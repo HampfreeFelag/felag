@@ -998,6 +998,38 @@ a:not(.logo-link):active {
   margin-top: var(--space-sm);
 }
 
+/* ═══════════════════════════════════════════════════════
+   PAGINATION — /saga/
+   Отступ сверху даёт margin-bottom у .posts-list (48px),
+   поэтому здесь только снизу: иначе пузырьки прилипают
+   к hairline футера (было 0px).
+   ═══════════════════════════════════════════════════════ */
+.pagination-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin: 0 0 var(--space-2xl);
+}
+
+/* Пустая пагинация (одна страница результатов) не должна оставлять пустоту */
+.pagination-container:empty {
+  margin-bottom: 0;
+}
+
+.pagination-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.25rem;
+  min-height: 44px;
+  color: var(--color-text-tertiary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  user-select: none;
+}
+
 /* Single-column only: at >=769px .posts-list becomes a 2-column grid, and this
    exception lifted the first card's rubric var(--space-lg) above its row neighbour. */
 @media (max-width: 768px) {

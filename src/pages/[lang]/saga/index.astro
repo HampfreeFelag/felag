@@ -652,9 +652,8 @@ const breadcrumbItems = [
 	}
 
 	.no-results {
-		display: none; /* По умолчанию скрыт, управляется JS */
+		display: none; /* Скрыт по умолчанию; JS переключает на flex при фильтрации */
 		min-height: 40vh;
-		display: flex;
 		align-items: center;
 		justify-content: center;
 		padding: var(--space-2xl);
