@@ -28,14 +28,14 @@ At formation:
 | Cycle | Death cross | Max drawdown after | Recovery time |
 |-------|-------------|-------------------|---------------|
 | 2014 | November | -83% (to $154) | 18 months |
-| 2018 | December | -74% (to $3,200) | 17 months |
+| 2018 | December | -83% (to $3,200) | 17 months |
 | 2022 | May | -65% (to $15,500) | 12 months |
 
 Historically, death cross is a reliable bearish market signal, but not a timing tool. Average recovery time: 15 months.
 
 ## What makes this cycle different
 
-1. **Market structure has changed.** Institutional participants (ETFs, corporate treasuries) create a new support level absent in 2014–2022.
+1. **Market structure has changed.** ETFs and corporate treasuries introduced a new level of institutional participation absent in 2014–2022. However, in this episode, ETF flows are amplifying the bearish impulse — the record $5.39 billion outflow in November confirms selling pressure, not support.
 2. **Volumes are not panic-driven.** No characteristic volume spike from past cycles at pattern formation.
 3. **Macro context.** Fed rates remain restrictive, but easing expectations support risk assets.
 

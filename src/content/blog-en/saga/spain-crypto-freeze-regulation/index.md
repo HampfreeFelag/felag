@@ -17,7 +17,7 @@ Royal Decree-Law 44/2026 provides Sepblac — Spain's financial intelligence uni
 1. **Account freeze up to 5 business days.** Sepblac can block crypto, bank, and payment accounts upon suspicion of money laundering or terrorist financing without a judicial warrant.
 2. **Transaction halt up to 10 business days.** Individual pending transfers may be suspended for a longer period.
 3. **No prior court approval required.** The decision is administrative. After the set period, judicial confirmation or extension is required.
-4. **Applies to all providers.** Not only Spanish platforms but also foreign ones providing services to Spanish residents.
+4. **Applies to all providers.** Not only Spanish platforms but also foreign ones providing services to Spanish residents (under AML legislation interpretation).
 
 After 5 days of freeze, a court order is required for extension. The decree also requires convalidation (parliamentary validation) within the statutory timeframe.
 
@@ -37,7 +37,7 @@ Sepblac — Spain's equivalent of FinCEN (US) or national FIUs (other EU countri
 | USA | FinCEN + court | Partial | 30 days | FinCEN |
 | China | Full ban | Yes | N/A | — |
 
-Spain is the first EU country to grant its financial intelligence unit a direct instrument for freezing crypto-assets without judicial approval.
+Spain is one of the first EU countries to grant its financial intelligence unit a direct instrument for freezing crypto-assets without judicial approval.
 
 ## What this means for traders
 
