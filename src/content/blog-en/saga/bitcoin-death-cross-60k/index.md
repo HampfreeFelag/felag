@@ -1,7 +1,7 @@
 ---
 title: 'Bitcoin Holds $60K as Death Cross Forms: What It Means for the Market'
 description: 'Death cross on BTC daily chart — a historical bearish signal. Breakdown of the indicator mechanics, past cycle statistics, and what it means for traders.'
-pubDate: '2026-11-26'
+pubDate: '2026-11-27'
 category: 'compass'
 draft: true
 ---
@@ -9,6 +9,10 @@ draft: true
 ## Introduction
 
 Bitcoin holds the $60,000 level as a death cross forms on the daily chart — the 50-day moving average crossing below the 200-day. Historically, this pattern has preceded deep corrections. We examine the indicator mechanics and what the data says about the likely scenario.
+
+## Current market conditions
+
+Record outflows from U.S. spot BTC-ETFs reached $5.39 billion in November (data through November 25). This is the largest monthly outflow since fund launches in January 2024. On November 26, traditional U.S. markets were closed for Thanksgiving, reducing liquidity and distorting intraday dynamics.
 
 ## What is a death cross
 
