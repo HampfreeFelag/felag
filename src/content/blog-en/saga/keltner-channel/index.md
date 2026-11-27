@@ -1,6 +1,6 @@
 ---
 title: "Keltner Channel: ATR Volatility vs Statistical Deviation"
-description: "Breakdown of the Keltner Channel: how the ATR multiplier forms dynamic boundaries and why it works better than SMA deviation in hourly MTF entry systems."
+description: "Breakdown of the Keltner Channel: how the ATR multiplier forms dynamic boundaries and why it works better than SMA deviation in multi-timeframe entry systems."
 pubDate: '2026-11-28'
 category: 'compass'
 draft: true
@@ -26,7 +26,7 @@ ATR is calculated as a moving average of the true range. The true range is the m
 2. Absolute value of previous close minus current low.
 3. Absolute value of previous close minus current high.
 
-The multiplier determines channel width. A value of 2.0 is the standard, used in MTF systems on the 1-hour timeframe. It encompasses approximately 80% of price movements under normal volatility distribution.
+The multiplier determines channel width. A value of 2.0 is the standard, used in the system on the 1-hour timeframe. It encompasses approximately 80% of price movements under normal volatility distribution.
 
 Unlike standard deviation in Bollinger Bands, ATR does not quadratically amplify outliers. This means sharp candles do not inflate the channel disproportionately, but expand it gradually over several periods.
 
@@ -41,11 +41,11 @@ The Keltner Channel reacts to volatility through ATR. Expansion occurs gradually
 1. **Narrower channel in consolidation.** In range conditions, Keltner stays narrower than Bollinger, increasing sensitivity to price breaking boundary levels.
 2. **Gradual expansion during impulses.** ATR does not react to single extremes — the channel widens only with sustained volatility growth.
 
-For MTF systems, this means the Keltner lower boundary on 1h serves as a more accurate oversold zone indicator than the Bollinger lower band. Price breaking below the KC lower boundary signals that the move has become anomalous relative to current volatility, not relative to statistical deviation.
+For the system, this means the Keltner lower boundary on 1h serves as a more accurate oversold zone indicator than the Bollinger lower band. Price breaking below the KC lower boundary signals that the move has become anomalous relative to current volatility, not relative to statistical deviation.
 
-## How It Works in MTF Systems
+## How It Works in the System
 
-In MTF systems, the Keltner Channel serves as a context filter on the 1-hour timeframe. Parameters: EMA period = 20, ATR period = 20, multiplier = 2.
+In the system, the Keltner Channel serves as a context filter on the 1-hour timeframe. Parameters: EMA period = 20, ATR period = 20, multiplier = 2.
 
 Entry condition:
 
@@ -66,10 +66,10 @@ The Keltner Channel on 1h is the first and mandatory filter. Without it, the sys
 
 ## Summary
 
-The Keltner Channel is a tool based on ATR volatility, not statistical deviation. In MTF systems, it works as the first filter on 1h: price below the lower boundary signals an anomalous oversold zone, which becomes the starting point for MTF entry logic.
+The Keltner Channel is a tool based on ATR volatility, not statistical deviation. In the system, it works as the first filter on 1h: price below the lower boundary signals an anomalous oversold zone, which becomes the starting point for entry logic.
 
 ## FAQ
 
 **Can the Keltner Channel be used without other indicators?**
 
-Yes, KC is used independently for identifying entry and exit zones. However, in MTF systems it serves as a context filter — without confirmation from RSI, ADX, and Vortex, the probability of false triggers during consolidation increases significantly.
+Yes, KC is used independently for identifying entry and exit zones. However, in the system it serves as a context filter — without confirmation from RSI, ADX, and Vortex, the probability of false triggers during consolidation increases significantly.

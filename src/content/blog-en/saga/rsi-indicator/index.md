@@ -1,6 +1,6 @@
 ---
 title: "RSI: How to Avoid Buying Into Falling Markets"
-description: "Breakdown of the RSI indicator: how Wells Wilder's formula helps measure momentum strength and why RSI < 30 is confirmation, not an entry signal."
+description: "Breakdown of the RSI indicator: how Wells Wilder's formula measures momentum strength and why RSI < 30 is a confirmation signal, not a standalone entry trigger."
 pubDate: '2026-11-28'
 category: 'compass'
 draft: true
@@ -8,7 +8,7 @@ draft: true
 
 The Relative Strength Index (RSI) is one of the most widely used indicators in a trader's toolkit. Its simplicity and visual clarity have made it a de facto standard for measuring momentum. Yet this popularity creates the primary trap: traders interpret values below 30 as buy signals, ignoring the trend context.
 
-In MTF systems, RSI is used not as a standalone signal but as a momentum filter on the 30-minute timeframe. A value below 30 confirms that the downward movement has sufficient strength for opening a position, but does not determine direction — that role belongs to the Keltner Channel on the 1-hour chart.
+In the system, RSI is used not as a standalone signal but as a momentum filter on the 30-minute timeframe. A value below 30 confirms that the downward movement has sufficient strength for opening a position, but does not determine direction — that role belongs to the Keltner Channel on the 1-hour chart.
 
 ## History and Mathematics
 
@@ -34,11 +34,11 @@ In a downtrend, RSI can remain in oversold territory for hours, and in some case
 
 The classic mistake is entering on the first touch of RSI at level 30. In a strong downtrend, RSI can enter oversold territory, bounce, return, and continue falling. Each such cycle creates a false buying opportunity.
 
-In MTF systems, this trap is eliminated through the multi-timeframe structure. RSI on 30m does not work alone — it checks the context set by KC on 1h. If price is already below the Keltner lower boundary on 1h, then RSI < 30 on 30m confirms that momentum is strong enough for position entry. If price is not in KC zone, RSI < 30 is ignored.
+In the system, this trap is eliminated through the checking multiple timeframes. RSI on 30m does not work alone — it checks the context set by KC on 1h. If price is already below the Keltner lower boundary on 1h, then RSI < 30 on 30m confirms that momentum is strong enough for position entry. If price is not in KC zone, RSI < 30 is ignored.
 
-## How It Works in MTF Systems
+## How It Works in the System
 
-In MTF systems, RSI(14) on the 30-minute timeframe serves as a momentum confirmation filter. The condition:
+In the system, RSI(14) on the 30-minute timeframe serves as a momentum confirmation filter. The condition:
 
 ```
 RSI(14) < 30 on 30m timeframe
@@ -48,7 +48,7 @@ This condition is only checked after KC on 1h has established the oversold conte
 
 Why 30 minutes? This timeframe sits between 1h (context) and 15m (range filter). It is sensitive enough to detect momentum, yet smoothed enough to ignore single candles.
 
-The MTF checking order:
+The checking order in the system:
 
 1. **1h KC:** price below lower boundary — context established.
 2. **30m RSI:** value below 30 — momentum confirmed.
@@ -59,10 +59,10 @@ Each subsequent step is contingent on the previous one. If KC does not trigger, 
 
 ## Summary
 
-RSI in MTF systems is a momentum filter, not an action signal. A value below 30 on 30m confirms the strength of the downward movement set by KC context on 1h. Without multi-timeframe structure, RSI creates more false entries than it prevents.
+RSI in the system is a momentum filter, not an action signal. A value below 30 on 30m confirms the strength of the downward movement set by KC context on 1h. Without checking multiple timeframes, RSI creates more false entries than it prevents.
 
 ## FAQ
 
 **Can RSI be used for entry points without KC?**
 
-RSI alone can be used for screening assets in oversold zones. However, for position entry in MTF systems, KC on 1h is mandatory — it determines whether price is in an anomalous volatility zone where momentum has statistically significant reversal potential.
+RSI alone can be used for screening assets in oversold zones. However, for position entry in the system, KC on 1h is mandatory — it determines whether price is in an anomalous volatility zone where momentum has statistically significant reversal potential.

@@ -1,6 +1,6 @@
 ---
 title: "Vortex Indicator: Entry Trigger on the 5-Minute Timeframe"
-description: "Breakdown of the Vortex indicator: how VI+ and VI- measure directional price flow and why it beats MACD on the 5-minute timeframe in MTF entry systems."
+description: "Breakdown of the Vortex indicator: how VI+ and VI- measure directional price flow and why it beats MACD on the 5-minute timeframe in the system systems."
 pubDate: '2026-11-28'
 category: 'compass'
 draft: true
@@ -8,7 +8,7 @@ draft: true
 
 The Vortex indicator is the youngest tool in the set of indicators examined in this series. While Keltner, Bollinger, RSI, and ADX appeared in the 1970s and 1980s, Vortex was introduced in 2009. Its task is not to measure volatility or trend strength, but to capture the moment when the directional flow of price shifts.
 
-That is why, in MTF systems, Vortex serves as the entry trigger on the 5-minute timeframe. It does not define context and does not filter ranges — it confirms that previous conditions have materialized into a specific move.
+That is why, in the system, Vortex serves as the entry trigger on the 5-minute timeframe. It does not define context and does not filter ranges — it confirms that previous conditions have materialized into a specific move.
 
 ## History and Mathematics
 
@@ -49,9 +49,9 @@ Vortex solves both problems differently. It does not smooth price through moving
 
 On short timeframes this matters: price covers a significant part of the move before MACD confirms a reversal. Vortex captures the flow shift closer to the start of the impulse.
 
-## How It Works in MTF Systems
+## How It Works in the System
 
-In MTF systems, Vortex(14) on the 5-minute timeframe serves as the entry trigger. The condition:
+In the system, Vortex(14) on the 5-minute timeframe serves as the entry trigger. The condition:
 
 ```
 VI+ crosses above VI- on 5m timeframe
@@ -76,7 +76,7 @@ Vortex is an indicator of directional flow, not volatility or trend strength. On
 
 **Can Vortex be used without other indicators?**
 
-Vortex can be applied on its own to find flow-shift points. However, without higher-timeframe filters, the number of false crossings in a range increases. In MTF systems, Vortex works only after the context is confirmed by Keltner, RSI, and ADX.
+Vortex can be applied on its own to find flow-shift points. However, without higher-timeframe filters, the number of false crossings in a range increases. In the system, Vortex works only after the context is confirmed by Keltner, RSI, and ADX.
 
 **Why is period 14 used?**
 

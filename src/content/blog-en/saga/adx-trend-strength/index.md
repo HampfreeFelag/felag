@@ -1,6 +1,6 @@
 ---
 title: "ADX: Trend Strength Filter That Saves You From Ranging Markets"
-description: "Breakdown of ADX: how the indicator measures trend strength through +DI and -DI, and why the 20 threshold is the golden mean for crypto in MTF systems."
+description: "Breakdown of ADX: how the indicator measures trend strength through +DI and -DI, and why the 20 threshold is the golden mean for crypto in the system."
 pubDate: '2026-11-28'
 category: 'compass'
 draft: true
@@ -8,7 +8,7 @@ draft: true
 
 Traders using oscillators to determine trend direction often face one problem: indicators work well in trends but generate false signals in sideways movement. RSI shows overbought conditions on both falling and rising markets. MACD crosses the zero line in both trends and ranges. You need a tool that measures not direction, but strength.
 
-The Average Directional Index (ADX) was created for this purpose. It does not tell you where price will go — it tells you how strongly price is moving in the current direction. In MTF entry systems, ADX on the 15-minute timeframe performs a critical function: filtering out ranges and leaving only periods when the trend is strong enough for position entry.
+The Average Directional Index (ADX) was created for this purpose. It does not tell you where price will go — it tells you how strongly price is moving in the current direction. In the system, ADX on the 15-minute timeframe performs a critical function: filtering out ranges and leaving only periods when the trend is strong enough for position entry.
 
 ## History and Mathematics
 
@@ -35,11 +35,11 @@ The value 20 proved to be a compromise:
 - **20–40** — an expressed trend, entry conditions are met.
 - **Above 40** — an extremely strong trend. At this level, the risk of reversal increases, as the move may have been overheated.
 
-For MTF systems, the 20 threshold on 15m is a mandatory filter. It ensures that positions are opened only when the trend, set by KC on 1h and confirmed by RSI on 30m, has sufficient strength to continue.
+For the system, the 20 threshold on 15m is a mandatory filter. It ensures that positions are opened only when the trend, set by KC on 1h and confirmed by RSI on 30m, has sufficient strength to continue.
 
-## How It Works in MTF Systems
+## How It Works in the System
 
-In MTF systems, ADX(14) on the 15-minute timeframe serves as a range filter. The condition:
+In the system, ADX(14) on the 15-minute timeframe serves as a range filter. The condition:
 
 ```
 ADX(14) > 20 on 15m timeframe
@@ -49,7 +49,7 @@ This condition is only checked after KC on 1h has established context and RSI on
 
 Why 15 minutes? This timeframe sits between 30m (momentum) and 5m (trigger). It is smoothed enough to ignore short-term fluctuations, yet sensitive enough to detect the beginning of an expressed trend.
 
-The MTF checking order:
+The checking order in the system:
 
 1. **1h KC:** price below lower boundary — context established.
 2. **30m RSI:** value below 30 — momentum confirmed.
@@ -60,10 +60,10 @@ Each subsequent step is contingent on the previous one. If ADX does not trigger,
 
 ## Summary
 
-ADX in MTF systems is a trend strength filter, not a direction indicator. A value above 20 on 15m confirms that the trend, set by KC on 1h and confirmed by RSI on 30m, is strong enough for position entry. Without this filter, the system opens positions in ranges where other indicators' signals are unreliable.
+ADX in the system is a trend strength filter, not a direction indicator. A value above 20 on 15m confirms that the trend, set by KC on 1h and confirmed by RSI on 30m, is strong enough for position entry. Without this filter, the system opens positions in ranges where other indicators' signals are unreliable.
 
 ## FAQ
 
 **Can ADX be used to determine trend direction?**
 
-No. ADX measures only trend strength, not direction. Direction is determined by +DI and -DI: if +DI is above -DI — the trend is upward, if below — downward. In MTF systems, direction is determined by KC on 1h, ADX only confirms its strength.
+No. ADX measures only trend strength, not direction. Direction is determined by +DI and -DI: if +DI is above -DI — the trend is upward, if below — downward. In the system, direction is determined by KC on 1h, ADX only confirms its strength.
