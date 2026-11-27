@@ -96,19 +96,33 @@ const ALL_BANNERS: AdBanner[] = [
     priority: 8,
   },
 
-  // ── Veles — IT-партнёр (ООО "ВЕЛЕС.ФИНАНС", ИНН 9725074398, ОКВЭД 62.01) ──
-  {
-    id: 'veles-software',
-    title: 'ПО для анализа данных',
-    subtitle: 'Программное обеспечение для автоматизации рабочих процессов и проектирования систем.',
-    cta: 'Ознакомиться с платформой',
-    link: REFERRAL_LINKS.veles,
-    erid: 'CQH36pWzJqVKznERGZtWRYzjm6yPFbxFKEnry3zcBHeD37',
-    advertiser: { name: 'ООО «ВЕЛЕС.ФИНАНС»', inn: '9725074398', site: 'veles.finance' },
-    categories: ['forge', 'compass'], // TODO: убрать compass после решения Василия
-    languages: ['ru', 'en'],
-    priority: 7,
-  },
+   // ── Veles — IT-партнёр (ООО "ВЕЛЕС.ФИНАНС", ИНН 9725074398, ОКВЭД 62.01) — RU ──
+   {
+     id: 'veles-software-ru',
+     title: 'ПО для анализа данных',
+     subtitle: 'Программное обеспечение для автоматизации рабочих процессов и проектирования систем.',
+     cta: 'Ознакомиться с платформой',
+     link: REFERRAL_LINKS.veles,
+     erid: 'CQH36pWzJqVKznERGZtWRYzjm6yPFbxFKEnry3zcBHeD37',
+     advertiser: { name: 'ООО «ВЕЛЕС.ФИНАНС»', inn: '9725074398', site: 'veles.finance' },
+     categories: ['forge', 'compass'],
+     languages: ['ru'],
+     priority: 7,
+   },
+
+   // ── Veles — IT-партнёр (ООО "ВЕЛЕС.ФИНАНС", ИНН 9725074398, ОКВЭД 62.01) — EN ──
+   {
+     id: 'veles-software-en',
+     title: 'Data analysis software',
+     subtitle: 'Software for automating workflows and designing trading systems.',
+     cta: 'Explore the platform',
+     link: REFERRAL_LINKS.veles,
+     erid: 'CQH36pWzJqVKznERGZtWRYzjm6yPFbxFKEnry3zcBHeD37',
+     advertiser: { name: 'OOO "VELES.FINANCE"', inn: '9725074398', site: 'veles.finance' },
+     categories: ['forge', 'compass'],
+     languages: ['en'],
+     priority: 7,
+   },
 
   // ── FÉLAG — внутренняя перелинковка (не реклама, всегда виден) ──
   {
