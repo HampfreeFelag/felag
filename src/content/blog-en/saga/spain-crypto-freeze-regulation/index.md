@@ -23,13 +23,13 @@ After 5 days of freeze, a court order is required for extension. The decree also
 
 ## Context: AMLD6 and EU implementation
 
-The decree implements the sixth anti-money laundering directive (AMLD6, Directive 2024/1640). MiCA regulates stablecoin issuance and platform licensing, but financial crime investigation remains the responsibility of national financial intelligence units.
+The decree is part of the implementation of the sixth anti-money laundering directive (AMLD6, Directive 2024/1640). MiCA regulates stablecoin issuance and platform licensing, but financial crime investigation remains the responsibility of national financial intelligence units.
 
 Sepblac — Spain's equivalent of FinCEN (US) or national FIUs (other EU countries) — coordinates anti-money laundering efforts and liaises with international counterparts. Prior to 44/2026, the unit lacked a direct instrument for forced crypto-asset freezing.
 
 ## Comparison with other jurisdictions
 
-| Country | Mechanism | Without Court | Max Duration | Equivalent to Sepblac |
+| Country | Mechanism | Without Court | Max Duration | Local equivalent of Sepblac |
 |---------|-----------|---------------|--------------|----------------------|
 | Spain | RDL 44/2026 | Yes | 5 days | Sepblac |
 | France | TRACFIN | No (court) | 5 days | TRACFIN |
@@ -41,7 +41,7 @@ Spain is one of the first EU countries to grant its financial intelligence unit 
 
 ## What this means for traders
 
-1. **User risks.** Accounts may be frozen by administrative decision — without the ability to contest promptly for up to 5 days.
+1. **User risks.** Accounts may be frozen by an administrative decision of Sepblac — without the ability to contest promptly for up to 5 days.
 2. **Compliance pressure.** Platforms operating in Spain may restrict access for residents to reduce regulatory exposure.
 3. **EU precedent.** The Spanish approach may become a model for other countries implementing AMLD6.
 4. **DEX unaffected.** Decentralized platforms have no jurisdiction and no centralized accounts to freeze. The measure targets licensed providers.

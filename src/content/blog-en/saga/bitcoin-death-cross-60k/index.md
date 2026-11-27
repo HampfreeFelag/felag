@@ -8,7 +8,7 @@ draft: true
 
 ## Introduction
 
-Bitcoin holds the $60,000 level as a death cross forms on the daily chart — the 50-day moving average crossing below the 200-day. Historically, this pattern has preceded deep corrections. We examine the indicator mechanics and what the data says about the likely scenario.
+Bitcoin holds the $60,000 level as a death cross forms on the daily chart — the 50-day moving average crossing below the 200-day. Historically, this pattern has accompanied the onset of deep corrections. We examine the indicator mechanics and what the data says about the likely scenario.
 
 ## Current market conditions
 
@@ -31,7 +31,7 @@ At formation:
 | 2018 | December | -83% (to $3,200) | 17 months |
 | 2022 | May | -65% (to $15,500) | 12 months |
 
-Historically, death cross is a reliable bearish market signal, but not a timing tool. Average recovery time: 15 months.
+Historically, death cross is a reliable bearish market signal, but not an entry-timing signal. Average recovery time: 15 months.
 
 ## What makes this cycle different
 
