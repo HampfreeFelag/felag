@@ -3,7 +3,7 @@ title: 'Bitcoin Holds $60K as Death Cross Forms: What It Means for the Market'
 description: 'Death cross on BTC daily chart — a historical bearish signal. Breakdown of the indicator mechanics, past cycle statistics, and what it means for traders.'
 pubDate: '2026-11-27'
 category: 'compass'
-draft: true
+draft: false
 ---
 
 ## Introduction

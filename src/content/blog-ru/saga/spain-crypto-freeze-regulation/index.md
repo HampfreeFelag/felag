@@ -3,7 +3,7 @@ title: 'Испания наделила Sepblac правом заморажив�
 description: 'Royal Decree-Law 44/2026: Sepblac может замораживать крипто-счета до 5 дней без ордера. Разбор механизма, имплементация AMLD6 и последствия для трейдеров.'
 pubDate: '2026-11-27'
 category: 'treasury'
-draft: true
+draft: false
 ---
 
 ## Введение

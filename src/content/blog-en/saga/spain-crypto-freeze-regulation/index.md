@@ -3,7 +3,7 @@ title: 'Spain Grants Sepblac Power to Freeze Crypto Accounts Without a Court Ord
 description: 'Royal Decree-Law 44/2026: Sepblac can freeze crypto accounts up to 5 days without court approval. AMLD6 implementation, mechanisms, and trader implications.'
 pubDate: '2026-11-27'
 category: 'treasury'
-draft: true
+draft: false
 ---
 
 ## Introduction
