@@ -124,16 +124,29 @@ const ALL_BANNERS: AdBanner[] = [
      priority: 7,
    },
 
-  // ── FÉLAG — внутренняя перелинковка (не реклама, всегда виден) ──
-  {
-    id: 'default-felag',
-    title: 'Связаться с автором',
-    subtitle: 'Telegram, email, вопросы по проекту',
-    cta: 'Написать →',
-    link: 'https://t.me/hampfree',
-    erid: '',
-    internal: true,
-  },
+   // ── FÉLAG — внутренняя перелинковка (не реклама, RU) ──
+   {
+     id: 'default-felag-ru',
+     title: 'Связаться с автором',
+     subtitle: 'Telegram, email, вопросы по проекту',
+     cta: 'Написать →',
+     link: 'https://t.me/hampfree',
+     erid: '',
+     internal: true,
+     languages: ['ru'],
+   },
+
+   // ── FÉLAG — internal linking (not ads, EN) ──
+   {
+     id: 'default-felag-en',
+     title: 'Contact the author',
+     subtitle: 'Telegram, email, project questions',
+     cta: 'Write →',
+     link: 'https://t.me/hampfree',
+     erid: '',
+     internal: true,
+     languages: ['en'],
+   },
 ];
 
 /**
@@ -156,5 +169,6 @@ export function getBannerForArticle(category: string, lang: string): AdBanner | 
       (!b.languages || (b.languages as string[]).includes(lang))
   );
   if (ad) return ad;
-  return AD_BANNERS.find((b) => b.id === 'default-felag') || null;
+  // Language-aware fallback
+  return AD_BANNERS.find((b) => b.id === `default-felag-${lang}`) || null;
 }
