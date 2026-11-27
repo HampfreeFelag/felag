@@ -11,9 +11,12 @@ interface Props {
   advertiser?: { name: string };
   bannerId: string;
   isInternal: boolean;
+  lang?: string;
 }
 
-const { title, subtitle, cta, link, erid, advertiser, bannerId, isInternal } = Astro.props;
+const { title, subtitle, cta, link, erid, advertiser, bannerId, isInternal, lang } = Astro.props;
+
+const adMark = lang === 'en' ? 'Ad' : 'Реклама';
 ---
 
 <div class="ad-banner" data-banner-id={bannerId} data-banner-name={title} data-banner-link={link}>
@@ -27,7 +30,7 @@ const { title, subtitle, cta, link, erid, advertiser, bannerId, isInternal } = A
     <span class="cta">{cta}</span>
   </a>
   {erid && !isInternal && (
-    <span class="ad-banner-mark">Реклама · {advertiser?.name || ''} · erid: {erid}</span>
+    <span class="ad-banner-mark">{adMark} · {advertiser?.name || ''} · erid: {erid}</span>
   )}
 </div>
 

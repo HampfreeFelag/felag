@@ -107,17 +107,19 @@ gtag('event', 'click', {
 |------|-----------|
 | `src/config/ad-banners.ts` | Конфиг баннеров (категории, языки, ERID) |
 | `src/integrations/ad-banners.ts` | Astro-интеграция для генерации PNG |
-| `src/layouts/BlogPost.astro:327-463` | Клиентская вставка баннера в статью |
+| `src/layouts/BlogPost.astro:57-77` | Серверный выбор баннера по category+lang |
 
 ### Баннеры активны
 
 | ID | Партнёр | Категории | ERID | Статус |
 |----|---------|-----------|------|--------|
-| `kvmka-vps` | kvmka.ru | forge | ✅ | Активен |
-| `regru-hosting` | Reg.ru | route, forge | ✅ | Активен |
-| `tinkov-finance` | Т-Банк | treasury | ✅ | Активен |
-| `veles-software` | Veles | forge, compass | ✅ | Активен |
-| `default-felag` | Félag (internal) | — | N/A | Всегда виден |
+| `kvmka-vps` | kvmka.ru | forge | ✅ | Активен (RU) |
+| `regru-hosting` | Reg.ru | route, forge | ✅ | Активен (RU) |
+| `tinkov-finance` | Т-Банк | treasury | ✅ | Активен (RU) |
+| `veles-software-ru` | Veles | forge, compass | ✅ | Активен (RU) |
+| `veles-software-en` | Veles | forge, compass | ✅ | Активен (EN) |
+| `default-felag-ru` | Félag (internal) | — | N/A | Всегда виден (RU) |
+| `default-felag-en` | Félag (internal) | — | N/A | Всегда виден (EN) |
 
 ---
 
