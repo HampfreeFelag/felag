@@ -1,9 +1,9 @@
 ---
 title: "Keltner Channel: ATR Volatility vs Statistical Deviation"
-description: "Breakdown of the Keltner Channel: how the ATR multiplier forms dynamic boundaries and why it works better than SMA deviation in MTF entry systems."
-pubDate: '2026-11-27'
+description: "Breakdown of the Keltner Channel: how the ATR multiplier forms dynamic boundaries and why it works better than SMA deviation in hourly MTF entry systems."
+pubDate: '2026-11-28'
 category: 'compass'
-draft: false
+draft: true
 ---
 
 Traders transitioning from moving average-based indicators often confuse the Keltner Channel with Bollinger Bands. Both tools draw three lines around price, both respond to volatility, and both are used to identify overbought and oversold zones. The difference lies in the mathematics.
