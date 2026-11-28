@@ -3,7 +3,7 @@ title: "ADX: Trend Strength Filter That Saves You From Ranging Markets"
 description: "Breakdown of ADX: how the indicator measures trend strength through +DI and -DI, and why the 20 threshold is the golden mean for crypto in the system."
 pubDate: '2026-11-28'
 category: 'compass'
-draft: true
+draft: false
 ---
 
 Traders using oscillators to determine trend direction often face one problem: indicators work well in trends but generate false signals in sideways movement. RSI shows overbought conditions on both falling and rising markets. MACD crosses the zero line in both trends and ranges. You need a tool that measures not direction, but strength.

@@ -3,7 +3,7 @@ title: "Bollinger Bands: Standard Deviation as an Exit Signal"
 description: "How Bollinger Bands form the exit channel in the system, working in synergy with Keltner Channel on the 1-minute timeframe to capture profits faster."
 pubDate: '2026-11-28'
 category: 'compass'
-draft: true
+draft: false
 ---
 
 Traders who have studied technical indicators often encounter Bollinger Bands as their first volatility tool. Developed by John Bollinger in the 1980s, they remain the most widely recognized volatility indicator. Yet their primary function — identifying exit zones through channel convergence — is frequently overlooked in favor of the more popular squeeze strategy.
