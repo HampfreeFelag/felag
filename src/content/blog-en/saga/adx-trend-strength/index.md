@@ -1,6 +1,6 @@
 ---
 title: "ADX: Trend Strength Filter for Ranging Markets"
-description: "Breakdown of ADX: how the indicator measures trend strength through +DI and -DI, why the 20 threshold often works better than classic levels, and where ADX doesn't work."
+description: "Breakdown of ADX: how the indicator measures trend strength via +DI and -DI, why the 20 threshold works better than classic levels, and where ADX fails."
 pubDate: '2026-11-28'
 category: 'compass'
 draft: false

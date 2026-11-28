@@ -1367,6 +1367,7 @@ a:not(.logo-link):active {
 /* PROSE (blog post content) */
 .prose {
   max-width: var(--content-max);
+  margin-top: var(--space-xl);
   hyphens: auto;
   -webkit-hyphens: auto;
 }
@@ -1387,7 +1388,8 @@ a:not(.logo-link):active {
 }
 
 .prose h2 {
-  margin: 0 0 var(--space-lg);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-lg);
   padding: 0;
   border: 0;
   text-decoration: none;
