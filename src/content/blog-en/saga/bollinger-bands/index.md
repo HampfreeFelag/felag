@@ -37,13 +37,13 @@ Instead of using Bollinger Bands for entry signals (where the squeeze ambiguity 
 One effective approach is using Bollinger in combination with the Keltner Channel. Both indicators measure volatility, but differently: Bollinger through standard deviation, Keltner through ATR.
 
 ```
-exit when close > UPPER_BOLLINGER(20, 2) OR close > UPPER_KELTNER(20, 2)
+exit when close > UPPER_BOLLINGER(20, 2) AND close > UPPER_KELTNER(20, 2)
 ```
 
-The "fat corridor" formed by the upper Bollinger and Keltner boundaries creates a wider exit zone. This means:
+Breaching both upper boundaries simultaneously creates a more reliable exit signal. This means:
 
-1. **Faster profit capture.** Price reaching either upper boundary triggers an exit, reducing the risk of giving back profits during a reversal.
-2. **Noise filtering.** The combined channel is wider than either indicator alone, preventing premature exits from minor pullbacks within a trend.
+1. **More careful profit capture.** Price must cross both channels at once, reducing the risk of premature exits on noisy pullbacks.
+2. **False signal filtering.** The exit triggers only when both indicators confirm volatility, weeding out false breakouts that pass through a single channel.
 3. **Adaptive width.** Both Bollinger and Keltner respond to volatility, so the exit corridor automatically widens during high-volatility moves and narrows during consolidation.
 
 This dual-channel approach is particularly effective in crypto markets, where price movements often exhibit rapid acceleration followed by equally rapid deceleration.

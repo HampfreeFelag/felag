@@ -28,10 +28,10 @@ Exit in ARGUS 5.3 is built on a combined channel on the 1-minute chart. Earlier 
 In version 5.3 the smoothing filter is replaced by a dual channel:
 
 ```
-exit when close > UPPER_BOLLINGER(20, 2) OR close > UPPER_KELTNER(20, 2) on m1
+exit when close > UPPER_BOLLINGER(20, 2) AND close > UPPER_KELTNER(20, 2) on m1
 ```
 
-The upper Bollinger and Keltner boundaries form a “fat corridor.” It is wider than either indicator alone, so it captures profit faster while filtering the noise of minor pullbacks within a trend. The Bollinger mechanics are covered in [“Bollinger Bands: Standard Deviation as an Exit Signal”](/en/saga/bollinger-bands/).
+The upper Bollinger and Keltner boundaries form a dual filter. The exit triggers only when both boundaries are breached simultaneously, filtering the noise of minor pullbacks within a trend and capturing profit on confirmed moves. The Bollinger mechanics are covered in ["Bollinger Bands: Standard Deviation as an Exit Signal"](/en/saga/bollinger-bands/).
 
 The dual channel adapts to volatility automatically: during high-volatility impulses the corridor widens, during consolidation it narrows.
 
