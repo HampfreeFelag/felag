@@ -1,6 +1,6 @@
 ---
-title: "ADX: Trend Strength Filter That Saves You From Ranging Markets"
-description: "Breakdown of ADX: how the indicator measures trend strength through +DI and -DI, and why the 20 threshold is the golden mean for crypto in the system."
+title: "ADX: Trend Strength Filter for Ranging Markets"
+description: "Breakdown of ADX: how the indicator measures trend strength through +DI and -DI, why the 20 threshold often works better than classic levels, and where ADX doesn't work."
 pubDate: '2026-11-28'
 category: 'compass'
 draft: false
@@ -8,7 +8,7 @@ draft: false
 
 Traders using oscillators to determine trend direction often face one problem: indicators work well in trends but generate false signals in sideways movement. RSI shows overbought conditions on both falling and rising markets. MACD crosses the zero line in both trends and ranges. You need a tool that measures not direction, but strength.
 
-The Average Directional Index (ADX) was created for this purpose. It does not tell you where price will go — it tells you how strongly price is moving in the current direction. In the system, ADX on the 15-minute timeframe performs a critical function: filtering out ranges and leaving only periods when the trend is strong enough for position entry.
+The Average Directional Index (ADX) was created for this purpose. It does not tell you where price will go — it tells you how strongly price is moving in the current direction. In trading practice, ADX performs a critical function: filtering out periods without an expressed trend and leaving only moments when the move is strong enough for position entry.
 
 ## History and Mathematics
 
@@ -25,7 +25,7 @@ ADX is a smoothed ratio of +DI to -DI, expressed as a percentage from 0 to 100. 
 
 Unlike RSI, which shows impulse direction, ADX shows its intensity. RSI can be in oversold territory, but if ADX is low — the movement is chaotic, without a clear direction. In this case, entering against the impulse is risky: price may not reverse, but continue oscillating in a narrow corridor.
 
-## Why the 20 Threshold Is the Golden Mean for Crypto
+## Why the 20 Threshold Is a Compromise for Crypto
 
 Wilder's classic rule states: ADX above 25 means a strong trend. However, crypto markets have different volatility than stock markets. Crypto trades 24/7, volatility clusters replace each other without weekends, and average moves are often shorter but more frequent.
 
@@ -35,35 +35,46 @@ The value 20 proved to be a compromise:
 - **20–40** — an expressed trend, entry conditions are met.
 - **Above 40** — an extremely strong trend. At this level, the risk of reversal increases, as the move may have been overheated.
 
-For the system, the 20 threshold on 15m is a mandatory filter. It ensures that positions are opened only when the trend, set by KC on 1h and confirmed by RSI on 30m, has sufficient strength to continue.
+The 20 threshold is not universal — it should be tested against historical data of a specific asset. But as a starting point, it works better than the classic 25 because it accounts for the higher volatility of crypto markets.
 
-## How It Works in the System
+## Practical Application
 
-In the system, ADX(14) on the 15-minute timeframe serves as a range filter. The condition:
+ADX is not used in isolation. It works as a filter that is checked before entering a position:
 
 ```
-ADX(14) > 20 on 15m timeframe
+ADX(14) > 20
 ```
 
-This condition is only checked after KC on 1h has established context and RSI on 30m has confirmed momentum. ADX does not determine direction — it confirms that the current trend is strong enough.
+This condition says: "the trend is strong enough, I can look for an entry point." If ADX is below 20 — it's better to wait until the market exits the range.
 
-Why 15 minutes? This timeframe sits between 30m (momentum) and 5m (trigger). It is smoothed enough to ignore short-term fluctuations, yet sensitive enough to detect the beginning of an expressed trend.
+Why 14 periods? This is a standard period inherited from Wilder. It provides a balance between sensitivity and smoothing. Smaller periods give more signals, but also more noise.
 
-The checking order in the system:
+ADX can be combined with other indicators:
 
-1. **1h KC:** price below lower boundary — context established.
-2. **30m RSI:** value below 30 — momentum confirmed.
-3. **15m ADX:** value above 20 — trend expressed, range filtered.
-4. **5m Vortex:** VI+ crosses VI- — entry trigger fires.
+- **KC or Bollinger** — for context (oversold/overbought zone).
+- **RSI** — for momentum confirmation.
+- **Vortex** — for entry timing.
 
-Each subsequent step is contingent on the previous one. If ADX does not trigger, Vortex is not considered — even if the 5m trigger fires, entering without trend strength confirmation carries a high risk of catching a false breakout.
+Each combination requires backtesting on historical data. ADX does not determine direction — it confirms that the current move is strong enough.
 
 ## Summary
 
-ADX in the system is a trend strength filter, not a direction indicator. A value above 20 on 15m confirms that the trend, set by KC on 1h and confirmed by RSI on 30m, is strong enough for position entry. Without this filter, the system opens positions in ranges where other indicators' signals are unreliable.
+ADX is a trend strength filter, not a direction indicator. A value above 20 confirms that the trend is strong enough for position entry. Without this filter, trading during range periods generates more false signals.
 
 ## FAQ
 
 **Can ADX be used to determine trend direction?**
 
-No. ADX measures only trend strength, not direction. Direction is determined by +DI and -DI: if +DI is above -DI — the trend is upward, if below — downward. In the system, direction is determined by KC on 1h, ADX only confirms its strength.
+No. ADX measures only trend strength, not direction. Direction is determined by +DI and -DI: if +DI is above -DI — the trend is upward, if below — downward.
+
+**Why the 20 threshold, not 25?**
+
+Wilder's classic rule of 25 was designed for stock markets with daily sessions and weekends. Crypto markets trade 24/7, and trends are often shorter and less pronounced. The 20 threshold accounts for this, but it should be tested against specific asset data.
+
+**What to do if ADX rises above 50?**
+
+A high ADX means a strong trend, but also increases reversal risk. The move may have been overheated. In such a situation, it's better not to enter a new position, but to watch the current one.
+
+**Is ADX suitable for scalping?**
+
+ADX on short timeframes (1-5 minutes) generates a lot of noise. It works better on timeframes from 15 minutes and above, where trends are more stable.
