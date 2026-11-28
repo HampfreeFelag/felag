@@ -3,7 +3,7 @@ draft: false
 title: 'Morning Digest Without the Noise: n8n and GitHub Issues Automation'
 description: 'How an n8n pipeline (RSS -> Merge -> Filter -> GitHub Issues) creates a morning digest and blog SEO indexing without manual work or information noise.'
 pubDate: '2026-11-14'
-category: 'logbook'
+category: 'forge'
 ---
 
 ## Introduction

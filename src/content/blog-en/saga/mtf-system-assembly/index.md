@@ -2,7 +2,7 @@
 title: "ARGUS 5.3: How to Assemble an Multi-Timeframe System from Four Indicators"
 description: "ARGUS 5.3 assembly: full entry logic across four timeframes, exit through Keltner and Bollinger channels on m1, risk management with reinvestment and leverage."
 pubDate: '2026-11-28'
-category: 'compass'
+category: 'forge'
 draft: true
 ---
 
